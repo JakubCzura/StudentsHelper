@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:app="clr-namespace:StudentsHelper"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
-        
+        mc:Ignorable="d"
         Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen" 
         >
 
@@ -15,7 +15,7 @@
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
     </Window.Resources>
 
-    <Grid >
+    <Grid DataContext="{StaticResource StudentsHelperVM}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
