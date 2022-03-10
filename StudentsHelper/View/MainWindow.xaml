@@ -1,0 +1,72 @@
+﻿<Window x:Class="StudentsHelper.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsHelper.View"
+        mc:Ignorable="d"
+        xmlns:app="clr-namespace:StudentsHelper"
+        xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
+        
+        Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen" 
+        >
+
+    <Window.Resources>
+        <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <Menu x:Name="MainMenu">
+                <MenuItem Header="Opcje">
+                    <MenuItem Header="Opcje">
+
+                    </MenuItem>
+                    <MenuItem Header="Opcje2">
+
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Opcje2">
+                    <MenuItem Header="Opcje21">
+
+                    </MenuItem>
+                    <MenuItem Header="Opda2">
+
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <DockPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <Menu x:Name="NotesMenu" Style="{DynamicResource NotesMenuStyle}">
+                <MenuItem Header="Opcje">
+                    <MenuItem Header="Opcje">
+
+                    </MenuItem>
+                    <MenuItem Header="Opcje2">
+
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Opcje2">
+                    <MenuItem Header="Opcje21">
+
+                    </MenuItem>
+                    <MenuItem Header="Opda2">
+
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+    </Grid>
+    
+</Window>
