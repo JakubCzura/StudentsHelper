@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StudentsHelper.Model
+{
+    internal class Teacher
+    {   
+        private string name = "";
+        public string Name
+        {
+            get { return name = ""; }
+            set { name = value; }
+        }
+
+        private string lastName = "";
+        public string LastName       
+        { 
+            get { return lastName; } 
+            set { lastName = value; } 
+        }  
+    }
+}

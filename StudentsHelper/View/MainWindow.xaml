@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:app="clr-namespace:StudentsHelper"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
-        Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen" 
+        Title="StudentsHelper" Height="650" Width="1200" WindowStartupLocation="CenterScreen" 
         >
 
     <Window.Resources>
@@ -27,13 +27,14 @@
 
         <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
             <Menu x:Name="MainMenu">
-                <MenuItem Header="Opcje">
+                <MenuItem Header="Ustawienia">
                     <MenuItem Header="Opcje">
-
+                        
                     </MenuItem>
                     <MenuItem Header="Opcje2">
 
                     </MenuItem>
+                    
                 </MenuItem>
                 <MenuItem Header="Opcje2">
                     <MenuItem Header="Opcje21">
@@ -46,26 +47,14 @@
             </Menu>
         </DockPanel>
 
-        <DockPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <Menu x:Name="NotesMenu" Style="{DynamicResource NotesMenuStyle}">
-                <MenuItem Header="Opcje">
-                    <MenuItem Header="Opcje">
-
-                    </MenuItem>
-                    <MenuItem Header="Opcje2">
-
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="Opcje2">
-                    <MenuItem Header="Opcje21">
-
-                    </MenuItem>
-                    <MenuItem Header="Opda2">
-
-                    </MenuItem>
-                </MenuItem>
-            </Menu>
-        </DockPanel>
+        <Menu Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
+            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia"/>
+            <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy"/>
+            <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy"/>
+            <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
+            <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil"/>
+            <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki"/>
+        </Menu>
     </Grid>
     
 </Window>
