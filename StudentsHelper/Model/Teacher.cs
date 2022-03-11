@@ -20,6 +20,27 @@ namespace StudentsHelper.Model
         { 
             get { return lastName; } 
             set { lastName = value; } 
-        }  
+        }
+
+        private string degree = "";
+        public string Degree
+        {
+            get { return degree = ""; }
+            set { degree  = value; }
+        }
+
+        private int roomNumber;
+        public int RoomNumber
+        {
+            get { return roomNumber;}
+            set { roomNumber = value; }
+        }
+
+        private string note = "";       
+        public string Note
+        {
+            get { return note; }
+            set { note = value; }
+        }
     }
 }

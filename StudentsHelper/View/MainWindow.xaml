@@ -58,7 +58,7 @@
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
-            <uc:ExamsUserControl></uc:ExamsUserControl>
+            <uc:ExamsUserControl Visibility="Visible"></uc:ExamsUserControl>
         </Grid>
     </Grid>
 
