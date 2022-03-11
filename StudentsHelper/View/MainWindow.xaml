@@ -8,6 +8,8 @@
         xmlns:app="clr-namespace:StudentsHelper"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
         Title="StudentsHelper" Height="650" Width="1200" WindowStartupLocation="CenterScreen" 
+        
+        xmlns:uc="clr-namespace:StudentsHelper.UserControls"
         >
 
     <Window.Resources>
@@ -56,10 +58,7 @@
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            <uc:ExamsUserControl></uc:ExamsUserControl>
         </Grid>
     </Grid>
 
