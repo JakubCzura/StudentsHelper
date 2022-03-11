@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
-        Title="AddExamWindow" Height="450" Width="800">
+        Title="AddExamWindow" Height="450" Width="800" MinWidth="500">
 
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,5,5,5"></Setter>
         </Style>
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,3,5,5"></Setter>
         </Style>
         <Style TargetType="{x:Type Rectangle}">
@@ -41,13 +43,13 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <TextBlock>Przedmiot</TextBlock>
+                <TextBlock>Przedmiot:</TextBlock>
                 <Rectangle/>
-                <TextBlock>Przedmiot</TextBlock>
+                <TextBlock>Data egzaminu:</TextBlock>
                 <Rectangle/>
-                <TextBlock>Przedmiot</TextBlock>
+                <TextBlock>Pokój</TextBlock>
                 <Rectangle/>
-                <TextBlock>Przedmiot</TextBlock>
+                <TextBlock>Notatka</TextBlock>
                 <Rectangle/>
             </StackPanel>
             
@@ -60,6 +62,7 @@
                 <TextBox>sa</TextBox>
                 <Rectangle/>
                 <TextBox>sa</TextBox>
+                <Rectangle/>
             </StackPanel>
             
         </Grid>
