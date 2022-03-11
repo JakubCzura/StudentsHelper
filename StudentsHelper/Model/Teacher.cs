@@ -8,24 +8,24 @@ namespace StudentsHelper.Model
 {
     internal class Teacher
     {   
-        private string name = "";
+        private string name = string.Empty;
         public string Name
         {
-            get { return name = ""; }
+            get { return name; }
             set { name = value; }
         }
 
-        private string lastName = "";
+        private string lastName = string.Empty;
         public string LastName       
         { 
             get { return lastName; } 
             set { lastName = value; } 
         }
 
-        private string degree = "";
+        private string degree = string.Empty;
         public string Degree
         {
-            get { return degree = ""; }
+            get { return degree; }
             set { degree  = value; }
         }
 
@@ -36,7 +36,7 @@ namespace StudentsHelper.Model
             set { roomNumber = value; }
         }
 
-        private string note = "";       
+        private string note = string.Empty;       
         public string Note
         {
             get { return note; }
