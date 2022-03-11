@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.Model;
+using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +18,13 @@ namespace StudentsHelper.ViewModel
         {
             new Exam("Angielski", new DateTime(200,1,21), 21, "Super zajęcia" )
         };
+
+        public AddExamCommand AddExamCommand { get; set; }
+
+        public ExamsVM()
+        {
+            AddExamCommand = new AddExamCommand(this);
+        }
 
         public string TeacherFullName
         {

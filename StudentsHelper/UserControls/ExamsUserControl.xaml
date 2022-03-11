@@ -18,7 +18,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
-            <Button>Dodaj</Button>
+            <Button x:Name="AddExamButton" Content="Dodaj egzamin" Command="{Binding AddExamCommand}" />
             <Button>Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
