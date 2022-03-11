@@ -18,11 +18,6 @@
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
-
-      
-
-
-        
     </Style>
-
+    
 </ResourceDictionary>

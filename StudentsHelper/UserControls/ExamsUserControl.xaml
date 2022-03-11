@@ -10,6 +10,11 @@
 
     <UserControl.Resources>
         <vm:ExamsVM x:Key="ExamsVM"/>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
     </UserControl.Resources>
     
     <Grid DataContext="{StaticResource ExamsVM}">
@@ -24,10 +29,10 @@
         </Menu>
         <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExam}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Pokój" Binding="{Binding Path=RoomNumber}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExam}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Pokój" Binding="{Binding Path=RoomNumber}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}" ElementStyle="{StaticResource WrapText}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

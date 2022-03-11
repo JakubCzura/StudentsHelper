@@ -16,7 +16,9 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Exam> exams = new ObservableCollection<Exam>()
         {
-            new Exam("Angielski", new DateTime(200,1,21), 21, "Super zajęcia" )
+            new Exam("Angielski", new DateTime(200,1,21), 21, "Super zajęcia" ),
+            new Exam("Angielski", new DateTime(200,1,21), 22, "Super zajęcia" ),
+            new Exam("Angielski", new DateTime(200,1,21), 21, "Super zajęcia Super zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęcia" )
         };
 
         public AddExamCommand AddExamCommand { get; set; }
