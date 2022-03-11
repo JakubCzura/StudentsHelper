@@ -8,7 +8,15 @@ using System.Threading.Tasks;
 namespace StudentsHelper.Model
 {
     internal class Exam
-    {        
+    {
+        public Exam(string name, DateTime dateOfExam, int roomNumber, string note)
+        {
+            Name = name;
+            DateOfExam = dateOfExam;
+            RoomNumber = roomNumber;
+            Note = note;
+        }
+
         private string name = string.Empty;
         public string Name
         { 
@@ -30,13 +38,11 @@ namespace StudentsHelper.Model
             set { roomNumber = value; }
         }
 
-        private string note = string.Empty;
+        private string note = string.Empty;     
         public string Note
         {
             get { return note; }
             set { note = value; }
-        }
-
-        public Teacher? Teacher { get; set; }
+        }                    
     }
 }

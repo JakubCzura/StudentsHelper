@@ -8,7 +8,6 @@ namespace StudentsHelper.Model
 {
     internal class Lesson
     {
-
         private string name = string.Empty;
         public string Name
         {
@@ -22,7 +21,5 @@ namespace StudentsHelper.Model
             get { return note; }
             set { note = value; }
         }
-
-        public Teacher ?Teacher { get; set; }
     }
 }

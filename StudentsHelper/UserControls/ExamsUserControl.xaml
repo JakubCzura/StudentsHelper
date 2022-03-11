@@ -22,8 +22,13 @@
             <Button>Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}">
-            
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExam}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Pokój" Binding="{Binding Path=RoomNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}"></DataGridTextColumn>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </UserControl>

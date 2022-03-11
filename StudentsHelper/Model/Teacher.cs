@@ -7,7 +7,17 @@ using System.Threading.Tasks;
 namespace StudentsHelper.Model
 {
     internal class Teacher
-    {   
+    {
+        public Teacher() { }
+        public Teacher(string name, string lastName, string degree, int roomNumber, string note)
+        {
+            Name = name;
+            LastName = lastName;
+            Degree = degree;
+            RoomNumber = roomNumber;
+            Note = note;
+        }
+        
         private string name = string.Empty;
         public string Name
         {
@@ -36,11 +46,18 @@ namespace StudentsHelper.Model
             set { roomNumber = value; }
         }
 
-        private string note = string.Empty;       
+        private string note = string.Empty;
+
+
         public string Note
         {
             get { return note; }
             set { note = value; }
+        }
+
+        public override string ToString()
+        {
+            return Degree + " " + Name + " " + lastName;
         }
     }
 }

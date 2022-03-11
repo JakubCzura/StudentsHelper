@@ -11,10 +11,27 @@ namespace StudentsHelper.ViewModel
 {
     internal class ExamsVM : INotifyPropertyChanged
     {
+        Teacher teacher = new Teacher();
+
         private ObservableCollection<Exam> exams = new ObservableCollection<Exam>()
         {
-            //new Exam{ Name = "21", DateOfExam = new DateTime(200,1,21), Note="asa", RoomNumber=21, Teacher = null }
+            new Exam("Angielski", new DateTime(200,1,21), 21, "Super zajęcia" )
         };
+
+        public string TeacherFullName
+        {
+            get { return teacher.ToString(); }
+        }
+
+        public Teacher Teacher
+        {
+            set 
+            { 
+                teacher = value; 
+                OnPropertyChanged(nameof(Teacher)); 
+            }        
+        }
+            
 
         public ObservableCollection<Exam> Exams
         { 
@@ -25,7 +42,6 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(nameof(Exams));
             }
         }
-
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
