@@ -26,8 +26,9 @@ namespace StudentsHelper.View.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DateTime? dt = DateOfExamDatePicker.SelectedDate;
-            MessageBox.Show(dt.ToString()); 
+           Close();
         }
+
+        
     }
 }

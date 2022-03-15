@@ -19,6 +19,10 @@
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,3,5,5"></Setter>
         </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="5,3,5,5"></Setter>
+        </Style>
         <Style TargetType="{x:Type Rectangle}">
             <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
             <Setter Property="Fill" Value="Blue"></Setter>
@@ -26,8 +30,8 @@
         </Style>
         <vm:AddExamVM x:Key="AddExamVM"></vm:AddExamVM>
     </Window.Resources>
-    
-    
+
+
     <Grid DataContext="{StaticResource AddExamVM}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -37,7 +41,75 @@
 
         <TextBlock Grid.Row="0" Background="#FF8CF78C" Text="Dodanie nowego egzaminu" TextAlignment="Center" FontSize="30" Padding="5,5,5,5"></TextBlock>
 
-        <Grid Grid.Row="1">
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0">Przedmiot:</TextBlock>
+                <TextBox Grid.Column="1" Text="{Binding Name}"></TextBox>
+                
+            </Grid>
+            <Rectangle/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0">Data egzaminu:</TextBlock>
+                <DatePicker Grid.Column="2" x:Name="DateOfExamDatePicker" SelectedDate="2022-12-01" IsTodayHighlighted="True"></DatePicker>
+            </Grid>
+            <Rectangle/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0">Godzina egzaminu:</TextBlock>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0">HH:</TextBlock>
+                    <TextBox Grid.Column="1" Text="{Binding HourOfExam.Hour, Mode=OneWay}" ></TextBox>
+                    <TextBlock Grid.Column="2">MM:</TextBlock>
+                    <TextBox Grid.Column="3" Text="{Binding HourOfExam.Minute, Mode=OneWay}" ></TextBox>
+                </Grid>
+             
+                
+            </Grid>
+            <Rectangle/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0">Pokój:</TextBlock>
+                <TextBox Grid.Column="1" Text="{Binding RoomNumber}"></TextBox>
+
+            </Grid>
+            <Rectangle/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0">Notatka:</TextBlock>
+                <TextBox Grid.Column="1" Text="{Binding Note}"></TextBox>
+
+            </Grid>
+            <Rectangle/>
+        </StackPanel>
+        
+        <!--<Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -48,26 +120,30 @@
                 <Rectangle/>
                 <TextBlock>Data egzaminu:</TextBlock>
                 <Rectangle/>
+                <TextBlock>Godzina egzaminu:</TextBlock>
+                <Rectangle/>
                 <TextBlock>Pokój</TextBlock>
                 <Rectangle/>
                 <TextBlock>Notatka</TextBlock>
                 <Rectangle/>
             </StackPanel>
-            
-            
+
+
             <StackPanel Grid.Column="1">
                 <TextBox Text="{Binding Name}"></TextBox>
                 <Rectangle/>
                 <DatePicker x:Name="DateOfExamDatePicker" SelectedDate="2022-12-01" IsTodayHighlighted="True"></DatePicker>
                 <Rectangle/>
+                            
                 <TextBox Text="{Binding RoomNumber}"></TextBox>
                 <Rectangle/>
                 <TextBox Text="{Binding Note}"></TextBox>
                 <Rectangle/>
+                <ComboBox></ComboBox>
             </StackPanel>
-            
-        </Grid>
-        
+
+        </Grid>-->
+
         <Menu Grid.Row="2">
             <Button FontSize="20">Potwierdź</Button>
             <Button FontSize="20" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding}">Anuluj</Button>
