@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
+        xmlns:vm ="clr-namespace:StudentsHelper.ViewModel"
         mc:Ignorable="d"
         Title="AddExamWindow" Height="450" Width="800" MinWidth="500">
 
@@ -23,11 +24,11 @@
             <Setter Property="Fill" Value="Blue"></Setter>
             <Setter Property="Height" Value="4"></Setter>
         </Style>
-        
+        <vm:AddExamVM x:Key="AddExamVM"></vm:AddExamVM>
     </Window.Resources>
     
     
-    <Grid>
+    <Grid DataContext="{StaticResource AddExamVM}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -69,7 +70,7 @@
         
         <Menu Grid.Row="2">
             <Button FontSize="20">Potwierdź</Button>
-            <Button FontSize="20">Anuluj</Button>
+            <Button FontSize="20" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding}">Anuluj</Button>
         </Menu>
     </Grid>
 </Window>
