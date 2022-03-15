@@ -42,7 +42,6 @@ namespace StudentsHelper.ViewModel
             }        
         }
             
-
         public ObservableCollection<Exam> Exams
         { 
             get { return exams; }

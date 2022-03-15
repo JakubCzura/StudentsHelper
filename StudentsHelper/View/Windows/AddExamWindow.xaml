@@ -56,13 +56,13 @@
             
             
             <StackPanel Grid.Column="1">
-                <TextBox>sa</TextBox>
+                <TextBox Text="{Binding Name}"></TextBox>
                 <Rectangle/>
-                <TextBox>sa</TextBox>
+                <DatePicker x:Name="DateOfExamDatePicker" SelectedDate="2022-12-01" IsTodayHighlighted="True"></DatePicker>
                 <Rectangle/>
-                <TextBox>sa</TextBox>
+                <TextBox Text="{Binding RoomNumber}"></TextBox>
                 <Rectangle/>
-                <TextBox>sa</TextBox>
+                <TextBox Text="{Binding Note}"></TextBox>
                 <Rectangle/>
             </StackPanel>
             
@@ -71,6 +71,7 @@
         <Menu Grid.Row="2">
             <Button FontSize="20">Potwierdź</Button>
             <Button FontSize="20" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding}">Anuluj</Button>
+            <Button FontSize="20" Click="Button_Click">Test</Button>
         </Menu>
     </Grid>
 </Window>

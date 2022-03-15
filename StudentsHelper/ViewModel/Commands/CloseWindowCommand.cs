@@ -33,6 +33,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
+            if(parameter != null)
+            MessageBox.Show(parameter.ToString());
            //AddExamWindow.Close();
         }
     }

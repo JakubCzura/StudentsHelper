@@ -9,6 +9,7 @@ namespace StudentsHelper.Model
 {
     internal class Exam
     {
+        public Exam() { }
         public Exam(string name, DateTime dateOfExam, int roomNumber, string note)
         {
             Name = name;
@@ -29,6 +30,13 @@ namespace StudentsHelper.Model
         {
             get { return dateOfExam; }
             set { dateOfExam = value; }
+        }
+
+        private DateTime hourOfExam;
+        public DateTime HourOfExam
+        {
+            get { return hourOfExam; }
+            set { hourOfExam = value; }
         }
 
         private int roomNumber;
