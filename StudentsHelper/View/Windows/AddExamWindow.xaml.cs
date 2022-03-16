@@ -24,7 +24,7 @@ namespace StudentsHelper.View.Windows
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CloseWindow(object sender, RoutedEventArgs e)
         {
            Close();
         }

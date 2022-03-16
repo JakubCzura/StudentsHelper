@@ -10,12 +10,14 @@ namespace StudentsHelper.Model
     internal class Exam
     {
         public Exam() { }
-        public Exam(string name, DateTime dateOfExam, int roomNumber, string note)
+        public Exam(string name, DateTime dateOfExam, int roomNumber, string note, int hourOfExam, int minuteOfExam)
         {
             Name = name;
             DateOfExam = dateOfExam;
             RoomNumber = roomNumber;
             Note = note;
+            HourOfExam = hourOfExam;
+            MinuteOfExam = minuteOfExam;
         }
 
         private string name = string.Empty;
@@ -32,11 +34,19 @@ namespace StudentsHelper.Model
             set { dateOfExam = value; }
         }
 
-        private DateTime hourOfExam;
-        public DateTime HourOfExam
+        private int hourOfExam;
+        public int HourOfExam
         {
             get { return hourOfExam; }
             set { hourOfExam = value; }
+        }
+
+        private int minuteOfExam;
+
+        public int MinuteOfExam
+        {
+            get { return minuteOfExam; }
+            set { minuteOfExam = value; }
         }
 
         private int roomNumber;

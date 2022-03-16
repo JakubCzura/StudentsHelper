@@ -15,14 +15,13 @@ namespace StudentsHelper.ViewModel
         public AddExamVM()
         {
             CloseWindowCommand = new CloseWindowCommand(this);
-
         }
 
         public CloseWindowCommand CloseWindowCommand { get; set; }
 
         public AddExamWindow AddExamWindow { get; set; }
 
-        public Exam Exam = new Exam();
+        public Exam Exam = new Exam("Matma", new DateTime(2022, 12, 1), 21, "Super", 12, 30);
 
         public string Name
         {
@@ -44,13 +43,23 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public DateTime HourOfExam
+        public int HourOfExam
         {
             get { return Exam.HourOfExam; }
             set
             {
                 Exam.HourOfExam = value;
                 OnPropertyChanged(nameof(HourOfExam));
+            }
+        }
+
+        public int MinuteOfExam
+        {
+            get { return Exam.MinuteOfExam; }
+            set
+            {
+                Exam.MinuteOfExam = value;
+                OnPropertyChanged(nameof(MinuteOfExam));
             }
         }
         public int RoomNumber
