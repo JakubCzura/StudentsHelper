@@ -38,5 +38,19 @@ namespace StudentsHelper.Model
             get { return age; }
             set { age = value; }
         }
+
+        private string login = string.Empty;
+        public string Login
+        {
+            get { return login; }
+            set { login = value; }
+        }
+
+        private string password = string.Empty;
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
     }
 }

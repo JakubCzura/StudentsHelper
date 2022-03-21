@@ -10,7 +10,7 @@ namespace StudentsHelper.Model
     internal class Exam
     {
         public Exam() { }
-        public Exam(string name, DateTime dateOfExam, int roomNumber, string note, int hourOfExam, int minuteOfExam)
+        public Exam(string name, DateTime dateOfExam, int roomNumber, string note, int hourOfExam, int minuteOfExam, int studentId)
         {
             Name = name;
             DateOfExam = dateOfExam;
@@ -18,6 +18,14 @@ namespace StudentsHelper.Model
             Note = note;
             HourOfExam = hourOfExam;
             MinuteOfExam = minuteOfExam;
+            StudentId = studentId;
+        }
+
+        private int studentId = 0;
+        public int StudentId
+        {
+            get { return studentId; }
+            set { studentId = value; }
         }
 
         private string name = string.Empty;

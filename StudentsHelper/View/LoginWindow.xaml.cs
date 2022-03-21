@@ -12,21 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.View.Windows
+namespace StudentsHelper.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddExamWindow.xaml
+    /// Logika interakcji dla klasy LoginWindow.xaml
     /// </summary>
-    public partial class AddExamWindow : Window
+    public partial class LoginWindow : Window
     {
-        public AddExamWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
-           Close();
-        } 
+            Close();
+        }
     }
 }
