@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.Model;
+using StudentsHelper.View;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,8 @@ namespace StudentsHelper.ViewModel
         }
 
         
-        LoginCommand LoginCommand { get; set; }
+        public LoginCommand LoginCommand { get; set; }
         Student Student = new Student();
-
         public string Login
         {
             get { return Student.Login; }

@@ -34,10 +34,10 @@
         
         <StackPanel Grid.Row="2">
             <Label FontSize="20">Login:</Label>
-            <TextBox FontSize="20"></TextBox>
+            <TextBox FontSize="20" Text="{Binding Login}"></TextBox>
             <Label FontSize="20">Hasło:</Label>
-            <PasswordBox FontSize="20"></PasswordBox>
-            <Button FontSize="20">Zaloguj</Button>
+            <PasswordBox x:Name="PasswordBox"  FontSize="20" IsEnabled="False"></PasswordBox>
+            <Button FontSize="20" Command="{Binding LoginCommand}" CommandParameter="{Binding PasswordBox}">Zaloguj</Button>
             <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </StackPanel>
     </Grid>

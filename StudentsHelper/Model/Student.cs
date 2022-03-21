@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace StudentsHelper.Model
 {
@@ -46,11 +47,11 @@ namespace StudentsHelper.Model
             set { login = value; }
         }
 
-        private string password = string.Empty;
-        public string Password
+        public string password = string.Empty;
+        public string Password 
         {
-            get { return password; }
-            set { password = value; }
+            get { return Password; }
+            set { Password = value; }
         }
     }
 }
