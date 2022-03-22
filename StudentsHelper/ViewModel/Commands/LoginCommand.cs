@@ -64,9 +64,7 @@ namespace StudentsHelper.ViewModel.Commands
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);               
-            }  
-            
-            
+            }                       
         }
     }
 }
