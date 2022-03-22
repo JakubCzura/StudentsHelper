@@ -20,14 +20,7 @@ namespace StudentsHelper.Model
             MinuteOfExam = minuteOfExam;
             StudentId = studentId;
         }
-
-        private int studentId = 0;
-        public int StudentId
-        {
-            get { return studentId; }
-            set { studentId = value; }
-        }
-
+     
         private string name = string.Empty;
         public string Name
         { 
@@ -69,6 +62,13 @@ namespace StudentsHelper.Model
         {
             get { return note; }
             set { note = value; }
-        }                    
+        }
+
+        private int studentId = 0;
+        public int StudentId
+        {
+            get { return studentId; }
+            set { studentId = value; }
+        }
     }
 }

@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.UserControls
+namespace StudentsHelper.View.Windows
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserDataUserControl.xaml
+    /// Logika interakcji dla klasy RegisterWindow.xaml
     /// </summary>
-    public partial class UserDataUserControl : UserControl
+    public partial class RegisterWindow : Window
     {
-        public static UserDataUserControl? UserDataUserControlInstance { get; set; }
-        public UserDataUserControl()
+        public RegisterWindow()
         {
             InitializeComponent();
-            DataContext = this;
         }
     }
 }

@@ -38,6 +38,7 @@
             <Label FontSize="20">Hasło:</Label>
             <PasswordBox x:Name="PasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
             <Button FontSize="20" Command="{Binding LoginCommand}">Zaloguj</Button>
+            <Button FontSize="20" Command="{Binding RegisterCommand}">Zarejestruj się</Button>
             <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </StackPanel>
     </Grid>

@@ -17,9 +17,11 @@ namespace StudentsHelper.ViewModel
         public LoginVM()
         {
             LoginCommand = new LoginCommand(this);
+            RegisterCommand = new RegisterCommand();
         }
         
         public LoginCommand LoginCommand { get; set; }
+        public RegisterCommand RegisterCommand { get; set; }
 
         Student Student = new Student();
         public string Login

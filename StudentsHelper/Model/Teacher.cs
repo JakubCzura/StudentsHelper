@@ -47,12 +47,17 @@ namespace StudentsHelper.Model
         }
 
         private string note = string.Empty;
-
-
         public string Note
         {
             get { return note; }
             set { note = value; }
+        }
+
+        private int id = 0;
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         public override string ToString()

@@ -47,7 +47,7 @@ namespace StudentsHelper.Model
             set { login = value; }
         }
 
-        public string password = string.Empty;
+        private string password = string.Empty;
         public string Password 
         {
             get { return password; }
