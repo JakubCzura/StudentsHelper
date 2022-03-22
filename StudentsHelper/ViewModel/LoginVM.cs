@@ -20,6 +20,7 @@ namespace StudentsHelper.ViewModel
         }
         
         public LoginCommand LoginCommand { get; set; }
+
         Student Student = new Student();
         public string Login
         {

@@ -34,9 +34,7 @@ namespace StudentsHelper.ViewModel.Commands
         {          
             try
             {
-                LoginWindow LoginWindow = new LoginWindow();
-                string name = LoginWindow.PasswordBox.Password;
-                LoginVM.Password = name;
+                //var w = Window.GetWindow(this);
             }
             catch (Exception exception)
             {
