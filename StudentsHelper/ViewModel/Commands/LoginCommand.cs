@@ -34,6 +34,15 @@ namespace StudentsHelper.ViewModel.Commands
         {          
             try
             {
+                string password = string.Empty;
+                if(LoginWindow.LoginWindowInstance != null)
+                {
+                    password = LoginWindow.LoginWindowInstance.PasswordBox.Password;
+                    //MessageBox.Show(password);
+                    LoginVM.Password = password;
+                    MessageBox.Show(LoginVM.Password);
+                    //LoginWindow.LoginWindowInstance.Close();
+                }
                 //var w = Window.GetWindow(this);
             }
             catch (Exception exception)

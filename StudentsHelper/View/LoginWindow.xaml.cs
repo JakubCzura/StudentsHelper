@@ -19,9 +19,11 @@ namespace StudentsHelper.View
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public static LoginWindow? LoginWindowInstance { get; set; }
         public LoginWindow()
         {
             InitializeComponent();
+            LoginWindowInstance = this;
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)

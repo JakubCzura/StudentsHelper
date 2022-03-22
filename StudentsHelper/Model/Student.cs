@@ -50,8 +50,8 @@ namespace StudentsHelper.Model
         public string password = string.Empty;
         public string Password 
         {
-            get { return Password; }
-            set { Password = value; }
+            get { return password; }
+            set { password = value; }
         }
     }
 }
