@@ -23,5 +23,10 @@ namespace StudentsHelper.View.Windows
         {
             InitializeComponent();
         }
+
+        private void CloseWindow(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

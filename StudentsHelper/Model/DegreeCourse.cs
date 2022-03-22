@@ -16,6 +16,7 @@ namespace StudentsHelper.Model
             set { studentId = value; }
         }
 
+        //Kierunek
         private string course = string.Empty;
 
         public string Course
@@ -24,6 +25,7 @@ namespace StudentsHelper.Model
             set { course = value; }
         }
 
+        //Semestr
         private int semester = 0;
 
         public int Semester
@@ -32,6 +34,7 @@ namespace StudentsHelper.Model
             set { semester = value; } 
         }
 
+        //Specjalizacja
         private string speciality = string.Empty;
 
         public string Speciality
@@ -40,6 +43,7 @@ namespace StudentsHelper.Model
             set { speciality = value; }
         }
 
+        //Wydział
         private string faculty = string.Empty;
 
         public string Faculty
