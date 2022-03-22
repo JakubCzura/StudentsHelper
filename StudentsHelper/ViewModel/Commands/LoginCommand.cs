@@ -30,20 +30,36 @@ namespace StudentsHelper.ViewModel.Commands
             return true;
         }
 
+        static bool IsLoginCorrect(string login)
+        {
+            if(string.IsNullOrWhiteSpace(login) ||
+                !login.StartsWith('s') ||
+                login.Length != 7)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public void Execute(object? parameter)
         {          
             try
             {
-                string password = string.Empty;
                 if(LoginWindow.LoginWindowInstance != null)
                 {
-                    password = LoginWindow.LoginWindowInstance.PasswordBox.Password;
-                    //MessageBox.Show(password);
-                    LoginVM.Password = password;
-                    MessageBox.Show(LoginVM.Password);
-                    //LoginWindow.LoginWindowInstance.Close();
+                    LoginVM.Password = LoginWindow.LoginWindowInstance.PasswordBox.Password;
+                    //MessageBox.Show(LoginVM.Password);
+                    if(string.IsNullOrWhiteSpace(LoginVM.Password) || !IsLoginCorrect(LoginVM.Login))
+                    {
+                        MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
+                    }
+                    else
+                    {
+                        MainWindow MainWindow = new MainWindow();
+                        MainWindow.Show();
+                        LoginWindow.LoginWindowInstance.Close();
+                    }                  
                 }
-                //var w = Window.GetWindow(this);
             }
             catch (Exception exception)
             {

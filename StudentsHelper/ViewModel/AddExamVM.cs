@@ -14,10 +14,8 @@ namespace StudentsHelper.ViewModel
     {
         public AddExamVM()
         {
-            CloseWindowCommand = new CloseWindowCommand(this);
-        }
 
-        public CloseWindowCommand CloseWindowCommand { get; set; }
+        }
 
         public AddExamWindow AddExamWindow { get; set; }
 

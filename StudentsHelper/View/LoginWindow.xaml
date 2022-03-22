@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StudentsHelper.View"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-        Title="LoginWindow" Height="500" Width="400">
+        Title="LoginWindow" Height="500" Width="400" WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
         <Style TargetType="Label">

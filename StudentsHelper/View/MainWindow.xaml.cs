@@ -20,9 +20,11 @@ namespace StudentsHelper.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow? MainWindowInstance { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowInstance = this;
         }
     }
 }
