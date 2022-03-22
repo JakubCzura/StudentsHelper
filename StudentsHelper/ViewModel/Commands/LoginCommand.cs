@@ -26,34 +26,23 @@ namespace StudentsHelper.ViewModel.Commands
         LoginVM LoginVM { get; set; }
 
         public bool CanExecute(object? parameter)
-        {
-            try
-            {
-                PasswordBox PasswordBox = parameter as PasswordBox;
-                if (PasswordBox != null)
-                {
-                    if (string.IsNullOrWhiteSpace(PasswordBox.Password) || string.IsNullOrEmpty(PasswordBox.Password) || !PasswordBox.Password.StartsWith('s'))
-                    {
-                        return false;
-                    }
-                }
-            }
-            catch(Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-                return false;
-            }
-          
+        {         
             return true;
         }
 
         public void Execute(object? parameter)
-        {
-            PasswordBox passwordBox = (PasswordBox)parameter;
-
-
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Show();
+        {          
+            try
+            {
+                LoginWindow LoginWindow = new LoginWindow();
+                string name = LoginWindow.PasswordBox.Password;
+                LoginVM.Password = name;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);               
+            }  
+            
             
         }
     }

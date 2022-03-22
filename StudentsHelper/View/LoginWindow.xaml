@@ -36,8 +36,8 @@
             <Label FontSize="20">Login:</Label>
             <TextBox FontSize="20" Text="{Binding Login}"></TextBox>
             <Label FontSize="20">Hasło:</Label>
-            <PasswordBox x:Name="PasswordBox"  FontSize="20" IsEnabled="False"></PasswordBox>
-            <Button FontSize="20" Command="{Binding LoginCommand}" CommandParameter="{Binding PasswordBox}">Zaloguj</Button>
+            <PasswordBox x:Name="PasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
+            <Button FontSize="20" Command="{Binding LoginCommand}">Zaloguj</Button>
             <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </StackPanel>
     </Grid>

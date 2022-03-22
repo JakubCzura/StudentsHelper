@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace StudentsHelper.ViewModel
 {
@@ -17,7 +18,6 @@ namespace StudentsHelper.ViewModel
         {
             LoginCommand = new LoginCommand(this);
         }
-
         
         public LoginCommand LoginCommand { get; set; }
         Student Student = new Student();
@@ -30,6 +30,8 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(Login);
             }
         }
+
+      
 
         public string Password
         {
