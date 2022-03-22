@@ -116,8 +116,7 @@
         
         <Menu Grid.Row="2">
             <Button FontSize="20">Potwierdź</Button>
-            <Button FontSize="20" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding}">Anuluj</Button>
-            <Button FontSize="20" Click="CloseWindow">Test</Button>
+            <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </Menu>
     </Grid>
 </Window>

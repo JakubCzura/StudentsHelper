@@ -14,6 +14,12 @@
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Margin" Value="0,0,5,0"></Setter>
         </Style>
+        <Style TargetType="Rectangle">
+            <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+            <Setter Property="Width" Value="1"></Setter>
+            <Setter Property="Margin" Value="2"></Setter>
+            <Setter Property="Stroke" Value="Black"></Setter>
+        </Style>
     </UserControl.Resources>
     <Grid DataContext="{StaticResource StudentsHelperVM}">
         <Grid.ColumnDefinitions>
@@ -24,12 +30,13 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <TextBlock Text="Zalogowany/a jako:"></TextBlock>
             <TextBlock Text="{Binding FullName}"></TextBlock>
-            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+            <Rectangle/>
             <TextBlock Text="Kierunek studiów:"></TextBlock>
             <TextBlock Text="{Binding Course}"></TextBlock>
-            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+            <Rectangle/>
             <TextBlock Text="Semestr:"></TextBlock>
             <TextBlock Text="{Binding Semester}"></TextBlock>
+            <Rectangle/>
         </StackPanel>
         
     </Grid>
