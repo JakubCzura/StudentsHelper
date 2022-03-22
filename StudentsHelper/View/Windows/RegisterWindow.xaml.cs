@@ -19,9 +19,11 @@ namespace StudentsHelper.View.Windows
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        public static RegisterWindow? RegisterWindowInstance { get; set; }
         public RegisterWindow()
         {
             InitializeComponent();
+            RegisterWindowInstance = this;
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)
