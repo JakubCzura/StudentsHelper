@@ -7,10 +7,39 @@
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
         mc:Ignorable="d"
         Title="RegisterWindow" Height="550" Width="400" WindowStartupLocation="CenterScreen">
+
     <Window.Resources>
         <vm:RegisterWindowVM x:Key="RegisterWindowVM"></vm:RegisterWindowVM>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="35"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
     </Window.Resources>
+
     <Grid DataContext="{StaticResource RegisterWindowVM}">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Margin="0,0,0,20">
+            Witaj w StudentsHelper
+        </Label>
+
+        <Label Grid.Row="1" FontSize="25" Margin="0,0,0,51">
+            Podaj dane by się zarejestrować
+        </Label>
+
+        <StackPanel Grid.Row="2">
+            <Label FontSize="20">Login:</Label>
+            <TextBox FontSize="20" Text="{Binding Login}"></TextBox>
+            <Label FontSize="20">Hasło:</Label>
+            <PasswordBox x:Name="PasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
+            <Button FontSize="20">Zaloguj</Button>
+            <Button FontSize="20">Zarejestruj się</Button>
+            <Button FontSize="20">Anuluj</Button>
+        </StackPanel>
+
     </Grid>
 </Window>
