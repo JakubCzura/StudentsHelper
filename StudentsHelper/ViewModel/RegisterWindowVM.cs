@@ -22,6 +22,13 @@ namespace StudentsHelper.ViewModel
         DegreeCourse DegreeCourse { get; set; }
         public AcceptRegisterCommand AcceptRegisterCommand { get; set; }
 
+        public int Id
+        {
+            get { return Student.Id; }
+            set { Student.Id = value; OnPropertyChanged(nameof(Id)); }
+        }
+
+
         public string Name
         {
             get { return Student.Name; }

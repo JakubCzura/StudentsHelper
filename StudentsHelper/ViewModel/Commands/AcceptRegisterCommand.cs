@@ -1,4 +1,5 @@
-﻿using StudentsHelper.View.Windows;
+﻿using StudentsHelper.DataBase;
+using StudentsHelper.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,7 @@ namespace StudentsHelper.ViewModel.Commands
                     }
                     else
                     {
+                        DataBaseHelper.RegisterStudent(RegisterWindowVM);
                         //Tutaj następuje zarejestrowanie użytkownika
                     }
                 }

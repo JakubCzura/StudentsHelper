@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,8 @@ namespace StudentsHelper.Model
     internal class DegreeCourse
     {
         private int studentId = 0;
-
+        [PrimaryKey, AutoIncrement]
+        //[PrimaryKey]
         public int StudentId
         {
             get { return studentId; }
