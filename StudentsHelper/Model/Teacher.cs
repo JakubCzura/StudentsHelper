@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,15 @@ namespace StudentsHelper.Model
             RoomNumber = roomNumber;
             Note = note;
         }
-        
+
+        private int studentid = 0;
+
+        public int Studentid
+        {
+            get { return studentid; }
+            set { studentid = value; }
+        }
+
         private string name = string.Empty;
         public string Name
         {
@@ -54,6 +63,7 @@ namespace StudentsHelper.Model
         }
 
         private int id = 0;
+        [PrimaryKey, AutoIncrement]
         public int Id
         {
             get { return id; }

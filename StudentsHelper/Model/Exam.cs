@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,7 +21,23 @@ namespace StudentsHelper.Model
             MinuteOfExam = minuteOfExam;
             StudentId = studentId;
         }
-     
+
+        private int studentid = 0;
+
+        public int Studentid
+        {
+            get { return studentid; }
+            set { studentid = value; }
+        }
+
+        private int id;
+        [PrimaryKey, AutoIncrement]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         private string name = string.Empty;
         public string Name
         { 

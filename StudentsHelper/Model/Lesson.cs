@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,22 @@ namespace StudentsHelper.Model
 {
     internal class Lesson
     {
+        private int id;
+        [PrimaryKey, AutoIncrement]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        private int studentid = 0;
+
+        public int Studentid
+        {
+            get { return studentid; }
+            set { studentid = value; }
+        }
+
         private string name = string.Empty;
         public string Name
         {

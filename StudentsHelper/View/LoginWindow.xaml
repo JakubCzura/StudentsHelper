@@ -31,9 +31,9 @@
         <Label Grid.Row="1" FontSize="25" Margin="0,0,0,51">
             Podaj dane by się zalogować
         </Label>
-        
+
         <StackPanel Grid.Row="2">
-            <Label FontSize="20">Login:</Label>
+            <Label FontSize="20">Login (numer albumu z literą 's'):</Label>
             <TextBox FontSize="20" Text="{Binding Login}"></TextBox>
             <Label FontSize="20">Hasło:</Label>
             <PasswordBox x:Name="PasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>

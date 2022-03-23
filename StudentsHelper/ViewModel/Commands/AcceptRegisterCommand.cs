@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.DataBase;
+using StudentsHelper.View;
 using StudentsHelper.View.Windows;
 using System;
 using System.Collections.Generic;
@@ -59,15 +60,25 @@ namespace StudentsHelper.ViewModel.Commands
                 if (RegisterWindow.RegisterWindowInstance != null)
                 {
                     RegisterWindowVM.Password = RegisterWindow.RegisterWindowInstance.PasswordBox.Password;
-                    //MessageBox.Show(LoginVM.Password);
                     if (string.IsNullOrWhiteSpace(RegisterWindowVM.Password) || !IsLoginCorrect(RegisterWindowVM.Login))
                     {
                         MessageBox.Show("Podaj odpowiednie dane do rejestracji\nPamiętaj, że login zaczyna się od 's'", "Błąd rejestracji");
                     }
                     else
                     {
-                        DataBaseHelper.RegisterStudent(RegisterWindowVM);
-                        //Tutaj następuje zarejestrowanie użytkownika
+                        if (DataBaseHelper.RegisterStudent(RegisterWindowVM) == true)
+                        {
+                            LoginWindow LoginWindow = new LoginWindow();
+                            LoginWindow.Show();
+                            RegisterWindow.RegisterWindowInstance.Close();
+                            MessageBox.Show("Rejestracja przebiegła pomyślnie\nMożesz się zalogować!", "Zarejestrowano");
+                        }
+                        else
+                        {
+                            LoginWindow LoginWindow = new LoginWindow();
+                            LoginWindow.Show();
+                            RegisterWindow.RegisterWindowInstance?.Close();
+                        }
                     }
                 }
             }

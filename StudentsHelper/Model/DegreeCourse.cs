@@ -26,13 +26,13 @@ namespace StudentsHelper.Model
         }
 
 
-        //private int studentId = 0;
-        
-        //public int StudentId
-        //{
-        //    get { return studentId; }
-        //    set { studentId = value; }
-        //}
+        private int studentid = 0;
+
+        public int Studentid
+        {
+            get { return studentid; }
+            set { studentid = value; }
+        }
 
         //Kierunek
         private string course = string.Empty;
@@ -47,9 +47,9 @@ namespace StudentsHelper.Model
         private int semester = 0;
 
         public int Semester
-        { 
-            get { return semester; } 
-            set { semester = value; } 
+        {
+            get { return semester; }
+            set { semester = value; }
         }
 
         //Specjalizacja
