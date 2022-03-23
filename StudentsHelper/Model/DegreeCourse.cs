@@ -9,14 +9,30 @@ namespace StudentsHelper.Model
 {
     internal class DegreeCourse
     {
-        private int studentId = 0;
+        private int id;
         [PrimaryKey, AutoIncrement]
-        //[PrimaryKey]
-        public int StudentId
+        public int Id
         {
-            get { return studentId; }
-            set { studentId = value; }
+            get { return id; }
+            set { id = value; }
         }
+
+        private string studentLogin = string.Empty;
+
+        public string StudentLogin
+        {
+            get { return studentLogin; }
+            set { studentLogin = value; }
+        }
+
+
+        //private int studentId = 0;
+        
+        //public int StudentId
+        //{
+        //    get { return studentId; }
+        //    set { studentId = value; }
+        //}
 
         //Kierunek
         private string course = string.Empty;

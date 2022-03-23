@@ -32,7 +32,7 @@ namespace StudentsHelper.DataBase
 
             DegreeCourse DegreeCourse = new DegreeCourse()
             {
-                StudentId = Student.Id,
+                StudentLogin = RegisterWindowVM.Login,
                 Course = RegisterWindowVM.Course,
                 Faculty = RegisterWindowVM.Faculty,
                 Speciality = RegisterWindowVM.Speciality,
@@ -40,12 +40,12 @@ namespace StudentsHelper.DataBase
             };
 
             using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
-            { 
+            {
                 SQLiteConnection.CreateTable<Student>();
                 SQLiteConnection.Insert(Student);
                 SQLiteConnection.CreateTable<DegreeCourse>();
                 SQLiteConnection.Insert(DegreeCourse);
-            }
+            }          
         }        
     }
 }
