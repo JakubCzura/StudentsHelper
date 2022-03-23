@@ -15,7 +15,7 @@ namespace StudentsHelper.ViewModel
         {
             Student = new Student();
             DegreeCourse = new DegreeCourse();
-            AcceptRegisterCommand = new AcceptRegisterCommand();
+            AcceptRegisterCommand = new AcceptRegisterCommand(this);
         }
 
         Student Student { get; set; }

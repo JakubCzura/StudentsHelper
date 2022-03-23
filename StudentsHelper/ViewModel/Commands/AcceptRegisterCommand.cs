@@ -61,7 +61,7 @@ namespace StudentsHelper.ViewModel.Commands
                     //MessageBox.Show(LoginVM.Password);
                     if (string.IsNullOrWhiteSpace(RegisterWindowVM.Password) || !IsLoginCorrect(RegisterWindowVM.Login))
                     {
-                        MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
+                        MessageBox.Show("Podaj odpowiednie dane do rejestracji\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
                     }
                     else
                     {
