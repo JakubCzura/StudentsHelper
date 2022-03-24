@@ -48,23 +48,20 @@ namespace StudentsHelper.ViewModel.Commands
         {          
             try
             {
-                if(LoginWindow.LoginWindowInstance != null)
+                if(LoginWindow.Instance != null)
                 {
-                    LoginVM.Password = LoginWindow.LoginWindowInstance.PasswordBox.Password;                 
+                    LoginVM.Password = LoginWindow.Instance.PasswordBox.Password;                 
                     if(string.IsNullOrWhiteSpace(LoginVM.Password) || !IsLoginCorrect(LoginVM.Login))
                     {
                         MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
                     }
                     else
                     {
-                        //zalogowanie użytkownika
                         LoginStudent.Login(LoginVM);
                         MainWindow MainWindow = new MainWindow();
                         LoginStudent.GetStudentData(LoginVM);
                         MainWindow.Show();
-                        LoginWindow.LoginWindowInstance.Close();
-                        
-                        MessageBox.Show(StudentsHelperVM.StudentsHelperVMInstance.Student.ToString());
+                        LoginWindow.Instance.Close();                                             
                     }                  
                 }
             }

@@ -29,7 +29,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             RegisterWindow RegisterWindow = new RegisterWindow();
             RegisterWindow.Show();
-            LoginWindow.LoginWindowInstance?.Close();
+            LoginWindow.Instance?.Close();
         }
     }
 }

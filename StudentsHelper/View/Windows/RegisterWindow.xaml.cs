@@ -19,11 +19,11 @@ namespace StudentsHelper.View.Windows
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        public static RegisterWindow? RegisterWindowInstance { get; set; }
+        public static RegisterWindow? Instance { get; set; }
         public RegisterWindow()
         {
             InitializeComponent();
-            RegisterWindowInstance = this;
+            Instance = this;
             AgeTextBox.Text = "";
             SemesterTextBox.Text = "";
         }

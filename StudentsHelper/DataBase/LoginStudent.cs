@@ -12,7 +12,7 @@ namespace StudentsHelper.DataBase
 {
     public class LoginStudent : DataBaseHelper
     {
-        public static bool IfStudentExists = false;
+        public static bool IfStudentExists { get; set; } = false;
 
         public static bool Login(LoginVM LoginVM)
         {
@@ -47,11 +47,13 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    if(StudentsHelperVM.StudentsHelperVMInstance != null)
+                    if(StudentsHelperVM.Instance != null)
                     {
-                        StudentsHelperVM.StudentsHelperVMInstance.Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
-                        if (StudentsHelperVM.StudentsHelperVMInstance.Student != null)
+                        StudentsHelperVM.Instance.Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
+                        if (StudentsHelperVM.Instance.Student != null)
                         {
+                            //MessageBox.Show(StudentsHelperVM.Instance.Student.Name);
+                            //MessageBox.Show(StudentsHelperVM.Instance.FullName);
                             return true;
                         }
                     }                  

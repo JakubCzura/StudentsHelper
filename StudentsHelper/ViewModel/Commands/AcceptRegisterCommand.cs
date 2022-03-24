@@ -57,9 +57,9 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                if (RegisterWindow.RegisterWindowInstance != null)
+                if (RegisterWindow.Instance != null)
                 {
-                    RegisterWindowVM.Password = RegisterWindow.RegisterWindowInstance.PasswordBox.Password;
+                    RegisterWindowVM.Password = RegisterWindow.Instance.PasswordBox.Password;
                     if (string.IsNullOrWhiteSpace(RegisterWindowVM.Password) || !IsLoginCorrect(RegisterWindowVM.Login))
                     {
                         MessageBox.Show("Podaj odpowiednie dane do rejestracji\nPamiętaj, że login zaczyna się od 's'", "Błąd rejestracji");
@@ -70,7 +70,7 @@ namespace StudentsHelper.ViewModel.Commands
                         {
                             LoginWindow LoginWindow = new LoginWindow();
                             LoginWindow.Show();
-                            RegisterWindow.RegisterWindowInstance.Close();
+                            RegisterWindow.Instance.Close();
                             MessageBox.Show("Rejestracja przebiegła pomyślnie\nMożesz się zalogować!", "Zarejestrowano");
                         }
                     }

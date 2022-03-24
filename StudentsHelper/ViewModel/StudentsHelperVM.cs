@@ -10,16 +10,16 @@ namespace StudentsHelper.ViewModel
 {
     public class StudentsHelperVM : INotifyPropertyChanged
     {
-        public static StudentsHelperVM? StudentsHelperVMInstance { get; set; }
+        public static StudentsHelperVM? Instance { get; set; }
         public StudentsHelperVM()
         {
-            StudentsHelperVMInstance = this;
-            Student = new Student { Name = "Mac", SecondName = "Donald" };
-            DegreeCourse = new DegreeCourse { Semester = 1, Course = "Informatyka" };
+            Instance = this;
+            Student = new Student();
+            DegreeCourse = new DegreeCourse();
         }
 
-        public Student? Student;
-        public DegreeCourse? DegreeCourse;
+        public Student Student;
+        public DegreeCourse DegreeCourse;
 
         public string Name
         {
@@ -31,9 +31,34 @@ namespace StudentsHelper.ViewModel
             }
         }
 
+        public string SecondName
+        {
+            get { return Student.SecondName; }
+            set { Student.SecondName = value; OnPropertyChanged(SecondName); }
+        }
+
+        public int Age
+        {
+            get { return Student.Age; }
+            set { Student.Age = value; OnPropertyChanged(nameof(Age)); }
+        }
+
+        public string Login
+        {
+            get { return Student.Login; }
+            set { Student.Login = value; OnPropertyChanged(nameof(Login)); }
+        }
+
+        public string Password
+        {
+            get { return Student.Password; }
+            set { Student.Password = value; OnPropertyChanged(nameof(Password)); }
+        }
+
         public string FullName
         {
-            get { return Student.Name + " " + Student.SecondName; }
+            
+            get { return Student.Name + " " + Student.SecondName;  }
         }
 
         public string Course
