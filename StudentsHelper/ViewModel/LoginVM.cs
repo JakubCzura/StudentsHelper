@@ -14,9 +14,10 @@ namespace StudentsHelper.ViewModel
 {
     public class LoginVM : INotifyPropertyChanged
     {
-
+        public LoginVM Instance { get; set; }
         public LoginVM()
         {
+            Instance = this;
             LoginCommand = new LoginCommand(this);
             RegisterCommand = new RegisterCommand();
         }

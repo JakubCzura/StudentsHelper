@@ -15,6 +15,7 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             Student = new Student();
+            //DataBase.LoginStudent.GetStudentData(LoginVM.Instance, Student);
             DegreeCourse = new DegreeCourse();
         }
 

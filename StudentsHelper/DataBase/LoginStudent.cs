@@ -52,8 +52,7 @@ namespace StudentsHelper.DataBase
                         StudentsHelperVM.Instance.Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
                         if (StudentsHelperVM.Instance.Student != null)
                         {
-                            //MessageBox.Show(StudentsHelperVM.Instance.Student.Name);
-                            //MessageBox.Show(StudentsHelperVM.Instance.FullName);
+                            MessageBox.Show(StudentsHelperVM.Instance.Student.Name);
                             return true;
                         }
                     }                  
