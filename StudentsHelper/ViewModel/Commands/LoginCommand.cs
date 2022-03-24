@@ -1,4 +1,6 @@
-﻿using StudentsHelper.View;
+﻿using SQLite;
+using StudentsHelper.Model;
+using StudentsHelper.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +55,7 @@ namespace StudentsHelper.ViewModel.Commands
                         MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
                     }
                     else
-                    {
+                    {                       
                         MainWindow MainWindow = new MainWindow();
                         MainWindow.Show();
                         LoginWindow.LoginWindowInstance.Close();

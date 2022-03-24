@@ -73,12 +73,6 @@ namespace StudentsHelper.ViewModel.Commands
                             RegisterWindow.RegisterWindowInstance.Close();
                             MessageBox.Show("Rejestracja przebiegła pomyślnie\nMożesz się zalogować!", "Zarejestrowano");
                         }
-                        else
-                        {
-                            //LoginWindow LoginWindow = new LoginWindow();
-                            //LoginWindow.Show();
-                            //RegisterWindow.RegisterWindowInstance?.Close();
-                        }
                     }
                 }
             }

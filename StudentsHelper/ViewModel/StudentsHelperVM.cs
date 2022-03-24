@@ -11,11 +11,6 @@ namespace StudentsHelper.ViewModel
     public class StudentsHelperVM : INotifyPropertyChanged
     {
 
-        public StudentsHelperVM()
-        {
-
-        }
-
         Student Student = new Student { Name = "Mac", SecondName = "Donald"};
         DegreeCourse DegreeCourse = new DegreeCourse { Semester = 1, Course = "Informatyka"};
 
