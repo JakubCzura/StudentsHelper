@@ -60,11 +60,11 @@ namespace StudentsHelper.ViewModel.Commands
                         //zalogowanie użytkownika
                         LoginStudent.Login(LoginVM);
                         MainWindow MainWindow = new MainWindow();
+                        LoginStudent.GetStudentData(LoginVM);
                         MainWindow.Show();
-                        StudentsHelperVM.StudentsHelperVMInstance.Student.Name = LoginVM.Name;
                         LoginWindow.LoginWindowInstance.Close();
-                        string? s= StudentsHelperVM.StudentsHelperVMInstance.Student.Name;
-                        MessageBox.Show(s);
+                        
+                        MessageBox.Show(StudentsHelperVM.StudentsHelperVMInstance.Student.ToString());
                     }                  
                 }
             }

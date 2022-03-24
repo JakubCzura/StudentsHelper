@@ -12,37 +12,56 @@ namespace StudentsHelper.DataBase
 {
     public class LoginStudent : DataBaseHelper
     {
+        public static bool IfStudentExists = false;
+
         public static bool Login(LoginVM LoginVM)
-        {           
+        {
             try
             {
                 Student? Student = null;
 
-                //DegreeCourse DegreeCourse = new DegreeCourse()
-                //{
-                //    StudentLogin = LoginVM.Login,
-                //    Course = LoginVM.Course,
-                //    Faculty = LoginVM.Faculty,
-                //    Speciality = LoginVM.Speciality,
-                //    Semester = LoginVM.Semestr
-                //};
-
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
                     Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
-                    if(Student != null)
+                    if (Student != null)
                     {
-                        if (StudentsHelperVM.StudentsHelperVMInstance != null)
-                            StudentsHelperVM.StudentsHelperVMInstance.Student = Student;
+                        IfStudentExists = true;
                         return true;
-                    }              
+                    }
                 }
+                IfStudentExists = false;
                 return false;
             }
 
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zarejestrować", "Błąd rejestracji");
+                IfStudentExists=false;
+                return false;
+            }
+        }
+
+        public static bool GetStudentData(LoginVM LoginVM)
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    if(StudentsHelperVM.StudentsHelperVMInstance != null)
+                    {
+                        StudentsHelperVM.StudentsHelperVMInstance.Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
+                        if (StudentsHelperVM.StudentsHelperVMInstance.Student != null)
+                        {
+                            return true;
+                        }
+                    }                  
+                }
+                return false;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
                 return false;
             }
         }

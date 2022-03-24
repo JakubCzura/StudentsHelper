@@ -54,5 +54,10 @@ namespace StudentsHelper.Model
             get { return password; }
             set { password = value; }
         }
+
+        public override string ToString()
+        {
+            return Name + " " + Id + " " +  SecondName + " " + " " + Age ;
+        }
     }
 }
