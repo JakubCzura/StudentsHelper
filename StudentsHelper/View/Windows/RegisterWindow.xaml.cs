@@ -24,6 +24,8 @@ namespace StudentsHelper.View.Windows
         {
             InitializeComponent();
             RegisterWindowInstance = this;
+            AgeTextBox.Text = "";
+            SemesterTextBox.Text = "";
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)

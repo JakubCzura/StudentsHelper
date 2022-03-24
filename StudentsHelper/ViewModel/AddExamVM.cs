@@ -12,12 +12,6 @@ namespace StudentsHelper.ViewModel
 {
     internal class AddExamVM : INotifyPropertyChanged
     {
-        public AddExamVM()
-        {
-
-        }
-
-        public AddExamWindow AddExamWindow { get; set; }
 
         public Exam Exam = new Exam("Matma", new DateTime(2022, 12, 1), 21, "Super", 12, 30, 20);
 

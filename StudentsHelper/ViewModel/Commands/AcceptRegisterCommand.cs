@@ -66,7 +66,7 @@ namespace StudentsHelper.ViewModel.Commands
                     }
                     else
                     {
-                        if (DataBaseHelper.RegisterStudent(RegisterWindowVM) == true)
+                        if (RegisterStudent.Register(RegisterWindowVM) == true)
                         {
                             LoginWindow LoginWindow = new LoginWindow();
                             LoginWindow.Show();
@@ -75,9 +75,9 @@ namespace StudentsHelper.ViewModel.Commands
                         }
                         else
                         {
-                            LoginWindow LoginWindow = new LoginWindow();
-                            LoginWindow.Show();
-                            RegisterWindow.RegisterWindowInstance?.Close();
+                            //LoginWindow LoginWindow = new LoginWindow();
+                            //LoginWindow.Show();
+                            //RegisterWindow.RegisterWindowInstance?.Close();
                         }
                     }
                 }

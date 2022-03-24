@@ -47,8 +47,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if(LoginWindow.LoginWindowInstance != null)
                 {
-                    LoginVM.Password = LoginWindow.LoginWindowInstance.PasswordBox.Password;
-                    //MessageBox.Show(LoginVM.Password);
+                    LoginVM.Password = LoginWindow.LoginWindowInstance.PasswordBox.Password;                 
                     if(string.IsNullOrWhiteSpace(LoginVM.Password) || !IsLoginCorrect(LoginVM.Login))
                     {
                         MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");

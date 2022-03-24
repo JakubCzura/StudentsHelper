@@ -43,7 +43,7 @@
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Wiek:</Label>
-                <TextBox FontSize="20" Text="{Binding Age}"></TextBox>
+                <TextBox x:Name="AgeTextBox" FontSize="20" Text="{Binding Age}" ></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Kierunek studiów:</Label>
@@ -51,7 +51,7 @@
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Semestr:</Label>
-                <TextBox FontSize="20" Text="{Binding Semestr}"></TextBox>
+                <TextBox x:Name="SemesterTextBox" FontSize="20" Text="{Binding Semestr}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Specjalność:</Label>

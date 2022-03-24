@@ -33,9 +33,9 @@
         </Label>
 
         <StackPanel Grid.Row="2">
-            <Label FontSize="20">Login (numer albumu z literą 's'):</Label>
-            <TextBox FontSize="20" Text="{Binding Login}"></TextBox>
-            <Label FontSize="20">Hasło:</Label>
+            <Label x:Name="LoginLabel" FontSize="20">Login (numer albumu z literą 's'):</Label>
+            <TextBox x:Name="LoginTextBox" FontSize="20" Text="{Binding Login}"></TextBox>
+            <Label x:Name="PasswordLabel" FontSize="20">Hasło:</Label>
             <PasswordBox x:Name="PasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
             <Button FontSize="20" Command="{Binding LoginCommand}">Zaloguj</Button>
             <Button FontSize="20" Command="{Binding RegisterCommand}">Zarejestruj się</Button>
