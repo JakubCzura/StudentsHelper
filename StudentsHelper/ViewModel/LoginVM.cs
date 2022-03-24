@@ -34,8 +34,6 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-      
-
         public string Password
         {
             get { return Student.Password; }
