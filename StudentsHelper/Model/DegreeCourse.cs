@@ -26,12 +26,12 @@ namespace StudentsHelper.Model
         }
 
 
-        private int studentid = 0;
+        private int studentId = 0;
 
-        public int Studentid
+        public int StudentId
         {
-            get { return studentid; }
-            set { studentid = value; }
+            get { return studentId; }
+            set { studentId = value; }
         }
 
         //Kierunek

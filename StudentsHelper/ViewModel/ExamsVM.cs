@@ -1,4 +1,5 @@
-﻿using StudentsHelper.Model;
+﻿using StudentsHelper.DataBase;
+using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,11 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    internal class ExamsVM : INotifyPropertyChanged
+    public class ExamsVM : INotifyPropertyChanged
     {
         Teacher teacher = new Teacher();
 
-        private ObservableCollection<Exam> exams = new ObservableCollection<Exam>()
-        {
-            new Exam("Angielski", new DateTime(200,1,21), 21, "Super zajęcia", 13, 30, 1 ),
-            new Exam("Angielski", new DateTime(200,1,21), 22, "Super zajęcia" , 13, 30, 1),
-            new Exam("Angielski", new DateTime(200,1,21), 21, "Super zajęcia Super zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęciaSuper zajęcia" , 13, 30, 1)
-        };
+        private ObservableCollection<Exam> exams = LoginStudent.GetExamsData();
 
         public AddExamCommand AddExamCommand { get; set; }
 

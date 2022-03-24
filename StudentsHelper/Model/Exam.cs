@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
-    internal class Exam
+    public class Exam
     {
         public Exam() { }
         public Exam(string name, DateTime dateOfExam, int roomNumber, string note, int hourOfExam, int minuteOfExam, int studentId)
@@ -20,14 +20,6 @@ namespace StudentsHelper.Model
             HourOfExam = hourOfExam;
             MinuteOfExam = minuteOfExam;
             StudentId = studentId;
-        }
-
-        private int studentid = 0;
-
-        public int Studentid
-        {
-            get { return studentid; }
-            set { studentid = value; }
         }
 
         private int id;
@@ -86,6 +78,13 @@ namespace StudentsHelper.Model
         {
             get { return studentId; }
             set { studentId = value; }
+        }
+
+        private string studentLogin = string.Empty;
+        public string StudentLogin
+        {
+            get { return studentLogin; }
+            set { studentLogin = value; }
         }
     }
 }

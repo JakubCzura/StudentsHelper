@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
-    internal class Lesson
+    public class Lesson
     {
         private int id;
         [PrimaryKey, AutoIncrement]

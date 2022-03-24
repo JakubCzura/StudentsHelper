@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace StudentsHelper.DataBase
 {
     public class LoginStudent : DataBaseHelper
     {
-        public static bool IfStudentExists { get; set; } = false;
 
         public static bool Login(LoginVM LoginVM)
         {
@@ -26,18 +26,16 @@ namespace StudentsHelper.DataBase
                     if (Student != null)
                     {
                         StudentId = Student.Id;
-                        IfStudentExists = true;
+                        StudentLogin = Student.Login;
                         return true;
                     }
                 }
-                IfStudentExists = false;
                 return false;
             }
 
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zarejestrować", "Błąd rejestracji");
-                IfStudentExists = false;
                 return false;
             }
         }
@@ -52,6 +50,52 @@ namespace StudentsHelper.DataBase
                     if (Student != null)
                     {
                         return Student;
+                    }
+                }
+                return null;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
+                return null;
+            }
+        }
+
+        public static DegreeCourse GetDegreeCourseData()
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    DegreeCourse DegreeCourse= SQLiteConnection.Table<DegreeCourse>().First(s => s.Id == StudentId);
+                    if (DegreeCourse != null)
+                    {
+                        return DegreeCourse;
+                    }
+                }
+                return null;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
+                return null;
+            }
+        }
+
+        public static ObservableCollection<Exam> GetExamsData()
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    List <Exam> ExamsList = SQLiteConnection.Table<Exam>().Where(e => e.StudentLogin == StudentLogin).ToList();
+                    ObservableCollection<Exam> Exams = new ObservableCollection<Exam>(ExamsList);
+
+                    if (Exams != null)
+                    {
+                        return Exams;
                     }
                 }
                 return null;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
-    internal class Teacher
+    public class Teacher
     {
         public Teacher() { }
         public Teacher(string name, string lastName, string degree, int roomNumber, string note)

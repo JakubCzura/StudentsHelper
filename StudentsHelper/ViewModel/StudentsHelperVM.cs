@@ -17,13 +17,13 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             
-            DegreeCourse = new DegreeCourse();
+            DegreeCourse = LoginStudent.GetDegreeCourseData();
             Student = LoginStudent.GetStudentData();
         }
 
         public Student Student { get; set; }
-     
-        public DegreeCourse DegreeCourse = new DegreeCourse();
+        
+        public DegreeCourse DegreeCourse { get; set; }
 
         public string Name
         {

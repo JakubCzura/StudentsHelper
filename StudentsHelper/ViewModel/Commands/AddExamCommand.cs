@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    internal class AddExamCommand : ICommand
+    public class AddExamCommand : ICommand
     {
         public AddExamCommand(ExamsVM examsVM)
         {
