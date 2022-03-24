@@ -16,7 +16,7 @@ namespace StudentsHelper.DataBase
         {           
             try
             {
-                Student Student = new Student();
+                Student? Student = null;
 
                 //DegreeCourse DegreeCourse = new DegreeCourse()
                 //{
@@ -29,14 +29,15 @@ namespace StudentsHelper.DataBase
 
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    List<Student>? Students = SQLiteConnection.Table<Student>().ToList();
-                    if(Students.Any())
+                    Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
+                    if(Student != null)
                     {
-                        Student = Students.Find(s => s.Password == LoginVM.Password && s.Login == LoginVM.Login);
-
-                    }
+                        if (StudentsHelperVM.StudentsHelperVMInstance != null)
+                            StudentsHelperVM.StudentsHelperVMInstance.Student = Student;
+                        return true;
+                    }              
                 }
-                return true;
+                return false;
             }
 
             catch (Exception exception)

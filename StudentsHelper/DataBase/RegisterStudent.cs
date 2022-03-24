@@ -33,19 +33,15 @@ namespace StudentsHelper.DataBase
                     Speciality = RegisterWindowVM.Speciality,
                     Semester = RegisterWindowVM.Semestr
                 };
-                            
+
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    List<Student>? Students = SQLiteConnection.Table<Student>().ToList();
-                    if (Students.Any())
+                    Student? StudentTMP = null;
+                    StudentTMP = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == RegisterWindowVM.Login);
+                    if (StudentTMP != null)
                     {
-                        Student? StudentTMP = null;
-                        StudentTMP = Students.Find(s => s.Login == RegisterWindowVM.Login);
-                        if(StudentTMP != null)
-                        {
-                            MessageBox.Show($"Istnieje już użytkownik o podanym loginie\nPodaj inny login", "Login jest już używany");
-                            return false;
-                        }                      
+                        MessageBox.Show($"Istnieje już użytkownik o podanym loginie\nPodaj inny login", "Login jest już używany");
+                        return false;
                     }
                 }
 

@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace StudentsHelper.Model
 {
-    internal class Student : IUser
+    public class Student : IUser
     {
         
         private int id = 0;

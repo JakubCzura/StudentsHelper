@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
-    internal class DegreeCourse
+    public class DegreeCourse
     {
         private int id;
         [PrimaryKey, AutoIncrement]

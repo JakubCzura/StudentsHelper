@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View;
 using System;
@@ -55,10 +56,15 @@ namespace StudentsHelper.ViewModel.Commands
                         MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
                     }
                     else
-                    {                       
+                    {
+                        //zalogowanie użytkownika
+                        LoginStudent.Login(LoginVM);
                         MainWindow MainWindow = new MainWindow();
                         MainWindow.Show();
+                        StudentsHelperVM.StudentsHelperVMInstance.Student.Name = LoginVM.Name;
                         LoginWindow.LoginWindowInstance.Close();
+                        string? s= StudentsHelperVM.StudentsHelperVMInstance.Student.Name;
+                        MessageBox.Show(s);
                     }                  
                 }
             }

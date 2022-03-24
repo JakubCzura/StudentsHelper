@@ -10,9 +10,16 @@ namespace StudentsHelper.ViewModel
 {
     public class StudentsHelperVM : INotifyPropertyChanged
     {
+        public static StudentsHelperVM? StudentsHelperVMInstance { get; set; }
+        public StudentsHelperVM()
+        {
+            StudentsHelperVMInstance = this;
+            Student = new Student { Name = "Mac", SecondName = "Donald" };
+            DegreeCourse = new DegreeCourse { Semester = 1, Course = "Informatyka" };
+        }
 
-        Student Student = new Student { Name = "Mac", SecondName = "Donald"};
-        DegreeCourse DegreeCourse = new DegreeCourse { Semester = 1, Course = "Informatyka"};
+        public Student? Student;
+        public DegreeCourse? DegreeCourse;
 
         public string Name
         {
