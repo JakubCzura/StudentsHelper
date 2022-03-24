@@ -1,10 +1,12 @@
-﻿using StudentsHelper.Model;
+﻿using StudentsHelper.DataBase;
+using StudentsHelper.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StudentsHelper.ViewModel
 {
@@ -14,13 +16,14 @@ namespace StudentsHelper.ViewModel
         public StudentsHelperVM()
         {
             Instance = this;
-            Student = new Student();
-            //DataBase.LoginStudent.GetStudentData(LoginVM.Instance, Student);
+            
             DegreeCourse = new DegreeCourse();
+            Student = LoginStudent.GetStudentData();
         }
 
-        public Student Student;
-        public DegreeCourse DegreeCourse;
+        public Student Student { get; set; }
+     
+        public DegreeCourse DegreeCourse = new DegreeCourse();
 
         public string Name
         {

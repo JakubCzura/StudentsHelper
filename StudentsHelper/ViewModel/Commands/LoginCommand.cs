@@ -59,7 +59,6 @@ namespace StudentsHelper.ViewModel.Commands
                     {
                         LoginStudent.Login(LoginVM);
                         MainWindow MainWindow = new MainWindow();
-                        LoginStudent.GetStudentData(LoginVM.Instance);
                         MainWindow.Show();
                         LoginWindow.Instance.Close();                                             
                     }                  

@@ -29,7 +29,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <TextBlock Text="Zalogowany/a jako:"></TextBlock>
-            <TextBlock Text="{Binding Name}"></TextBlock>
+            <TextBlock Text="{Binding FullName}"></TextBlock>
             <Rectangle/>
             <TextBlock Text="Kierunek studiów:"></TextBlock>
             <TextBlock Text="{Binding Course}"></TextBlock>

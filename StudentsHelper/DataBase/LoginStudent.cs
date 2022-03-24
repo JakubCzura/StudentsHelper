@@ -25,6 +25,7 @@ namespace StudentsHelper.DataBase
                     Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
                     if (Student != null)
                     {
+                        StudentId = Student.Id;
                         IfStudentExists = true;
                         return true;
                     }
@@ -36,34 +37,30 @@ namespace StudentsHelper.DataBase
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zarejestrować", "Błąd rejestracji");
-                IfStudentExists=false;
+                IfStudentExists = false;
                 return false;
             }
         }
 
-        public static bool GetStudentData(LoginVM LoginVM)
+        public static Student GetStudentData()
         {
             try
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    if(StudentsHelperVM.Instance != null)
+                    Student Student = SQLiteConnection.Table<Student>().First(s => s.Id == StudentId);
+                    if (Student != null)
                     {
-                        StudentsHelperVM.Instance.Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
-                        if (StudentsHelperVM.Instance.Student != null)
-                        {
-                            MessageBox.Show(StudentsHelperVM.Instance.Student.Name);
-                            return true;
-                        }
-                    }                  
+                        return Student;
+                    }
                 }
-                return false;
+                return null;
             }
 
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
-                return false;
+                return null;
             }
         }
     }

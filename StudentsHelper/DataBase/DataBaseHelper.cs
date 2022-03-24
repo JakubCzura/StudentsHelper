@@ -15,8 +15,13 @@ namespace StudentsHelper.DataBase
     public class DataBaseHelper
     {
         private static string DataBaseName { get; set; } = "StudentsHelperDataBase.db";
-        private static string FolderPath { get; set; } = Environment.CurrentDirectory;  
+        
+        //private static string FolderPath { get; set; } = Environment.CurrentDirectory;
+        private static string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments, Environment.SpecialFolderOption.Create);
+
         protected static string DataBasePath { get; set; } = System.IO.Path.Combine(FolderPath, DataBaseName);
+
+        protected static int StudentId { get; set; } = -1;
 
         
     }
