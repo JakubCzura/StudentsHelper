@@ -23,7 +23,7 @@ namespace StudentsHelper.DataBase
 
         protected static int StudentId { get; set; } = -1;
 
-        protected static string StudentLogin { get; set; } = string.Empty;
+        public static string StudentLogin { get; set; } = string.Empty;
         
     }
 }

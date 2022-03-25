@@ -108,14 +108,13 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0">Notatka:</TextBlock>
                 <TextBox Grid.Column="1" Text="{Binding Note}"></TextBox>
-
             </Grid>
             
             <Rectangle/>
         </StackPanel>
         
         <Menu Grid.Row="2">
-            <Button FontSize="20">Potwierdź</Button>
+            <Button FontSize="20" Command="{Binding SaveExamsCommand}">Potwierdź</Button>
             <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </Menu>
     </Grid>

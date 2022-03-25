@@ -1,4 +1,5 @@
-﻿using StudentsHelper.Model;
+﻿using StudentsHelper.DataBase;
+using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
@@ -10,10 +11,18 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    internal class AddExamVM : INotifyPropertyChanged
+    public class AddExamVM : INotifyPropertyChanged
     {
 
-        public Exam Exam = new Exam("Matma", new DateTime(2022, 12, 1), 21, "Super", 12, 30, 20);
+        public Exam Exam { get; set; } = new Exam("Matma", new DateTime(2022, 12, 1), 21, "Super", 12, 30, 20)
+        { StudentLogin = DataBaseHelper.StudentLogin };
+
+        public SaveExamsCommand SaveExamsCommand { get; set; }
+
+        public AddExamVM()
+        {
+            SaveExamsCommand = new SaveExamsCommand(this);
+        }
 
         public string Name
         {
