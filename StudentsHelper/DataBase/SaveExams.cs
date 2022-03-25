@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using StudentsHelper.Model;
+using StudentsHelper.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,14 @@ namespace StudentsHelper.DataBase
                 {
                     SQLiteConnection.CreateTable<Exam>();
                     SQLiteConnection.Insert(Exam);
+                    ExamsVM.Instance.Exams = LoginStudent.GetExamsData();
                 }
                 return true;
             }
 
             catch (Exception exception)
             {
-                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zarejestrować", "Błąd rejestracji");
+                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie dodać egzamin", "Błąd dodania egzaminu");
                 return false;
             }
         }

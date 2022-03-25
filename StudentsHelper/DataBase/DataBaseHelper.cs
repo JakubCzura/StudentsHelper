@@ -21,7 +21,7 @@ namespace StudentsHelper.DataBase
 
         protected static string DataBasePath { get; set; } = System.IO.Path.Combine(FolderPath, DataBaseName);
 
-        protected static int StudentId { get; set; } = -1;
+        public static int StudentId { get; set; } = -1;
 
         public static string StudentLogin { get; set; } = string.Empty;
         

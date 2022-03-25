@@ -13,6 +13,8 @@ namespace StudentsHelper.ViewModel
 {
     public class ExamsVM : INotifyPropertyChanged
     {
+        public static ExamsVM Instance { get; set; }
+
         Teacher teacher = new Teacher();
 
         private ObservableCollection<Exam> exams = LoginStudent.GetExamsData();
@@ -22,6 +24,7 @@ namespace StudentsHelper.ViewModel
         public ExamsVM()
         {
             AddExamCommand = new AddExamCommand(this);
+            Instance = this;
         }
 
         public string TeacherFullName

@@ -90,7 +90,7 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    List <Exam> ExamsList = SQLiteConnection.Table<Exam>().Where(e => e.StudentLogin == StudentLogin).ToList();
+                    List <Exam> ExamsList = SQLiteConnection.Table<Exam>().Where(e => e.StudentId == StudentId).ToList();
                     ObservableCollection<Exam> Exams = new ObservableCollection<Exam>(ExamsList);
 
                     if (Exams != null)

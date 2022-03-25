@@ -14,8 +14,7 @@ namespace StudentsHelper.ViewModel
     public class AddExamVM : INotifyPropertyChanged
     {
 
-        public Exam Exam { get; set; } = new Exam("Matma", new DateTime(2022, 12, 1), 21, "Super", 12, 30, 20)
-        { StudentLogin = DataBaseHelper.StudentLogin };
+        public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
         public SaveExamsCommand SaveExamsCommand { get; set; }
 
