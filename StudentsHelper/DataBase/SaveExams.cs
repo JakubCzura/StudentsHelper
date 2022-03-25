@@ -20,7 +20,10 @@ namespace StudentsHelper.DataBase
                 {
                     SQLiteConnection.CreateTable<Exam>();
                     SQLiteConnection.Insert(Exam);
-                    ExamsVM.Instance.Exams = LoginStudent.GetExamsData();
+                    if(ExamsVM.Instance != null)
+                    {
+                        ExamsVM.Instance.Exams = LoginStudent.GetExamsData();                    }
+                    
                 }
                 return true;
             }

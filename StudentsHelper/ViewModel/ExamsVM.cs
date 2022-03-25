@@ -13,7 +13,7 @@ namespace StudentsHelper.ViewModel
 {
     public class ExamsVM : INotifyPropertyChanged
     {
-        public static ExamsVM Instance { get; set; }
+        public static ExamsVM? Instance { get; set; }
 
         Teacher teacher = new Teacher();
 

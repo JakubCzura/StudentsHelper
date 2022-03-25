@@ -60,7 +60,7 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0">Data egzaminu:</TextBlock>
-                <DatePicker Grid.Column="2" x:Name="DateOfExamDatePicker" SelectedDate="2022-12-01" IsTodayHighlighted="True" ></DatePicker>
+                <DatePicker x:Name="DateOfExamDatePicker" Grid.Column="2" SelectedDate="{Binding DateOfExam, UpdateSourceTrigger=PropertyChanged}" IsTodayHighlighted="True" ></DatePicker>
             </Grid>
             
             <Rectangle/>

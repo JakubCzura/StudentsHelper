@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,6 @@ namespace StudentsHelper.View.Windows
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
            Close();
-        } 
+        }
     }
 }
