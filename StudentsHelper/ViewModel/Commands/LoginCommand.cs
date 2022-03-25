@@ -57,10 +57,12 @@ namespace StudentsHelper.ViewModel.Commands
                     }
                     else
                     {
-                        LoginStudent.Login(LoginVM);
-                        MainWindow MainWindow = new MainWindow();
-                        MainWindow.Show();
-                        LoginWindow.Instance.Close();                                             
+                        if(LoginStudent.Login(LoginVM) == true)
+                        {
+                            MainWindow MainWindow = new MainWindow();
+                            MainWindow.Show();
+                            LoginWindow.Instance.Close();
+                        }
                     }                  
                 }
             }
