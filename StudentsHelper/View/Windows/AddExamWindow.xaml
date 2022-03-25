@@ -48,7 +48,7 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0">Przedmiot:</TextBlock>
-                <TextBox Grid.Column="1" Text="{Binding Name}"></TextBox>
+                <TextBox Grid.Column="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 
             </Grid>
             
@@ -60,7 +60,7 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0">Data egzaminu:</TextBlock>
-                <DatePicker Grid.Column="2" x:Name="DateOfExamDatePicker" SelectedDate="2022-12-01" IsTodayHighlighted="True"></DatePicker>
+                <DatePicker Grid.Column="2" x:Name="DateOfExamDatePicker" SelectedDate="2022-12-01" IsTodayHighlighted="True" ></DatePicker>
             </Grid>
             
             <Rectangle/>
@@ -79,9 +79,9 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0">HH:</TextBlock>
-                    <TextBox Grid.Column="1" Text="{Binding HourOfExam}" ></TextBox>
+                    <TextBox Grid.Column="1" Text="{Binding HourOfExam, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                     <TextBlock Grid.Column="2">MM:</TextBlock>
-                    <TextBox Grid.Column="3" Text="{Binding MinuteOfExam}" ></TextBox>
+                    <TextBox Grid.Column="3" Text="{Binding MinuteOfExam, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
                 </Grid>
              
                 
@@ -95,7 +95,7 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0">Pokój:</TextBlock>
-                <TextBox Grid.Column="1" Text="{Binding RoomNumber}"></TextBox>
+                <TextBox Grid.Column="1" Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
             </Grid>
             
@@ -107,7 +107,7 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0">Notatka:</TextBlock>
-                <TextBox Grid.Column="1" Text="{Binding Note}"></TextBox>
+                <TextBox Grid.Column="1" Text="{Binding Note, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </Grid>
             
             <Rectangle/>
