@@ -43,6 +43,10 @@ namespace StudentsHelper.Model
             get { return dateOfExam; }
             set { dateOfExam = value; }
         }
+        public string DateOfExamShort
+        {
+            get { return DateOfExam.ToShortDateString(); }
+        }
 
         private int hourOfExam;
         public int HourOfExam

@@ -30,7 +30,7 @@
         <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExam}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExamShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Pokój" Binding="{Binding Path=RoomNumber}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}" ElementStyle="{StaticResource WrapText}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>

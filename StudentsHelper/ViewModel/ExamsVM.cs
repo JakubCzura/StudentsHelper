@@ -27,6 +27,7 @@ namespace StudentsHelper.ViewModel
             Instance = this;
         }
 
+        
         public string TeacherFullName
         {
             get { return teacher.ToString(); }
