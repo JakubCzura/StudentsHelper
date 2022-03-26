@@ -5,8 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
+        xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
         Title="AddTestWindow" Height="450" Width="800">
-    <Grid>
-        
+    
+    <Window.Resources>
+        <vm:AddTestVM x:Key="AddTestVM"></vm:AddTestVM>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="5,5,5,5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="5,3,5,5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="5,3,5,5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Rectangle}">
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="Fill" Value="Blue"></Setter>
+            <Setter Property="Height" Value="4"></Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid DataContext="{StaticResource AddTestVM}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Background="#FF8CF78C" Text="Dodanie nowego kolokwium" TextAlignment="Center" FontSize="30" Padding="5,5,5,5"></TextBlock>
+
+        <StackPanel Grid.Row="1">
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Przedmiot:</Label>
+                <TextBox x:Name="LessonTextBox" FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Data kolokwium:</Label>
+                <DatePicker x:Name="DateOfExamDatePicker" FontSize="20" SelectedDate="{Binding DateOfExam, UpdateSourceTrigger=PropertyChanged}" IsTodayHighlighted="True"></DatePicker>
+            </UniformGrid>
+            <UniformGrid Rows="1" Columns="2">
+                <Label FontSize="20">Godzina kolokwium:</Label>
+                <UniformGrid Rows="1" Margin="3,0,0,0">
+                    <Label FontSize="20" Margin="3,0,0,0">HH:</Label>
+                    <TextBox x:Name="ExamHourTextBox" FontSize="20" Text="{Binding HourOfExam, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Label FontSize="20">MM:</Label>
+                    <TextBox x:Name="ExamMinuteTextBox" FontSize="20" Text="{Binding MinuteOfExam, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Pokój:</Label>
+                <TextBox x:Name="RoomTextBox" FontSize="20" Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Notatka:</Label>
+                <TextBox x:Name="NoteTextBox" FontSize="20" Text="{Binding Note, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+        </StackPanel>
+
+        <Menu Grid.Row="2">
+            <Button FontSize="20" Command="{Binding SaveTestCommand}">Potwierdź</Button>
+            <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
+        </Menu>
     </Grid>
 </Window>

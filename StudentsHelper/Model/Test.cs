@@ -85,7 +85,7 @@ namespace StudentsHelper.Model
             get { return roomNumber; }
             set
             {
-                if (value > 0)
+                if (value > 0 && value < 100000)
                 {
                     roomNumber = value;
                 }
