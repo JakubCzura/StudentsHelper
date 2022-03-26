@@ -11,16 +11,7 @@ namespace StudentsHelper.Model
     public class Exam
     {
         public Exam() { DateOfExam = DateTime.Now; }
-        public Exam(string name, int roomNumber, string note, int hourOfExam, int minuteOfExam, int studentId, DateTime dateOfExam)
-        {
-            Name = name;
-            DateOfExam = dateOfExam;
-            RoomNumber = roomNumber;
-            Note = note;
-            HourOfExam = hourOfExam;
-            MinuteOfExam = minuteOfExam;
-            StudentId = studentId;
-        }
+       
 
         private int id;
         [PrimaryKey, AutoIncrement]

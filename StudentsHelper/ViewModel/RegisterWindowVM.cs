@@ -12,6 +12,7 @@ namespace StudentsHelper.ViewModel
 {
     public class RegisterWindowVM : INotifyPropertyChanged
     {
+        //This class refers to RegisterWindow.xaml
         public RegisterWindowVM()
         {
             Student = new Student();

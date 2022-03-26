@@ -15,6 +15,7 @@ namespace StudentsHelper.ViewModel
 {
     public class LoginVM : INotifyPropertyChanged
     {
+        //This class refers to LoginWindow.xaml
         public LoginVM Instance { get; set; }
         public LoginVM()
         {

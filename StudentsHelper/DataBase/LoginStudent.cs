@@ -131,5 +131,28 @@ namespace StudentsHelper.DataBase
                 return null;
             }
         }
+
+        public static ObservableCollection<Homework> GetHomeworkData()
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    List<Homework> HomeworkList = SQLiteConnection.Table<Homework>().Where(e => e.StudentId == StudentId).ToList();
+                    ObservableCollection<Homework> Homework = new ObservableCollection<Homework>(HomeworkList);
+                    if (Homework != null)
+                    {
+                        return Homework;
+                    }
+                }
+                return null;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
+                return null;
+            }
+        }
     }
 }

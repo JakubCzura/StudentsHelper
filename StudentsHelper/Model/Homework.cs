@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,37 +8,22 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
-    public class Homework : INotifyPropertyChanged
+    public class Homework
     {
-        private int id { get; set; } = 0;
+        private int id = 0;
 
+        [PrimaryKey, AutoIncrement]
         public int Id 
         { 
             get { return id; } 
-            set { id = value; OnPropertyChanged(nameof(Id)); }
+            set { id = value; }
         }
 
         private string lessonName = string.Empty;
         public string LessonName
         {
             get { return lessonName; }
-            set { lessonName = value; OnPropertyChanged(LessonName); }
-        }
-
-        private string studentName = string.Empty;
-
-        public string StudentName
-        {
-            get { return studentName; }
-            set { studentName = value; OnPropertyChanged(StudentName); }
-        }
-
-        private string studentSecondName = string.Empty;
-
-        public string StudentSecondName
-        {
-            get { return studentSecondName; }
-            set { studentSecondName = value; OnPropertyChanged(StudentSecondName); }
+            set { lessonName = value; }
         }
 
         private string teacherName = string.Empty;
@@ -45,7 +31,7 @@ namespace StudentsHelper.Model
         public string TeacherName
         {
             get { return teacherName; }
-            set { teacherName = value; OnPropertyChanged(TeacherName); }
+            set { teacherName = value; }
         }
 
         private string teacherSecondName = string.Empty;
@@ -53,27 +39,15 @@ namespace StudentsHelper.Model
         public string TeacherSecondName
         {
             get { return teacherSecondName; }
-            set { teacherSecondName = value; OnPropertyChanged(TeacherSecondName); }
+            set { teacherSecondName = value; }
         }
 
-        private DateTime dateOfBeginning;
-
-        public DateTime DateOfBeginning
-        {
-            get { return dateOfBeginning; }
-            set { dateOfBeginning = value; OnPropertyChanged(nameof(DateOfBeginning)); }
-        }
-
-        public string DateOfBeginningShort
-        {
-            get { return DateOfBeginning.ToShortDateString(); }
-        }
 
         private DateTime dateOfEnd;
         public DateTime DateOfEnd
         {
             get { return dateOfEnd; }
-            set { dateOfEnd = value; OnPropertyChanged(nameof(DateOfEnd)); }
+            set { dateOfEnd = value; }
         }
 
         public string DateOfEndShort
@@ -81,14 +55,32 @@ namespace StudentsHelper.Model
             get { return DateOfEnd.ToShortDateString(); }
         }
 
-
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
+        private string exercise = string.Empty;
+        public string Exercise
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get { return exercise; }
+            set { exercise = value; }
+        }
+
+        private string note = string.Empty;
+        public string Note
+        {
+            get { return note; }
+            set { note = value; }
+        }
+
+        private int studentId = 0;
+        public int StudentId
+        {
+            get { return studentId; }
+            set { studentId = value; }
+        }
+
+        private string studentLogin = string.Empty;
+        public string StudentLogin
+        {
+            get { return studentLogin; }
+            set { studentLogin = value; }
         }
     }
 }

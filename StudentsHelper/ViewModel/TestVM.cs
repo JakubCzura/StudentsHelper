@@ -14,6 +14,7 @@ namespace StudentsHelper.ViewModel
 {
     public class TestVM : INotifyPropertyChanged, IWindowVisibility
     {
+        //This class refers to TestsUserControl.xaml
         public static TestVM? Instance { get; set; }
 
         Teacher teacher = new Teacher();

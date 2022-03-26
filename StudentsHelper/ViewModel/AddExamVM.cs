@@ -13,6 +13,7 @@ namespace StudentsHelper.ViewModel
 {
     public class AddExamVM : INotifyPropertyChanged
     {
+        //This class refers to AddExamWindow.xaml
 
         public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 

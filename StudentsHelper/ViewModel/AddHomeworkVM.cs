@@ -1,6 +1,5 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class AddTestVM : INotifyPropertyChanged
+    public class AddHomeworkVM : INotifyPropertyChanged
     {
-        //This class refers to AddTestWindow.xaml
-        public Test Test { get; set; } = new Test { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        //This class refers to AddHomeworkWindow.xaml
+        public Homework Homework { get; set; } = new Homework { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
-        public SaveTestCommand SaveTestCommand { get; set; }
+        public SaveHomeworkCommand SaveHomeworkCommand { get; set; }
 
-        public AddTestVM()
+        public AddHomeworkVM()
         {
-            SaveTestCommand = new SaveTestCommand(this);
+            SaveHomeworkCommand = new SaveHomeworkCommand(this);
         }
 
         public string Name
@@ -80,6 +79,8 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(Note);
             }
         }
+
+      
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

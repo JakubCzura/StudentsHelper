@@ -12,6 +12,7 @@ namespace StudentsHelper.ViewModel
 {
     public class StudentsHelperVM : INotifyPropertyChanged
     {
+        //This class refers to MainWindow.xaml
         public static StudentsHelperVM? Instance { get; set; }
         public StudentsHelperVM()
         {

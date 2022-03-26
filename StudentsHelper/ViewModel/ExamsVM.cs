@@ -14,9 +14,8 @@ namespace StudentsHelper.ViewModel
 {
     public class ExamsVM : INotifyPropertyChanged, IWindowVisibility
     {
+        //This class refers to ExamsUserControl.xaml
         public static ExamsVM? Instance { get; set; }
-
-        Teacher teacher = new Teacher();
 
         private ObservableCollection<Exam> exams = LoginStudent.GetExamsData();
 
@@ -36,21 +35,7 @@ namespace StudentsHelper.ViewModel
         public void SetWindowVisible()
         {
             ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-        }
-
-        public string TeacherFullName
-        {
-            get { return teacher.ToString(); }
-        }
-
-        public Teacher Teacher
-        {
-            set 
-            { 
-                teacher = value; 
-                OnPropertyChanged(nameof(Teacher)); 
-            }        
-        }
+        }      
             
         public ObservableCollection<Exam> Exams
         { 
