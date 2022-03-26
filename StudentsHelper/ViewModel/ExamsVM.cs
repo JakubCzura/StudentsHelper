@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.UserControls;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class ExamsVM : INotifyPropertyChanged
+    public class ExamsVM : INotifyPropertyChanged, IWindowVisibility
     {
         public static ExamsVM? Instance { get; set; }
 
@@ -27,7 +28,16 @@ namespace StudentsHelper.ViewModel
             Instance = this;
         }
 
-        
+        public void SetWindowHidden()
+        {
+            ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        public void SetWindowVisible()
+        {
+            ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+        }
+
         public string TeacherFullName
         {
             get { return teacher.ToString(); }

@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.UserControls;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class TestVM : INotifyPropertyChanged
+    public class TestVM : INotifyPropertyChanged, IWindowVisibility
     {
         public static TestVM? Instance { get; set; }
 
@@ -49,6 +50,16 @@ namespace StudentsHelper.ViewModel
                 tests = value;
                 OnPropertyChanged(nameof(Tests));
             }
+        }
+
+        public void SetWindowHidden()
+        {
+            TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        public void SetWindowVisible()
+        {
+            TestsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

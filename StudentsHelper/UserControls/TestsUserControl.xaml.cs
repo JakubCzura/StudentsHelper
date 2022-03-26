@@ -20,9 +20,11 @@ namespace StudentsHelper.UserControls
     /// </summary>
     public partial class TestsUserControl : UserControl
     {
+        public static TestsUserControl Instance { get; set; }
         public TestsUserControl()
         {
             InitializeComponent();
+            Instance = this;
         }
     }
 }
