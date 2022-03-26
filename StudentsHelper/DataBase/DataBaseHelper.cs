@@ -34,6 +34,7 @@ namespace StudentsHelper.DataBase
                     SQLiteConnection.CreateTable<Student>();
                     SQLiteConnection.CreateTable<DegreeCourse>();
                     SQLiteConnection.CreateTable<Exam>();
+                    SQLiteConnection.CreateTable<Test>();
                     SQLiteConnection.CreateTable<Lesson>();
                     SQLiteConnection.CreateTable<Teacher>();
                 }

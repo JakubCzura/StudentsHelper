@@ -1,28 +1,28 @@
-﻿using System;
+﻿using StudentsHelper.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
-using StudentsHelper.View.Windows;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class AddTestCommand : ICommand
+    public class SaveTestCommand : ICommand
     {
-
-        public AddTestCommand(TestVM testVM)
+        public SaveTestCommand(AddTestVM addTestVM)
         {
-            TestVM = testVM;
+            AddTestVM = addTestVM;
         }
+
+        AddTestVM AddTestVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
-        TestVM TestVM { get; set; }
 
         public bool CanExecute(object? parameter)
         {
@@ -31,8 +31,14 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            AddTestWindow AddTestWindow = new AddTestWindow();
-            AddTestWindow.Show();
+            if (SaveTest.Save(AddTestVM.Test))
+            {
+                MessageBox.Show("Zapisano pomyślnie", "Dodano egzamin");
+            }
+            else
+            {
+                MessageBox.Show("Spróbuj dodać egzamin ponownie", "Błąd dodania egzaminu");
+            }
         }
     }
 }

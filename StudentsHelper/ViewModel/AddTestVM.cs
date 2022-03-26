@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class AddTestWM : INotifyPropertyChanged
+    public class AddTestVM : INotifyPropertyChanged
     {
-        public Exam Test { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        public Test Test { get; set; } = new Test { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
         public SaveTestCommand SaveTestCommand { get; set; }
 
-        public AddTestWM()
+        public AddTestVM()
         {
             SaveTestCommand = new SaveTestCommand(this);
         }
@@ -30,33 +31,33 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public DateTime DateOfExam
+        public DateTime DateOfTest
         {
-            get { return Test.DateOfExam; }
+            get { return Test.DateOfTest; }
             set
             {
-                Test.DateOfExam = value;
-                OnPropertyChanged(nameof(DateOfExam));
+                Test.DateOfTest = value;
+                OnPropertyChanged(nameof(DateOfTest));
             }
         }
 
-        public int? HourOfExam
+        public int? HourOfTest
         {
-            get { return Test.HourOfExam; }
+            get { return Test.HourOfTest; }
             set
             {
-                Test.HourOfExam = value;
-                OnPropertyChanged(nameof(HourOfExam));
+                Test.HourOfTest = value;
+                OnPropertyChanged(nameof(HourOfTest));
             }
         }
 
-        public int? MinuteOfExam
+        public int? MinuteOfTest
         {
-            get { return Test.MinuteOfExam; }
+            get { return Test.MinuteOfTest; }
             set
             {
-                Test.MinuteOfExam = value;
-                OnPropertyChanged(nameof(MinuteOfExam));
+                Test.MinuteOfTest = value;
+                OnPropertyChanged(nameof(MinuteOfTest));
             }
         }
         public int? RoomNumber

@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +17,7 @@ namespace StudentsHelper.ViewModel
 
         Teacher teacher = new Teacher();
 
-        private ObservableCollection<Exam> tests = LoginStudent.GetTestsData();
+        private ObservableCollection<Test> tests = LoginStudent.GetTestsData();
 
         public AddTestCommand AddTestCommand { get; set; }
 
@@ -40,7 +41,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public ObservableCollection<Exam> Tests
+        public ObservableCollection<Test> Tests
         {
             get { return tests; }
             set
