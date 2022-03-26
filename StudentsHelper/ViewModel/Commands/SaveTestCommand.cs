@@ -33,11 +33,11 @@ namespace StudentsHelper.ViewModel.Commands
         {
             if (SaveTest.Save(AddTestVM.Test))
             {
-                MessageBox.Show("Zapisano pomyślnie", "Dodano egzamin");
+                MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
             }
             else
             {
-                MessageBox.Show("Spróbuj dodać egzamin ponownie", "Błąd dodania egzaminu");
+                MessageBox.Show("Spróbuj dodać kolokwium ponownie", "Błąd dodania kolokwium");
             }
         }
     }

@@ -30,7 +30,7 @@ namespace StudentsHelper.DataBase
 
             catch (Exception exception)
             {
-                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie dodać egzamin", "Błąd dodania egzaminu");
+                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie dodać kolokwium", "Błąd dodania kolokwium");
                 return false;
             }
         }

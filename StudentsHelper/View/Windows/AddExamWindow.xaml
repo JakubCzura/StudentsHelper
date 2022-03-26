@@ -44,7 +44,7 @@
         <StackPanel Grid.Row="1">
             <UniformGrid Rows="1">
                 <Label FontSize="20">Przedmiot:</Label>
-                <TextBox x:Name="LessonTextBox" FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="ExamTextBox" FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Data egzaminu:</Label>
