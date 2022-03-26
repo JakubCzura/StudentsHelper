@@ -1,7 +1,5 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
-using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,73 +9,72 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class AddExamVM : INotifyPropertyChanged
+    public class AddTestWM : INotifyPropertyChanged
     {
+        public Exam Test { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
-        public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        public SaveTestCommand SaveTestCommand { get; set; }
 
-        public SaveExamsCommand SaveExamsCommand { get; set; }
-
-        public AddExamVM()
+        public AddTestWM()
         {
-            SaveExamsCommand = new SaveExamsCommand(this);
+            SaveTestCommand = new SaveTestCommand(this);
         }
 
         public string Name
         {
-            get { return Exam.Name; }
+            get { return Test.Name; }
             set
             {
-                Exam.Name = value;
+                Test.Name = value;
                 OnPropertyChanged(Name);
             }
         }
 
         public DateTime DateOfExam
         {
-            get { return Exam.DateOfExam; }
+            get { return Test.DateOfExam; }
             set
             {
-                Exam.DateOfExam = value;
+                Test.DateOfExam = value;
                 OnPropertyChanged(nameof(DateOfExam));
             }
         }
 
         public int? HourOfExam
         {
-            get { return Exam.HourOfExam; }
+            get { return Test.HourOfExam; }
             set
             {
-                Exam.HourOfExam = value;
+                Test.HourOfExam = value;
                 OnPropertyChanged(nameof(HourOfExam));
             }
         }
 
         public int? MinuteOfExam
         {
-            get { return Exam.MinuteOfExam; }
+            get { return Test.MinuteOfExam; }
             set
             {
-                Exam.MinuteOfExam = value;
+                Test.MinuteOfExam = value;
                 OnPropertyChanged(nameof(MinuteOfExam));
             }
         }
         public int? RoomNumber
         {
-            get { return Exam.RoomNumber; }
+            get { return Test.RoomNumber; }
             set
             {
-                Exam.RoomNumber = value;
+                Test.RoomNumber = value;
                 OnPropertyChanged(nameof(RoomNumber));
             }
         }
 
         public string Note
         {
-            get { return Exam.Note; }
+            get { return Test.Note; }
             set
             {
-                Exam.Note = value;
+                Test.Note = value;
                 OnPropertyChanged(Note);
             }
         }

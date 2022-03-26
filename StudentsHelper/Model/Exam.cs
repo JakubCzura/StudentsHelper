@@ -32,9 +32,9 @@ namespace StudentsHelper.Model
 
         private string name = string.Empty;
         public string Name
-        { 
-            get { return name; } 
-            set { name = value; } 
+        {
+            get { return name; }
+            set { name = value; }
         }
 
         private DateTime dateOfExam;
@@ -48,29 +48,52 @@ namespace StudentsHelper.Model
             get { return DateOfExam.ToShortDateString(); }
         }
 
-        private int hourOfExam;
-        public int HourOfExam
+        private int? hourOfExam = null;
+        public int? HourOfExam
         {
             get { return hourOfExam; }
-            set { hourOfExam = value; }
+            set
+            {
+                if (value >= 0 && value <= 24)
+                {
+                    hourOfExam = value;
+                }
+            }
         }
 
-        private int minuteOfExam;
+        private int? minuteOfExam = null;
 
-        public int MinuteOfExam
+        public int? MinuteOfExam
         {
             get { return minuteOfExam; }
-            set { minuteOfExam = value; }
+            set
+            {
+                if (value >= 0 && value <= 59)
+                {
+                    minuteOfExam = value;
+                }
+            }
         }
 
-        private int roomNumber;
-        public int RoomNumber
+        public string FullHourOfExam
+        {
+            get { return $"{HourOfExam}:{MinuteOfExam}"; }
+        }
+
+        private int? roomNumber = null;
+        public int? RoomNumber
         {
             get { return roomNumber; }
-            set { roomNumber = value; }
+            set
+            {
+                if (value > 0)
+                {
+                    roomNumber = value;
+                }
+            }
         }
 
-        private string note = string.Empty;     
+        private string note = string.Empty;
         public string Note
         {
             get { return note; }
