@@ -22,8 +22,8 @@ namespace StudentsHelper.DataBase
                     SQLiteConnection.Insert(Exam);
                     if(ExamsVM.Instance != null)
                     {
-                        ExamsVM.Instance.Exams = LoginStudent.GetExamsData();                    }
-                    
+                        ExamsVM.Instance.Exams = LoginStudent.GetExamsData();                    
+                    }                   
                 }
                 return true;
             }

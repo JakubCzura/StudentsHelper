@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View;
 using StudentsHelper.ViewModel.Commands;
@@ -20,6 +21,7 @@ namespace StudentsHelper.ViewModel
             Instance = this;
             LoginCommand = new LoginCommand(this);
             RegisterCommand = new RegisterCommand();
+            DataBaseHelper.CreateEmptyDataBase();
         }
         
         public LoginCommand LoginCommand { get; set; }

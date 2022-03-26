@@ -25,5 +25,24 @@ namespace StudentsHelper.DataBase
 
         public static string StudentLogin { get; set; } = string.Empty;
         
+        public static void CreateEmptyDataBase()
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    SQLiteConnection.CreateTable<Student>();
+                    SQLiteConnection.CreateTable<DegreeCourse>();
+                    SQLiteConnection.CreateTable<Exam>();
+                    SQLiteConnection.CreateTable<Lesson>();
+                    SQLiteConnection.CreateTable<Teacher>();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message + "\nZalecamy zrestartowanie aplikacji", "Błąd utworzenia bazy danych");
+            }
+        }
+
     }
 }
