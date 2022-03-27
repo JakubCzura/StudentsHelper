@@ -55,6 +55,7 @@
             <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy"/>
             <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
             <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil"/>
+            <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"/>
             <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki"/>
         </Menu>
 
