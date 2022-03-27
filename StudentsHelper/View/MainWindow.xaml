@@ -59,8 +59,9 @@
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
-            <uc:ExamsUserControl Visibility="Visible"></uc:ExamsUserControl>
             <!--<uc:TestsUserControl Visibility="Visible"></uc:TestsUserControl>-->
+            <!--<uc:ExamsUserControl Visibility="Visible"></uc:ExamsUserControl>-->
+            <uc:HomeworkUserControl Visibility="Visible"></uc:HomeworkUserControl>
         </Grid>
 
         <Grid Grid.Row="3">

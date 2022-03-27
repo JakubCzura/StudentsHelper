@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,66 +22,54 @@ namespace StudentsHelper.ViewModel
             SaveHomeworkCommand = new SaveHomeworkCommand(this);
         }
 
-        public string Name
+        public string LessonName
         {
-            get { return Test.Name; }
+            get { return Homework.LessonName; }
             set
             {
-                Test.Name = value;
-                OnPropertyChanged(Name);
+                Homework.LessonName = value;
+                OnPropertyChanged(LessonName);
             }
         }
 
-        public DateTime DateOfTest
+        public DateTime DateOfEnd
         {
-            get { return Test.DateOfTest; }
+            get { return Homework.DateOfEnd; }
             set
             {
-                Test.DateOfTest = value;
-                OnPropertyChanged(nameof(DateOfTest));
+                Homework.DateOfEnd = value;
+                OnPropertyChanged(nameof(DateOfEnd));
             }
         }
 
-        public int? HourOfTest
+        public string TeacherName
         {
-            get { return Test.HourOfTest; }
-            set
-            {
-                Test.HourOfTest = value;
-                OnPropertyChanged(nameof(HourOfTest));
-            }
+            get { return Homework.TeacherName; }
+            set { Homework.TeacherName = value; OnPropertyChanged(TeacherName); }
         }
 
-        public int? MinuteOfTest
+        public string TeacherSecondName
         {
-            get { return Test.MinuteOfTest; }
-            set
-            {
-                Test.MinuteOfTest = value;
-                OnPropertyChanged(nameof(MinuteOfTest));
-            }
+            get { return Homework.TeacherSecondName; }
+            set { Homework.TeacherSecondName = value; OnPropertyChanged(TeacherSecondName); }
         }
-        public int? RoomNumber
+
+        public string DateOfEndShort
         {
-            get { return Test.RoomNumber; }
-            set
-            {
-                Test.RoomNumber = value;
-                OnPropertyChanged(nameof(RoomNumber));
-            }
+            get { return Homework.DateOfEnd.ToShortDateString(); }
+        }
+
+        public string Exercise
+        {
+            get { return Homework.Exercise; }
+            set { Homework.Exercise = value; OnPropertyChanged(Exercise); }
         }
 
         public string Note
         {
-            get { return Test.Note; }
-            set
-            {
-                Test.Note = value;
-                OnPropertyChanged(Note);
-            }
+            get { return Homework.Note; }
+            set { Homework.Note= value; OnPropertyChanged(Note); }
         }
-
-      
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

@@ -8,14 +8,14 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class AddExamCommand : ICommand
-    {
-        public AddExamCommand(ExamsVM examsVM)
+    public class AddHomeworkCommand : ICommand
+    { 
+        public AddHomeworkCommand(HomeworkVM homeworkVM)
         {
-            ExamsVM = examsVM;
+            HomeworkVM = homeworkVM;
         }
 
-        ExamsVM ExamsVM { get; set; }
+        HomeworkVM HomeworkVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -30,8 +30,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            AddExamWindow AddExamWindow = new AddExamWindow();
-            AddExamWindow.Show();
+            AddHomeworkWindow AddHomeworkVM = new AddHomeworkWindow();
+            AddHomeworkVM.Show();
         }
     }
 }

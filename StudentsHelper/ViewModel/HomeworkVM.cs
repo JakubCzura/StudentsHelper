@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,9 +20,11 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Homework> homework = LoginStudent.GetHomeworkData();
 
+        public AddHomeworkCommand AddHomeworkCommand { get; set; }
+
         public HomeworkVM()
         {
-
+            AddHomeworkCommand = new AddHomeworkCommand(this);
             Instance = this;
         }
 

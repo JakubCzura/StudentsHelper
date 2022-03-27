@@ -43,11 +43,16 @@ namespace StudentsHelper.Model
         }
 
 
-        private DateTime dateOfEnd;
+        private DateTime dateOfEnd = DateTime.Today;
         public DateTime DateOfEnd
         {
             get { return dateOfEnd; }
             set { dateOfEnd = value; }
+        }
+
+        public string TeacherFullName
+        {
+            get { return $"{TeacherName} {TeacherSecondName}"; }
         }
 
         public string DateOfEndShort

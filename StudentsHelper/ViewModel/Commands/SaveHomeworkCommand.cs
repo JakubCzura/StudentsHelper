@@ -1,21 +1,22 @@
-﻿using StudentsHelper.View.Windows;
+﻿using StudentsHelper.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class AddExamCommand : ICommand
+    public class SaveHomeworkCommand : ICommand
     {
-        public AddExamCommand(ExamsVM examsVM)
+        public SaveHomeworkCommand(AddHomeworkVM addHomeworkVM)
         {
-            ExamsVM = examsVM;
+            AddHomeworkVM = addHomeworkVM;
         }
 
-        ExamsVM ExamsVM { get; set; }
+        AddHomeworkVM AddHomeworkVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -30,8 +31,14 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            AddExamWindow AddExamWindow = new AddExamWindow();
-            AddExamWindow.Show();
+            if (SaveHomework.Save(AddHomeworkVM.Homework))
+            {
+                MessageBox.Show("Zapisano pomyślnie", "Dodano pracę domową");
+            }
+            else
+            {
+                MessageBox.Show("Spróbuj dodać pracę domową ponownie", "Błąd dodania pracy domowej");
+            }
         }
     }
 }
