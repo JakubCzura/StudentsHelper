@@ -28,7 +28,7 @@ namespace StudentsHelper.Model
             set { name = value; }
         }
 
-        private DateTime dateOfExam;
+        private DateTime dateOfExam = DateTime.Today;
         public DateTime DateOfExam
         {
             get { return dateOfExam; }

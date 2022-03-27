@@ -20,7 +20,7 @@ namespace StudentsHelper.UserControls
     /// </summary>
     public partial class UserDataUserControl : UserControl
     {
-        public static UserDataUserControl? UserDataUserControlInstance { get; set; }
+        public static UserDataUserControl? UserDataUserControlInstance { get; private set; }
         public UserDataUserControl()
         {
             InitializeComponent();

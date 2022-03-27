@@ -20,9 +20,11 @@ namespace StudentsHelper.UserControls
     /// </summary>
     public partial class HomeworkUserControl : UserControl
     {
+        public static HomeworkUserControl? Instance { get; private set; }
         public HomeworkUserControl()
         {
             InitializeComponent();
+            Instance = this;
         }
     }
 }

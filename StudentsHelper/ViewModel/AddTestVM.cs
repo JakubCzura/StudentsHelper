@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;

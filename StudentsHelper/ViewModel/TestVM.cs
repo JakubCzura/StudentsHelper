@@ -55,12 +55,18 @@ namespace StudentsHelper.ViewModel
 
         public void SetWindowHidden()
         {
-            TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+            if (TestsUserControl.Instance != null)
+            {
+                TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+            }
         }
 
         public void SetWindowVisible()
         {
-            TestsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+            if (TestsUserControl.Instance != null)
+            {
+                TestsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

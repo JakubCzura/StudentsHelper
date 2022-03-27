@@ -10,6 +10,13 @@ namespace StudentsHelper.Model
 {
     public class Homework
     {
+
+        public Homework()
+        {
+            DateOfEnd = DateTime.Now;
+        }
+
+
         private int id = 0;
 
         [PrimaryKey, AutoIncrement]

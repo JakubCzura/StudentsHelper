@@ -10,16 +10,6 @@ namespace StudentsHelper.Model
     public class Test
     {
         public Test() { DateOfTest = DateTime.Now; }
-        public Test(string name, int roomNumber, string note, int hourOfExam, int minuteOfExam, int studentId, DateTime dateOfExam)
-        {
-            Name = name;
-            DateOfTest = dateOfExam;
-            RoomNumber = roomNumber;
-            Note = note;
-            HourOfTest = hourOfExam;
-            MinuteOfTest = minuteOfExam;
-            StudentId = studentId;
-        }
 
         private int id;
         [PrimaryKey, AutoIncrement]
@@ -36,7 +26,7 @@ namespace StudentsHelper.Model
             set { name = value; }
         }
 
-        private DateTime dateOfTest;
+        private DateTime dateOfTest = DateTime.Today;
         public DateTime DateOfTest
         {
             get { return dateOfTest; }

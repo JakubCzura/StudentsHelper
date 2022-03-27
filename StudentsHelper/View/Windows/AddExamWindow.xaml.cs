@@ -20,9 +20,11 @@ namespace StudentsHelper.View.Windows
     /// </summary>
     public partial class AddExamWindow : Window
     {
+        public static AddExamWindow? Instance { get; private set; }
         public AddExamWindow()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)

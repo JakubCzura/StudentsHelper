@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.UserControls;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class HomeworkVM : INotifyPropertyChanged
+    public class HomeworkVM : INotifyPropertyChanged, IWindowVisibility
     {
         //This class refers to HomeworkUserControl.xaml
 
@@ -97,6 +98,22 @@ namespace StudentsHelper.ViewModel
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void SetWindowHidden()
+        {
+            if (HomeworkUserControl.Instance != null)
+            {
+                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
+        public void SetWindowVisible()
+        {
+            if (HomeworkUserControl.Instance != null)
+            {
+                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+            }
         }
     }
 }

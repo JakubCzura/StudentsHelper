@@ -19,7 +19,7 @@ namespace StudentsHelper.View.Windows
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        public static RegisterWindow? Instance { get; set; }
+        public static RegisterWindow? Instance { get; private set; }
         public RegisterWindow()
         {
             InitializeComponent();

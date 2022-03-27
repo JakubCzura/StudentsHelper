@@ -25,7 +25,7 @@ namespace StudentsHelper.ViewModel
         //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         //}
 
-        public Action ActionInstance{ get; set; }
+        //public Action ActionInstance{ get; set; }
 
 
         public void HideMainWindowUserControls()
@@ -34,21 +34,21 @@ namespace StudentsHelper.ViewModel
             TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
         }
 
-        public void HideMainWindowUserControls2()
-        {
-            ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-        }
+        //public void HideMainWindowUserControls2()
+        //{
+        //    ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+        //    TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+        //}
 
-        public void s()
-        {
-            ActionInstance += HideMainWindowUserControls;
-            ActionInstance += HideMainWindowUserControls2;
-        }
+        //public void s()
+        //{
+        //    ActionInstance += HideMainWindowUserControls;
+        //    ActionInstance += HideMainWindowUserControls2;
+        //}
 
-        public void Invo()
-        {
-            ActionInstance?.Invoke(); 
-        }
+        //public void Invo()
+        //{
+        //    ActionInstance?.Invoke(); 
+        //}
     }
 }
