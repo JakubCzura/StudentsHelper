@@ -10,21 +10,29 @@ namespace StudentsHelper.Model
     public class Teacher
     {
         public Teacher() { }
-        public Teacher(string name, string lastName, string degree, int roomNumber, string note)
+
+        private int id = 0;
+        [PrimaryKey, AutoIncrement]
+        public int Id
         {
-            Name = name;
-            LastName = lastName;
-            Degree = degree;
-            RoomNumber = roomNumber;
-            Note = note;
+            get { return id; }
+            set { id = value; }
         }
 
-        private int studentid = 0;
+        private string lesson = string.Empty;
 
-        public int Studentid
+        public string Lesson 
+        { 
+            get { return lesson; } 
+            set { lesson = value; } 
+        }
+
+        private int studentId = 0;
+
+        public int StudentId
         {
-            get { return studentid; }
-            set { studentid = value; }
+            get { return studentId; }
+            set { studentId = value; }
         }
 
         private string name = string.Empty;
@@ -62,17 +70,16 @@ namespace StudentsHelper.Model
             set { note = value; }
         }
 
-        private int id = 0;
-        [PrimaryKey, AutoIncrement]
-        public int Id
+        private string studentLogin = string.Empty;
+        public string StudentLogin
         {
-            get { return id; }
-            set { id = value; }
+            get { return studentLogin; }
+            set { studentLogin = value; }
         }
 
-        public override string ToString()
+        public string TeacherFullName
         {
-            return Degree + " " + Name + " " + lastName;
+            get { return Degree + " " + Name + " " + lastName; }
         }
     }
 }

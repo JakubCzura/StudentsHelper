@@ -12,45 +12,45 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class TestVM : INotifyPropertyChanged, IWindowVisibility
+    public class TeachersVM : INotifyPropertyChanged, IWindowVisibility
     {
-        //This class refers to TestsUserControl.xaml
-        public static TestVM? Instance { get; set; }
+        //This class refers to TeachersUserControl.xaml
+        public static TeachersVM? Instance { get; set; }
 
-        private ObservableCollection<Test> tests = LoginStudent.GetTestsData();
+        private ObservableCollection<Teacher> teachers = LoginStudent.GetTeachersData();
 
-        public AddTestCommand AddTestCommand { get; set; }
+        public AddTeacherCommand AddTeacherCommand { get; set; }
 
-        public TestVM()
+        public TeachersVM()
         {
-            AddTestCommand = new AddTestCommand(this);
+            AddTeacherCommand = new AddTeacherCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
 
-        public ObservableCollection<Test> Tests
+        public ObservableCollection<Teacher> Teachers
         {
-            get { return tests; }
+            get { return teachers; }
             set
             {
-                tests = value;
-                OnPropertyChanged(nameof(Tests));
+                teachers = value;
+                OnPropertyChanged(nameof(teachers));
             }
         }
 
         public void SetWindowHidden()
         {
-            if (TestsUserControl.Instance != null)
+            if (TeachersUserControl.Instance != null)
             {
-                TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+                TeachersUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
         public void SetWindowVisible()
         {
-            if (TestsUserControl.Instance != null)
+            if (TeachersUserControl.Instance != null)
             {
-                TestsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+                TeachersUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
@@ -60,6 +60,5 @@ namespace StudentsHelper.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

@@ -154,5 +154,28 @@ namespace StudentsHelper.DataBase
                 return null;
             }
         }
+
+        public static ObservableCollection<Teacher> GetTeachersData()
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    List<Teacher> TeachersList = SQLiteConnection.Table<Teacher>().Where(e => e.StudentId == StudentId).ToList();
+                    ObservableCollection<Teacher> Teachers = new ObservableCollection<Teacher>(TeachersList);
+                    if (Teachers != null)
+                    {
+                        return Teachers;
+                    }
+                }
+                return null;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
+                return null;
+            }
+        }
     }
 }

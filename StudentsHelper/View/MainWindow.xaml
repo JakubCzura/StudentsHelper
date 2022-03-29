@@ -52,7 +52,7 @@
         <Menu Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
             <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia"  Command="{Binding SetTestsVisibleCommand}"/>
             <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SetExamsVisibleCommand}"/>
-            <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy"/>
+            <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SetTeachersVisibleCommand}"/>
             <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
             <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil"/>
             <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"  Command="{Binding SetHomeworkVisibleCommand}"/>
@@ -62,12 +62,12 @@
         <Grid Grid.Row="2" Background="Beige">
             <uc:TestsUserControl Visibility="Hidden"></uc:TestsUserControl>
             <uc:ExamsUserControl Visibility="Hidden"></uc:ExamsUserControl>
+            <uc:TeachersUserControl Visibility="Hidden"></uc:TeachersUserControl>
             <uc:HomeworkUserControl Visibility="Visible"></uc:HomeworkUserControl>
         </Grid>
 
         <Grid Grid.Row="3">
             <uc:UserDataUserControl Visibility="Visible"></uc:UserDataUserControl>
-            
         </Grid>
     </Grid>
 
