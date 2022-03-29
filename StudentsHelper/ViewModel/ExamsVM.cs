@@ -25,16 +25,23 @@ namespace StudentsHelper.ViewModel
         {
             AddExamCommand = new AddExamCommand(this);
             Instance = this;
+            WindowsVisibility.HideWindow += SetWindowHidden;
         }
 
         public void SetWindowHidden()
         {
-            ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+            if (ExamsUserControl.Instance != null)
+            {
+                ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+            }
         }
 
         public void SetWindowVisible()
         {
-            ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+            if (ExamsUserControl.Instance != null)
+            {
+                ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+            }
         }      
             
         public ObservableCollection<Exam> Exams

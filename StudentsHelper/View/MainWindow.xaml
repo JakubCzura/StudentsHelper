@@ -50,18 +50,18 @@
         </DockPanel>
 
         <Menu Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
-            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia"/>
-            <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy"/>
+            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia"  Command="{Binding SetTestsVisibleCommand}"/>
+            <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SetExamsVisibleCommand}"/>
             <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy"/>
             <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
             <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil"/>
-            <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"/>
+            <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"  Command="{Binding SetHomeworkVisibleCommand}"/>
             <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki"/>
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
-            <!--<uc:TestsUserControl Visibility="Visible"></uc:TestsUserControl>-->
-            <!--<uc:ExamsUserControl Visibility="Visible"></uc:ExamsUserControl>-->
+            <uc:TestsUserControl Visibility="Hidden"></uc:TestsUserControl>
+            <uc:ExamsUserControl Visibility="Hidden"></uc:ExamsUserControl>
             <uc:HomeworkUserControl Visibility="Visible"></uc:HomeworkUserControl>
         </Grid>
 

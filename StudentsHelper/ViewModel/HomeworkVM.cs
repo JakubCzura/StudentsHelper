@@ -27,6 +27,7 @@ namespace StudentsHelper.ViewModel
         {
             AddHomeworkCommand = new AddHomeworkCommand(this);
             Instance = this;
+            WindowsVisibility.HideWindow += SetWindowHidden;
         }
 
         public ObservableCollection<Homework> Homework
@@ -40,6 +41,31 @@ namespace StudentsHelper.ViewModel
         }
 
 
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void SetWindowHidden()
+        {
+            if (HomeworkUserControl.Instance != null)
+            {
+                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+
+        public void SetWindowVisible()
+        {
+            if (HomeworkUserControl.Instance != null)
+            {
+                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+    }
+}
 
         //[PrimaryKey, AutoIncrement]
         //public int Id
@@ -92,28 +118,3 @@ namespace StudentsHelper.ViewModel
         //    get { return Homework.Exercise; }
         //    set { Homework.Exercise = value; OnPropertyChanged(Exercise); }
         //}
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void SetWindowHidden()
-        {
-            if (HomeworkUserControl.Instance != null)
-            {
-                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetWindowVisible()
-        {
-            if (HomeworkUserControl.Instance != null)
-            {
-                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-    }
-}

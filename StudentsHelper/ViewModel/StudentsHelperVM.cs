@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +18,24 @@ namespace StudentsHelper.ViewModel
         public StudentsHelperVM()
         {
             Instance = this;
-            
+
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Student = LoginStudent.GetStudentData();
+            SetExamsVisibleCommand = new SetExamsVisibleCommand();
+            SetHomeworkVisibleCommand = new SetHomeworkVisibleCommand();
+            SetTestsVisibleCommand = new SetTestsVisibleCommand();
         }
 
         public Student Student { get; set; }
-        
+
         public DegreeCourse DegreeCourse { get; set; }
+
+        public SetExamsVisibleCommand SetExamsVisibleCommand { get; set; }
+
+        public SetHomeworkVisibleCommand SetHomeworkVisibleCommand { get; set; }
+
+        public SetTestsVisibleCommand SetTestsVisibleCommand { get; set; }
+
 
         public string Name
         {

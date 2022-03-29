@@ -27,6 +27,7 @@ namespace StudentsHelper.ViewModel
         {
             AddTestCommand = new AddTestCommand(this);
             Instance = this;
+            WindowsVisibility.HideWindow += SetWindowHidden;
         }
 
         public string TeacherFullName
