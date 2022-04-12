@@ -31,13 +31,17 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveNote.Save(AddNoteVM.Note))
+            if (SaveData.Save(AddNoteVM.Note))
             {
-                MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
+                if (NotesVM.Instance != null)
+                {
+                    NotesVM.Instance.Notes = LoginStudent.GetNotesData();
+                }
+                MessageBox.Show("Zapisano pomyślnie", "Dodano notatkę");
             }
             else
             {
-                MessageBox.Show("Spróbuj dodać kolokwium ponownie", "Błąd dodania kolokwium");
+                MessageBox.Show("Spróbuj dodać notatkę ponownie", "Błąd dodania notatki");
             }
         }
     }

@@ -31,8 +31,12 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveTeacher.Save(AddTeacherVM.Teacher))
+            if(SaveData.Save(AddTeacherVM.Teacher))
             {
+                if (TeachersVM.Instance != null)
+                {
+                    TeachersVM.Instance.Teachers = LoginStudent.GetTeachersData();
+                }
                 MessageBox.Show("Zapisano pomyślnie", "Dodano wykładowcę");
             }
             else

@@ -31,8 +31,12 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveTest.Save(AddTestVM.Test))
+            if (SaveData.Save(AddTestVM.Test))
             {
+                if (TestVM.Instance != null)
+                {
+                    TestVM.Instance.Tests = LoginStudent.GetTestsData();
+                }
                 MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
             }
             else

@@ -1,29 +1,25 @@
-﻿using SQLite;
-using StudentsHelper.Model;
-using StudentsHelper.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using SQLite;
+using StudentsHelper.Model;
+using StudentsHelper.ViewModel;
 
 namespace StudentsHelper.DataBase
 {
-    public class SaveTest : DataBaseHelper
+    public class SaveData : DataBaseHelper
     {
-        public static bool Save(Test Test)
+        public static bool Save<T>(T Data) where T : class
         {
             try
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    SQLiteConnection.CreateTable<Test>();
-                    SQLiteConnection.Insert(Test);
-                    if (TestVM.Instance != null)
-                    {
-                        TestVM.Instance.Tests = LoginStudent.GetTestsData();
-                    }
+                    SQLiteConnection.CreateTable<T>();
+                    SQLiteConnection.Insert(Data);
                 }
                 return true;
             }

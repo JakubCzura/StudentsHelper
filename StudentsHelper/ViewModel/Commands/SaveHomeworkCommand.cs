@@ -31,9 +31,13 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveHomework.Save(AddHomeworkVM.Homework))
+            if (SaveData.Save(AddHomeworkVM.Homework))
             {
-                MessageBox.Show("Zapisano pomyślnie", "Dodano pracę domową");
+                if (HomeworkVM.Instance != null)
+                {
+                    HomeworkVM.Instance.Homework = LoginStudent.GetHomeworkData();
+                }
+                MessageBox.Show("Zapisano pomyślnie", "Dodano zadanie domowe");
             }
             else
             {

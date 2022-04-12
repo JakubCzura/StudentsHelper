@@ -31,8 +31,12 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if(SaveExams.Save(AddExamVM.Exam))
+            if(SaveData.Save(AddExamVM.Exam))
             {
+                if (ExamsVM.Instance != null)
+                {
+                    ExamsVM.Instance.Exams = LoginStudent.GetExamsData();
+                }
                 MessageBox.Show("Zapisano pomyślnie", "Dodano egzamin");
             }
             else
