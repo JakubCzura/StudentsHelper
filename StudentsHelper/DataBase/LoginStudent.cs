@@ -68,7 +68,7 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    DegreeCourse DegreeCourse= SQLiteConnection.Table<DegreeCourse>().First(s => s.Id == StudentId);
+                    DegreeCourse DegreeCourse = SQLiteConnection.Table<DegreeCourse>().First(s => s.Id == StudentId);
                     if (DegreeCourse != null)
                     {
                         return DegreeCourse;
@@ -90,7 +90,7 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    List <Exam> ExamsList = SQLiteConnection.Table<Exam>().Where(e => e.StudentId == StudentId).ToList();
+                    List<Exam> ExamsList = SQLiteConnection.Table<Exam>().Where(e => e.StudentId == StudentId).ToList();
                     ObservableCollection<Exam> Exams = new ObservableCollection<Exam>(ExamsList);
 
                     if (Exams != null)
@@ -166,6 +166,29 @@ namespace StudentsHelper.DataBase
                     if (Teachers != null)
                     {
                         return Teachers;
+                    }
+                }
+                return null;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
+                return null;
+            }
+        }
+
+        public static ObservableCollection<Note> GetNotesData()
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    List<Note> NotesList = SQLiteConnection.Table<Note>().Where(e => e.StudentId == StudentId).ToList();
+                    ObservableCollection<Note> Notes = new ObservableCollection<Note>(NotesList);
+                    if (Notes != null)
+                    {
+                        return Notes;
                     }
                 }
                 return null;

@@ -38,6 +38,7 @@ namespace StudentsHelper.DataBase
                     SQLiteConnection.CreateTable<Test>();
                     SQLiteConnection.CreateTable<Lesson>();
                     SQLiteConnection.CreateTable<Teacher>();
+                    SQLiteConnection.CreateTable<Note>();
                 }
             }
             catch (Exception exception)

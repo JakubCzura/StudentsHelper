@@ -56,7 +56,7 @@
             <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
             <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil"/>
             <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"  Command="{Binding SetHomeworkVisibleCommand}"/>
-            <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki"/>
+            <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki" Command="{Binding SetNotesVisibleCommand}"/>
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
@@ -64,6 +64,7 @@
             <uc:ExamsUserControl Visibility="Hidden"></uc:ExamsUserControl>
             <uc:TeachersUserControl Visibility="Hidden"></uc:TeachersUserControl>
             <uc:HomeworkUserControl Visibility="Visible"></uc:HomeworkUserControl>
+            <uc:NotesUserControl Visibility="Visible"></uc:NotesUserControl>
         </Grid>
 
         <Grid Grid.Row="3">
