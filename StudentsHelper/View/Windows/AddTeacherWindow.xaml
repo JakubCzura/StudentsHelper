@@ -44,6 +44,10 @@
 
         <StackPanel Grid.Row="1">
             <UniformGrid Rows="1">
+                <Label FontSize="20">Tytuł naukowy:</Label>
+                <TextBox x:Name="DegreeTextBox" FontSize="20" Text="{Binding Degree, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+            <UniformGrid Rows="1">
                 <Label FontSize="20">Imię wykładowcy:</Label>
                 <TextBox x:Name="NameTextBox" FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
