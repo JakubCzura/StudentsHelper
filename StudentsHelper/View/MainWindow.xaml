@@ -63,7 +63,7 @@
             <uc:TestsUserControl Visibility="Hidden"></uc:TestsUserControl>
             <uc:ExamsUserControl Visibility="Hidden"></uc:ExamsUserControl>
             <uc:TeachersUserControl Visibility="Hidden"></uc:TeachersUserControl>
-            <uc:HomeworkUserControl Visibility="Visible"></uc:HomeworkUserControl>
+            <uc:HomeworkUserControl Visibility="Hidden"></uc:HomeworkUserControl>
             <uc:NotesUserControl Visibility="Visible"></uc:NotesUserControl>
         </Grid>
 
