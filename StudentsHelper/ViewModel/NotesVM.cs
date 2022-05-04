@@ -39,6 +39,21 @@ namespace StudentsHelper.ViewModel
             }
         }
 
+        public Note? selectedNote { get; set; }
+        public Note? SelectedNote
+        {
+            get
+            { 
+                return selectedNote; 
+            }
+            set 
+            {
+                selectedNote = value;
+                OnPropertyChanged(nameof(SelectedNote));
+            }
+        }
+
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)

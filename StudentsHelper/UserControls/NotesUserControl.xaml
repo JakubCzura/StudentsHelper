@@ -24,10 +24,10 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <Button x:Name="AddNoteButton" Content="Dodaj notatkę" Command="{Binding AddNoteCommand}" />
-            <Button>Dodaj</Button>
+            <Button Click="Button_Click">Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Notes}" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Notes}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedNote}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Data" Binding="{Binding Path=Date}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nazwa notatki" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>

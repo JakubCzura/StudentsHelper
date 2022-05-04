@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,14 @@ namespace StudentsHelper.Model
 {
     public class Note
     {
+        private int id { get; set; } = 0;
+        [PrimaryKey, AutoIncrement]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         private DateTime date { get; set; } = DateTime.Now;
         public DateTime Date
         {

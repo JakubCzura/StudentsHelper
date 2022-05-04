@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,11 @@ namespace StudentsHelper.UserControls
         {
             InitializeComponent();
             Instance = this;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(NotesVM.Instance?.SelectedNote?.Id.ToString());
         }
     }
 }

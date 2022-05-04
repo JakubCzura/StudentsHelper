@@ -64,7 +64,13 @@
             <uc:ExamsUserControl Visibility="Hidden"></uc:ExamsUserControl>
             <uc:TeachersUserControl Visibility="Hidden"></uc:TeachersUserControl>
             <uc:HomeworkUserControl Visibility="Hidden"></uc:HomeworkUserControl>
-            <uc:NotesUserControl Visibility="Visible"></uc:NotesUserControl>
+            <uc:NotesUserControl Visibility="Visible">
+                <uc:NotesUserControl.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Usuń notatkę"></MenuItem>
+                    </ContextMenu>
+                </uc:NotesUserControl.ContextMenu>
+            </uc:NotesUserControl>
         </Grid>
 
         <Grid Grid.Row="3">
