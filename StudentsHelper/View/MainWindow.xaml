@@ -14,6 +14,7 @@
 
     <Window.Resources>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
+        <vm:NotesVM x:Key="NotesVM"></vm:NotesVM>
     </Window.Resources>
 
     <Grid DataContext="{StaticResource StudentsHelperVM}">
@@ -66,8 +67,8 @@
             <uc:HomeworkUserControl Visibility="Hidden"></uc:HomeworkUserControl>
             <uc:NotesUserControl Visibility="Visible">
                 <uc:NotesUserControl.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="Usuń notatkę"></MenuItem>
+                    <ContextMenu DataContext="{StaticResource NotesVM}">
+                        <MenuItem Header="Usuń notatkę" Command="{Binding DeleteNoteCommand}"></MenuItem>
                     </ContextMenu>
                 </uc:NotesUserControl.ContextMenu>
             </uc:NotesUserControl>

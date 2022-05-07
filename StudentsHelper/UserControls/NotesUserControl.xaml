@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <Button x:Name="AddNoteButton" Content="Dodaj notatkę" Command="{Binding AddNoteCommand}" />
-            <Button Click="Button_Click">Dodaj</Button>
+            <Button>Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
         <DataGrid Grid.Row="1" ItemsSource="{Binding Notes}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedNote}">
