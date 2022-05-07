@@ -9,14 +9,14 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class DeleteNoteCommand : ICommand
+    public class DeleteTeacherCommand : ICommand
     {
-        public DeleteNoteCommand(NotesVM notesVM)
+        public DeleteTeacherCommand(TeachersVM teachersVM)
         {
-            NotesVM = notesVM;
+            TeachersVM= teachersVM;
         }
 
-        NotesVM NotesVM { get; set; }
+        TeachersVM TeachersVM{ get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -26,26 +26,26 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (NotesVM.Instance?.Notes != null && NotesVM.Instance.Notes.Any() == true)
+            if (TeachersVM.Instance?.Teachers != null && TeachersVM.Instance.Teachers.Any() == true)
             {
                 return true;
             }
-            return false;
+            return false; 
         }
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Delete(NotesVM.SelectedNote))
+            if (SaveData.Delete(TeachersVM.SelectedTeacher))
             {
-                if (NotesVM.Instance != null)
+                if (TeachersVM.Instance != null)
                 {
-                    NotesVM.Instance.Notes = LoginStudent.GetNotesData();
+                    TeachersVM.Instance.Teachers = LoginStudent.GetTeachersData();
                 }
-                MessageBox.Show("Skasowano informację o notatce", "Zapisano pomyślnie");
+                MessageBox.Show("Skasowano informację o nauczycielu","Zapisano pomyślnie");
             }
             else
             {
-                MessageBox.Show("Spróbuj skasować informację o notatce ponownie", "Błąd skasowania informacji o notatce");
+                MessageBox.Show("Spróbuj skasować informację o nauczycielu ponownie", "Błąd skasowania informacji o nauczycielu");
             }
         }
     }

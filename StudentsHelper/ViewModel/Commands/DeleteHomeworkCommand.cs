@@ -9,14 +9,14 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class DeleteNoteCommand : ICommand
+    public class DeleteHomeworkCommand : ICommand
     {
-        public DeleteNoteCommand(NotesVM notesVM)
+        public DeleteHomeworkCommand(HomeworkVM homeworkVM)
         {
-            NotesVM = notesVM;
+            HomeworkVM = homeworkVM;
         }
 
-        NotesVM NotesVM { get; set; }
+        HomeworkVM HomeworkVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -26,7 +26,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (NotesVM.Instance?.Notes != null && NotesVM.Instance.Notes.Any() == true)
+            if (HomeworkVM.Instance?.Homework != null && HomeworkVM.Instance.Homework.Any() == true)
             {
                 return true;
             }
@@ -35,17 +35,17 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Delete(NotesVM.SelectedNote))
+            if (SaveData.Delete(HomeworkVM.SelectedHomework))
             {
-                if (NotesVM.Instance != null)
+                if (HomeworkVM.Instance != null)
                 {
-                    NotesVM.Instance.Notes = LoginStudent.GetNotesData();
+                    HomeworkVM.Instance.Homework = LoginStudent.GetHomeworkData();
                 }
-                MessageBox.Show("Skasowano informację o notatce", "Zapisano pomyślnie");
+                MessageBox.Show("Skasowano informację o zadaniu domowym", "Zapisano pomyślnie");
             }
             else
             {
-                MessageBox.Show("Spróbuj skasować informację o notatce ponownie", "Błąd skasowania informacji o notatce");
+                MessageBox.Show("Spróbuj skasować informację o zadaniu domowym ponownie", "Błąd skasowania informacji o zadaniu domowym");
             }
         }
     }

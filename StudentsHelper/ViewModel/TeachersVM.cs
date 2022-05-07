@@ -38,6 +38,20 @@ namespace StudentsHelper.ViewModel
             }
         }
 
+        public Teacher selectedTeacher{ get; set; }
+        public Teacher SelectedTeacher
+        {
+            get
+            {
+                return selectedTeacher;
+            }
+            set
+            {
+                selectedTeacher= value;
+                OnPropertyChanged(nameof(SelectedTeacher));
+            }
+        }
+
         public void SetWindowHidden()
         {
             if (TeachersUserControl.Instance != null)

@@ -37,7 +37,19 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(nameof(Tests));
             }
         }
-
+        public Test selectedTest{ get; set; }
+        public Test SelectedTest
+        {
+            get
+            {
+                return selectedTest;
+            }
+            set
+            {
+                selectedTest = value;
+                OnPropertyChanged(nameof(SelectedTest));
+            }
+        }
         public void SetWindowHidden()
         {
             if (TestsUserControl.Instance != null)

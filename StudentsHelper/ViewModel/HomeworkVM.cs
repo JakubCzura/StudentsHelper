@@ -40,7 +40,19 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-
+        public Homework selectedHomework{ get; set; }
+        public Homework SelectedHomework
+        {
+            get
+            {
+                return selectedHomework;
+            }
+            set
+            {
+                selectedHomework = value;
+                OnPropertyChanged(nameof(SelectedHomework));
+            }
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

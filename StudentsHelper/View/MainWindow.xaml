@@ -14,6 +14,10 @@
 
     <Window.Resources>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
+        <vm:TestVM x:Key="TestVM"></vm:TestVM>
+        <vm:ExamsVM x:Key="ExamsVM"></vm:ExamsVM>
+        <vm:TeachersVM x:Key="TeachersVM"></vm:TeachersVM>
+        <vm:HomeworkVM x:Key="HomeworkVM"></vm:HomeworkVM>
         <vm:NotesVM x:Key="NotesVM"></vm:NotesVM>
     </Window.Resources>
 
@@ -61,10 +65,34 @@
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
-            <uc:TestsUserControl Visibility="Hidden"></uc:TestsUserControl>
-            <uc:ExamsUserControl Visibility="Hidden"></uc:ExamsUserControl>
-            <uc:TeachersUserControl Visibility="Hidden"></uc:TeachersUserControl>
-            <uc:HomeworkUserControl Visibility="Hidden"></uc:HomeworkUserControl>
+            <uc:TestsUserControl Visibility="Hidden">
+                <uc:TestsUserControl.ContextMenu>
+                    <ContextMenu DataContext="{StaticResource TestVM}">
+                        <MenuItem Header="Usuń test" Command="{Binding DeleteTestCommand}"></MenuItem>
+                    </ContextMenu>
+                </uc:TestsUserControl.ContextMenu>
+            </uc:TestsUserControl>
+            <uc:ExamsUserControl Visibility="Hidden">
+                <uc:ExamsUserControl.ContextMenu>
+                    <ContextMenu DataContext="{StaticResource ExamsVM}">
+                        <MenuItem Header="Usuń egzamin" Command="{Binding DeleteExamCommand}"></MenuItem>
+                    </ContextMenu>
+                </uc:ExamsUserControl.ContextMenu>
+            </uc:ExamsUserControl>
+            <uc:TeachersUserControl Visibility="Hidden">
+                <uc:TeachersUserControl.ContextMenu>
+                    <ContextMenu DataContext="{StaticResource TeachersVM}">
+                        <MenuItem Header="Usuń informację o nauczycielu" Command="{Binding DeleteTeacherCommand}"></MenuItem>
+                    </ContextMenu>
+                </uc:TeachersUserControl.ContextMenu>
+            </uc:TeachersUserControl>
+            <uc:HomeworkUserControl Visibility="Hidden">
+                <uc:HomeworkUserControl.ContextMenu>
+                    <ContextMenu DataContext="{StaticResource HomeworkVM}">
+                        <MenuItem Header="Usuń zadanie domowe" Command="{Binding DeleteHomeworkCommand}"></MenuItem>
+                    </ContextMenu>
+                </uc:HomeworkUserControl.ContextMenu>
+            </uc:HomeworkUserControl>
             <uc:NotesUserControl Visibility="Visible">
                 <uc:NotesUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource NotesVM}">

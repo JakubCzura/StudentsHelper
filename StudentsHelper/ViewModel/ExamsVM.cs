@@ -54,6 +54,20 @@ namespace StudentsHelper.ViewModel
             }
         }
 
+        public Exam selectedExam{ get; set; }
+        public Exam SelectedExam
+        {
+            get
+            {
+                return selectedExam;
+            }
+            set
+            {
+                selectedExam = value;
+                OnPropertyChanged(nameof(SelectedExam));
+            }
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
