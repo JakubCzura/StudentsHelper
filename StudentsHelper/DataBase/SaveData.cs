@@ -30,5 +30,23 @@ namespace StudentsHelper.DataBase
                 return false;
             }
         }
+
+        public static bool Delete<T>(T Data) where T : class
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    SQLiteConnection.Delete(Data);
+                }
+                return true;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie skasować treść", "Błąd kasowania danych");
+                return false;
+            }
+        }
     }
 }

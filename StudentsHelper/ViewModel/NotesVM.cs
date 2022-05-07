@@ -14,17 +14,19 @@ namespace StudentsHelper.ViewModel
 {
     public class NotesVM : INotifyPropertyChanged, IWindowVisibility
     {
-        //This class refers to HomeworkUserControl.xaml
+        //This class refers to NotesUserControl.xaml
 
         public static NotesVM? Instance { get; set; }
 
         private ObservableCollection<Note> notes = LoginStudent.GetNotesData();
 
         public AddNoteCommand AddNoteCommand { get; set; }
-
+        
+        public DeleteNoteCommand DeleteNoteCommand { get; set; }
         public NotesVM()
         {
             AddNoteCommand = new AddNoteCommand(this);
+            DeleteNoteCommand = new DeleteNoteCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
@@ -39,8 +41,8 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public Note? selectedNote { get; set; }
-        public Note? SelectedNote
+        public Note selectedNote { get; set; }
+        public Note SelectedNote
         {
             get
             { 
