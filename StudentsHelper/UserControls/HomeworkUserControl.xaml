@@ -26,7 +26,7 @@
             <Button>Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Homework}" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Homework}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedHomework}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=LessonName}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Treść zadania" Binding="{Binding Path=Exercise}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>

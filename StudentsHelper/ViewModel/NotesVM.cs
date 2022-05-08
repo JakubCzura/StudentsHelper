@@ -41,7 +41,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public Note selectedNote { get; set; }
+        private Note selectedNote { get; set; }
         public Note SelectedNote
         {
             get

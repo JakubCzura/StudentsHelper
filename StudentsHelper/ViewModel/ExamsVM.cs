@@ -21,9 +21,11 @@ namespace StudentsHelper.ViewModel
 
         public AddExamCommand AddExamCommand { get; set; }
 
+        public DeleteExamCommand DeleteExamCommand { get; set; }
         public ExamsVM()
         {
             AddExamCommand = new AddExamCommand(this);
+            DeleteExamCommand = new DeleteExamCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
@@ -54,7 +56,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public Exam selectedExam{ get; set; }
+        private Exam selectedExam{ get; set; }
         public Exam SelectedExam
         {
             get

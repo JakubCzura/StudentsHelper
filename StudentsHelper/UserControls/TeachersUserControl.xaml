@@ -27,7 +27,7 @@
             <Button>Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Teachers}" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Teachers}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedTeacher}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Wykładowca" Binding="{Binding Path=TeacherFullName}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Lesson}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>

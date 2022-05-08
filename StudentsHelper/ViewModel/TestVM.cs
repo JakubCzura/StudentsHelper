@@ -21,9 +21,12 @@ namespace StudentsHelper.ViewModel
 
         public AddTestCommand AddTestCommand { get; set; }
 
+        public DeleteTestCommand DeleteTestCommand { get; set; }
+
         public TestVM()
         {
             AddTestCommand = new AddTestCommand(this);
+            DeleteTestCommand = new DeleteTestCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
@@ -37,7 +40,7 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(nameof(Tests));
             }
         }
-        public Test selectedTest{ get; set; }
+        private Test selectedTest{ get; set; }
         public Test SelectedTest
         {
             get
