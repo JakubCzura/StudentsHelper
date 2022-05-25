@@ -16,6 +16,10 @@
         </Style>
         <vm:LoginVM x:Key="LoginVM"></vm:LoginVM>
     </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding Source={StaticResource LoginVM}, Path=LoginCommand}"></KeyBinding>
+    </Window.InputBindings>
     
     <Grid DataContext="{StaticResource LoginVM}">
         <Grid.RowDefinitions>
