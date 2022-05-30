@@ -37,7 +37,7 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    SQLiteConnection.Delete(Data);
+                    SQLiteConnection.Delete(Data); 
                 }
                 return true;
             }
@@ -45,6 +45,24 @@ namespace StudentsHelper.DataBase
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie skasować treść", "Błąd kasowania danych");
+                return false;
+            }
+        }
+
+        public static bool Update<T>(T Data) where T : class
+        {
+            try
+            {
+                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                {
+                    SQLiteConnection.Update(Data);
+                }
+                return true;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie edytować treść", "Błąd edytowania danych");
                 return false;
             }
         }

@@ -1,6 +1,7 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.UserControls;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace StudentsHelper.ViewModel
         public AddTestCommand AddTestCommand { get; set; }
 
         public DeleteTestCommand DeleteTestCommand { get; set; }
+
+        
 
         public TestVM()
         {

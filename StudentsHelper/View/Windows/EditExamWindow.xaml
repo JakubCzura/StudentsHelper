@@ -38,39 +38,39 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Background="#FF8CF78C" Text="Dodanie nowego egzaminu" TextAlignment="Center" FontSize="30" Padding="5,5,5,5"></TextBlock>
+        <TextBlock Grid.Row="0" Background="#FF8CF78C" Text="Edycja egzaminu" TextAlignment="Center" FontSize="30" Padding="5,5,5,5"></TextBlock>
 
         <StackPanel Grid.Row="1">
             <UniformGrid Rows="1">
                 <Label FontSize="20">Przedmiot:</Label>
-                <TextBox x:Name="ExamTextBox" FontSize="20" Text="{Binding SelectedExam.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="ExamTextBox" FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Data egzaminu:</Label>
-                <DatePicker x:Name="DateOfExamDatePicker" FontSize="20" SelectedDate="{Binding SelectedExam.DateOfExam, UpdateSourceTrigger=PropertyChanged}" IsTodayHighlighted="True"></DatePicker>
+                <DatePicker x:Name="DateOfExamDatePicker" FontSize="20" SelectedDate="{Binding DateOfExam, UpdateSourceTrigger=PropertyChanged}" IsTodayHighlighted="True"></DatePicker>
             </UniformGrid>
             <UniformGrid Rows="1" Columns="2">
                 <Label FontSize="20">Godzina egzaminu:</Label>
                 <UniformGrid Rows="1" Margin="3,0,0,0">
                     <Label FontSize="20">HH:</Label>
-                    <TextBox x:Name="ExamHourTextBox" FontSize="20" Text="{Binding SelectedExam.HourOfExam, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox x:Name="ExamHourTextBox" FontSize="20" Text="{Binding HourOfExam, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     <Label FontSize="20">MM:</Label>
-                    <TextBox x:Name="ExamMinuteTextBox" FontSize="20" Text="{Binding SelectedExam.MinuteOfExam, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox x:Name="ExamMinuteTextBox" FontSize="20" Text="{Binding MinuteOfExam, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 </UniformGrid>
 
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Pokój:</Label>
-                <TextBox x:Name="RoomTextBox" FontSize="20" Text="{Binding SelectedExam.RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="RoomTextBox" FontSize="20" Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Notatka:</Label>
-                <TextBox x:Name="NoteTextBox" FontSize="20" Text="{Binding SelectedExam.Note, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="NoteTextBox" FontSize="20" Text="{Binding Note, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
         </StackPanel>
 
         <Menu Grid.Row="2">
-            <Button FontSize="20" Command="{Binding SaveExamsCommand}">Potwierdź</Button>
+            <Button FontSize="20" Command="{Binding SaveEditedExamCommand}">Potwierdź</Button>
             <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </Menu>
     </Grid>

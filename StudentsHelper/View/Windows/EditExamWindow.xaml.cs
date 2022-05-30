@@ -22,8 +22,8 @@ namespace StudentsHelper.View.Windows
         public EditExamWindow? Instance { get; set; }
         public EditExamWindow()
         {
-            InitializeComponent();
             Instance = this;
+            InitializeComponent();
         }
 
         private void CloseWindow(object sender, RoutedEventArgs e)

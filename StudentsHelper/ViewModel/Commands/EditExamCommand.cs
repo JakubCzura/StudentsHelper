@@ -4,18 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
     public class EditExamCommand : ICommand
     {
-        //public EditExamCommand(EditExamVM editExamVM)
-        //{
-        //    EditExamVM = editExamVM;
-        //}
+        public EditExamCommand(ExamsVM examsVM)
+        {
+            ExamsVM = examsVM;
+        }
 
-        EditExamVM EditExamVM { get; set; }
+        ExamsVM ExamsVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -34,8 +35,10 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            EditExamWindow EditExamWindow = new EditExamWindow();
-            EditExamWindow.Show();
+            ExamsVM.EditExamWindow = new EditExamWindow();
+            //EditExamVM.Instance.SelectedExam = ExamsVM.SelectedExam;
+            //MessageBox.Show(EditExamVM.Instance.SelectedExam.Name);
+            ExamsVM.EditExamWindow.Show();
         }
     }
 }
