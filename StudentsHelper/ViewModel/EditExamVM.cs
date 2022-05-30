@@ -12,7 +12,7 @@ namespace StudentsHelper.ViewModel
 {
     public class EditExamVM : INotifyPropertyChanged
     {
-        public static new EditExamVM? Instance { get; set; }
+        public static EditExamVM? Instance { get; set; }
 
         public SaveEditedExamCommand SaveEditedExamCommand { get; set; }
         public EditExamVM()

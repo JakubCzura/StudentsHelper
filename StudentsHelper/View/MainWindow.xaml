@@ -85,6 +85,7 @@
                 <uc:TeachersUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource TeachersVM}">
                         <MenuItem Header="Usuń informację o nauczycielu" Command="{Binding DeleteTeacherCommand}"></MenuItem>
+                        <MenuItem Header="Edytuj informację o nauczycielu" Command="{Binding EditTeacherCommand}"></MenuItem>
                     </ContextMenu>
                 </uc:TeachersUserControl.ContextMenu>
             </uc:TeachersUserControl>
@@ -92,6 +93,7 @@
                 <uc:HomeworkUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource HomeworkVM}">
                         <MenuItem Header="Usuń zadanie domowe" Command="{Binding DeleteHomeworkCommand}"></MenuItem>
+                        <MenuItem Header="Edytuj zadanie domowe" Command="{Binding EditHomeworkCommand}"></MenuItem>
                     </ContextMenu>
                 </uc:HomeworkUserControl.ContextMenu>
             </uc:HomeworkUserControl>
@@ -99,6 +101,7 @@
                 <uc:NotesUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource NotesVM}">
                         <MenuItem Header="Usuń notatkę" Command="{Binding DeleteNoteCommand}"></MenuItem>
+                        <MenuItem Header="Edytuj notatkę" Command="{Binding EditNoteCommand}"></MenuItem>
                     </ContextMenu>
                 </uc:NotesUserControl.ContextMenu>
             </uc:NotesUserControl>

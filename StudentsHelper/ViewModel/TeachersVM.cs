@@ -1,6 +1,7 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.UserControls;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -22,11 +23,16 @@ namespace StudentsHelper.ViewModel
         public AddTeacherCommand AddTeacherCommand { get; set; }
 
         public DeleteTeacherCommand DeleteTeacherCommand { get; set; }
+        
+        public EditTeacherCommand EditTeacherCommand { get; set; }
+       
+        public EditTeacherWindow EditTeacherWindow { get; set; }
 
         public TeachersVM()
         {
             AddTeacherCommand = new AddTeacherCommand(this);
             DeleteTeacherCommand = new DeleteTeacherCommand(this);
+            EditTeacherCommand = new EditTeacherCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }

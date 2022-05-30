@@ -1,6 +1,7 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.UserControls;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,17 @@ namespace StudentsHelper.ViewModel
         public AddNoteCommand AddNoteCommand { get; set; }
         
         public DeleteNoteCommand DeleteNoteCommand { get; set; }
+
+        public EditNoteCommand EditNoteCommand { get; set; }
+
+        public EditNoteWindow EditNoteWindow { get; set; }
+
+
         public NotesVM()
         {
             AddNoteCommand = new AddNoteCommand(this);
             DeleteNoteCommand = new DeleteNoteCommand(this);
+            EditNoteCommand = new EditNoteCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }

@@ -11,7 +11,7 @@ namespace StudentsHelper.ViewModel
 {
     public class EditTestVM : INotifyPropertyChanged
     {
-        public static new EditTestVM? Instance { get; set; }
+        public static EditTestVM? Instance { get; set; }
 
         public SaveEditedTestCommand SaveEditedTestCommand { get; set; }
         public EditTestVM()
