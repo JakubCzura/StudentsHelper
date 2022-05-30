@@ -68,7 +68,8 @@
             <uc:TestsUserControl Visibility="Hidden">
                 <uc:TestsUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource TestVM}">
-                        <MenuItem Header="Usuń test" Command="{Binding DeleteTestCommand}"></MenuItem>
+                        <MenuItem Header="Usuń egzamin" Command="{Binding DeleteTestCommand}"></MenuItem>
+                        
                     </ContextMenu>
                 </uc:TestsUserControl.ContextMenu>
             </uc:TestsUserControl>
@@ -76,6 +77,7 @@
                 <uc:ExamsUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource ExamsVM}">
                         <MenuItem Header="Usuń egzamin" Command="{Binding DeleteExamCommand}"></MenuItem>
+                        <MenuItem Header="Edytuj egzamin" Command="{Binding EditExamCommand}"></MenuItem>
                     </ContextMenu>
                 </uc:ExamsUserControl.ContextMenu>
             </uc:ExamsUserControl>

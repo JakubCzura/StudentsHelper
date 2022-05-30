@@ -22,10 +22,13 @@ namespace StudentsHelper.ViewModel
         public AddExamCommand AddExamCommand { get; set; }
 
         public DeleteExamCommand DeleteExamCommand { get; set; }
+
+        public EditExamCommand EditExamCommand { get; set; }
         public ExamsVM()
         {
             AddExamCommand = new AddExamCommand(this);
             DeleteExamCommand = new DeleteExamCommand(this);
+            EditExamCommand = new EditExamCommand();
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
