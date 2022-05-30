@@ -9,14 +9,14 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class EditExamCommand : ICommand
+    public class EditTestCommand : ICommand
     {
-        public EditExamCommand(ExamsVM examsVM)
+        public EditTestCommand(TestVM testVM)
         {
-            ExamsVM = examsVM;
+            TestVM = testVM;
         }
 
-        ExamsVM ExamsVM { get; set; }
+        TestVM TestVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -26,7 +26,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (ExamsVM.Instance?.Exams != null && ExamsVM.Instance.Exams.Any() == true)
+            if (TestVM.Instance?.Tests != null && TestVM.Instance.Tests.Any() == true)
             {
                 return true;
             }
@@ -35,8 +35,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            ExamsVM.EditExamWindow = new EditExamWindow();
-            ExamsVM.EditExamWindow.Show();
+            TestVM.EditTestWindow = new EditTestWindow();
+            TestVM.EditTestWindow.Show();
         }
     }
 }

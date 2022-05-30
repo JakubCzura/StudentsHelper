@@ -69,7 +69,7 @@
                 <uc:TestsUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource TestVM}">
                         <MenuItem Header="Usuń egzamin" Command="{Binding DeleteTestCommand}"></MenuItem>
-                        
+                        <MenuItem Header="Edytuj kolokwium" Command="{Binding EditTestCommand}"></MenuItem>
                     </ContextMenu>
                 </uc:TestsUserControl.ContextMenu>
             </uc:TestsUserControl>

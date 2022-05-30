@@ -24,12 +24,14 @@ namespace StudentsHelper.ViewModel
 
         public DeleteTestCommand DeleteTestCommand { get; set; }
 
-        
+        public EditTestCommand EditTestCommand { get; set; }
 
+        public EditTestWindow EditTestWindow { get; set; }
         public TestVM()
         {
             AddTestCommand = new AddTestCommand(this);
             DeleteTestCommand = new DeleteTestCommand(this);
+            EditTestCommand = new EditTestCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }

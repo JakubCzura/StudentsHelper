@@ -1,0 +1,80 @@
+﻿<Window x:Class="StudentsHelper.View.Windows.EditTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsHelper.View.Windows"
+        xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
+        mc:Ignorable="d"
+        Title="EditTestWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <vm:EditTestVM x:Key="EditTestVM"></vm:EditTestVM>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="5,5,5,5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="5,3,5,5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="5,3,5,5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Rectangle}">
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="Fill" Value="Blue"></Setter>
+            <Setter Property="Height" Value="4"></Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid DataContext="{StaticResource EditTestVM}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Background="#FF8CF78C" Text="Dodanie nowego kolokwium" TextAlignment="Center" FontSize="30" Padding="5,5,5,5"></TextBlock>
+
+        <StackPanel Grid.Row="1">
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Przedmiot:</Label>
+                <TextBox x:Name="TestTextBox" FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Data kolokwium:</Label>
+                <DatePicker x:Name="DateOfTestDatePicker" FontSize="20" SelectedDate="{Binding DateOfTest, UpdateSourceTrigger=PropertyChanged}" IsTodayHighlighted="True"></DatePicker>
+            </UniformGrid>
+            <UniformGrid Rows="1" Columns="2">
+                <Label FontSize="20">Godzina kolokwium:</Label>
+                <UniformGrid Rows="1" Margin="3,0,0,0">
+                    <Label FontSize="20" Margin="3,0,0,0">HH:</Label>
+                    <TextBox x:Name="TestHourTextBox" FontSize="20" Text="{Binding HourOfTest, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Label FontSize="20">MM:</Label>
+                    <TextBox x:Name="TestMinuteTextBox" FontSize="20" Text="{Binding MinuteOfTest, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Pokój:</Label>
+                <TextBox x:Name="RoomTextBox" FontSize="20" Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+            <UniformGrid Rows="1">
+                <Label FontSize="20">Notatka:</Label>
+                <TextBox x:Name="NoteTextBox" FontSize="20" Text="{Binding Note, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+        </StackPanel>
+
+        <Menu Grid.Row="2">
+            <Button FontSize="20" Command="{Binding SaveEditedTestCommand}">Potwierdź</Button>
+            <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
+        </Menu>
+    </Grid>
+
+
+</Window>

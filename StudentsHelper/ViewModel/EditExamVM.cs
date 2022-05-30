@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace StudentsHelper.ViewModel
 {
-    public class EditExamVM
+    public class EditExamVM : INotifyPropertyChanged
     {
         public static new EditExamVM? Instance { get; set; }
 
@@ -25,7 +25,11 @@ namespace StudentsHelper.ViewModel
         public string Name
         {
             get { return SelectedExam.Name; }
-            set { SelectedExam.Name = value; OnPropertyChanged(Name); }
+            set
+            {
+                SelectedExam.Name = value;
+                OnPropertyChanged(Name);
+            }
         }
 
         public DateTime DateOfExam
