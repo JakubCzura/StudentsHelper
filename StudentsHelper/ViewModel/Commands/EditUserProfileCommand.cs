@@ -41,7 +41,6 @@ namespace StudentsHelper.ViewModel.Commands
             UserProfileUserControl.Instance.SecondNameTextBox.IsReadOnly = false;
             UserProfileUserControl.Instance.AgeTextBox.IsReadOnly = false;
             UserProfileUserControl.Instance.LoginTextBox.IsReadOnly = false;
-            UserProfileUserControl.Instance.PasswordTextBox.IsReadOnly = false;
             UserProfileUserControl.Instance.CourseTextBox.IsReadOnly = false;
             UserProfileUserControl.Instance.SemestrTextBox.IsReadOnly = false;
             UserProfileUserControl.Instance.SpecialityTextBox.IsReadOnly = false;

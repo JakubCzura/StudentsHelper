@@ -14,7 +14,7 @@
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
 
-        <Style TargetType="{x:Type TextBox}" x:Key="IsTextBoxReadonlyTrue">
+        <Style TargetType="{x:Type TextBox}" x:Name="IsTextBoxReadonlyTrue" x:Key="IsTextBoxReadonlyTrue">
             <Setter Property="IsReadOnly" Value="True"></Setter>
             <Setter Property="Background" Value="#6ffc53"></Setter>
         </Style>
@@ -54,9 +54,16 @@
                     <Label FontSize="20">Login:</Label>
                     <TextBox x:Name="LoginTextBox" FontSize="20" Text="{Binding Student.Login, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource IsTextBoxReadonlyTrue}"></TextBox>
                 </UniformGrid>
-                <UniformGrid Rows="1">
-                    <Label FontSize="20">Hasło:</Label>
-                    <TextBox x:Name="PasswordTextBox" FontSize="20" Text="{Binding Student.Password, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource IsTextBoxReadonlyTrue}"></TextBox>
+                
+                <TextBlock Background="#FF8CF78C" Text="Zmiana hasła" TextAlignment="Center" FontSize="20" Padding="5,5,5,5" Margin="0,20,0,0"></TextBlock>
+
+                <UniformGrid Rows="3">
+                    <Label FontSize="20">Stare hasło:</Label>
+                    <PasswordBox x:Name="OldPasswordPasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
+                    <Label FontSize="20">Nowe hasło:</Label>
+                    <PasswordBox x:Name="NewPasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
+                    <Label FontSize="20">Powtórz nowe hasło:</Label>
+                    <PasswordBox x:Name="RepeatedPasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
                 </UniformGrid>
             </StackPanel>
 
@@ -83,8 +90,8 @@
 
         </Grid>
         <Menu Grid.Row="2">
-            <Button x:Name="EditUserProfileButton" FontSize="20" Command="{Binding EditUserProfileCommand}">Edytuj dane</Button>
-            <Button x:Name="SaveEditedUserProfileButton" FontSize="20" Command="{Binding SaveEditedUserProfileCommand}">Zapisz zmiany</Button>
+            <Button x:Name="EditUserProfileButton" FontSize="20" Command="{Binding EditUserProfileCommand}">Włącz edycję danych</Button>
+            <Button x:Name="SaveEditedUserProfileButton" FontSize="20" Command="{Binding SaveEditedUserProfileCommand}">Zapisz dane</Button>
         </Menu>
     </Grid>
 </UserControl>
