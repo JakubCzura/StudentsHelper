@@ -26,6 +26,7 @@ namespace StudentsHelper.ViewModel
             SetTestsVisibleCommand = new SetTestsVisibleCommand();
             SetTeachersVisibleCommand = new SetTeachersVisibleCommand();
             SetNotesVisibleCommand = new SetNotesVisibleCommand();
+            SetUserProfileVisibleCommand = new SetUserProfileVisibleCommand();
         }
 
         public Student Student { get; set; }
@@ -41,6 +42,7 @@ namespace StudentsHelper.ViewModel
         public SetTeachersVisibleCommand SetTeachersVisibleCommand { get; set; }
 
         public SetNotesVisibleCommand SetNotesVisibleCommand{ get; set; }
+        public SetUserProfileVisibleCommand SetUserProfileVisibleCommand{ get; set; }
 
         public string Name
         {

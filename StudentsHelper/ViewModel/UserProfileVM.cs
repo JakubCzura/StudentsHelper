@@ -1,5 +1,7 @@
-﻿using StudentsHelper.Model;
+﻿using StudentsHelper.DataBase;
+using StudentsHelper.Model;
 using StudentsHelper.UserControls;
+using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +13,18 @@ namespace StudentsHelper.ViewModel
 {
     public class UserProfileVM : INotifyPropertyChanged, IWindowVisibility
     {
-        public static UserProfileVM Instance { get; set; }
+        public static UserProfileVM? Instance { get; set; }
 
+        public EditUserProfileCommand EditUserProfileCommand { get; set; }
+
+        public SaveEditedUserProfileCommand SaveEditedUserProfileCommand { get; set; }
         public UserProfileVM()
         {
+            EditUserProfileCommand = new EditUserProfileCommand(this);
+            SaveEditedUserProfileCommand = new SaveEditedUserProfileCommand(this);
             WindowsVisibility.HideWindow += SetWindowHidden;
+            Student = LoginStudent.GetStudentData();
+            DegreeCourse = LoginStudent.GetDegreeCourseData();
             Instance = this;
         }
 

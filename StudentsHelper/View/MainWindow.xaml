@@ -59,7 +59,7 @@
             <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SetExamsVisibleCommand}"/>
             <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SetTeachersVisibleCommand}"/>
             <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
-            <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil"/>
+            <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil" Command="{Binding SetUserProfileVisibleCommand}"/>
             <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"  Command="{Binding SetHomeworkVisibleCommand}"/>
             <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki" Command="{Binding SetNotesVisibleCommand}"/>
         </Menu>
@@ -89,6 +89,7 @@
                     </ContextMenu>
                 </uc:TeachersUserControl.ContextMenu>
             </uc:TeachersUserControl>
+            <uc:UserProfileUserControl Visibility="Hidden"></uc:UserProfileUserControl>
             <uc:HomeworkUserControl Visibility="Hidden">
                 <uc:HomeworkUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource HomeworkVM}">
