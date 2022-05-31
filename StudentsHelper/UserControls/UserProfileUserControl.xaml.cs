@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 namespace StudentsHelper.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserDataUserControl.xaml
+    /// Logika interakcji dla klasy UserProfileUserControl.xaml
     /// </summary>
-    public partial class UserDataUserControl : UserControl
+    public partial class UserProfileUserControl : UserControl
     {
-        public static UserDataUserControl? Instance { get; private set; }
-        public UserDataUserControl()
+        public static UserProfileUserControl? Instance { get; set; }
+        public UserProfileUserControl()
         {
             InitializeComponent();
             Instance = this;

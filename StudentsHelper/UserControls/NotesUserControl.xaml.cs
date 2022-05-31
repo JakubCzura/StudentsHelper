@@ -28,9 +28,5 @@ namespace StudentsHelper.UserControls
             Instance = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(NotesVM.Instance?.SelectedNote?.Id.ToString());
-        }
     }
 }

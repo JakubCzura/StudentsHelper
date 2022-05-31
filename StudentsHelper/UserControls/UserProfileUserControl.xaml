@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="StudentsHelper.UserControls.UserProfileUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentsHelper.UserControls"
+             xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vm:UserProfileVM x:Key="UserProfileVM"></vm:UserProfileVM>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource UserProfileVM}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Background="#FF8CF78C" Text="Profil użytkownika" TextAlignment="Center" FontSize="30" Padding="5,5,5,5"></TextBlock>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0">
+                <TextBlock Background="#FF8CF78C" Text="Dane studenta" TextAlignment="Center" FontSize="20" Padding="5,5,5,5"></TextBlock>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Imię:</Label>
+                    <TextBox x:Name="NameTextBox" FontSize="20" Text="{Binding Student.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Nazwisko:</Label>
+                    <TextBox x:Name="SecondNameTextBox" FontSize="20" Text="{Binding Student.SecondName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Wiek:</Label>
+                    <TextBox x:Name="AgeTextBox" FontSize="20" Text="{Binding Student.Age, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Login:</Label>
+                    <TextBox x:Name="LoginTextBox" FontSize="20" Text="{Binding Student.Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Hasło:</Label>
+                    <TextBox x:Name="PasswordTextBox" FontSize="20" Text="{Binding Student.Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Background="#FF8CF78C" Text="Studia" TextAlignment="Center" FontSize="20" Padding="5,5,5,5"></TextBlock>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Kierunek:</Label>
+                    <TextBox x:Name="CourseTextBox" FontSize="20" Text="{Binding DegreeCourse.Course, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Semestr:</Label>
+                    <TextBox x:Name="SemestrTextBox" FontSize="20" Text="{Binding DegreeCourse.Semester, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Specjalizacja:</Label>
+                    <TextBox x:Name="SpecialityTextBox" FontSize="20" Text="{Binding DegreeCourse.Speciality, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
+                    <Label FontSize="20">Semestr:</Label>
+                    <TextBox x:Name="FacultyTextBox" FontSize="20" Text="{Binding DegreeCourse.Faculty, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </UniformGrid>
+            </StackPanel>
+
+
+        </Grid>
+        <Menu Grid.Row="2">
+            <Button FontSize="20" Command="{Binding SaveExamsCommand}">Potwierdź</Button>
+            <Button FontSize="20" >Anuluj</Button>
+        </Menu>
+    </Grid>
+</UserControl>

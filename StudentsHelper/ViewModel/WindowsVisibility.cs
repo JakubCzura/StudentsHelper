@@ -10,9 +10,9 @@ namespace StudentsHelper.ViewModel
 {
     public class WindowsVisibility
     {
-        public static Action? HideWindow;
+        public static Action? HideWindow { get; set; }
 
-        public static Action? ShowWindow;
+        public static Action? ShowWindow { get; set; }
 
         public static void OnHideWindow()
         {
@@ -24,45 +24,5 @@ namespace StudentsHelper.ViewModel
             ShowWindow?.Invoke();
         }
 
-        //public event HideUserControlsEventHandler? HideUserControls;
-
-        //private void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-
-
-        //public event PropertyChangedEventHandler? PropertyChanged;
-
-        //private void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-
-        //public Action ActionInstance { get; set; }
-
-
-        //public void HideMainWindowUserControls()
-        //{
-        //    ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-        //    TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-        //}
-
-        //public void HideMainWindowUserControls2()
-        //{
-        //    ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-        //    TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-        //}
-
-        //public void s()
-        //{
-        //    ActionInstance += HideMainWindowUserControls;
-        //    ActionInstance += HideMainWindowUserControls2;
-        //}
-
-        //public void Invo()
-        //{
-        //    ActionInstance?.Invoke(); 
-        //}
     }
 }
