@@ -1,0 +1,41 @@
+﻿using StudentsHelper.View.Windows;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+namespace StudentsHelper.ViewModel.Commands
+{
+    public class EditHomeworkCommand : ICommand
+    {
+        public EditHomeworkCommand(HomeworkVM homeworkVM)
+        {
+            HomeworkVM = homeworkVM;
+        }
+
+        HomeworkVM HomeworkVM { get; set; }
+
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public bool CanExecute(object? parameter)
+        {
+            if (HomeworkVM.Instance?.Homework != null && HomeworkVM.Instance.Homework.Any() == true)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void Execute(object? parameter)
+        {
+            HomeworkVM.EditHomeworkWindow = new EditHomeworkWindow();
+            HomeworkVM.EditHomeworkWindow.Show();
+        }
+    }
+}

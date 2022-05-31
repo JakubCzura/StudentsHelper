@@ -2,6 +2,7 @@
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.UserControls;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -25,10 +26,15 @@ namespace StudentsHelper.ViewModel
 
         public DeleteHomeworkCommand DeleteHomeworkCommand { get; set; }
 
+        public EditHomeworkCommand EditHomeworkCommand { get; set; }
+
+        public EditHomeworkWindow EditHomeworkWindow { get; set; }
+
         public HomeworkVM()
         {
             AddHomeworkCommand = new AddHomeworkCommand(this);
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
+            EditHomeworkCommand = new EditHomeworkCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
