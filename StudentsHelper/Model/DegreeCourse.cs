@@ -49,7 +49,7 @@ namespace StudentsHelper.Model
         public int Semester
         {
             get { return semester; }
-            set { semester = value; }
+            set { semester = value > 0 && value < 20 ? value : 0; }
         }
 
         //Specjalizacja

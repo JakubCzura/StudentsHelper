@@ -38,7 +38,7 @@ namespace StudentsHelper.Model
         public int Age
         {
             get { return age; }
-            set { age = value; }
+            set { age = value > 0 && value < 100 ? value : 0; }
         }
 
         private string login = string.Empty;

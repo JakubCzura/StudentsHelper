@@ -35,11 +35,11 @@
         <StackPanel Grid.Row="2">
             <UniformGrid Rows="1">
                 <Label FontSize="20">Imie:</Label>
-                <TextBox FontSize="20" Text="{Binding Name}"></TextBox>
+                <TextBox FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Nazwisko:</Label>
-                <TextBox FontSize="20" Text="{Binding SecondName}"></TextBox>
+                <TextBox FontSize="20" Text="{Binding SecondName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Wiek:</Label>
@@ -47,7 +47,7 @@
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Kierunek studiów:</Label>
-                <TextBox FontSize="20" Text="{Binding Course}"></TextBox>
+                <TextBox FontSize="20" Text="{Binding Course, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Semestr:</Label>
@@ -55,21 +55,21 @@
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Specjalność:</Label>
-                <TextBox FontSize="20" Text="{Binding Speciality}"></TextBox>
+                <TextBox FontSize="20" Text="{Binding Speciality, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Wydział:</Label>
-                <TextBox FontSize="20" Text="{Binding Faculty}"></TextBox>
+                <TextBox FontSize="20" Text="{Binding Faculty, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Login(numer albumu):</Label>
-                <TextBox FontSize="20" Text="{Binding Login}"></TextBox>
+                <TextBox FontSize="20" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Hasło:</Label>
                 <PasswordBox x:Name="PasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
             </UniformGrid>
-            <Button FontSize="20" Command="{Binding AcceptRegisterCommand}">Zarejestruj się</Button>
+            <Button FontSize="20" Command="{Binding AcceptRegisterCommand, UpdateSourceTrigger=PropertyChanged}">Zarejestruj się</Button>
             <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </StackPanel>
 
