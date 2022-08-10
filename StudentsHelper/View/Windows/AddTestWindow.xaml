@@ -29,6 +29,9 @@
             <Setter Property="Fill" Value="Blue"></Setter>
             <Setter Property="Height" Value="4"></Setter>
         </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="5,3,5,5"></Setter>
+        </Style>
     </Window.Resources>
 
 

@@ -84,16 +84,17 @@ namespace StudentsHelper.Model
             }
         }
 
-        public string roomLetter = string.Empty;
-
+        private string roomLetter = String.Empty;
         public string RoomLetter
         {
             get { return roomLetter; }
             set { roomLetter = value; }
         }
 
-        //public List<string> roomLetters = new List<string>() {
-        //" " , "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "U", "P", "R", "S", "T", "U", "W", "Y", "Z", "X" };
+        public string FullRoomNumber
+        {
+            get { return $"{RoomNumber}{RoomLetter}"; }
+        }
 
         private string note = string.Empty;
         public string Note

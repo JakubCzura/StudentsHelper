@@ -95,7 +95,6 @@ namespace StudentsHelper.Model
             get { return $"{RoomNumber}{RoomLetter}"; }
         }
 
-        public List<string> dddd = new();
 
         private string note = string.Empty;
         public string Note

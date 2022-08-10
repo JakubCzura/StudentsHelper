@@ -31,7 +31,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExamShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Pokój" Binding="{Binding Path=RoomNumber}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
+                <DataGridTextColumn Header="Pokój" Binding="{Binding Path=FullRoomNumber}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Godzina" Binding="{Binding Path=FullHourOfExam}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}" ElementStyle="{StaticResource WrapText}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>

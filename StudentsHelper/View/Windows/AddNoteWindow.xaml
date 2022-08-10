@@ -48,7 +48,7 @@
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Data:</Label>
-                <TextBox x:Name="LastNameTextBox" FontSize="20" Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBox x:Name="LastNameTextBox" FontSize="20" Text="{Binding Date, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Treść:</Label>

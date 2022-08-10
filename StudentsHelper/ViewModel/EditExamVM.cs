@@ -14,6 +14,7 @@ namespace StudentsHelper.ViewModel
     {
         public static EditExamVM? Instance { get; set; }
 
+        public RoomLetters RoomLetters { get; set; } = new RoomLetters();
         public SaveEditedExamCommand SaveEditedExamCommand { get; set; }
         public EditExamVM()
         {
@@ -71,7 +72,26 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-      
+        public string RoomLetter
+        {
+            get { return SelectedExam.RoomLetter; }
+            set
+            {
+                SelectedExam.RoomLetter = value;
+                OnPropertyChanged(nameof(RoomLetter));
+            }
+        }
+
+        public List<string> Letters
+        {
+            get { return RoomLetters.Letters; }
+            set
+            {
+                RoomLetters.Letters = value;
+                OnPropertyChanged(nameof(Letters));
+            }
+        }
+
 
         public string Note
         {

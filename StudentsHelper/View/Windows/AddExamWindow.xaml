@@ -29,6 +29,9 @@
             <Setter Property="Fill" Value="Blue"></Setter>
             <Setter Property="Height" Value="4"></Setter>
         </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="5,3,5,5"></Setter>
+        </Style>
     </Window.Resources>
 
 
@@ -62,7 +65,10 @@
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Pokój:</Label>
-                <TextBox x:Name="RoomTextBox" FontSize="20" Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <UniformGrid Rows="1">
+                    <TextBox x:Name="RoomTextBox" FontSize="20" Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <ComboBox FontSize="20" x:Name="RoomLetterComboBox" ItemsSource="{Binding Letters}" SelectedItem="{Binding RoomLetter}"></ComboBox>
+                </UniformGrid>
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Notatka:</Label>

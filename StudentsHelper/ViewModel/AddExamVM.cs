@@ -17,6 +17,7 @@ namespace StudentsHelper.ViewModel
 
         public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
+        public RoomLetters RoomLetters { get; set; } = new RoomLetters();
         public SaveExamsCommand SaveExamsCommand { get; set; }
 
         public AddExamVM()
@@ -70,6 +71,25 @@ namespace StudentsHelper.ViewModel
             {
                 Exam.RoomNumber = value;
                 OnPropertyChanged(nameof(RoomNumber));
+            }
+        }
+        public string RoomLetter
+        {
+            get { return Exam.RoomLetter; }
+            set
+            {
+                Exam.RoomLetter = value;
+                OnPropertyChanged(nameof(RoomLetter));
+            }
+        }
+
+        public List<string> Letters
+        {
+            get { return RoomLetters.Letters; }
+            set
+            {
+                RoomLetters.Letters = value;
+                OnPropertyChanged(nameof(Letters));
             }
         }
 
