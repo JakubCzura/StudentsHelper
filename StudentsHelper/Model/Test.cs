@@ -64,6 +64,7 @@ namespace StudentsHelper.Model
             }
         }
 
+
         public string FullHourOfTest
         {
             get { return $"{HourOfTest}:{MinuteOfTest}"; }
@@ -81,6 +82,20 @@ namespace StudentsHelper.Model
                 }
             }
         }
+
+        private string roomLetter = String.Empty;
+        public string RoomLetter
+        {
+            get { return roomLetter; }
+            set { roomLetter = value; }
+        }    
+
+        public string FullRoomNumber
+        {
+            get { return $"{RoomNumber}{RoomLetter}"; }
+        }
+
+        public List<string> dddd = new();
 
         private string note = string.Empty;
         public string Note

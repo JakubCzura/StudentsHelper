@@ -13,6 +13,7 @@ namespace StudentsHelper.ViewModel
     {
         public static EditTestVM? Instance { get; set; }
 
+        public RoomLetters RoomLetters { get; set; } = new RoomLetters();
         public SaveEditedTestCommand SaveEditedTestCommand { get; set; }
         public EditTestVM()
         {
@@ -67,6 +68,25 @@ namespace StudentsHelper.ViewModel
             {
                 SelectedTest.RoomNumber = value;
                 OnPropertyChanged(nameof(RoomNumber));
+            }
+        }
+        public string RoomLetter
+        {
+            get { return SelectedTest.RoomLetter; }
+            set
+            {
+                SelectedTest.RoomLetter = value;
+                OnPropertyChanged(nameof(RoomLetter));
+            }
+        }
+
+        public List<string> Letters
+        {
+            get { return RoomLetters.Letters; }
+            set
+            {
+                RoomLetters.Letters = value;
+                OnPropertyChanged(nameof(Letters));
             }
         }
 

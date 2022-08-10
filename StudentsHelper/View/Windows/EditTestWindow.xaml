@@ -67,10 +67,7 @@
                 <Label FontSize="20">Pokój:</Label>
                 <UniformGrid Rows="1">
                     <TextBox x:Name="RoomTextBox" FontSize="20" Text="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <ComboBox FontSize="20" x:Name="RoomLetterComboBox">
-                        <ComboBoxItem Content="1"></ComboBoxItem>
-                        <ComboBoxItem Content="2"></ComboBoxItem>
-                    </ComboBox>
+                    <ComboBox FontSize="20" x:Name="RoomLetterComboBox" ItemsSource="{Binding Letters}" SelectedItem="{Binding RoomLetter}"></ComboBox>
                 </UniformGrid>
             </UniformGrid>
             <UniformGrid Rows="1">

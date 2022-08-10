@@ -15,7 +15,7 @@ namespace StudentsHelper.ViewModel
     {
         //This class refers to AddTestWindow.xaml
         public Test Test { get; set; } = new Test { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
-
+        public RoomLetters RoomLetters {get;set;} = new RoomLetters();
         public SaveTestCommand SaveTestCommand { get; set; }
 
         public AddTestVM()
@@ -69,6 +69,26 @@ namespace StudentsHelper.ViewModel
             {
                 Test.RoomNumber = value;
                 OnPropertyChanged(nameof(RoomNumber));
+            }
+        }
+
+        public string RoomLetter
+        {
+            get { return Test.RoomLetter; }
+            set
+            {
+                Test.RoomLetter = value;
+                OnPropertyChanged(nameof(RoomLetter));
+            }
+        }
+
+        public List<string> Letters
+        {
+            get { return RoomLetters.Letters; }
+            set
+            {
+                RoomLetters.Letters = value;
+                OnPropertyChanged(nameof(Letters));
             }
         }
 

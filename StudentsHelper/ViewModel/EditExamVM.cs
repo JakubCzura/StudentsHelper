@@ -71,6 +71,8 @@ namespace StudentsHelper.ViewModel
             }
         }
 
+      
+
         public string Note
         {
             get { return SelectedExam.Note; }
