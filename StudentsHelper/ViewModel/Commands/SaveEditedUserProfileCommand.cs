@@ -45,7 +45,7 @@ namespace StudentsHelper.ViewModel.Commands
                     if (UserProfileVM.Student.Password == UserProfileUserControl.Instance?.OldPasswordPasswordBox.Password
                     && UserProfileUserControl.Instance.NewPasswordBox.Password == UserProfileUserControl.Instance.RepeatedPasswordBox.Password)
                     {
-                        UserProfileVM.Instance.Student.Password = UserProfileUserControl.Instance.RepeatedPasswordBox.Password;
+                        UserProfileVM.Student.Password = UserProfileUserControl.Instance.RepeatedPasswordBox.Password;
                         SaveData.Update(UserProfileVM.Student);
                     }
                     else

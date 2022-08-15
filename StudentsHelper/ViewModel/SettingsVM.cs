@@ -19,10 +19,12 @@ namespace StudentsHelper.ViewModel
 
         public static SettingsVM? Instance { get; set; }
 
+        public ShowPasswordChangeCommand ShowPasswordChangeCommand { get; set; }
         public SettingsVM()
         {          
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
+            ShowPasswordChangeCommand = new ShowPasswordChangeCommand(this);
         }
 
        
