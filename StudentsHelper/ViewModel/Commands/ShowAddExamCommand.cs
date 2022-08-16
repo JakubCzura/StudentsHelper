@@ -1,22 +1,21 @@
-﻿using StudentsHelper.DataBase;
-using StudentsHelper.UserControls;
+﻿using StudentsHelper.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class ShowPasswordChangeCommand : ICommand
+    public class ShowAddExamCommand : ICommand
     {
-        public ShowPasswordChangeCommand(SettingsVM settingsVM)
+        public ShowAddExamCommand(ExamsVM examsVM)
         {
-            SettingsVM = settingsVM;
+            ExamsVM = examsVM;
         }
-        SettingsVM SettingsVM { get; set; }
+
+        ExamsVM ExamsVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -31,8 +30,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-               
+            AddExamWindow AddExamWindow = new AddExamWindow();
+            AddExamWindow.Show();
         }
-
     }
 }

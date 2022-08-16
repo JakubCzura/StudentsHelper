@@ -22,7 +22,7 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Homework> homework = LoginStudent.GetHomeworkData();
 
-        public AddHomeworkCommand AddHomeworkCommand { get; set; }
+        public ShowAddHomeworkCommand AddHomeworkCommand { get; set; }
 
         public DeleteHomeworkCommand DeleteHomeworkCommand { get; set; }
 
@@ -32,7 +32,7 @@ namespace StudentsHelper.ViewModel
 
         public HomeworkVM()
         {
-            AddHomeworkCommand = new AddHomeworkCommand(this);
+            AddHomeworkCommand = new ShowAddHomeworkCommand(this);
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
             EditHomeworkCommand = new EditHomeworkCommand(this);
             Instance = this;

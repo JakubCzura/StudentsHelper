@@ -20,7 +20,7 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Exam> exams = LoginStudent.GetExamsData();
 
-        public AddExamCommand AddExamCommand { get; set; }
+        public ShowAddExamCommand AddExamCommand { get; set; }
 
         public DeleteExamCommand DeleteExamCommand { get; set; }
 
@@ -30,7 +30,7 @@ namespace StudentsHelper.ViewModel
         
         public ExamsVM()
         {
-            AddExamCommand = new AddExamCommand(this);
+            AddExamCommand = new ShowAddExamCommand(this);
             DeleteExamCommand = new DeleteExamCommand(this);
             EditExamCommand = new EditExamCommand(this);
             Instance = this;

@@ -1,27 +1,28 @@
-﻿using StudentsHelper.View.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using StudentsHelper.View.Windows;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class AddHomeworkCommand : ICommand
-    { 
-        public AddHomeworkCommand(HomeworkVM homeworkVM)
-        {
-            HomeworkVM = homeworkVM;
-        }
+    public class ShowAddTestCommand : ICommand
+    {
 
-        HomeworkVM HomeworkVM { get; set; }
+        public ShowAddTestCommand(TestVM testVM)
+        {
+            TestVM = testVM;
+        }
 
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
+
+        TestVM TestVM { get; set; }
 
         public bool CanExecute(object? parameter)
         {
@@ -30,8 +31,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            AddHomeworkWindow AddHomeworkVM = new AddHomeworkWindow();
-            AddHomeworkVM.Show();
+            AddTestWindow AddTestWindow = new AddTestWindow();
+            AddTestWindow.Show();
         }
     }
 }

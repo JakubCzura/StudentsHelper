@@ -36,30 +36,26 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Update(UserProfileVM.Student) && SaveData.Update(UserProfileVM.DegreeCourse))
+            try
             {
-                if (UserProfileUserControl.Instance?.OldPasswordPasswordBox.Password.Length > 1
-                    && UserProfileUserControl.Instance.NewPasswordBox.Password.Length > 1 
-                    && UserProfileUserControl.Instance.RepeatedPasswordBox.Password.Length > 1)
+                if (SaveData.Update(UserProfileVM.Student) && SaveData.Update(UserProfileVM.DegreeCourse))
                 {
-                    if (UserProfileVM.Student.Password == UserProfileUserControl.Instance?.OldPasswordPasswordBox.Password
-                    && UserProfileUserControl.Instance.NewPasswordBox.Password == UserProfileUserControl.Instance.RepeatedPasswordBox.Password)
-                    {
-                        UserProfileVM.Student.Password = UserProfileUserControl.Instance.RepeatedPasswordBox.Password;
-                        SaveData.Update(UserProfileVM.Student);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Hasło nie mogło zostać zmienione, prosimy sprobówać ponownie", "Nie zapisano hasła");
-                    }
+                    MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
                 }
-                MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
+
+                else
+                {
+                    MessageBox.Show("Spróbuj edytować informacje ponownie", "Błąd edytowania informacji");
+                }
             }
-            else
+            catch(Exception exception)
             {
-                MessageBox.Show("Spróbuj edytować informacje ponownie", "Błąd edytowania informacji");
+                MessageBox.Show($"{exception.Message}\nSpróbuj edytować informacje ponownie", "Błąd edytowania informacji");
             }
-            SetUserDataIsReadonlyTrue();
+            finally
+            {
+                SetUserDataIsReadonlyTrue();
+            }
         }
 
         private void SetUserDataIsReadonlyTrue()

@@ -20,7 +20,7 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Teacher> teachers = LoginStudent.GetTeachersData();
 
-        public AddTeacherCommand AddTeacherCommand { get; set; }
+        public ShowAddTeacherCommand AddTeacherCommand { get; set; }
 
         public DeleteTeacherCommand DeleteTeacherCommand { get; set; }
         
@@ -30,7 +30,7 @@ namespace StudentsHelper.ViewModel
 
         public TeachersVM()
         {
-            AddTeacherCommand = new AddTeacherCommand(this);
+            AddTeacherCommand = new ShowAddTeacherCommand(this);
             DeleteTeacherCommand = new DeleteTeacherCommand(this);
             EditTeacherCommand = new EditTeacherCommand(this);
             Instance = this;

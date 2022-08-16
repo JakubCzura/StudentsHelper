@@ -55,16 +55,7 @@
                     <TextBox x:Name="LoginTextBox" FontSize="20" Text="{Binding Student.Login, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource IsTextBoxReadonlyTrue}"></TextBox>
                 </UniformGrid>
                 
-                <TextBlock Background="#FF8CF78C" Text="Zmiana hasła" TextAlignment="Center" FontSize="20" Padding="5,5,5,5" Margin="0,20,0,0"></TextBlock>
-
-                <UniformGrid Rows="3">
-                    <Label FontSize="20">Stare hasło:</Label>
-                    <PasswordBox x:Name="OldPasswordPasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
-                    <Label FontSize="20">Nowe hasło:</Label>
-                    <PasswordBox x:Name="NewPasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
-                    <Label FontSize="20">Powtórz nowe hasło:</Label>
-                    <PasswordBox x:Name="RepeatedPasswordBox" FontSize="20" IsEnabled="True"></PasswordBox>
-                </UniformGrid>
+                
             </StackPanel>
 
             <StackPanel Grid.Column="1">
@@ -86,8 +77,6 @@
                     <TextBox x:Name="FacultyTextBox" FontSize="20" Text="{Binding DegreeCourse.Faculty, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource IsTextBoxReadonlyTrue}"></TextBox>
                 </UniformGrid>
             </StackPanel>
-
-
         </Grid>
         <Menu Grid.Row="2">
             <Button x:Name="EditUserProfileButton" FontSize="20" Command="{Binding EditUserProfileCommand}">Włącz edycję danych</Button>

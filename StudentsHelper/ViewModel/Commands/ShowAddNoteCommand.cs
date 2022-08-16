@@ -8,9 +8,9 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class AddNoteCommand : ICommand
+    public class ShowAddNoteCommand : ICommand
     {
-        public AddNoteCommand(NotesVM notesVM)
+        public ShowAddNoteCommand(NotesVM notesVM)
         {
             NotesVM = notesVM;
         }

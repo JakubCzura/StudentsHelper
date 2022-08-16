@@ -21,7 +21,7 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Note> notes = LoginStudent.GetNotesData();
 
-        public AddNoteCommand AddNoteCommand { get; set; }
+        public ShowAddNoteCommand AddNoteCommand { get; set; }
         
         public DeleteNoteCommand DeleteNoteCommand { get; set; }
 
@@ -32,7 +32,7 @@ namespace StudentsHelper.ViewModel
 
         public NotesVM()
         {
-            AddNoteCommand = new AddNoteCommand(this);
+            AddNoteCommand = new ShowAddNoteCommand(this);
             DeleteNoteCommand = new DeleteNoteCommand(this);
             EditNoteCommand = new EditNoteCommand(this);
             Instance = this;

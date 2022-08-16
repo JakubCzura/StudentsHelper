@@ -1,5 +1,4 @@
-﻿using StudentsHelper.View.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +7,13 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class AddTeacherCommand : ICommand
+    public class SetThemeChangeVisibleCommand : ICommand
     {
-        public AddTeacherCommand(TeachersVM teachersVM)
+        public SetThemeChangeVisibleCommand(SettingsVM settingsVM)
         {
-            TeachersVM = teachersVM;
+            SettingsVM = settingsVM;
         }
-            
-        TeachersVM TeachersVM{ get; set; }
+        SettingsVM SettingsVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -30,8 +28,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            AddTeacherWindow AddTeacherWindow = new AddTeacherWindow();
-            AddTeacherWindow.Show();
+
         }
     }
 }

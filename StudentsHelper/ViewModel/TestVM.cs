@@ -20,7 +20,7 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Test> tests = LoginStudent.GetTestsData();
 
-        public AddTestCommand AddTestCommand { get; set; }
+        public ShowAddTestCommand AddTestCommand { get; set; }
 
         public DeleteTestCommand DeleteTestCommand { get; set; }
 
@@ -29,7 +29,7 @@ namespace StudentsHelper.ViewModel
         public EditTestWindow EditTestWindow { get; set; }
         public TestVM()
         {
-            AddTestCommand = new AddTestCommand(this);
+            AddTestCommand = new ShowAddTestCommand(this);
             DeleteTestCommand = new DeleteTestCommand(this);
             EditTestCommand = new EditTestCommand(this);
             Instance = this;

@@ -42,10 +42,10 @@
         </Grid.ColumnDefinitions>
         <UniformGrid Grid.Column="0" Background="AliceBlue">
             <StackPanel>
-                <Button Command="{Binding ShowPasswordChangeCommand}">
+                <Button Command="{Binding SetPasswordChangeVisibleCommand}">
                     <TextBlock>Zmiana hasła</TextBlock>
                 </Button>
-                <Button>
+                <Button Command="{Binding SetThemeChangeVisibleCommand}">
                     <TextBlock>Motyw kolorystyczny</TextBlock>
                 </Button>
                 <Button></Button>
