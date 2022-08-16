@@ -55,8 +55,9 @@
 
         <GridSplitter Grid.Column="1" Width="5" Background="Black" HorizontalAlignment="Stretch"></GridSplitter>
 
-        <UniformGrid Grid.Column="2" Background="AliceBlue">
-            <uc:PasswordChangeUserControl></uc:PasswordChangeUserControl>
-        </UniformGrid>
+        <Grid Grid.Column="2" Background="AliceBlue">
+            <uc:PasswordChangeUserControl Visibility="Visible"></uc:PasswordChangeUserControl>
+            <uc:ThemeUserControl Visibility="Hidden"></uc:ThemeUserControl>
+        </Grid>
     </Grid>
 </UserControl>

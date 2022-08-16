@@ -16,20 +16,13 @@ namespace StudentsHelper.ViewModel
         public static PasswordChangeVM? Instance { get; set; }
         
         public SaveNewPasswordCommand SaveNewPasswordCommand { get; set; }
+        
         public PasswordChangeVM()
         {
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideSettings += SetWindowHidden;
             Student = LoginStudent.GetStudentData();
             Instance = this;
             SaveNewPasswordCommand = new SaveNewPasswordCommand(this);
-        }
-
-        private DegreeCourse degreeCourse { get; set; }
-
-        public DegreeCourse DegreeCourse
-        {
-            get { return degreeCourse; }
-            set { degreeCourse = value; OnPropertyChanged(nameof(DegreeCourse)); }
         }
 
         private Student student { get; set; }
@@ -42,17 +35,17 @@ namespace StudentsHelper.ViewModel
 
         public void SetWindowHidden()
         {
-            if (UserProfileUserControl.Instance != null)
+            if (PasswordChangeUserControl.Instance != null)
             {
-                UserProfileUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+                PasswordChangeUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
         public void SetWindowVisible()
         {
-            if (UserProfileUserControl.Instance != null)
+            if (PasswordChangeUserControl.Instance != null)
             {
-                UserProfileUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+                PasswordChangeUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
         }
 

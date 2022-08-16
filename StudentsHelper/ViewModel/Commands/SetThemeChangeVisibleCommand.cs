@@ -9,12 +9,6 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class SetThemeChangeVisibleCommand : ICommand
     {
-        public SetThemeChangeVisibleCommand(SettingsVM settingsVM)
-        {
-            SettingsVM = settingsVM;
-        }
-        SettingsVM SettingsVM { get; set; }
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -28,7 +22,11 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-
+            WindowsVisibility.OnHideSettings();
+            if (ThemeChangeVM.Instance != null)
+            {
+                ThemeChangeVM.Instance.SetWindowVisible();
+            }
         }
     }
 }

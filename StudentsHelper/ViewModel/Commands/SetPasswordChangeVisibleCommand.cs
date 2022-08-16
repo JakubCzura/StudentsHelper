@@ -12,12 +12,6 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class SetPasswordChangeVisibleCommand : ICommand
     {
-        public SetPasswordChangeVisibleCommand(SettingsVM settingsVM)
-        {
-            SettingsVM = settingsVM;
-        }
-        SettingsVM SettingsVM { get; set; }
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -31,7 +25,11 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-               
+            WindowsVisibility.OnHideSettings();
+            if (PasswordChangeVM.Instance != null)
+            {
+                PasswordChangeVM.Instance.SetWindowVisible();
+            }
         }
     }
 }

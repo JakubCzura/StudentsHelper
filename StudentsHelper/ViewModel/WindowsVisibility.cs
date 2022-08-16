@@ -12,17 +12,16 @@ namespace StudentsHelper.ViewModel
     {
         public static Action? HideWindow { get; set; }
 
-        public static Action? ShowWindow { get; set; }
+        public static Action? HideSettings { get; set; }
 
         public static void OnHideWindow()
         {
             HideWindow?.Invoke();
         }
 
-        public static void OnShowWindow()
+        public static void OnHideSettings()
         {
-            ShowWindow?.Invoke();
+            HideSettings?.Invoke();
         }
-
     }
 }
