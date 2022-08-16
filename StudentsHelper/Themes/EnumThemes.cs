@@ -16,5 +16,15 @@ namespace StudentsHelper.Themes
             Blue = 3,
             Yellow = 4
         }
+
+
+
+        public static List<string> GetThemes()
+        {
+            return Enum.GetValues(typeof(Themes))
+                       .Cast<Themes>()
+                       .Select(v => v.ToString())
+                       .ToList();
+        }
     }
 }

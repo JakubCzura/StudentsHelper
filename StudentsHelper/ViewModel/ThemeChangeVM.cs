@@ -1,4 +1,5 @@
-﻿using StudentsHelper.UserControls;
+﻿using StudentsHelper.Themes;
+using StudentsHelper.UserControls;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,38 @@ namespace StudentsHelper.ViewModel
         //This class refers to ThemesUserControl.xaml
 
         public static ThemeChangeVM? Instance { get; set; }
-       
+
+        public SaveNewThemeCommand SaveNewThemeCommand { get; set; }
         public ThemeChangeVM()
         {
             Instance = this;
             WindowsVisibility.HideSettings += SetWindowHidden;
+            SaveNewThemeCommand = new SaveNewThemeCommand(this);
         }
 
+        string theme = string.Empty;
+       
+        public string Theme
+        {
+            get { return theme; }
+            set { theme = value; OnPropertyChanged(Theme); }
+        }
 
+        string newTheme = string.Empty;
+
+        public string NewTheme
+        {
+            get { return newTheme; }
+            set { newTheme = value; OnPropertyChanged(NewTheme); }
+        }
+
+        private List<string> themes = EnumThemes.GetThemes();
+
+        public List<string> Themes
+        {
+            get { return themes; }
+            set { themes = value; OnPropertyChanged(nameof(Themes)); }
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -32,17 +57,17 @@ namespace StudentsHelper.ViewModel
 
         public void SetWindowHidden()
         {
-            if (SettingsUserControl.Instance != null)
+            if (ThemeUserControl.Instance != null)
             {
-                SettingsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
+                ThemeUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
         public void SetWindowVisible()
         {
-            if (SettingsUserControl.Instance != null)
+            if (ThemeUserControl.Instance != null)
             {
-                SettingsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+                ThemeUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
         }
     }

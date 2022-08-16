@@ -4,9 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentsHelper.UserControls"
+             xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    
+    <UserControl.Resources>
+        <vm:ThemeChangeVM x:Key="ThemeChangeVM"></vm:ThemeChangeVM>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource ThemeChangeVM}">
+        <StackPanel>
+            <TextBlock Background="#FF8CF78C" Text="Zmiana motywu" TextAlignment="Center" FontSize="20" Padding="5,5,5,5"></TextBlock>
+
+            <UniformGrid Rows="2">
+                <Label FontSize="20">Obecny motyw:</Label>
+                <TextBlock x:Name="CurrentTheme" Text="{Binding Theme}" FontSize="20" IsEnabled="False"></TextBlock>
+                <Label FontSize="20">Nowy motyw:</Label>
+                <ComboBox FontSize="20" x:Name="NewThemeComboBox" ItemsSource="{Binding Themes}" SelectedItem="{Binding NewTheme}"></ComboBox>
+            </UniformGrid>
+
+            <Button Command="{Binding SaveNewThemeCommand}">Zatwierdź</Button>
+        </StackPanel>
     </Grid>
 </UserControl>
