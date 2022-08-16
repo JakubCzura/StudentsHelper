@@ -17,6 +17,7 @@ namespace StudentsHelper.ViewModel
         public static ThemeChangeVM? Instance { get; set; }
 
         public SaveNewThemeCommand SaveNewThemeCommand { get; set; }
+        
         public ThemeChangeVM()
         {
             Instance = this;
@@ -40,7 +41,7 @@ namespace StudentsHelper.ViewModel
             set { newTheme = value; OnPropertyChanged(NewTheme); }
         }
 
-        private List<string> themes = EnumThemes.GetThemes();
+        private List<string> themes = StudentsHelper.Themes.Themes.GetThemes();
 
         public List<string> Themes
         {

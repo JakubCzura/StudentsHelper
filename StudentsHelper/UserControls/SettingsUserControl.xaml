@@ -24,7 +24,7 @@
         <Style TargetType="{x:Type Button}">
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5" />
+                    <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Style.Resources>
             <Setter Property="Height" Value="50"></Setter>
@@ -36,7 +36,7 @@
 
     <Grid DataContext="{StaticResource SettingsVM}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" MinWidth="150"></ColumnDefinition>
+            <ColumnDefinition Width="150" MinWidth="150" MaxWidth="350"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>

@@ -43,16 +43,12 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                
-                    
+                Themes.Themes.SaveTheme(ThemeChangeVM.NewTheme);
+                Themes.Themes.SetTheme();
             }
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nMotyw nie mógł zostać zmieniony, prosimy sprobówać ponownie", "Nie zapisano motywu");
-            }
-            finally
-            {
-                
             }
         }        
     }

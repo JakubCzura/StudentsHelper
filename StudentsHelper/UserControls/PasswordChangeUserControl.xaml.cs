@@ -24,7 +24,7 @@ namespace StudentsHelper.UserControls
         public PasswordChangeUserControl()
         {
             InitializeComponent();
-            Instance = this;
+            Instance = this;           
         }
     }
 }

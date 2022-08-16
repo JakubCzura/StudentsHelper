@@ -6,6 +6,5 @@
     
     <Application.Resources>
         <ResourceDictionary Source="\Themes\Standard.xaml"></ResourceDictionary>
-
     </Application.Resources>
 </Application>
