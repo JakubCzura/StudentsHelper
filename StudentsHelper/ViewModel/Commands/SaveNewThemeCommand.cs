@@ -26,7 +26,7 @@ namespace StudentsHelper.ViewModel.Commands
         }
 
         public bool CanExecute(object? parameter)
-        {           
+        {
             if (string.IsNullOrWhiteSpace(ThemeUserControl.Instance?.NewThemeComboBox.Text) == false)
             {
                 return true;
@@ -45,12 +45,15 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 Themes.Themes.SaveTheme(ThemeChangeVM.NewTheme);
                 Themes.Themes.SetTheme();
-                ThemeUserControl.Instance.CurrentTheme.Text = ThemeChangeVM.NewTheme;
+                if (ThemeUserControl.Instance != null)
+                {
+                    ThemeUserControl.Instance.CurrentTheme.Text = ThemeChangeVM.NewTheme;
+                }
             }
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nMotyw nie mógł zostać zmieniony, prosimy sprobówać ponownie", "Nie zapisano motywu");
             }
-        }        
+        }
     }
 }

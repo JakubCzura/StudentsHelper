@@ -22,12 +22,12 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0">
+        <Menu Grid.Row="0" Style="{DynamicResource UserPanelMenuStyle}">
             <Button x:Name="AddTestButton" Content="Dodaj kolokwium" Command="{Binding AddTestCommand}" />
             <Button>Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Tests}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedTest}">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Tests}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedTest}" Style="{DynamicResource UserPanelDataGrid}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Data kolokwium" Binding="{Binding Path=DateOfTestShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>

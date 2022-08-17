@@ -21,12 +21,12 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0">
+        <Menu Grid.Row="0" Style="{DynamicResource UserPanelMenuStyle}">
             <Button x:Name="AddHomeworkButton" Content="Dodaj zadanie domowe" Command="{Binding AddHomeworkCommand}" />
             <Button>Dodaj</Button>
             <Button>Dodaj</Button>
         </Menu>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Homework}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedHomework}">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Homework}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedHomework}" Style="{DynamicResource UserPanelDataGrid}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=LessonName}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Treść zadania" Binding="{Binding Path=Exercise}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>

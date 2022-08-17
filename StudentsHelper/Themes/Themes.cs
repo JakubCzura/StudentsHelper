@@ -66,7 +66,11 @@ namespace StudentsHelper.Themes
             try
             {
                 App.Current.Resources.Clear();
-                App.Current.Resources.Source = new Uri($"/Themes/{ReadTheme()}.xaml", UriKind.Relative);
+                App.Current.Resources.MergedDictionaries.Clear();
+                //App.Current.Resources.Source = new Uri($"/Themes/{ReadTheme()}.xaml", UriKind.Relative);
+                
+                App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri($"/Themes/CommonTheme.xaml", UriKind.Relative) });
+                App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri($"/Themes/{ReadTheme()}.xaml", UriKind.Relative) });
             }
             catch (Exception exception)
             {
