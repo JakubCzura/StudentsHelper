@@ -28,7 +28,7 @@ namespace StudentsHelper.Themes
                        .ToList();
         }
 
-        private static string DataPath = Path.Combine(Environment.CurrentDirectory, "ThemesData.txt");
+        private static readonly string DataPath = Path.Combine(Environment.CurrentDirectory, "ThemesData.txt");
 
         public static void SaveTheme(string theme)
         {
@@ -73,6 +73,5 @@ namespace StudentsHelper.Themes
                 MessageBox.Show(exception.Message);
             }
         }
-
     }
 }

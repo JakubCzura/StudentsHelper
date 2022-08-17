@@ -23,17 +23,18 @@ namespace StudentsHelper.ViewModel
             Instance = this;
             WindowsVisibility.HideSettings += SetWindowHidden;
             SaveNewThemeCommand = new SaveNewThemeCommand(this);
+            Theme = StudentsHelper.Themes.Themes.ReadTheme();
         }
 
-        string theme = string.Empty;
-       
-        public string Theme
+        private string theme = String.Empty;
+
+        public string Theme 
         {
             get { return theme; }
             set { theme = value; OnPropertyChanged(Theme); }
         }
 
-        string newTheme = string.Empty;
+        private string newTheme = string.Empty;
 
         public string NewTheme
         {

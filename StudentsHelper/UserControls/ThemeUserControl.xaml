@@ -22,7 +22,7 @@
 
             <UniformGrid Rows="2">
                 <Label FontSize="20">Obecny motyw:</Label>
-                <TextBlock x:Name="CurrentTheme" Text="{Binding Theme}" FontSize="20" IsEnabled="False"></TextBlock>
+                <TextBlock x:Name="CurrentTheme" Text="{Binding Theme}" FontSize="20"></TextBlock>
                 <Label FontSize="20">Nowy motyw:</Label>
                 <ComboBox FontSize="20" x:Name="NewThemeComboBox" ItemsSource="{Binding Themes}" SelectedItem="{Binding NewTheme}"></ComboBox>
             </UniformGrid>

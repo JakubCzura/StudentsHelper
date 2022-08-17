@@ -55,7 +55,7 @@
         </DockPanel>
 
         <Menu Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
-            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia"  Command="{Binding SetTestsVisibleCommand}"/>
+            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia"  Command="{Binding SetTestsVisibleCommand}"></Button>
             <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SetExamsVisibleCommand}"/>
             <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SetTeachersVisibleCommand}"/>
             <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>

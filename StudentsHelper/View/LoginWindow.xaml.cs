@@ -22,6 +22,7 @@ namespace StudentsHelper.View
         public static LoginWindow? Instance { get; set; }
         public LoginWindow()
         {
+            Themes.Themes.SetTheme();
             InitializeComponent();
             Instance = this;
         }
