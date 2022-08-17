@@ -72,11 +72,11 @@ namespace StudentsHelper.ViewModel.Commands
             }
             finally
             {
-                SetPasswordChangeEmptyString();
+                SetPasswordEmpty();
             }
         }
 
-        private void SetPasswordChangeEmptyString()
+        private void SetPasswordEmpty()
         {
             PasswordChangeUserControl.Instance.OldPasswordBox.Password = String.Empty;
             PasswordChangeUserControl.Instance.NewPasswordBox.Password = String.Empty;

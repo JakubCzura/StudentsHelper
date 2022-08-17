@@ -45,9 +45,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 Themes.Themes.SaveTheme(ThemeChangeVM.NewTheme);
                 Themes.Themes.SetTheme();
-                ThemeChangeVM.Theme = ThemeChangeVM.NewTheme;
-                //ThemeUserControl.Instance.CurrentTheme.Text = Themes.Themes.ReadTheme();
-                MessageBox.Show(ThemeChangeVM.Theme);
+                ThemeUserControl.Instance.CurrentTheme.Text = ThemeChangeVM.NewTheme;
             }
             catch (Exception exception)
             {

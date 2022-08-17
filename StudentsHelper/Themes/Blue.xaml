@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="Menu" x:Key="NotesMenuDockPanelStyle">
-        <Setter Property="Background" Value="Coral"></Setter>
+        <Setter Property="Background" Value="#FF50E3FF"></Setter>
         <Setter Property="Height" Value="Auto"></Setter>
     </Style>
 

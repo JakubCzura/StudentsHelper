@@ -18,11 +18,14 @@ namespace StudentsHelper.ViewModel
             Student = new Student();
             DegreeCourse = new DegreeCourse();
             AcceptRegisterCommand = new AcceptRegisterCommand(this);
+            BackToLoginCommand = new BackToLoginCommand();
         }
 
         Student Student { get; set; }
         DegreeCourse DegreeCourse { get; set; }
         public AcceptRegisterCommand AcceptRegisterCommand { get; set; }
+
+        public BackToLoginCommand BackToLoginCommand { get; set; }
 
         public int Id
         {
