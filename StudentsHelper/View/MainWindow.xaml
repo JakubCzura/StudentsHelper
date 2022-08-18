@@ -36,12 +36,12 @@
             <Menu x:Name="MainMenu">
                 <MenuItem Header="Ustawienia">
                     <MenuItem Header="Przejdź do ustawień" Command="{Binding SetSettingsVisibleCommand}">
-                        
+
                     </MenuItem>
                     <MenuItem Header="Opcje2">
 
                     </MenuItem>
-                    
+
                 </MenuItem>
                 <MenuItem Header="Opcje2">
                     <MenuItem Header="Opcje21">
@@ -114,6 +114,6 @@
         </Grid>
     </Grid>
 
-    
-    
+
+
 </Window>
