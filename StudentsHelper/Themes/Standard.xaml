@@ -33,7 +33,7 @@
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFA9F529"/>
+                    <GradientStop Color="#FF50E3FF"/>
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </Setter.Value>
@@ -49,6 +49,17 @@
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF6DAF11"/>
                     <GradientStop Color="#FFA4F37A" Offset="0.979"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Grid" x:Key="UserDataUserControlStyle">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF50E3FF"/>
+                    <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>

@@ -7,8 +7,10 @@
              xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="50">
+    
     <UserControl.Resources>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
+        
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
@@ -20,11 +22,14 @@
             <Setter Property="Margin" Value="2"></Setter>
             <Setter Property="Stroke" Value="Black"></Setter>
         </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Margin" Value="5,5,5,5"></Setter>
+        </Style>
     </UserControl.Resources>
-    <Grid DataContext="{StaticResource StudentsHelperVM}">
+    
+    <Grid DataContext="{StaticResource StudentsHelperVM}" Style="{DynamicResource UserDataUserControlStyle}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
-
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0">
@@ -38,6 +43,6 @@
             <TextBlock Text="{Binding Semester}"></TextBlock>
             <Rectangle/>
         </StackPanel>
-        
     </Grid>
+    
 </UserControl>
