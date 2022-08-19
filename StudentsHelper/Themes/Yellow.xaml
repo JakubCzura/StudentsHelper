@@ -13,6 +13,8 @@
         </Setter>
     </Style>
 
+    <Style TargetType="Menu" x:Key="UserPanelMenuStyle" BasedOn="{StaticResource NotesMenuDockPanelStyle}"></Style>
+    
     <Style TargetType="Button" x:Key="NotesMenuButtonStyle">
         <Setter Property="Height" Value="50"></Setter>
         <Setter Property="Width" Value="Auto"></Setter>
@@ -27,30 +29,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="Menu" x:Key="UserPanelMenuStyle">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFFF850"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="Button" x:Key="AddButtonStyle">
-        <Setter Property="Height" Value="Auto"></Setter>
-        <Setter Property="Width" Value="Auto"></Setter>
-        <Setter Property="FontSize" Value="16"></Setter>
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFC1A02D"/>
-                    <GradientStop Color="#FFEAE564" Offset="0.979"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    <Style TargetType="Button" x:Key="AddButtonStyle" BasedOn="{StaticResource NotesMenuButtonStyle}"></Style>
 
     <Style TargetType="Grid" x:Key="UserDataUserControlStyle">
         <Setter Property="Background">

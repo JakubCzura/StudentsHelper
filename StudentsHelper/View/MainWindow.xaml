@@ -35,21 +35,7 @@
         <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
             <Menu x:Name="MainMenu">
                 <MenuItem Header="Ustawienia">
-                    <MenuItem Header="Przejdź do ustawień" Command="{Binding SetSettingsVisibleCommand}">
-
-                    </MenuItem>
-                    <MenuItem Header="Opcje2">
-
-                    </MenuItem>
-
-                </MenuItem>
-                <MenuItem Header="Opcje2">
-                    <MenuItem Header="Opcje21">
-
-                    </MenuItem>
-                    <MenuItem Header="Opda2">
-
-                    </MenuItem>
+                    <MenuItem Header="Przejdź do ustawień" Command="{Binding SetSettingsVisibleCommand}"></MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>
