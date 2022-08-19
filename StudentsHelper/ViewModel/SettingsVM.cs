@@ -3,6 +3,7 @@ using StudentsHelper.Model;
 using StudentsHelper.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
+using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,31 +14,23 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class SettingsVM : INotifyPropertyChanged, IWindowVisibility
+    public class SettingsVM : IWindowVisibility
     {
         //This class refers to SettingsUserControl.xaml
-
-        public static SettingsVM? Instance { get; set; }
-
-        public SetPasswordChangeVisibleCommand SetPasswordChangeVisibleCommand { get; set; }
-        public SetThemeChangeVisibleCommand SetThemeChangeVisibleCommand { get; set; }
-        
         public SettingsVM()
-        {          
+        {
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
             SetPasswordChangeVisibleCommand = new SetPasswordChangeVisibleCommand();
             SetThemeChangeVisibleCommand = new SetThemeChangeVisibleCommand();
         }
 
-       
+        public static SettingsVM? Instance { get; set; }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public SetPasswordChangeVisibleCommand SetPasswordChangeVisibleCommand { get; set; }
+        
+        public SetThemeChangeVisibleCommand SetThemeChangeVisibleCommand { get; set; }
+                    
 
         public void SetWindowHidden()
         {

@@ -3,6 +3,7 @@ using StudentsHelper.Model;
 using StudentsHelper.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
+using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,15 @@ namespace StudentsHelper.ViewModel
     public class ExamsVM : INotifyPropertyChanged, IWindowVisibility
     {
         //This class refers to ExamsUserControl.xaml
+        public ExamsVM()
+        {
+            AddExamCommand = new ShowAddExamCommand(this);
+            DeleteExamCommand = new DeleteExamCommand(this);
+            EditExamCommand = new EditExamCommand(this);
+            Instance = this;
+            WindowsVisibility.HideWindow += SetWindowHidden;
+        }
+
         public static ExamsVM? Instance { get; set; }
 
         private ObservableCollection<Exam> exams = LoginStudent.GetExamsData();
@@ -27,14 +37,25 @@ namespace StudentsHelper.ViewModel
         public EditExamCommand EditExamCommand { get; set; }
         
         public EditExamWindow EditExamWindow { get; set; }
-        
-        public ExamsVM()
+                             
+        public ObservableCollection<Exam> Exams
+        { 
+            get { return exams; }
+            set { exams = value; OnPropertyChanged(nameof(Exams)); }
+        }
+
+        private Exam selectedExam{ get; set; }
+        public Exam SelectedExam
         {
-            AddExamCommand = new ShowAddExamCommand(this);
-            DeleteExamCommand = new DeleteExamCommand(this);
-            EditExamCommand = new EditExamCommand(this);
-            Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            get { return selectedExam; }
+            set { selectedExam = value; OnPropertyChanged(nameof(SelectedExam)); }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public void SetWindowHidden()
@@ -51,37 +72,6 @@ namespace StudentsHelper.ViewModel
             {
                 ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
-        }      
-            
-        public ObservableCollection<Exam> Exams
-        { 
-            get { return exams; }
-            set 
-            { 
-                exams = value; 
-                OnPropertyChanged(nameof(Exams));
-            }
-        }
-
-        private Exam selectedExam{ get; set; }
-        public Exam SelectedExam
-        {
-            get
-            {
-                return selectedExam;
-            }
-            set
-            {
-                selectedExam = value;
-                OnPropertyChanged(nameof(SelectedExam));
-            }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

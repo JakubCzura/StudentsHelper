@@ -13,15 +13,15 @@ namespace StudentsHelper.ViewModel
     public class AddTeacherVM : INotifyPropertyChanged
     {
         //This class refers to AddHomeworkWindow.xaml
-        public Teacher Teacher { get; set; } = new Teacher { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
-
-        public SaveTeacherCommand SaveTeacherCommand { get; set; }
-
         public AddTeacherVM()
         {
             SaveTeacherCommand = new SaveTeacherCommand(this);
         }
 
+        public Teacher Teacher { get; set; } = new Teacher { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+
+        public SaveTeacherCommand SaveTeacherCommand { get; set; }
+      
         public string Lesson
         {
             get { return Teacher.Lesson; }

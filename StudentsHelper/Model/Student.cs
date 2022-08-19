@@ -23,14 +23,14 @@ namespace StudentsHelper.Model
         public string Name 
         {
             get { return name; }
-            set { name = value; }
+            set { name = value.Length < 50 ? value : String.Empty; }
         }
 
         private string secondName = string.Empty;
         public string SecondName 
         {
             get { return secondName; }
-            set { secondName = value; }
+            set { secondName = value.Length < 50 ? value : String.Empty; }
         }
 
         private int age = 0;
@@ -38,7 +38,7 @@ namespace StudentsHelper.Model
         public int Age
         {
             get { return age; }
-            set { age = value > 0 && value < 100 ? value : 0; }
+            set { age = value > 0 && value < 150 ? value : 0; }
         }
 
         private string login = string.Empty;
@@ -53,11 +53,6 @@ namespace StudentsHelper.Model
         {
             get { return password; }
             set { password = value; }
-        }
-
-        public override string ToString()
-        {
-            return Name + " " + Id + " " +  SecondName + " " + " " + Age ;
         }
     }
 }

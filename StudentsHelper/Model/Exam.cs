@@ -10,8 +10,10 @@ namespace StudentsHelper.Model
 {
     public class Exam
     {
-        public Exam() { DateOfExam = DateTime.Now; }
-
+        public Exam() 
+        { 
+            DateOfExam = DateTime.Now; 
+        }
 
         private int id;
         [PrimaryKey, AutoIncrement]
@@ -53,7 +55,6 @@ namespace StudentsHelper.Model
         }
 
         private int? minuteOfExam = null;
-
         public int? MinuteOfExam
         {
             get { return minuteOfExam; }

@@ -11,9 +11,6 @@ namespace StudentsHelper.ViewModel
 {
     public class EditHomeworkVM : INotifyPropertyChanged
     {
-        public static EditHomeworkVM? Instance { get; set; }
-
-        public SaveEditedHomeworkCommand SaveEditedHomeworkCommand { get; set; }
         public EditHomeworkVM()
         {
             SelectedHomework = HomeworkVM.Instance.SelectedHomework;
@@ -21,24 +18,20 @@ namespace StudentsHelper.ViewModel
             Instance = this;
         }
 
+        public static EditHomeworkVM? Instance { get; set; }
+
+        public SaveEditedHomeworkCommand SaveEditedHomeworkCommand { get; set; }
+        
         public string LessonName
         {
             get { return SelectedHomework.LessonName; }
-            set
-            {
-                SelectedHomework.LessonName = value;
-                OnPropertyChanged(LessonName);
-            }
+            set { SelectedHomework.LessonName = value; OnPropertyChanged(LessonName); }
         }
 
         public DateTime DateOfEnd
         {
             get { return SelectedHomework.DateOfEnd; }
-            set
-            {
-                SelectedHomework.DateOfEnd = value;
-                OnPropertyChanged(nameof(DateOfEnd));
-            }
+            set { SelectedHomework.DateOfEnd = value; OnPropertyChanged(nameof(DateOfEnd)); }
         }
 
         public string TeacherName
@@ -69,18 +62,12 @@ namespace StudentsHelper.ViewModel
             get { return SelectedHomework.Note; }
             set { SelectedHomework.Note = value; OnPropertyChanged(Note); }
         }
+
         private Homework selectedHomework { get; set; }
         public Homework SelectedHomework
         {
-            get
-            {
-                return selectedHomework;
-            }
-            set
-            {
-                selectedHomework = value;
-                OnPropertyChanged(nameof(SelectedHomework));
-            }
+            get { return selectedHomework; }
+            set { selectedHomework = value; OnPropertyChanged(nameof(SelectedHomework)); }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

@@ -3,6 +3,7 @@ using StudentsHelper.Model;
 using StudentsHelper.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
+using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,6 +29,8 @@ namespace StudentsHelper.ViewModel
        
         public EditTeacherWindow EditTeacherWindow { get; set; }
 
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public TeachersVM()
         {
             AddTeacherCommand = new ShowAddTeacherCommand(this);
@@ -40,11 +43,7 @@ namespace StudentsHelper.ViewModel
         public ObservableCollection<Teacher> Teachers
         {
             get { return teachers; }
-            set
-            {
-                teachers = value;
-                OnPropertyChanged(nameof(teachers));
-            }
+            set { teachers = value; OnPropertyChanged(nameof(teachers)); }
         }
 
         private Teacher selectedTeacher{ get; set; }
@@ -76,8 +75,7 @@ namespace StudentsHelper.ViewModel
                 TeachersUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
+       
 
         private void OnPropertyChanged(string propertyName)
         {

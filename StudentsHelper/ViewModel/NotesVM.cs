@@ -3,6 +3,7 @@ using StudentsHelper.Model;
 using StudentsHelper.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
+using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,14 @@ namespace StudentsHelper.ViewModel
     public class NotesVM : INotifyPropertyChanged, IWindowVisibility
     {
         //This class refers to NotesUserControl.xaml
+        public NotesVM()
+        {
+            AddNoteCommand = new ShowAddNoteCommand(this);
+            DeleteNoteCommand = new DeleteNoteCommand(this);
+            EditNoteCommand = new EditNoteCommand(this);
+            Instance = this;
+            WindowsVisibility.HideWindow += SetWindowHidden;
+        }
 
         public static NotesVM? Instance { get; set; }
 
@@ -29,40 +38,18 @@ namespace StudentsHelper.ViewModel
 
         public EditNoteWindow EditNoteWindow { get; set; }
 
-
-        public NotesVM()
-        {
-            AddNoteCommand = new ShowAddNoteCommand(this);
-            DeleteNoteCommand = new DeleteNoteCommand(this);
-            EditNoteCommand = new EditNoteCommand(this);
-            Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
-        }
-
         public ObservableCollection<Note> Notes
         {
             get { return notes; }
-            set
-            {
-                notes = value;
-                OnPropertyChanged(nameof(Notes));
-            }
+            set { notes = value; OnPropertyChanged(nameof(Notes)); }
         }
 
         private Note selectedNote { get; set; }
         public Note SelectedNote
         {
-            get
-            { 
-                return selectedNote; 
-            }
-            set 
-            {
-                selectedNote = value;
-                OnPropertyChanged(nameof(SelectedNote));
-            }
+            get { return selectedNote; }
+            set { selectedNote = value; OnPropertyChanged(nameof(SelectedNote)); }
         }
-
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

@@ -16,7 +16,7 @@ namespace StudentsHelper.ViewModel
     public class LoginVM : INotifyPropertyChanged
     {
         //This class refers to LoginWindow.xaml
-        public LoginVM Instance { get; set; }
+       
         public LoginVM()
         {
             Instance = this;
@@ -24,8 +24,10 @@ namespace StudentsHelper.ViewModel
             RegisterCommand = new RegisterCommand();
             DataBaseHelper.CreateEmptyDataBase();
         }
-        
+        public LoginVM Instance { get; set; }
+
         public LoginCommand LoginCommand { get; set; }
+
         public RegisterCommand RegisterCommand { get; set; }
 
         private int id = 0;
@@ -70,9 +72,7 @@ namespace StudentsHelper.ViewModel
         {
             get { return password; }
             set { password = value; OnPropertyChanged(nameof(Password)); }
-        }
-
-       
+        }       
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

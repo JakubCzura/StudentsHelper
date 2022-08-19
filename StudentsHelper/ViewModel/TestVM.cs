@@ -3,6 +3,7 @@ using StudentsHelper.Model;
 using StudentsHelper.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
+using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,15 @@ namespace StudentsHelper.ViewModel
     public class TestVM : INotifyPropertyChanged, IWindowVisibility
     {
         //This class refers to TestsUserControl.xaml
+        public TestVM()
+        {
+            AddTestCommand = new ShowAddTestCommand(this);
+            DeleteTestCommand = new DeleteTestCommand(this);
+            EditTestCommand = new EditTestCommand(this);
+            Instance = this;
+            WindowsVisibility.HideWindow += SetWindowHidden;
+        }
+
         public static TestVM? Instance { get; set; }
 
         private ObservableCollection<Test> tests = LoginStudent.GetTestsData();
@@ -27,36 +37,20 @@ namespace StudentsHelper.ViewModel
         public EditTestCommand EditTestCommand { get; set; }
 
         public EditTestWindow EditTestWindow { get; set; }
-        public TestVM()
-        {
-            AddTestCommand = new ShowAddTestCommand(this);
-            DeleteTestCommand = new DeleteTestCommand(this);
-            EditTestCommand = new EditTestCommand(this);
-            Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
-        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public ObservableCollection<Test> Tests
         {
             get { return tests; }
-            set
-            {
-                tests = value;
-                OnPropertyChanged(nameof(Tests));
-            }
+            set { tests = value; OnPropertyChanged(nameof(Tests)); }
         }
+
         private Test selectedTest{ get; set; }
         public Test SelectedTest
         {
-            get
-            {
-                return selectedTest;
-            }
-            set
-            {
-                selectedTest = value;
-                OnPropertyChanged(nameof(SelectedTest));
-            }
+            get { return selectedTest; }
+            set { selectedTest = value; OnPropertyChanged(nameof(SelectedTest)); }
         }
         public void SetWindowHidden()
         {
@@ -73,8 +67,6 @@ namespace StudentsHelper.ViewModel
                 TestsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
         {

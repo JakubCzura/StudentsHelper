@@ -11,12 +11,12 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class SaveEditedExamCommand : ICommand
     {
+        EditExamVM EditExamVM { get; set; }
+
         public SaveEditedExamCommand(EditExamVM editExamVM)
         {
             EditExamVM = editExamVM;
         }
-
-        EditExamVM EditExamVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -43,7 +43,6 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 MessageBox.Show("Spróbuj edytować egzamin ponownie", "Błąd edytowania egzaminu");
             }
-        }
-      
+        }     
     }
 }

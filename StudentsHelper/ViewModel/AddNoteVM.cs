@@ -14,15 +14,16 @@ namespace StudentsHelper.ViewModel
     {
 
         //This class refers to AddNoteWindow.xaml
-        public Note Note { get; set; } = new Note { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
-
-        public SaveNoteCommand SaveNoteCommand { get; set; }
-
         public AddNoteVM()
         {
             SaveNoteCommand = new SaveNoteCommand(this);
         }
 
+        public Note Note { get; set; } = new Note { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+
+        public SaveNoteCommand SaveNoteCommand { get; set; }
+
+  
         public string Name
         {
             get { return Note.Name; }
@@ -48,7 +49,6 @@ namespace StudentsHelper.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
 

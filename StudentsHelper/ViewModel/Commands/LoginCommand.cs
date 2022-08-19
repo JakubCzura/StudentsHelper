@@ -19,14 +19,13 @@ namespace StudentsHelper.ViewModel.Commands
         {
             LoginVM = loginVM;
         }
+        LoginVM LoginVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
-        LoginVM LoginVM { get; set; }
 
         public bool CanExecute(object? parameter)
         {         

@@ -13,7 +13,6 @@ namespace StudentsHelper.DataBase
 {
     public class LoginStudent : DataBaseHelper
     {
-
         public static bool Login(LoginVM LoginVM)
         {
             try

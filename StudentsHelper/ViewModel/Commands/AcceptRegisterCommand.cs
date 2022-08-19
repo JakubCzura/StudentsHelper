@@ -13,19 +13,18 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class AcceptRegisterCommand : ICommand
     {
-
         public AcceptRegisterCommand(RegisterWindowVM registerWindowVM)
         {
             RegisterWindowVM = registerWindowVM;
         }
+
+        RegisterWindowVM RegisterWindowVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
-        RegisterWindowVM RegisterWindowVM { get; set; }
 
         public bool CanExecute(object? parameter)
         {

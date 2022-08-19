@@ -14,9 +14,8 @@ namespace StudentsHelper.DataBase
 {
     public class DataBaseHelper
     {
-        private static string DataBaseName { get; set; } = "StudentsHelperDataBase.db";
-        
-        //private static string FolderPath { get; set; } = Environment.CurrentDirectory;
+        private static string DataBaseName { get; } = "StudentsHelperDataBase.db";
+       
         private static readonly string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments, Environment.SpecialFolderOption.Create);
 
         protected static string DataBasePath { get; set; } = Path.Combine(FolderPath, DataBaseName);
@@ -46,6 +45,5 @@ namespace StudentsHelper.DataBase
                 MessageBox.Show(exception.Message + "\nZalecamy zrestartowanie aplikacji", "Błąd utworzenia bazy danych");
             }
         }
-
     }
 }

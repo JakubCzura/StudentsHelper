@@ -22,11 +22,15 @@ namespace StudentsHelper.ViewModel
         }
 
         Student Student { get; set; }
+        
         DegreeCourse DegreeCourse { get; set; }
+        
         public AcceptRegisterCommand AcceptRegisterCommand { get; set; }
 
         public BackToLoginCommand BackToLoginCommand { get; set; }
-
+       
+        public event PropertyChangedEventHandler? PropertyChanged;
+       
         public int Id
         {
             get { return Student.Id; }
@@ -86,9 +90,7 @@ namespace StudentsHelper.ViewModel
         {
             get { return Student.Password; }
             set { Student.Password = value; OnPropertyChanged((Password)); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
+        }   
 
         private void OnPropertyChanged(string propertyName)
         {

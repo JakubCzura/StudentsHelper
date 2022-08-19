@@ -1,6 +1,7 @@
 ﻿using StudentsHelper.Themes;
 using StudentsHelper.UserControls;
 using StudentsHelper.ViewModel.Commands;
+using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,6 @@ namespace StudentsHelper.ViewModel
     public class ThemeChangeVM : INotifyPropertyChanged, IWindowVisibility
     {
         //This class refers to ThemesUserControl.xaml
-
-        public static ThemeChangeVM? Instance { get; set; }
-
-        public SaveNewThemeCommand SaveNewThemeCommand { get; set; }
-        
         public ThemeChangeVM()
         {
             Instance = this;
@@ -26,6 +22,10 @@ namespace StudentsHelper.ViewModel
             Theme = StudentsHelper.Themes.Themes.ReadTheme();
         }
 
+        public static ThemeChangeVM? Instance { get; set; }
+
+        public SaveNewThemeCommand SaveNewThemeCommand { get; set; }
+             
         private string theme = String.Empty;
 
         public string Theme 

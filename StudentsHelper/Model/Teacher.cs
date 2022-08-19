@@ -39,14 +39,14 @@ namespace StudentsHelper.Model
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value.Length < 50 ? value : String.Empty; }
         }
 
         private string lastName = string.Empty;
         public string LastName       
         { 
             get { return lastName; } 
-            set { lastName = value; } 
+            set { lastName = value.Length < 50 ? value : String.Empty; } 
         }
 
         private string degree = string.Empty;

@@ -14,33 +14,26 @@ namespace StudentsHelper.ViewModel
     public class AddHomeworkVM : INotifyPropertyChanged
     {
         //This class refers to AddHomeworkWindow.xaml
-        public Homework Homework { get; set; } = new Homework { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
-
-        public SaveHomeworkCommand SaveHomeworkCommand { get; set; }
-
         public AddHomeworkVM()
         {
             SaveHomeworkCommand = new SaveHomeworkCommand(this);
         }
 
+        public Homework Homework { get; set; } = new Homework { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+
+        public SaveHomeworkCommand SaveHomeworkCommand { get; set; }
+
+        
         public string LessonName
         {
             get { return Homework.LessonName; }
-            set
-            {
-                Homework.LessonName = value;
-                OnPropertyChanged(LessonName);
-            }
+            set { Homework.LessonName = value; OnPropertyChanged(LessonName); }
         }
 
         public DateTime DateOfEnd
         {
             get { return Homework.DateOfEnd; }
-            set
-            {
-                Homework.DateOfEnd = value;
-                OnPropertyChanged(nameof(DateOfEnd));
-            }
+            set { Homework.DateOfEnd = value;OnPropertyChanged(nameof(DateOfEnd)); }
         }
 
         public string TeacherName
@@ -53,11 +46,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return Homework.TeacherSecondName; }
             set { Homework.TeacherSecondName = value; OnPropertyChanged(TeacherSecondName); }
-        }
-
-        public string DateOfEndShort
-        {
-            get { return Homework.DateOfEnd.ToShortDateString(); }
         }
 
         public string Exercise

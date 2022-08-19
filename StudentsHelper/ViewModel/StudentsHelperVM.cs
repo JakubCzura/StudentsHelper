@@ -14,7 +14,7 @@ namespace StudentsHelper.ViewModel
     public class StudentsHelperVM : INotifyPropertyChanged
     {
         //This class refers to MainWindow.xaml
-        public static StudentsHelperVM? Instance { get; set; }
+        
         public StudentsHelperVM()
         {
             Instance = this;
@@ -30,6 +30,8 @@ namespace StudentsHelper.ViewModel
             SetSettingsVisibleCommand = new SetSettingsVisibleCommand();
         }
 
+        public static StudentsHelperVM? Instance { get; set; }
+        
         public Student Student { get; set; }
 
         public DegreeCourse DegreeCourse { get; set; }
@@ -48,15 +50,12 @@ namespace StudentsHelper.ViewModel
 
         public SetSettingsVisibleCommand SetSettingsVisibleCommand{ get; set; }
 
-
+        public event PropertyChangedEventHandler? PropertyChanged;
+        
         public string Name
         {
             get { return Student.Name; }
-            set
-            {
-                Student.Name = value;
-                OnPropertyChanged(Name);
-            }
+            set { Student.Name = value; OnPropertyChanged(Name); }
         }
 
         public string SecondName
@@ -83,34 +82,18 @@ namespace StudentsHelper.ViewModel
             set { Student.Password = value; OnPropertyChanged(nameof(Password)); }
         }
 
-        public string FullName
-        {
-            
-            get { return Student.Name + " " + Student.SecondName;  }
-        }
-
         public string Course
         {
             get { return DegreeCourse.Course; }
-            set 
-            {
-                DegreeCourse.Course = value; 
-                OnPropertyChanged(Course); 
-            }
+            set { DegreeCourse.Course = value; OnPropertyChanged(Course); }
         }
 
         public int Semester
         {
             get { return DegreeCourse.Semester; }
-            set 
-            { 
-                DegreeCourse.Semester = value; 
-                OnPropertyChanged(nameof(Semester)); 
-            }
+            set { DegreeCourse.Semester = value; OnPropertyChanged(nameof(Semester)); }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
+       
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

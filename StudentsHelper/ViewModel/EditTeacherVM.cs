@@ -11,10 +11,6 @@ namespace StudentsHelper.ViewModel
 {
     public class EditTeacherVM : INotifyPropertyChanged
     {
-        public static EditTeacherVM? Instance { get; set; }
-
-        public SaveEditedTeacherCommand SaveEditedTeacherCommand { get; set; }
-        
         public EditTeacherVM()
         {
             SelectedTeacher = TeachersVM.Instance.SelectedTeacher;
@@ -22,14 +18,14 @@ namespace StudentsHelper.ViewModel
             Instance = this;
         }
 
+        public static EditTeacherVM? Instance { get; set; }
+
+        public SaveEditedTeacherCommand SaveEditedTeacherCommand { get; set; }            
+
         public string Lesson
         {
             get { return SelectedTeacher.Lesson; }
-            set
-            {
-                SelectedTeacher.Lesson = value;
-                OnPropertyChanged(Lesson);
-            }
+            set { SelectedTeacher.Lesson = value; OnPropertyChanged(Lesson); }
         }
 
         public string Name
@@ -66,15 +62,8 @@ namespace StudentsHelper.ViewModel
         private Teacher selectedTeacher { get; set; }
         public Teacher SelectedTeacher
         {
-            get
-            {
-                return selectedTeacher;
-            }
-            set
-            {
-                selectedTeacher = value;
-                OnPropertyChanged(nameof(SelectedTeacher));
-            }
+            get { return selectedTeacher; }
+            set { selectedTeacher = value; OnPropertyChanged(nameof(SelectedTeacher)); }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

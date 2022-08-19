@@ -2,6 +2,7 @@
 using StudentsHelper.Model;
 using StudentsHelper.UserControls;
 using StudentsHelper.ViewModel.Commands;
+using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,6 @@ namespace StudentsHelper.ViewModel
 {
     public class UserProfileVM : INotifyPropertyChanged, IWindowVisibility
     {
-        public static UserProfileVM? Instance { get; set; }
-
-        public EditUserProfileCommand EditUserProfileCommand { get; set; }
-
-        public SaveEditedUserProfileCommand SaveEditedUserProfileCommand { get; set; }
         public UserProfileVM()
         {
             EditUserProfileCommand = new EditUserProfileCommand(this);
@@ -27,43 +23,14 @@ namespace StudentsHelper.ViewModel
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Instance = this;
         }
+        public static UserProfileVM? Instance { get; set; }
 
-        //public string Name
-        //{
-        //    get { return Student.Name; }
-        //    set { Student.Name = value; OnPropertyChanged(Name); }
-        //}
+        public EditUserProfileCommand EditUserProfileCommand { get; set; }
 
-        //public string SecondName
-        //{
-        //    get { return Student.SecondName; }
-        //    set { Student.SecondName = value; }
-        //}
-
-        //public int Age
-        //{
-        //    get { return age; }
-        //    set { age = value; }
-        //}
-
-        //public string Login
-        //{
-        //    get { return login; }
-        //    set { login = value; }
-        //}
-
-        //public string Password
-        //{
-        //    get { return password; }
-        //    set { password = value; }
-        //}
-
-        //public override string ToString()
-        //{
-        //    return Name + " " + Id + " " + SecondName + " " + " " + Age;
-        //}
-
-
+        public SaveEditedUserProfileCommand SaveEditedUserProfileCommand { get; set; }
+        
+        public event PropertyChangedEventHandler? PropertyChanged;
+       
         private DegreeCourse degreeCourse { get; set; }
 
         public DegreeCourse DegreeCourse
@@ -95,8 +62,6 @@ namespace StudentsHelper.ViewModel
                 UserProfileUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
         {

@@ -14,16 +14,15 @@ namespace StudentsHelper.ViewModel
     public class AddExamVM : INotifyPropertyChanged
     {
         //This class refers to AddExamWindow.xaml
-
-        public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
-
-        public RoomLetters RoomLetters { get; set; } = new RoomLetters();
-        public SaveExamsCommand SaveExamsCommand { get; set; }
-
         public AddExamVM()
         {
             SaveExamsCommand = new SaveExamsCommand(this);
         }
+
+        public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+
+        public RoomLetters RoomLetters { get; set; } = new RoomLetters();
+        public SaveExamsCommand SaveExamsCommand { get; set; }        
 
         public string Name
         {
