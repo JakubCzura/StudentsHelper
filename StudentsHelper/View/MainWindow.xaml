@@ -13,6 +13,7 @@
         >
 
     <Window.Resources>
+        <vm:WelcomeScreenVM x:Key="WelcomeScreenVM"></vm:WelcomeScreenVM>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
         <vm:TestVM x:Key="TestVM"></vm:TestVM>
         <vm:ExamsVM x:Key="ExamsVM"></vm:ExamsVM>
@@ -41,7 +42,8 @@
         </DockPanel>
 
         <Menu Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
-            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia"  Command="{Binding SetTestsVisibleCommand}"></Button>
+            <Button x:Name="WelcomeButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Start" Command="{Binding SetWelcomeScreenVisibleCommand}"></Button>
+            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia" Command="{Binding SetTestsVisibleCommand}"></Button>
             <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SetExamsVisibleCommand}"/>
             <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SetTeachersVisibleCommand}"/>
             <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
@@ -51,10 +53,11 @@
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
+            <uc:WelcomeScreenUserControl Visibility="Visible"></uc:WelcomeScreenUserControl>
             <uc:TestsUserControl Visibility="Hidden">
                 <uc:TestsUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource TestVM}">
-                        <MenuItem Header="Usuń egzamin" Command="{Binding DeleteTestCommand}"></MenuItem>
+                        <MenuItem Header="Usuń kolokwium" Command="{Binding DeleteTestCommand}"></MenuItem>
                         <MenuItem Header="Edytuj kolokwium" Command="{Binding EditTestCommand}"></MenuItem>
                     </ContextMenu>
                 </uc:TestsUserControl.ContextMenu>
@@ -84,7 +87,7 @@
                     </ContextMenu>
                 </uc:HomeworkUserControl.ContextMenu>
             </uc:HomeworkUserControl>
-            <uc:NotesUserControl Visibility="Visible">
+            <uc:NotesUserControl Visibility="Hidden">
                 <uc:NotesUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource NotesVM}">
                         <MenuItem Header="Usuń notatkę" Command="{Binding DeleteNoteCommand}"></MenuItem>

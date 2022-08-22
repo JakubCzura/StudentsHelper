@@ -8,7 +8,7 @@ namespace StudentsHelper.ViewModel.Interfaces
 {
     public interface IWindowVisibility
     {
-        //This class refers to MainWindow.xaml, it is implemented by user controls to hide them and show them
+        //This interface refers to MainWindow.xaml, it is implemented by user controls to hide them and show them
         public void SetWindowHidden();
         public void SetWindowVisible();
     }

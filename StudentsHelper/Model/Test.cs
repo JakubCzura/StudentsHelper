@@ -9,7 +9,10 @@ namespace StudentsHelper.Model
 {
     public class Test
     {
-        public Test() { DateOfTest = DateTime.Now; }
+        public Test() 
+        { 
+            DateOfTest = DateTime.Now; 
+        }
 
         private int id;
         [PrimaryKey, AutoIncrement]

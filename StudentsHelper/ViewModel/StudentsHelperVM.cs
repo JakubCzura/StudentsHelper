@@ -28,6 +28,7 @@ namespace StudentsHelper.ViewModel
             SetNotesVisibleCommand = new SetNotesVisibleCommand();
             SetUserProfileVisibleCommand = new SetUserProfileVisibleCommand();
             SetSettingsVisibleCommand = new SetSettingsVisibleCommand();
+            SetWelcomeScreenVisibleCommand = new SetWelcomeScreenVisibleCommand();
         }
 
         public static StudentsHelperVM? Instance { get; set; }
@@ -50,6 +51,8 @@ namespace StudentsHelper.ViewModel
 
         public SetSettingsVisibleCommand SetSettingsVisibleCommand{ get; set; }
 
+        public SetWelcomeScreenVisibleCommand SetWelcomeScreenVisibleCommand { get; set; }
+
         public event PropertyChangedEventHandler? PropertyChanged;
         
         public string Name
@@ -64,6 +67,11 @@ namespace StudentsHelper.ViewModel
             set { Student.SecondName = value; OnPropertyChanged(SecondName); }
         }
 
+        public string FullName
+        {
+            get { return $"{Name} {SecondName}"; }
+        }
+       
         public int Age
         {
             get { return Student.Age; }

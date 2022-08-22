@@ -1,5 +1,4 @@
-﻿using StudentsHelper.UserControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +7,7 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class SetExamsVisibleCommand : ICommand
+    public class SetWelcomeScreenVisibleCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged
         {
@@ -24,9 +23,9 @@ namespace StudentsHelper.ViewModel.Commands
         public void Execute(object? parameter)
         {
             WindowsVisibility.OnHideWindow();
-            if(ExamsVM.Instance != null)
+            if (WelcomeScreenVM.Instance != null)
             {
-                ExamsVM.Instance.SetWindowVisible();
+                WelcomeScreenVM.Instance.SetWindowVisible();
             }
         }
     }

@@ -44,4 +44,21 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="TextBlock" x:Key="WelcomeMessageStyle">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA9F529"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TodayDateStyle" BasedOn="{StaticResource WelcomeMessageStyle}"></Style>
+
+    <Style TargetType="TextBlock" x:Key="ToDoStyle" BasedOn="{StaticResource TodayDateStyle}"></Style>
+
 </ResourceDictionary>
