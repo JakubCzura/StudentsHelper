@@ -8,14 +8,14 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class EditNoteCommand : ICommand
+    public class ShowEditTeacherCommand : ICommand
     {
-        public EditNoteCommand(NotesVM notesVM)
+        public ShowEditTeacherCommand(TeachersVM teachersVM)
         {
-            NotesVM = notesVM;
+            TeachersVM = teachersVM;
         }
 
-        NotesVM NotesVM { get; set; }
+        TeachersVM TeachersVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -25,7 +25,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (NotesVM.Instance?.Notes != null && NotesVM.Instance.Notes.Any() == true)
+            if (TeachersVM.Instance?.Teachers != null && TeachersVM.Instance.Teachers.Any() == true)
             {
                 return true;
             }
@@ -34,8 +34,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            NotesVM.EditNoteWindow = new EditNoteWindow();
-            NotesVM.EditNoteWindow.Show();
+            EditTeacherWindow EditTeacherWindow = new EditTeacherWindow();
+            EditTeacherWindow.Show();
         }
     }
 }

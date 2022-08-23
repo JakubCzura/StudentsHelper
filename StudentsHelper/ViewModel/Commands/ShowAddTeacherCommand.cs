@@ -10,13 +10,6 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class ShowAddTeacherCommand : ICommand
     {
-        public ShowAddTeacherCommand(TeachersVM teachersVM)
-        {
-            TeachersVM = teachersVM;
-        }
-            
-        TeachersVM TeachersVM{ get; set; }
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }

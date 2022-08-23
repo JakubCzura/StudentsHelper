@@ -47,7 +47,8 @@
                 </Grid.RowDefinitions>
 
                 <DataGrid Grid.Row="0" ItemsSource="{Binding Homework}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}">
-                        <DataGrid.Columns>
+                    
+                    <DataGrid.Columns>
                         <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=LessonName}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Treść zadania" Binding="{Binding Path=Exercise}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Wykładowca" Binding="{Binding Path=TeacherFullName}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
@@ -57,7 +58,7 @@
                 </DataGrid>
 
                 <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}">
-                        <DataGrid.Columns>
+                    <DataGrid.Columns>
                         <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExamShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Pokój" Binding="{Binding Path=FullRoomNumber}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
@@ -67,7 +68,13 @@
                 </DataGrid>
 
                 <DataGrid Grid.Row="2" ItemsSource="{Binding Tests}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}">
-                        <DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu DataContext="{StaticResource WelcomeScreenVM}">
+                            <MenuItem Header="Usuń kolokwium" Command="{Binding DeleteTestCommand}"></MenuItem>
+                            <MenuItem Header="Edytuj kolokwium" Command="{Binding EditTestCommand}"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
                         <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Data kolokwium" Binding="{Binding Path=DateOfTestShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Pokój" Binding="{Binding Path=FullRoomNumber}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>

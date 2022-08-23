@@ -42,7 +42,6 @@ namespace StudentsHelper.ViewModel.Commands
                 {
                     MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
                 }
-
                 else
                 {
                     MessageBox.Show("Spróbuj edytować informacje ponownie", "Błąd edytowania informacji");

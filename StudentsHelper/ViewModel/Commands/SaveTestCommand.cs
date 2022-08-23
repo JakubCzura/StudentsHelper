@@ -36,6 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
                 if (TestVM.Instance != null)
                 {
                     TestVM.Instance.Tests = LoginStudent.GetTestsData();
+                    TestVM.Instance.SortTestsDateAscending();
                 }
                 MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
             }

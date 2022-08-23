@@ -4,19 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class EditTestCommand : ICommand
+    public class ShowEditNoteCommand : ICommand
     {
-        public EditTestCommand(TestVM testVM)
+        public ShowEditNoteCommand(NotesVM notesVM)
         {
-            TestVM = testVM;
+            NotesVM = notesVM;
         }
 
-        TestVM TestVM { get; set; }
+        NotesVM NotesVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -26,7 +25,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (TestVM.Instance?.Tests != null && TestVM.Instance.Tests.Any() == true)
+            if (NotesVM.Instance?.Notes != null && NotesVM.Instance.Notes.Any() == true)
             {
                 return true;
             }
@@ -35,8 +34,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            TestVM.EditTestWindow = new EditTestWindow();
-            TestVM.EditTestWindow.Show();
+            EditNoteWindow EditNoteWindow = new EditNoteWindow();
+            EditNoteWindow.Show();
         }
     }
 }

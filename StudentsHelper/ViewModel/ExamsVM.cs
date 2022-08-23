@@ -19,9 +19,9 @@ namespace StudentsHelper.ViewModel
         //This class refers to ExamsUserControl.xaml
         public ExamsVM()
         {
-            AddExamCommand = new ShowAddExamCommand(this);
+            AddExamCommand = new ShowAddExamCommand();
             DeleteExamCommand = new DeleteExamCommand(this);
-            EditExamCommand = new EditExamCommand(this);
+            EditExamCommand = new ShowEditExamCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
@@ -34,7 +34,7 @@ namespace StudentsHelper.ViewModel
 
         public DeleteExamCommand DeleteExamCommand { get; set; }
 
-        public EditExamCommand EditExamCommand { get; set; }
+        public ShowEditExamCommand EditExamCommand { get; set; }
         
         public EditExamWindow EditExamWindow { get; set; }
                              

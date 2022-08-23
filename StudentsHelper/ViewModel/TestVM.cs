@@ -19,11 +19,12 @@ namespace StudentsHelper.ViewModel
         //This class refers to TestsUserControl.xaml
         public TestVM()
         {
-            AddTestCommand = new ShowAddTestCommand(this);
+            AddTestCommand = new ShowAddTestCommand();
             DeleteTestCommand = new DeleteTestCommand(this);
-            EditTestCommand = new EditTestCommand(this);
+            EditTestCommand = new ShowEditTestCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
+            SortTestsDateAscending();
         }
 
         public static TestVM? Instance { get; set; }
@@ -34,7 +35,7 @@ namespace StudentsHelper.ViewModel
 
         public DeleteTestCommand DeleteTestCommand { get; set; }
 
-        public EditTestCommand EditTestCommand { get; set; }
+        public ShowEditTestCommand EditTestCommand { get; set; }
 
         public EditTestWindow EditTestWindow { get; set; }
 
@@ -44,9 +45,9 @@ namespace StudentsHelper.ViewModel
         {
             get { return tests; }
             set { tests = value; OnPropertyChanged(nameof(Tests)); }
-        }
+        }       
 
-        private Test selectedTest{ get; set; }
+        private Test selectedTest;
         public Test SelectedTest
         {
             get { return selectedTest; }
@@ -73,5 +74,9 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void SortTestsDateAscending()
+        {
+            Tests = new ObservableCollection<Test>(Tests.OrderBy(test => test.DateOfTest));
+        }
     }
 }

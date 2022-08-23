@@ -7,10 +7,8 @@
         mc:Ignorable="d"
         xmlns:app="clr-namespace:StudentsHelper"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
-        Title="StudentsHelper" Height="650" Width="1200" WindowStartupLocation="CenterScreen" 
-        
-        xmlns:uc="clr-namespace:StudentsHelper.UserControls"
-        >
+        Title="StudentsHelper" Height="650" Width="1200" WindowStartupLocation="CenterScreen"       
+        xmlns:uc="clr-namespace:StudentsHelper.UserControls">
 
     <Window.Resources>
         <vm:WelcomeScreenVM x:Key="WelcomeScreenVM"></vm:WelcomeScreenVM>

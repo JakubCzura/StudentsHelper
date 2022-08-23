@@ -4,18 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class EditHomeworkCommand : ICommand
+    public class ShowEditExamCommand : ICommand
     {
-        public EditHomeworkCommand(HomeworkVM homeworkVM)
+        public ShowEditExamCommand(ExamsVM examsVM)
         {
-            HomeworkVM = homeworkVM;
+            ExamsVM = examsVM;
         }
 
-        HomeworkVM HomeworkVM { get; set; }
+        ExamsVM ExamsVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -25,7 +26,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (HomeworkVM.Instance?.Homework != null && HomeworkVM.Instance.Homework.Any() == true)
+            if (ExamsVM.Instance?.Exams != null && ExamsVM.Instance.Exams.Any() == true)
             {
                 return true;
             }
@@ -34,8 +35,8 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            HomeworkVM.EditHomeworkWindow = new EditHomeworkWindow();
-            HomeworkVM.EditHomeworkWindow.Show();
+            EditExamWindow EditExamWindow  = new EditExamWindow();
+            EditExamWindow.Show();
         }
     }
 }

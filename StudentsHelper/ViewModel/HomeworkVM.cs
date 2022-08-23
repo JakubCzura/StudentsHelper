@@ -21,9 +21,9 @@ namespace StudentsHelper.ViewModel
 
         public HomeworkVM()
         {
-            AddHomeworkCommand = new ShowAddHomeworkCommand(this);
+            AddHomeworkCommand = new ShowAddHomeworkCommand();
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
-            EditHomeworkCommand = new EditHomeworkCommand(this);
+            EditHomeworkCommand = new ShowEditHomeworkCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel
 
         public DeleteHomeworkCommand DeleteHomeworkCommand { get; set; }
 
-        public EditHomeworkCommand EditHomeworkCommand { get; set; }
+        public ShowEditHomeworkCommand EditHomeworkCommand { get; set; }
 
         public EditHomeworkWindow EditHomeworkWindow { get; set; }
 

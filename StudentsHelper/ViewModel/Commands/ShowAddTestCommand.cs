@@ -10,19 +10,11 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class ShowAddTestCommand : ICommand
     {
-
-        public ShowAddTestCommand(TestVM testVM)
-        {
-            TestVM = testVM;
-        }
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
-        TestVM TestVM { get; set; }
 
         public bool CanExecute(object? parameter)
         {

@@ -19,9 +19,9 @@ namespace StudentsHelper.ViewModel
         //This class refers to NotesUserControl.xaml
         public NotesVM()
         {
-            AddNoteCommand = new ShowAddNoteCommand(this);
+            AddNoteCommand = new ShowAddNoteCommand();
             DeleteNoteCommand = new DeleteNoteCommand(this);
-            EditNoteCommand = new EditNoteCommand(this);
+            EditNoteCommand = new ShowEditNoteCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
@@ -34,7 +34,7 @@ namespace StudentsHelper.ViewModel
         
         public DeleteNoteCommand DeleteNoteCommand { get; set; }
 
-        public EditNoteCommand EditNoteCommand { get; set; }
+        public ShowEditNoteCommand EditNoteCommand { get; set; }
 
         public EditNoteWindow EditNoteWindow { get; set; }
 

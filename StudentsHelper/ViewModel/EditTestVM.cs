@@ -69,7 +69,7 @@ namespace StudentsHelper.ViewModel
             set { SelectedTest.Note = value; OnPropertyChanged(Note); }
         }
 
-        private Test selectedTest { get; set; }
+        private Test selectedTest;
         public Test SelectedTest
         {
             get { return selectedTest; }

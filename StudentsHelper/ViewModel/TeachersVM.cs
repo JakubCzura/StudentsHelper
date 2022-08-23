@@ -25,7 +25,7 @@ namespace StudentsHelper.ViewModel
 
         public DeleteTeacherCommand DeleteTeacherCommand { get; set; }
         
-        public EditTeacherCommand EditTeacherCommand { get; set; }
+        public ShowEditTeacherCommand EditTeacherCommand { get; set; }
        
         public EditTeacherWindow EditTeacherWindow { get; set; }
 
@@ -33,9 +33,9 @@ namespace StudentsHelper.ViewModel
 
         public TeachersVM()
         {
-            AddTeacherCommand = new ShowAddTeacherCommand(this);
+            AddTeacherCommand = new ShowAddTeacherCommand();
             DeleteTeacherCommand = new DeleteTeacherCommand(this);
-            EditTeacherCommand = new EditTeacherCommand(this);
+            EditTeacherCommand = new ShowEditTeacherCommand(this);
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
         }
