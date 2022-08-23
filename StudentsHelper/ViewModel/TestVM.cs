@@ -21,7 +21,7 @@ namespace StudentsHelper.ViewModel
         {
             AddTestCommand = new ShowAddTestCommand();
             DeleteTestCommand = new DeleteTestCommand(this);
-            EditTestCommand = new ShowEditTestCommand(this);
+            ShowEditTestCommand = new ShowEditTestCommand();
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
             SortTestsDateAscending();
@@ -35,7 +35,7 @@ namespace StudentsHelper.ViewModel
 
         public DeleteTestCommand DeleteTestCommand { get; set; }
 
-        public ShowEditTestCommand EditTestCommand { get; set; }
+        public ShowEditTestCommand ShowEditTestCommand { get; set; }
 
         public EditTestWindow EditTestWindow { get; set; }
 

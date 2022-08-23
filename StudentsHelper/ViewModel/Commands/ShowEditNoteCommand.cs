@@ -10,13 +10,6 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class ShowEditNoteCommand : ICommand
     {
-        public ShowEditNoteCommand(NotesVM notesVM)
-        {
-            NotesVM = notesVM;
-        }
-
-        NotesVM NotesVM { get; set; }
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }

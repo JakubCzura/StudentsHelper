@@ -10,7 +10,7 @@ namespace StudentsHelper.Model
     public class DegreeCourse
     {
         private int id;
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
             get { return id; }
@@ -24,7 +24,6 @@ namespace StudentsHelper.Model
             get { return studentLogin; }
             set { studentLogin = value; }
         }
-
 
         private int studentId = 0;
 

@@ -10,13 +10,6 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class ShowEditHomeworkCommand : ICommand
     {
-        public ShowEditHomeworkCommand(HomeworkVM homeworkVM)
-        {
-            HomeworkVM = homeworkVM;
-        }
-
-        HomeworkVM HomeworkVM { get; set; }
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }

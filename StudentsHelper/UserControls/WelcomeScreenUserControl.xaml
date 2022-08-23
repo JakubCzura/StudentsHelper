@@ -68,12 +68,6 @@
                 </DataGrid>
 
                 <DataGrid Grid.Row="2" ItemsSource="{Binding Tests}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}">
-                    <DataGrid.ContextMenu>
-                        <ContextMenu DataContext="{StaticResource WelcomeScreenVM}">
-                            <MenuItem Header="Usuń kolokwium" Command="{Binding DeleteTestCommand}"></MenuItem>
-                            <MenuItem Header="Edytuj kolokwium" Command="{Binding EditTestCommand}"></MenuItem>
-                        </ContextMenu>
-                    </DataGrid.ContextMenu>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Data kolokwium" Binding="{Binding Path=DateOfTestShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>

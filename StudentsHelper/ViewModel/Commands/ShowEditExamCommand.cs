@@ -11,13 +11,6 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class ShowEditExamCommand : ICommand
     {
-        public ShowEditExamCommand(ExamsVM examsVM)
-        {
-            ExamsVM = examsVM;
-        }
-
-        ExamsVM ExamsVM { get; set; }
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -35,7 +28,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            EditExamWindow EditExamWindow  = new EditExamWindow();
+            EditExamWindow EditExamWindow = new EditExamWindow();
             EditExamWindow.Show();
         }
     }

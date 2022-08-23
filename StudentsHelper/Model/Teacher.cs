@@ -9,10 +9,8 @@ namespace StudentsHelper.Model
 {
     public class Teacher
     {
-        public Teacher() { }
-
         private int id = 0;
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
             get { return id; }

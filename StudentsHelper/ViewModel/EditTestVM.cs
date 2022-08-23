@@ -14,6 +14,7 @@ namespace StudentsHelper.ViewModel
         public EditTestVM()
         {
             SelectedTest = TestVM.Instance.SelectedTest;
+            
             SaveEditedTestCommand = new SaveEditedTestCommand(this);
             Instance = this;
         }

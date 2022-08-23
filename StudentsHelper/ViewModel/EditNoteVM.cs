@@ -41,7 +41,7 @@ namespace StudentsHelper.ViewModel
             set { SelectedNote.Content = value; OnPropertyChanged(Content); }
         }
 
-        private Note selectedNote { get; set; }
+        private Note selectedNote;
         public Note SelectedNote
         {
             get { return selectedNote; }

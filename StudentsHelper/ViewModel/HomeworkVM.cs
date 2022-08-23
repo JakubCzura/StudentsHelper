@@ -23,9 +23,10 @@ namespace StudentsHelper.ViewModel
         {
             AddHomeworkCommand = new ShowAddHomeworkCommand();
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
-            EditHomeworkCommand = new ShowEditHomeworkCommand(this);
+            ShowEditHomeworkCommand = new ShowEditHomeworkCommand();
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
+            SortHomeworkDateAscending();
         }
 
         public static HomeworkVM? Instance { get; set; }
@@ -36,7 +37,7 @@ namespace StudentsHelper.ViewModel
 
         public DeleteHomeworkCommand DeleteHomeworkCommand { get; set; }
 
-        public ShowEditHomeworkCommand EditHomeworkCommand { get; set; }
+        public ShowEditHomeworkCommand ShowEditHomeworkCommand { get; set; }
 
         public EditHomeworkWindow EditHomeworkWindow { get; set; }
 
@@ -74,6 +75,11 @@ namespace StudentsHelper.ViewModel
             {
                 HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
+        }
+
+        public void SortHomeworkDateAscending()
+        {
+            Homework = new ObservableCollection<Homework>(Homework.OrderBy(homework=> homework.DateOfEnd));
         }
     }
 }

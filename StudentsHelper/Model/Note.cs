@@ -10,7 +10,8 @@ namespace StudentsHelper.Model
     public class Note
     {
         private int id { get; set; } = 0;
-        [PrimaryKey, AutoIncrement]
+        
+        [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
             get { return id; }

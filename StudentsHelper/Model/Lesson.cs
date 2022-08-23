@@ -10,7 +10,7 @@ namespace StudentsHelper.Model
     public class Lesson
     {
         private int id;
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
             get { return id; }

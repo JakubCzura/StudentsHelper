@@ -19,7 +19,7 @@ namespace StudentsHelper.Model
 
         private int id = 0;
 
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey, AutoIncrement, NotNull]
         public int Id 
         { 
             get { return id; } 

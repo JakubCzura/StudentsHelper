@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StudentsHelper.ViewModel
 {
@@ -21,9 +22,10 @@ namespace StudentsHelper.ViewModel
         {
             AddNoteCommand = new ShowAddNoteCommand();
             DeleteNoteCommand = new DeleteNoteCommand(this);
-            EditNoteCommand = new ShowEditNoteCommand(this);
+            ShowEditNoteCommand = new ShowEditNoteCommand();
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
+            SortNotesDateAscending();
         }
 
         public static NotesVM? Instance { get; set; }
@@ -34,7 +36,7 @@ namespace StudentsHelper.ViewModel
         
         public DeleteNoteCommand DeleteNoteCommand { get; set; }
 
-        public ShowEditNoteCommand EditNoteCommand { get; set; }
+        public ShowEditNoteCommand ShowEditNoteCommand { get; set; }
 
         public EditNoteWindow EditNoteWindow { get; set; }
 
@@ -72,6 +74,11 @@ namespace StudentsHelper.ViewModel
             {
                 NotesUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
             }
+        }
+
+        public void SortNotesDateAscending()
+        {
+            Notes = new ObservableCollection<Note>(Notes.OrderBy(note => note.Date));
         }
     }
 }

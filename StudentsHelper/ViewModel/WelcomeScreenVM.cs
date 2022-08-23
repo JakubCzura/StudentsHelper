@@ -126,7 +126,8 @@ namespace StudentsHelper.ViewModel
             {
                 return new ObservableCollection<Exam>
                            (LoginStudent.GetExamsData().ToList().
-                           Where(exam => exam.DateOfExam.Subtract(DateTime.Today).Days <= daysToDeadline).ToList());
+                           Where(exam => exam.DateOfExam.Subtract(DateTime.Today).Days <= daysToDeadline).
+                           OrderBy(exam => exam.DateOfExam).ToList());
             }
             catch (Exception e)
             {
@@ -142,7 +143,8 @@ namespace StudentsHelper.ViewModel
             {              
                 return new ObservableCollection<Homework>
                            (LoginStudent.GetHomeworkData().ToList().
-                           Where(homework => homework.DateOfEnd.Subtract(DateTime.Today).Days <= daysToDeadline).ToList());
+                           Where(homework => homework.DateOfEnd.Subtract(DateTime.Today).Days <= daysToDeadline).
+                           OrderBy(homework => homework.DateOfEnd).ToList());
             }
             catch (Exception e)
             {
@@ -157,7 +159,8 @@ namespace StudentsHelper.ViewModel
             {
                 return new ObservableCollection<Test>
                            (LoginStudent.GetTestsData().ToList().
-                           Where(test => test.DateOfTest.Subtract(DateTime.Today).Days <= daysToDeadline).ToList());
+                           Where(test => test.DateOfTest.Subtract(DateTime.Today).Days <= daysToDeadline).
+                           OrderBy(test => test.DateOfTest).ToList());
             }
             catch (Exception e)
             {
