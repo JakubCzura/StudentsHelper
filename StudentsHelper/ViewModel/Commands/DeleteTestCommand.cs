@@ -26,7 +26,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (TestVM.Instance?.Tests != null && TestVM.Instance.Tests.Any() == true)
+            if (TestVM?.Tests != null && TestVM?.Tests.Any() == true)
             {
                 return true;
             }
@@ -39,7 +39,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (TestVM.Instance != null)
                 {
-                    TestVM.Instance.Tests = LoginStudent.GetTestsData();
+                    TestVM.Tests = LoginStudent.GetTestsData();
                 }
                 MessageBox.Show("Skasowano informację o teście", "Zapisano pomyślnie");
             }

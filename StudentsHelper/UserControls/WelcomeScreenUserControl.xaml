@@ -9,10 +9,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
 
-
     <UserControl.Resources>
         <vm:WelcomeScreenVM x:Key="WelcomeScreenVM"/>
-        
+
         <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
@@ -46,8 +45,12 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <DataGrid Grid.Row="0" ItemsSource="{Binding Homework}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}">
-                    
+                <DataGrid Grid.Row="0" ItemsSource="{Binding Homework}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}" Margin="0,0,0,5">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu DataContext="{StaticResource WelcomeScreenVM}">
+                            <MenuItem Header="Przejdź do zadań domowych" Command="{Binding SetHomeworkVisibleCommand}"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=LessonName}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Treść zadania" Binding="{Binding Path=Exercise}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
@@ -57,7 +60,12 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}">
+                <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}" Margin="0,0,0,5">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu DataContext="{StaticResource WelcomeScreenVM}">
+                            <MenuItem Header="Przejdź do egzaminów" Command="{Binding SetExamsVisibleCommand}"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Data egzaminu" Binding="{Binding Path=DateOfExamShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
@@ -67,7 +75,12 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <DataGrid Grid.Row="2" ItemsSource="{Binding Tests}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}">
+                <DataGrid Grid.Row="2" ItemsSource="{Binding Tests}" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource UserPanelDataGrid}" Margin="0,0,0,5">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu DataContext="{StaticResource WelcomeScreenVM}">
+                            <MenuItem Header="Przejdź do kolokwiów" Command="{Binding SetTestsVisibleCommand}"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Przedmiot" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                         <DataGridTextColumn Header="Data kolokwium" Binding="{Binding Path=DateOfTestShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
@@ -78,7 +91,5 @@
                 </DataGrid>
             </Grid>
         </ScrollViewer>
-       
-        
     </Grid>
 </UserControl>

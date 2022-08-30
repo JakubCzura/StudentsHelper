@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace StudentsHelper.ViewModel
 {
@@ -26,9 +27,16 @@ namespace StudentsHelper.ViewModel
             Tests = LoginStudent.GetTestsData();
             Homework = LoginStudent.GetHomeworkData();
             Exams = LoginStudent.GetExamsData();
+            SetHomeworkVisibleCommand = new SetHomeworkVisibleCommand();
+            SetExamsVisibleCommand = new SetExamsVisibleCommand();
+            SetTestsVisibleCommand = new SetTestsVisibleCommand();
+
             GetDutiesBeforeDeadline(SelectedDaysToDeadline);
         }
 
+        public SetHomeworkVisibleCommand SetHomeworkVisibleCommand { get; set; }
+        public SetExamsVisibleCommand SetExamsVisibleCommand { get; set; }
+        public SetTestsVisibleCommand SetTestsVisibleCommand { get; set; }
 
         public static WelcomeScreenVM? Instance { get; set; }
 
@@ -140,7 +148,7 @@ namespace StudentsHelper.ViewModel
         private ObservableCollection<Homework> GetHomeworkBeforeDeadline(int daysToDeadline)
         {
             try
-            {              
+            {
                 return new ObservableCollection<Homework>
                            (LoginStudent.GetHomeworkData().ToList().
                            Where(homework => homework.DateOfEnd.Subtract(DateTime.Today).Days <= daysToDeadline).
