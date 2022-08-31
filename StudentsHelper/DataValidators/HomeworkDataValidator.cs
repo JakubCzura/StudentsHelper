@@ -15,7 +15,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o nazwie przedmiotu ", nameof(lessonName));
             }
-            if (!(lessonName.Length <= 100 && lessonName.Length > 0))
+            if (!(lessonName.Length >=1 && lessonName.Length <= 100))
             {
                 throw new ArgumentException("Długość nazwy przedmiotu spoza zakresu znaków 1-100 ", nameof(lessonName));
             }
@@ -49,7 +49,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o zadaniu domowym ", nameof(exercise));
             }
-            if (!(exercise.Length <= 100 && exercise.Length > 0))
+            if (!(exercise.Length >= 1 && exercise.Length <= 100))
             {
                 throw new ArgumentException("Długość zadania domowego spoza zakresu znaków 1-100 ", nameof(exercise));
             }
@@ -62,7 +62,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o notatce do zadania domowego ", nameof(note));
             }
-            if (!(note.Length <= 500 && note.Length > 0))
+            if (!(note.Length >=1 && note.Length <= 500))
             {
                 throw new ArgumentException("Długość notatki do zadania domowego spoza zakresu znaków 1-500 ", nameof(note));
             }

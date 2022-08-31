@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace StudentsHelper.DataValidators
 {
-    public static class UserDataValidator
+    public static class StudentDataValidator
     {
         public static bool ValidateName(string name)
         {
@@ -17,7 +17,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o imieniu ", nameof(name));
             }
-            if (!(name.Length <= 100 && name.Length > 0))
+            if (!(name.Length >= 1 && name.Length <= 100))
             {
                 throw new ArgumentException("Długość imienia spoza zakresu znaków 1-100 ", nameof(name));
             }
@@ -34,7 +34,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o nazwisku ", nameof(name));
             }
-            if (!(name.Length <= 100 && name.Length > 0))
+            if (!(name.Length > 1 && name.Length <= 100))
             {
                 throw new ArgumentException("Długość nazwiska spoza zakresu znaków 1-100 ", nameof(name));
             }
@@ -47,9 +47,9 @@ namespace StudentsHelper.DataValidators
 
         public static bool ValidateAge(int age)
         {
-            if (!(age > 0 && age < 100))
+            if (!(age >= 1 && age <= 100))
             {
-                throw new ArgumentException("Wiek spoza zakresu 0-100 ", nameof(age));
+                throw new ArgumentException("Wiek spoza zakresu 1-100 ", nameof(age));
             }
             return true;
         }
@@ -85,9 +85,9 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o haśle ", nameof(password));
             }
-            if (!(password.Length >= 5 && password.Length <= 30))
+            if (!(password.Length >= 5 && password.Length <= 50))
             {
-                throw new ArgumentException("Długość hasła jest spoza zakresu 5-30 ", nameof(password));
+                throw new ArgumentException("Długość hasła jest spoza zakresu 5-50 ", nameof(password));
             }
             if (!password.All(char.IsAscii))
             {
