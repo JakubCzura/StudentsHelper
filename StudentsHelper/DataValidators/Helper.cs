@@ -25,5 +25,14 @@ namespace StudentsHelper.DataValidators
             }
             return false;
         }
+
+        internal static bool IsLetterOrSpaceOrHyphen(char c)
+        {
+            if (char.IsLetter(c) || c == ' ' || c == '-')
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

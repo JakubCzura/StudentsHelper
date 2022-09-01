@@ -21,7 +21,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Długość imienia spoza zakresu znaków 1-100", nameof(name));
             }
-            if (!name.All(Helper.IsLetterOrSpace))
+            if (!name.All(Helper.IsLetterOrSpaceOrHyphen))
             {
                 throw new ArgumentException("Imie zawiera inne znaki niż litery", nameof(name));
             }
@@ -38,7 +38,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Długość nazwiska spoza zakresu znaków 1-100", nameof(name));
             }
-            if (!name.All(Helper.IsLetterOrSpace))
+            if (!name.All(Helper.IsLetterOrSpaceOrHyphen))
             {
                 throw new ArgumentException("Nazwisko zawiera inne znaki niż litery", nameof(name));
             }
