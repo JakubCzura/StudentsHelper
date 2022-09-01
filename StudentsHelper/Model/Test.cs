@@ -67,7 +67,6 @@ namespace StudentsHelper.Model
             }
         }
 
-
         public string FullHourOfTest
         {
             get { return $"{HourOfTest}:{MinuteOfTest}"; }
@@ -77,13 +76,7 @@ namespace StudentsHelper.Model
         public int? RoomNumber
         {
             get { return roomNumber; }
-            set
-            {
-                if (value > 0 && value < 100000)
-                {
-                    roomNumber = value;
-                }
-            }
+            set { roomNumber = value; }
         }
 
         private string roomLetter = String.Empty;
@@ -97,7 +90,6 @@ namespace StudentsHelper.Model
         {
             get { return $"{RoomNumber}{RoomLetter}"; }
         }
-
 
         private string note = string.Empty;
         public string Note

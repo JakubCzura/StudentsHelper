@@ -23,14 +23,14 @@ namespace StudentsHelper.Model
         public string Name 
         {
             get { return name; }
-            set { name = value.Length < 50 ? value : String.Empty; }
+            set { name = value; }
         }
 
         private string secondName = string.Empty;
         public string SecondName 
         {
             get { return secondName; }
-            set { secondName = value.Length < 50 ? value : String.Empty; }
+            set { secondName = value; }
         }
 
         private int age = 0;
@@ -38,7 +38,7 @@ namespace StudentsHelper.Model
         public int Age
         {
             get { return age; }
-            set { age = value > 0 && value < 150 ? value : 0; }
+            set { age = value; }
         }
 
         private string login = string.Empty;

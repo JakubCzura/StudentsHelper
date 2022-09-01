@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.View;
 using StudentsHelper.View.Windows;
 using System;
@@ -28,29 +29,44 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (string.IsNullOrWhiteSpace(RegisterWindowVM.Name) ||
-                string.IsNullOrWhiteSpace(RegisterWindowVM.SecondName) ||
-                RegisterWindowVM.Age <= 0 || RegisterWindowVM.Age >= 100 ||
-                string.IsNullOrWhiteSpace(RegisterWindowVM.Course) ||
-                RegisterWindowVM.Semestr <= 0 || RegisterWindowVM.Semestr >= 20 ||
-                string.IsNullOrWhiteSpace(RegisterWindowVM.Speciality) ||
-                string.IsNullOrWhiteSpace(RegisterWindowVM.Faculty))
-            {
-                return false;
-            }
+            //if (string.IsNullOrWhiteSpace(RegisterWindowVM.Name) ||
+            //    string.IsNullOrWhiteSpace(RegisterWindowVM.SecondName) ||
+            //    RegisterWindowVM.Age <= 0 || RegisterWindowVM.Age >= 100 ||
+            //    string.IsNullOrWhiteSpace(RegisterWindowVM.Course) ||
+            //    RegisterWindowVM.Semestr <= 0 || RegisterWindowVM.Semestr >= 20 ||
+            //    string.IsNullOrWhiteSpace(RegisterWindowVM.Speciality) ||
+            //    string.IsNullOrWhiteSpace(RegisterWindowVM.Faculty))
+            //{
+            //    return false;
+            //}
             return true;
         }
 
-        static bool IsLoginCorrect(string login)
+        private bool ValidateData()
         {
-            if (string.IsNullOrWhiteSpace(login) ||
-                !login.StartsWith('s') ||
-                login.Length != 7)
+            if (StudentDataValidator.ValidateName(RegisterWindowVM.Name) &&
+                StudentDataValidator.ValidateSecondName(RegisterWindowVM.SecondName) &&
+                StudentDataValidator.ValidateAge(RegisterWindowVM.Age) &&
+                DegreeCourseDataValidator.ValidateCourse(RegisterWindowVM.Course) &&
+                DegreeCourseDataValidator.ValidateSpeciality(RegisterWindowVM.Speciality) &&
+                DegreeCourseDataValidator.ValidateSemester(RegisterWindowVM.Semestr) &&
+                DegreeCourseDataValidator.ValidateFaculty(RegisterWindowVM.Faculty)
+                )
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
+        //static bool IsLoginCorrect(string login)
+        //{
+        //    if (string.IsNullOrWhiteSpace(login) ||
+        //        !login.StartsWith('s') ||
+        //        login.Length != 7)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         public void Execute(object? parameter)
         {
@@ -59,12 +75,11 @@ namespace StudentsHelper.ViewModel.Commands
                 if (RegisterWindow.Instance != null)
                 {
                     RegisterWindowVM.Password = RegisterWindow.Instance.PasswordBox.Password;
-                    if (string.IsNullOrWhiteSpace(RegisterWindowVM.Password) || !IsLoginCorrect(RegisterWindowVM.Login))
+
+                    if ((StudentDataValidator.ValidatePassword(RegisterWindowVM.Password) &&
+                        StudentDataValidator.ValidateLogin(RegisterWindowVM.Login)))
                     {
-                        MessageBox.Show("Podaj odpowiednie dane do rejestracji\nPamiętaj, że login zaczyna się od 's'", "Błąd rejestracji");
-                    }
-                    else
-                    {
+                        ValidateData();
                         if (RegisterStudent.Register(RegisterWindowVM) == true)
                         {
                             LoginWindow LoginWindow = new LoginWindow();

@@ -13,15 +13,15 @@ namespace StudentsHelper.DataValidators
         {
             if (string.IsNullOrWhiteSpace(lessonName))
             {
-                throw new ArgumentException("Brak danych o nazwie przedmiotu ", nameof(lessonName));
+                throw new ArgumentException("Brak danych o nazwie przedmiotu", nameof(lessonName));
             }
             if (!(lessonName.Length >=1 && lessonName.Length <= 100))
             {
-                throw new ArgumentException("Długość nazwy przedmiotu spoza zakresu znaków 1-100 ", nameof(lessonName));
+                throw new ArgumentException("Długość nazwy przedmiotu spoza zakresu znaków 1-100", nameof(lessonName));
             }
-            if (!lessonName.All(char.IsLetterOrDigit))
+            if (!lessonName.All(Helper.IsLetterOrDigitOrSpace))
             {
-                throw new ArgumentException("Nazwa przedmiotu zawiera inne znaki niż litery i cyfry ", nameof(lessonName));
+                throw new ArgumentException("Nazwa przedmiotu zawiera inne znaki niż litery i cyfry", nameof(lessonName));
             }
             return true;
         }
@@ -30,15 +30,15 @@ namespace StudentsHelper.DataValidators
         {
             if (!(dateOfEnd.Year >= DateTime.MinValue.Year && dateOfEnd.Year <= DateTime.MaxValue.Year))
             {
-                throw new ArgumentException("Niepoprawna wartość roku ", nameof(dateOfEnd));
+                throw new ArgumentException("Niepoprawna wartość roku", nameof(dateOfEnd));
             }
             if (!(dateOfEnd.Month >= 1 && dateOfEnd.Month <= 12))
             {
-                throw new ArgumentException("Niepoprawna wartość miesiąca ", nameof(dateOfEnd));
+                throw new ArgumentException("Niepoprawna wartość miesiąca", nameof(dateOfEnd));
             }
             if (!(dateOfEnd.Day >= 1 && dateOfEnd.Day <= DateTime.DaysInMonth(dateOfEnd.Year, dateOfEnd.Month)))
             {
-                throw new ArgumentException("Niepoprawna wartość dnia ", nameof(dateOfEnd));
+                throw new ArgumentException("Niepoprawna wartość dnia", nameof(dateOfEnd));
             }
             return true;
         }
@@ -47,24 +47,20 @@ namespace StudentsHelper.DataValidators
         {
             if (string.IsNullOrWhiteSpace(exercise))
             {
-                throw new ArgumentException("Brak danych o zadaniu domowym ", nameof(exercise));
+                throw new ArgumentException("Brak danych o zadaniu domowym", nameof(exercise));
             }
             if (!(exercise.Length >= 1 && exercise.Length <= 100))
             {
-                throw new ArgumentException("Długość zadania domowego spoza zakresu znaków 1-100 ", nameof(exercise));
+                throw new ArgumentException("Długość zadania domowego spoza zakresu znaków 1-100", nameof(exercise));
             }
             return true;
         }
 
         public static bool ValidateNote(string note)
         {
-            if (string.IsNullOrWhiteSpace(note))
+            if (!(note.Length <= 500))
             {
-                throw new ArgumentException("Brak danych o notatce do zadania domowego ", nameof(note));
-            }
-            if (!(note.Length >=1 && note.Length <= 500))
-            {
-                throw new ArgumentException("Długość notatki do zadania domowego spoza zakresu znaków 1-500 ", nameof(note));
+                throw new ArgumentException("Długość notatki do zadania domowego spoza zakresu znaków 0-500", nameof(note));
             }
             return true;
         }

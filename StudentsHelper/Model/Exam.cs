@@ -10,9 +10,9 @@ namespace StudentsHelper.Model
 {
     public class Exam
     {
-        public Exam() 
-        { 
-            DateOfExam = DateTime.Now; 
+        public Exam()
+        {
+            DateOfExam = DateTime.Now;
         }
 
         private int id;
@@ -76,13 +76,7 @@ namespace StudentsHelper.Model
         public int? RoomNumber
         {
             get { return roomNumber; }
-            set
-            {
-                if (value > 0 && value < 100000)
-                {
-                    roomNumber = value;
-                }
-            }
+            set { roomNumber = value; }
         }
 
         private string roomLetter = String.Empty;

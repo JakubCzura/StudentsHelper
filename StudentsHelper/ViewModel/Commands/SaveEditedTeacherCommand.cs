@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,17 +32,27 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Update(EditTeacherVM.SelectedTeacher))
+            try
             {
-                if (TeachersVM.Instance != null)
+                if(TeacherDataValidator.ValidateTeacherData(EditTeacherVM.SelectedTeacher))
                 {
-                    TeachersVM.Instance.Teachers = LoginStudent.GetTeachersData();
-                }
-                MessageBox.Show("Zapisano pomyślnie", "edytowano informacje o nauczycielu");
+                    if (SaveData.Update(EditTeacherVM.SelectedTeacher))
+                    {
+                        if (TeachersVM.Instance != null)
+                        {
+                            TeachersVM.Instance.Teachers = LoginStudent.GetTeachersData();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "edytowano informacje o wykładowcy");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj edytować informacje o nauczycielu ponownie", "Błąd edytowania informacji o wykładowcy");
+                    }
+                }               
             }
-            else
+            catch (Exception e)
             {
-                MessageBox.Show("Spróbuj edytować informacje o nauczycielu ponownie", "Błąd edytowania informacji o nauczycielu");
+                MessageBox.Show(e.Message);
             }
         }
     }

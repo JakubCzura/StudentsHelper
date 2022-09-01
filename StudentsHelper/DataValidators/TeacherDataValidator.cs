@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,41 +13,32 @@ namespace StudentsHelper.DataValidators
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException("Brak danych o imieniu ", nameof(name));
+                throw new ArgumentException("Brak danych o imieniu", nameof(name));
             }
             if (!(name.Length >= 1 && name.Length <= 100))
             {
-                throw new ArgumentException("Długość imienia spoza zakresu znaków 1-100 ", nameof(name));
+                throw new ArgumentException("Długość imienia spoza zakresu znaków 1-100", nameof(name));
             }
-            if (!name.All(char.IsLetter))
+            if (!name.All(Helper.IsLetterOrSpace))
             {
-                throw new ArgumentException("Imie zawiera inne znaki niż litery ", nameof(name));
+                throw new ArgumentException("Imie zawiera inne znaki niż litery", nameof(name));
             }
             return true;
         }
 
-        public static bool ValidateSecondName(string name)
+        public static bool ValidateLastName(string lastName)
         {
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(lastName))
             {
-                throw new ArgumentException("Brak danych o nazwisku ", nameof(name));
+                throw new ArgumentException("Brak danych o nazwisku", nameof(lastName));
             }
-            if (!(name.Length >= 1 && name.Length <= 100))
+            if (!(lastName.Length >= 1 && lastName.Length <= 100))
             {
-                throw new ArgumentException("Długość nazwiska spoza zakresu znaków 1-100 ", nameof(name));
+                throw new ArgumentException("Długość nazwiska spoza zakresu znaków 1-100", nameof(lastName));
             }
-            if (!name.All(char.IsLetter))
+            if (!lastName.All(Helper.IsLetterOrSpace))
             {
-                throw new ArgumentException("Nazwisko zawiera inne znaki niż litery ", nameof(name));
-            }
-            return true;
-        }
-
-        public static bool ValidateAge(int age)
-        {
-            if (!(age >= 1 && age <= 100))
-            {
-                throw new ArgumentException("Wiek spoza zakresu 1-100 ", nameof(age));
+                throw new ArgumentException("Nazwisko zawiera inne znaki niż litery", nameof(lastName));
             }
             return true;
         }
@@ -55,15 +47,15 @@ namespace StudentsHelper.DataValidators
         {
             if (string.IsNullOrWhiteSpace(lesson))
             {
-                throw new ArgumentException("Brak danych o nazwie przedmiotu ", nameof(lesson));
+                throw new ArgumentException("Brak danych o nazwie przedmiotu", nameof(lesson));
             }
             if (!(lesson.Length >= 1 && lesson.Length <= 100))
             {
-                throw new ArgumentException("Długość nazwy przedmiotu spoza zakresu znaków 1-100 ", nameof(lesson));
+                throw new ArgumentException("Długość nazwy przedmiotu spoza zakresu znaków 1-100", nameof(lesson));
             }
-            if (!lesson.All(char.IsLetterOrDigit))
+            if (!lesson.All(Helper.IsLetterOrDigitOrSpace))
             {
-                throw new ArgumentException("Nazwa przedmiotu zawiera inne znaki niż litery i cyfry ", nameof(lesson));
+                throw new ArgumentException("Nazwa przedmiotu zawiera inne znaki niż litery i cyfry", nameof(lesson));
             }
             return true;
         }
@@ -72,15 +64,15 @@ namespace StudentsHelper.DataValidators
         {
             if (string.IsNullOrWhiteSpace(degree))
             {
-                throw new ArgumentException("Brak danych o stopniu nałkowym ", nameof(degree));
+                throw new ArgumentException("Brak danych o stopniu nałkowym", nameof(degree));
             }
             if (!(degree.Length >= 1 && degree.Length <= 100))
             {
-                throw new ArgumentException("Długość stopnia nałkowego spoza zakresu znaków 1-100 ", nameof(degree));
+                throw new ArgumentException("Długość stopnia nałkowego spoza zakresu znaków 1-100", nameof(degree));
             }
-            if (!degree.All(char.IsLetterOrDigit))
+            if (!degree.All(Helper.IsLetterOrSpace))
             {
-                throw new ArgumentException("Stopień naukowy zawiera inne znaki niż litery i cyfry ", nameof(degree));
+                throw new ArgumentException("Stopień naukowy zawiera inne znaki niż litery i cyfry", nameof(degree));
             }
             return true;
         }
@@ -89,22 +81,32 @@ namespace StudentsHelper.DataValidators
         {
             if (!(roomNumber >= 0 && roomNumber < int.MaxValue))
             {
-                throw new ArgumentException($"Numer pokoju spoza zakresu 0-{int.MaxValue} ", nameof(roomNumber));
+                throw new ArgumentException($"Numer pokoju spoza zakresu 0-{int.MaxValue}", nameof(roomNumber));
             }
             return true;
         }
         
         public static bool ValidateNote(string note)
         {
-            if (string.IsNullOrWhiteSpace(note))
+            if (!(note.Length <= 500))
             {
-                throw new ArgumentException("Brak danych do notatki o wykładowcy ", nameof(note));
-            }
-            if (!(note.Length >= 1 && note.Length <= 500))
-            {
-                throw new ArgumentException("Długość notatki do wykładowcy spoza zakresu znaków 1-500 ", nameof(note));
+                throw new ArgumentException("Długość notatki do wykładowcy spoza zakresu znaków 0-500", nameof(note));
             }
             return true;
+        }
+
+        public static bool ValidateTeacherData(Teacher teacher)
+        {
+            if (ValidateName(teacher.Name) && 
+                ValidateLastName(teacher.LastName) &&
+                ValidateDegree(teacher.Degree) &&
+                ValidateLesson(teacher.Lesson) &&
+                ValidateNote(teacher.Note) &&
+                ValidateRoomNumber(teacher.RoomNumber))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

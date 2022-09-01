@@ -48,7 +48,7 @@ namespace StudentsHelper.Model
         public int Semester
         {
             get { return semester; }
-            set { semester = value > 0 && value < 20 ? value : 0; }
+            set { semester = value; }
         }
 
         //Specjalizacja
@@ -68,6 +68,5 @@ namespace StudentsHelper.Model
             get { return faculty; }
             set { faculty = value; }
         }
-
     }
 }
