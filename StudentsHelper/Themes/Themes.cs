@@ -29,6 +29,7 @@ namespace StudentsHelper.Themes
         }
 
         private static readonly string DataPath = Path.Combine(Environment.CurrentDirectory, "ThemesData.txt");
+        //private static readonly string DataPath = new Uri($"/Themes/ThemesData.txt", UriKind.Relative).ToString();
 
         public static void SaveTheme(string theme)
         {
@@ -49,9 +50,16 @@ namespace StudentsHelper.Themes
         {
             try
             {
-                using (StreamReader StreamReader = new StreamReader(DataPath))
+                if (File.Exists(DataPath))
                 {
-                    return StreamReader.ReadLine();
+                    using (StreamReader StreamReader = new StreamReader(DataPath))
+                    {
+                        return StreamReader.ReadLine();
+                    }
+                }
+                else
+                { 
+                    return AppThemes.Standard.ToString(); 
                 }
             }
             catch (Exception exception)

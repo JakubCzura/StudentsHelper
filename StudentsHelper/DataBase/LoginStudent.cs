@@ -53,7 +53,6 @@ namespace StudentsHelper.DataBase
                 }
                 return null;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
@@ -91,7 +90,6 @@ namespace StudentsHelper.DataBase
                 {
                     List<Exam> ExamsList = SQLiteConnection.Table<Exam>().Where(e => e.StudentId == StudentId).ToList();
                     ObservableCollection<Exam> Exams = new ObservableCollection<Exam>(ExamsList);
-
                     if (Exams != null)
                     {
                         return Exams;
@@ -99,7 +97,6 @@ namespace StudentsHelper.DataBase
                 }
                 return null;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
@@ -123,7 +120,6 @@ namespace StudentsHelper.DataBase
                 }
                 return null;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
@@ -146,7 +142,6 @@ namespace StudentsHelper.DataBase
                 }
                 return null;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
@@ -169,7 +164,6 @@ namespace StudentsHelper.DataBase
                 }
                 return null;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
@@ -192,13 +186,11 @@ namespace StudentsHelper.DataBase
                 }
                 return null;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");
                 return null;
             }
         }
-
     }
 }
