@@ -38,8 +38,7 @@ namespace StudentsHelper.DataBase
                 {
                     SQLiteConnection.CreateTable<Student>();
                     SQLiteConnection.CreateTable<DegreeCourse>();
-                    Student? StudentTMP = null;
-                    StudentTMP = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == RegisterWindowVM.Login);
+                    Student? StudentTMP = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == RegisterWindowVM.Login);
                     if (StudentTMP != null)
                     {
                         MessageBox.Show($"Istnieje już użytkownik o podanym loginie\nPodaj inny login", "Login jest już używany");
@@ -49,9 +48,7 @@ namespace StudentsHelper.DataBase
 
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    SQLiteConnection.CreateTable<Student>();
                     SQLiteConnection.Insert(Student);
-                    SQLiteConnection.CreateTable<DegreeCourse>();
                     SQLiteConnection.Insert(DegreeCourse);
                 }
                 return true;

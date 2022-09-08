@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-        Title="AddHomeworkWindow" Height="450" Width="800">
+        Title="AddHomeworkWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
         <vm:AddHomeworkVM x:Key="AddHomeworkVM"></vm:AddHomeworkVM>

@@ -17,11 +17,9 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                Student? Student = null;
-
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
+                    Student? Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
                     if (Student != null)
                     {
                         StudentId = Student.Id;
@@ -31,10 +29,9 @@ namespace StudentsHelper.DataBase
                 }
                 return false;
             }
-
             catch (Exception exception)
             {
-                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zarejestrować", "Błąd rejestracji");
+                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zalogować", "Błąd logowania");
                 return false;
             }
         }
@@ -74,7 +71,6 @@ namespace StudentsHelper.DataBase
                 }
                 return null;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nNie udało się pobrać danych", "Zaloguj się ponownie");

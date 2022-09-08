@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         xmlns:vm ="clr-namespace:StudentsHelper.ViewModel"
         mc:Ignorable="d"
-        Title="AddExamWindow" Height="450" Width="800" MinWidth="500">
+        Title="AddExamWindow" Height="450" Width="800" MinWidth="500" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <vm:AddExamVM x:Key="AddExamVM"></vm:AddExamVM>

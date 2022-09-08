@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
         mc:Ignorable="d"
-        Title="EditNoteWindow" Height="450" Width="800">
+        Title="EditNoteWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <vm:EditNoteVM x:Key="EditNoteVM"></vm:EditNoteVM>
 
