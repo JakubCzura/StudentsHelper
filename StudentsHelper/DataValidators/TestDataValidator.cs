@@ -76,10 +76,10 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException($"Długość oznaczenia litery sali do kolokwium spoza zakresu 0-10", nameof(roomLetter));
             }
-            //if (roomLetter.All(char.IsLetter))
-            //{
-            //    throw new ArgumentException($"Inne znaki niż litera w oznaczeniu litery sali do kolokwium", nameof(roomLetter));
-            //}
+            if (roomLetter.All(Helper.IsLetterOrSpace) == false)
+            {
+                throw new ArgumentException($"Inne znaki niż litera w oznaczeniu litery sali do kolokwium", nameof(roomLetter));
+            }
             return true;
         }
 
