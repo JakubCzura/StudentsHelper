@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using StudentsHelper.DataValidators;
 
 namespace StudentsHelper.ViewModel.Commands
 {
@@ -46,15 +47,18 @@ namespace StudentsHelper.ViewModel.Commands
             try
             {
                 if (PasswordChangeUserControl.Instance?.OldPasswordBox.Password.Length > 1
-                    && PasswordChangeUserControl.Instance.NewPasswordBox.Password.Length > 1
-                    && PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password.Length > 1)
+                    && PasswordChangeUserControl.Instance?.NewPasswordBox.Password.Length > 1
+                    && PasswordChangeUserControl.Instance?.RepeatedPasswordBox.Password.Length > 1)
                 {
                     if (PasswordChangeVM.Student.Password == PasswordChangeUserControl.Instance?.OldPasswordBox.Password
                     && PasswordChangeUserControl.Instance.NewPasswordBox.Password == PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password)
                     {
                         PasswordChangeVM.Student.Password = PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password;
-                        SaveData.Update(PasswordChangeVM.Student);
-                        MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
+                        if(StudentDataValidator.ValidateStudentData(PasswordChangeVM.Student))
+                        {
+                            SaveData.Update(PasswordChangeVM.Student);
+                            MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
+                        }                      
                     }
                     else
                     {

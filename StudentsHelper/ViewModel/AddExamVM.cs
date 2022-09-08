@@ -16,13 +16,13 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddExamWindow.xaml
         public AddExamVM()
         {
-            SaveExamsCommand = new SaveExamsCommand(this);
+            SaveExamCommand = new SaveExamCommand(this);
         }
 
         public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
-        public SaveExamsCommand SaveExamsCommand { get; set; }        
+        public SaveExamCommand SaveExamCommand { get; set; }        
 
         public string Name
         {

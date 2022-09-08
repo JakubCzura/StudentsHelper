@@ -1,5 +1,4 @@
 ﻿using StudentsHelper.DataBase;
-using StudentsHelper.DataValidators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using StudentsHelper.DataValidators;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class SaveTeacherCommand : ICommand
+    public class SaveExamCommand : ICommand
     {
-        public SaveTeacherCommand(AddTeacherVM addTeacherVM)
+        public SaveExamCommand(AddExamVM addExamVM)
         {
-            AddTeacherVM = addTeacherVM;
+            AddExamVM = addExamVM;
         }
 
-        AddTeacherVM AddTeacherVM { get; set; }
+        AddExamVM AddExamVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -34,26 +34,26 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                if (TeacherDataValidator.ValidateTeacherData(AddTeacherVM.Teacher))
+                if (ExamDataValidator.ValidateExamData(AddExamVM.Exam))
                 {
-                    if (SaveData.Save(AddTeacherVM.Teacher))
+                    if (SaveData.Save(AddExamVM.Exam))
                     {
-                        if (TeachersVM.Instance != null)
+                        if (ExamsVM.Instance != null)
                         {
-                            TeachersVM.Instance.Teachers = LoginStudent.GetTeachersData();
+                            ExamsVM.Instance.Exams = LoginStudent.GetExamsData();
                         }
-                        MessageBox.Show("Zapisano pomyślnie", "Dodano wykładowcę");
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano egzamin");
                     }
                     else
                     {
-                        MessageBox.Show("Spróbuj dodać wykładowcę ponownie", "Błąd dodania wykładowcy");
+                        MessageBox.Show("Spróbuj dodać egzamin ponownie", "Błąd dodania egzaminu");
                     }
                 }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
-            }            
+            }
         }
     }
 }

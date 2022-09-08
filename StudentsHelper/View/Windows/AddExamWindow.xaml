@@ -77,7 +77,7 @@
         </StackPanel>
         
         <Menu Grid.Row="2">
-            <Button FontSize="20" Command="{Binding SaveExamsCommand}">Potwierdź</Button>
+            <Button FontSize="20" Command="{Binding SaveExamCommand}">Potwierdź</Button>
             <Button FontSize="20" Click="CloseWindow">Anuluj</Button>
         </Menu>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -106,6 +107,19 @@ namespace StudentsHelper.DataValidators
                 throw new ArgumentException("Hasło musi zawierać conajmniej jedną dużą literę", nameof(password));
             }
             return true;
+        }
+
+        public static bool ValidateStudentData(Student student)
+        {
+            if (ValidateName(student.Name) &&
+                ValidateSecondName(student.SecondName) &&
+                ValidateAge(student.Age) &&
+                ValidateLogin(student.Login) &&
+                ValidatePassword(student.Password))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

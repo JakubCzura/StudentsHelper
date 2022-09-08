@@ -29,16 +29,6 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            //if (string.IsNullOrWhiteSpace(RegisterWindowVM.Name) ||
-            //    string.IsNullOrWhiteSpace(RegisterWindowVM.SecondName) ||
-            //    RegisterWindowVM.Age <= 0 || RegisterWindowVM.Age >= 100 ||
-            //    string.IsNullOrWhiteSpace(RegisterWindowVM.Course) ||
-            //    RegisterWindowVM.Semestr <= 0 || RegisterWindowVM.Semestr >= 20 ||
-            //    string.IsNullOrWhiteSpace(RegisterWindowVM.Speciality) ||
-            //    string.IsNullOrWhiteSpace(RegisterWindowVM.Faculty))
-            //{
-            //    return false;
-            //}
             return true;
         }
 
@@ -57,16 +47,6 @@ namespace StudentsHelper.ViewModel.Commands
             }
             return false;
         }
-        //static bool IsLoginCorrect(string login)
-        //{
-        //    if (string.IsNullOrWhiteSpace(login) ||
-        //        !login.StartsWith('s') ||
-        //        login.Length != 7)
-        //    {
-        //        return false;
-        //    }
-        //    return true;
-        //}
 
         public void Execute(object? parameter)
         {

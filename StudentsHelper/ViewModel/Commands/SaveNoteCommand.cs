@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,19 +32,29 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Save(AddNoteVM.Note))
+            try
             {
-                if (NotesVM.Instance != null)
+                if (NoteDataValidator.ValidateNoteData(AddNoteVM.Note))
                 {
-                    NotesVM.Instance.Notes = LoginStudent.GetNotesData();
-                    NotesVM.Instance.SortNotesDateAscending();
+                    if (SaveData.Save(AddNoteVM.Note))
+                    {
+                        if (NotesVM.Instance != null)
+                        {
+                            NotesVM.Instance.Notes = LoginStudent.GetNotesData();
+                            NotesVM.Instance.SortNotesDateAscending();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano notatkę");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj dodać notatkę ponownie", "Błąd dodania notatki");
+                    }
                 }
-                MessageBox.Show("Zapisano pomyślnie", "Dodano notatkę");
             }
-            else
+            catch (Exception e)
             {
-                MessageBox.Show("Spróbuj dodać notatkę ponownie", "Błąd dodania notatki");
-            }
+                MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
+            }          
         }
     }
 }

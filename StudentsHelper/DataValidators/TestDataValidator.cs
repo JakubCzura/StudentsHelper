@@ -1,5 +1,4 @@
-﻿using SQLite;
-using StudentsHelper.Model;
+﻿using StudentsHelper.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.DataValidators
 {
-    public static class ExamDataValidator
+    public class TestDataValidator
     {
         public static bool ValidateName(string name)
         {
@@ -49,7 +48,7 @@ namespace StudentsHelper.DataValidators
             if (!(hourOfExam >= 0 && hourOfExam <= 23))
             {
                 throw new ArgumentException("Godzina egzaminu spoza zakresu 0-23", nameof(hourOfExam));
-            }           
+            }
             return true;
         }
 
@@ -64,7 +63,7 @@ namespace StudentsHelper.DataValidators
 
         public static bool ValidateRoomNumber(int? roomNumber)
         {
-            if(!(roomNumber >= 0 && roomNumber <= int.MaxValue))
+            if (!(roomNumber >= 0 && roomNumber <= int.MaxValue))
             {
                 throw new ArgumentException($"Numer sali egzaminacyjnej spoza zakresu 0-{int.MaxValue}", nameof(roomNumber));
             }
@@ -93,7 +92,7 @@ namespace StudentsHelper.DataValidators
             return true;
         }
 
-        public static bool ValidateExamData(Exam exam)
+        public static bool ValidateTestData(Test test)
         {
             if (ValidateName(exam.Name) &&
                 ValidateDateOfExam(exam.DateOfExam) &&

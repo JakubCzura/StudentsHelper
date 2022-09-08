@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,18 @@ namespace StudentsHelper.DataValidators
                 throw new ArgumentException("Długość notatki do zadania domowego spoza zakresu znaków 0-500", nameof(note));
             }
             return true;
+        }
+
+        public static bool ValidateHomeworkData(Homework homework)
+        {
+            if (ValidateLessonName(homework.LessonName) &&
+                ValidateDateOfEnd(homework.DateOfEnd) &&
+                ValidateExercise(homework.Exercise) &&
+                ValidateNote(homework.Note))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,17 @@ namespace StudentsHelper.DataValidators
                 throw new ArgumentException("Notatka zawiera inne znaki niż litery i cyfry", nameof(content));
             }
             return true;
+        }
+
+        public static bool ValidateNoteData(Note note)
+        {
+            if (ValidateDate(note.Date) &&
+                ValidateName(note.Name) &&
+                ValidateContent(note.Content))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

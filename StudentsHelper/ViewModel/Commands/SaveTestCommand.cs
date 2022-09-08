@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using StudentsHelper.DataValidators;
 
 namespace StudentsHelper.ViewModel.Commands
 {
@@ -31,19 +32,30 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Save(AddTestVM.Test))
+            try
             {
-                if (TestVM.Instance != null)
+                if (TestDataValidator.ValidateTestData(AddTestVM.Test))
                 {
-                    TestVM.Instance.Tests = LoginStudent.GetTestsData();
-                    TestVM.Instance.SortTestsDateAscending();
+                    if (SaveData.Save(AddTestVM.Test))
+                    {
+                        if (TestVM.Instance != null)
+                        {
+                            TestVM.Instance.Tests = LoginStudent.GetTestsData();
+                            TestVM.Instance.SortTestsDateAscending();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj dodać kolokwium ponownie", "Błąd dodania kolokwium");
+                    }
                 }
-                MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
             }
-            else
+            catch (Exception e)
             {
-                MessageBox.Show("Spróbuj dodać kolokwium ponownie", "Błąd dodania kolokwium");
+                MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
             }
+            
         }
     }
 }
