@@ -77,10 +77,10 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException($"Długość oznaczenia litery sali egzaminacyjnej spoza zakresu 0-10", nameof(roomLetter));
             }
-            if (roomLetter.All(char.IsLetter))
-            {
-                throw new ArgumentException($"Inne znaki niż litera w oznaczeniu litery sali egzaminacyjnej", nameof(roomLetter));
-            }
+            //if (roomLetter.All(char.IsLetter))
+            //{
+            //    throw new ArgumentException($"Inne znaki niż litera w oznaczeniu litery sali egzaminacyjnej", nameof(roomLetter));
+            //}
             return true;
         }
 

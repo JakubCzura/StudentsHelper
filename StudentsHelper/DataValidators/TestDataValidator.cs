@@ -8,55 +8,55 @@ using System.Threading.Tasks;
 namespace StudentsHelper.DataValidators
 {
     public class TestDataValidator
-    {
+    {                  
         public static bool ValidateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentException("Brak danych o nazwie przedmiotu do egzaminu", nameof(name));
+                throw new ArgumentException("Brak danych o nazwie przedmiotu do kolokwium", nameof(name));
             }
             if (!(name.Length >= 1 && name.Length <= 100))
             {
-                throw new ArgumentException("Długość nazwy przedmiotu do egzaminu spoza zakresu znaków 1-100", nameof(name));
+                throw new ArgumentException("Długość nazwy przedmiotu do kolokwium spoza zakresu znaków 1-100", nameof(name));
             }
             if (!name.All(Helper.IsLetterOrDigitOrSpace))
             {
-                throw new ArgumentException("Nazwa przedmiotu do egzaminu zawiera inne znaki niż litery i cyfry", nameof(name));
+                throw new ArgumentException("Nazwa przedmiotu do kolokwium zawiera inne znaki niż litery i cyfry", nameof(name));
             }
             return true;
         }
 
-        public static bool ValidateDateOfExam(DateTime dateOfExam)
+        public static bool ValidateDateOfTest(DateTime dateOfTest)
         {
-            if (!(dateOfExam.Year >= DateTime.MinValue.Year && dateOfExam.Year <= DateTime.MaxValue.Year))
+            if (!(dateOfTest.Year >= DateTime.MinValue.Year && dateOfTest.Year <= DateTime.MaxValue.Year))
             {
-                throw new ArgumentException("Niepoprawna wartość roku", nameof(dateOfExam));
+                throw new ArgumentException("Niepoprawna wartość roku", nameof(dateOfTest));
             }
-            if (!(dateOfExam.Month >= 1 && dateOfExam.Month <= 12))
+            if (!(dateOfTest.Month >= 1 && dateOfTest.Month <= 12))
             {
-                throw new ArgumentException("Niepoprawna wartość miesiąca", nameof(dateOfExam));
+                throw new ArgumentException("Niepoprawna wartość miesiąca", nameof(dateOfTest));
             }
-            if (!(dateOfExam.Day >= 1 && dateOfExam.Day <= DateTime.DaysInMonth(dateOfExam.Year, dateOfExam.Month)))
+            if (!(dateOfTest.Day >= 1 && dateOfTest.Day <= DateTime.DaysInMonth(dateOfTest.Year, dateOfTest.Month)))
             {
-                throw new ArgumentException("Niepoprawna wartość dnia", nameof(dateOfExam));
+                throw new ArgumentException("Niepoprawna wartość dnia", nameof(dateOfTest));
             }
             return true;
         }
 
-        public static bool ValidateHourOfExam(int? hourOfExam)
+        public static bool ValidateHourOfTest(int? hourOfTest)
         {
-            if (!(hourOfExam >= 0 && hourOfExam <= 23))
+            if (!(hourOfTest >= 0 && hourOfTest <= 23))
             {
-                throw new ArgumentException("Godzina egzaminu spoza zakresu 0-23", nameof(hourOfExam));
+                throw new ArgumentException("Godzina kolokwium spoza zakresu 0-23", nameof(hourOfTest));
             }
             return true;
         }
 
-        public static bool ValidateMinuteOfExam(int? minuteOfExam)
+        public static bool ValidateMinuteOfTest(int? minuteOfTest)
         {
-            if (!(minuteOfExam >= 0 && minuteOfExam <= 59))
+            if (!(minuteOfTest >= 0 && minuteOfTest <= 59))
             {
-                throw new ArgumentException("Minuta egzaminu spoza zakresu 0-59", nameof(minuteOfExam));
+                throw new ArgumentException("Minuta kolokwium spoza zakresu 0-59", nameof(minuteOfTest));
             }
             return true;
         }
@@ -65,7 +65,7 @@ namespace StudentsHelper.DataValidators
         {
             if (!(roomNumber >= 0 && roomNumber <= int.MaxValue))
             {
-                throw new ArgumentException($"Numer sali egzaminacyjnej spoza zakresu 0-{int.MaxValue}", nameof(roomNumber));
+                throw new ArgumentException($"Numer sali do kolokwium spoza zakresu 0-{int.MaxValue}", nameof(roomNumber));
             }
             return true;
         }
@@ -74,12 +74,12 @@ namespace StudentsHelper.DataValidators
         {
             if (!(roomLetter.Length >= 0 && roomLetter.Length <= 10))
             {
-                throw new ArgumentException($"Długość oznaczenia litery sali egzaminacyjnej spoza zakresu 0-10", nameof(roomLetter));
+                throw new ArgumentException($"Długość oznaczenia litery sali do kolokwium spoza zakresu 0-10", nameof(roomLetter));
             }
-            if (roomLetter.All(char.IsLetter))
-            {
-                throw new ArgumentException($"Inne znaki niż litera w oznaczeniu litery sali egzaminacyjnej", nameof(roomLetter));
-            }
+            //if (roomLetter.All(char.IsLetter))
+            //{
+            //    throw new ArgumentException($"Inne znaki niż litera w oznaczeniu litery sali do kolokwium", nameof(roomLetter));
+            //}
             return true;
         }
 
@@ -87,20 +87,20 @@ namespace StudentsHelper.DataValidators
         {
             if (!(note.Length >= 1 && note.Length <= 500))
             {
-                throw new ArgumentException("Długość notatki o egzaminie spoza zakresu znaków 1-500", nameof(note));
+                throw new ArgumentException("Długość notatki o kolokwium spoza zakresu znaków 1-500", nameof(note));
             }
             return true;
         }
 
         public static bool ValidateTestData(Test test)
         {
-            if (ValidateName(exam.Name) &&
-                ValidateDateOfExam(exam.DateOfExam) &&
-                ValidateHourOfExam(exam.HourOfExam) &&
-                ValidateMinuteOfExam(exam.MinuteOfExam) &&
-                ValidateRoomNumber(exam.RoomNumber) &&
-                ValidateRoomLetter(exam.RoomLetter) &&
-                ValidateNote(exam.Note))
+            if (ValidateName(test.Name) &&
+                ValidateDateOfTest(test.DateOfTest) &&
+                ValidateHourOfTest(test.HourOfTest) &&
+                ValidateMinuteOfTest(test.MinuteOfTest) &&
+                ValidateRoomNumber(test.RoomNumber) &&
+                ValidateRoomLetter(test.RoomLetter) &&
+                ValidateNote(test.Note))
             {
                 return true;
             }
