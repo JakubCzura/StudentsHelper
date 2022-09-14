@@ -19,7 +19,6 @@ namespace StudentsHelper.Schedules
         private static readonly string submitButtonId= "submitButton";
         private static readonly string downloadScheduleButtonId = @"ctl00_ctl00_ContentPlaceHolder_RightContentPlaceHolder_btn_GetPDF";
 
-        
         public static bool DownloadSchedule(string userEmail, string userPassword)
         {
             NetworkCredential LoginCredentials = new NetworkCredential(userEmail, userPassword);

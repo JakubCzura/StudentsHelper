@@ -18,20 +18,21 @@ namespace StudentsHelper.Schedules
             return KnownFolders.Downloads.Path;
         }
 
-        private static List<string> GetSchedulesSortedDescending()
+        private static List<string>? GetSchedulesSortedDescending()
         {
-            List<string> fileEntries = Directory.GetFiles(GetDownloadsDirectoryPath()).Where(file => file.Contains(scheduleName) && file.EndsWith(fileNameExtension)).ToList();
+            List<string>? fileEntries = Directory.GetFiles(GetDownloadsDirectoryPath()).Where(file => file.Contains(scheduleName) && file.EndsWith(fileNameExtension)).ToList();
             List<string>? filesSortedByDateAscending = fileEntries.OrderByDescending(File.GetCreationTime).ToList();
             return filesSortedByDateAscending;
         }
 
         public static string GetSchedulePath()
         {
-            if (GetSchedulesSortedDescending().Any())
+            var schedules = GetSchedulesSortedDescending();
+            if (schedules != null)
             {
-                var schedules = GetSchedulesSortedDescending();
                 return schedules[0];
             }
+            PdfSharpCore.Pdf.
             return string.Empty;
         }
     }
