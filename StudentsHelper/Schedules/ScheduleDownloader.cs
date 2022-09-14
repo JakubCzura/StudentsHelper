@@ -4,10 +4,14 @@ using System;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System.Net;
+using Syroot.Windows.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 
 namespace StudentsHelper.Schedules
 {
-    public class Downloader
+    public class ScheduleDownloader
     {
         private static readonly string scheduleWebPage = "https://wu.up.krakow.pl/wu/PodzGodzin2.aspx";
         private static readonly string usernameInputId = "userNameInput";
@@ -15,7 +19,8 @@ namespace StudentsHelper.Schedules
         private static readonly string submitButtonId= "submitButton";
         private static readonly string downloadScheduleButtonId = @"ctl00_ctl00_ContentPlaceHolder_RightContentPlaceHolder_btn_GetPDF";
 
-        public bool DownloadSchedule(string userEmail, string userPassword)
+        
+        public static bool DownloadSchedule(string userEmail, string userPassword)
         {
             NetworkCredential LoginCredentials = new NetworkCredential(userEmail, userPassword);
             
