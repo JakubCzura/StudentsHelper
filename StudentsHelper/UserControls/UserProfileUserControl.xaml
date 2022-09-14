@@ -51,11 +51,13 @@
                     <TextBox x:Name="AgeTextBox" FontSize="20" Text="{Binding Student.Age, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource IsTextBoxReadonlyTrue}"></TextBox>
                 </UniformGrid>
                 <UniformGrid Rows="1">
+                    <Label FontSize="20">Email:</Label>
+                    <TextBox x:Name="EmailTextBox" FontSize="20" Text="{Binding Student.Email, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource IsTextBoxReadonlyTrue}"></TextBox>
+                </UniformGrid>
+                <UniformGrid Rows="1">
                     <Label FontSize="20">Login:</Label>
                     <TextBox x:Name="LoginTextBox" FontSize="20" Text="{Binding Student.Login, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource IsTextBoxReadonlyTrue}"></TextBox>
                 </UniformGrid>
-                
-                
             </StackPanel>
 
             <StackPanel Grid.Column="1">

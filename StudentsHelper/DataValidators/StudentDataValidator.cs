@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Xml.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudentsHelper.DataValidators
 {
@@ -109,13 +110,30 @@ namespace StudentsHelper.DataValidators
             return true;
         }
 
+        
+        public static bool ValidateEmail(string email)
+        {
+            EmailAddressAttribute EmailAddressAttribute = new EmailAddressAttribute();
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new ArgumentException("Brak danych o email-u", nameof(email));
+            }
+            if (EmailAddressAttribute.IsValid(email) == false)
+            {
+                throw new ArgumentException($"Nieprawidłowy adres email", nameof(email));
+            }           
+            return true;
+        }
+
         public static bool ValidateStudentData(Student student)
         {
             if (ValidateName(student.Name) &&
                 ValidateSecondName(student.SecondName) &&
                 ValidateAge(student.Age) &&
                 ValidateLogin(student.Login) &&
-                ValidatePassword(student.Password))
+                ValidatePassword(student.Password) &&
+                ValidateEmail(student.Email))
             {
                 return true;
             }

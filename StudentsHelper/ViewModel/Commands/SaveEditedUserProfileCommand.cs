@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.UserControls;
 using System;
 using System.Collections.Generic;
@@ -38,14 +39,17 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                if (SaveData.Update(UserProfileVM.Student) && SaveData.Update(UserProfileVM.DegreeCourse))
+                if(StudentDataValidator.ValidateStudentData(UserProfileVM.Student) && DegreeCourseDataValidator.ValidateDegreeCourseData(UserProfileVM.DegreeCourse))
                 {
-                    MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
-                }
-                else
-                {
-                    MessageBox.Show("Spróbuj edytować informacje ponownie", "Błąd edytowania informacji");
-                }
+                    if (SaveData.Update(UserProfileVM.Student) && SaveData.Update(UserProfileVM.DegreeCourse))
+                    {
+                        MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj edytować informacje ponownie", "Błąd edytowania informacji");
+                    }
+                }               
             }
             catch(Exception exception)
             {
@@ -61,6 +65,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             UserProfileUserControl.Instance.NameTextBox.IsReadOnly = true;
             UserProfileUserControl.Instance.SecondNameTextBox.IsReadOnly = true;
+            UserProfileUserControl.Instance.EmailTextBox.IsReadOnly = true;
             UserProfileUserControl.Instance.AgeTextBox.IsReadOnly = true;
             UserProfileUserControl.Instance.LoginTextBox.IsReadOnly = true;
             UserProfileUserControl.Instance.CourseTextBox.IsReadOnly = true;

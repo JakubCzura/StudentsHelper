@@ -21,10 +21,8 @@ namespace StudentsHelper.ViewModel
             BackToLoginCommand = new BackToLoginCommand();
         }
 
-        Student Student { get; set; }
-        
-        DegreeCourse DegreeCourse { get; set; }
-        
+        public Student Student { get; set; }       
+        public DegreeCourse DegreeCourse { get; set; }       
         public AcceptRegisterCommand AcceptRegisterCommand { get; set; }
 
         public BackToLoginCommand BackToLoginCommand { get; set; }
@@ -36,7 +34,6 @@ namespace StudentsHelper.ViewModel
             get { return Student.Id; }
             set { Student.Id = value; OnPropertyChanged(nameof(Id)); }
         }
-
 
         public string Name
         {
@@ -55,7 +52,7 @@ namespace StudentsHelper.ViewModel
             get { return Student.Age; }
             set { Student.Age = value; OnPropertyChanged(nameof(Age)); }
         }
-
+      
         public string Course
         {
             get { return DegreeCourse.Course; }
@@ -71,25 +68,31 @@ namespace StudentsHelper.ViewModel
         public string Speciality
         {
             get { return DegreeCourse.Speciality; }
-            set { DegreeCourse.Speciality = value; OnPropertyChanged((Speciality)); }
+            set { DegreeCourse.Speciality = value; OnPropertyChanged(Speciality); }
         }
 
         public string Faculty
         {
             get { return DegreeCourse.Faculty; }
-            set { DegreeCourse.Faculty = value; OnPropertyChanged((Faculty)); }
+            set { DegreeCourse.Faculty = value; OnPropertyChanged(Faculty); }
+        }
+
+        public string Email
+        {
+            get { return Student.Email; }
+            set { Student.Email = value; OnPropertyChanged(nameof(Email)); }
         }
 
         public string Login
         {
             get { return Student.Login; }
-            set { Student.Login = value; OnPropertyChanged((Login)); }
+            set { Student.Login = value; OnPropertyChanged(Login); }
         }
 
         public string Password
         {
             get { return Student.Password; }
-            set { Student.Password = value; OnPropertyChanged((Password)); }
+            set { Student.Password = value; OnPropertyChanged(Password); }
         }   
 
         private void OnPropertyChanged(string propertyName)

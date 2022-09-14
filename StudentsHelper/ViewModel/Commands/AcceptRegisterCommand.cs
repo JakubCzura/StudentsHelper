@@ -32,22 +32,6 @@ namespace StudentsHelper.ViewModel.Commands
             return true;
         }
 
-        private bool ValidateData()
-        {
-            if (StudentDataValidator.ValidateName(RegisterWindowVM.Name) &&
-                StudentDataValidator.ValidateSecondName(RegisterWindowVM.SecondName) &&
-                StudentDataValidator.ValidateAge(RegisterWindowVM.Age) &&
-                DegreeCourseDataValidator.ValidateCourse(RegisterWindowVM.Course) &&
-                DegreeCourseDataValidator.ValidateSpeciality(RegisterWindowVM.Speciality) &&
-                DegreeCourseDataValidator.ValidateSemester(RegisterWindowVM.Semestr) &&
-                DegreeCourseDataValidator.ValidateFaculty(RegisterWindowVM.Faculty)
-                )
-            {
-                return true;
-            }
-            return false;
-        }
-
         public void Execute(object? parameter)
         {
             try
@@ -59,7 +43,7 @@ namespace StudentsHelper.ViewModel.Commands
                     if ((StudentDataValidator.ValidatePassword(RegisterWindowVM.Password) &&
                         StudentDataValidator.ValidateLogin(RegisterWindowVM.Login)))
                     {
-                        ValidateData();
+                        StudentDataValidator.ValidateStudentData(RegisterWindowVM.Student);
                         if (RegisterStudent.Register(RegisterWindowVM) == true)
                         {
                             LoginWindow LoginWindow = new LoginWindow();

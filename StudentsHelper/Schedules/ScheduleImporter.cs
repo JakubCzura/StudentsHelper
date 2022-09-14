@@ -10,7 +10,7 @@ namespace StudentsHelper.Schedules
 {
     public class ScheduleImporter : ScheduleDownloader
     {
-        private static readonly string scheduleName = "PlanZajec";
+        private static readonly string scheduleName = @"PlanZajec";
         private static readonly string fileNameExtension = @".pdf";
 
         private static string GetDownloadsDirectoryPath()
@@ -25,7 +25,7 @@ namespace StudentsHelper.Schedules
             return filesSortedByDateAscending;
         }
 
-        public static string GetSchedule()
+        public static string GetSchedulePath()
         {
             if (GetSchedulesSortedDescending().Any())
             {

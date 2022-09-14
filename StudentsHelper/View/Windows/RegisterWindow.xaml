@@ -62,6 +62,10 @@
                 <TextBox FontSize="20" Text="{Binding Faculty, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>
             <UniformGrid Rows="1">
+                <Label FontSize="20">Email uczelniany:</Label>
+                <TextBox FontSize="20" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+            <UniformGrid Rows="1">
                 <Label FontSize="20">Login(numer albumu):</Label>
                 <TextBox FontSize="20" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             </UniformGrid>

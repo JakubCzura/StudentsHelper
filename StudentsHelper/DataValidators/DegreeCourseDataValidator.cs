@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using StudentsHelper.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +64,18 @@ namespace StudentsHelper.DataValidators
                 throw new ArgumentException("Nazwa wydziału zawiera inne znaki niż litery i cyfry", nameof(faculty));
             }
             return true;
+        }
+
+        public static bool ValidateDegreeCourseData(DegreeCourse degreeCourse)
+        {
+            if (ValidateCourse(degreeCourse.Course) &&
+                ValidateSemester(degreeCourse.Semester) &&
+                ValidateSpeciality(degreeCourse.Speciality) &&
+                ValidateFaculty(degreeCourse.Faculty))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

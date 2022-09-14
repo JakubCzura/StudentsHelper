@@ -16,22 +16,11 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                Student Student = new Student()
-                {
-                    Name = RegisterWindowVM.Name,
-                    SecondName = RegisterWindowVM.SecondName,
-                    Age = RegisterWindowVM.Age,
-                    Login = RegisterWindowVM.Login,
-                    Password = RegisterWindowVM.Password
-                };
+                Student Student = RegisterWindowVM.Student;
 
-                DegreeCourse DegreeCourse = new DegreeCourse()
+                DegreeCourse DegreeCourse = RegisterWindowVM.DegreeCourse;
                 {
-                    StudentLogin = RegisterWindowVM.Login,
-                    Course = RegisterWindowVM.Course,
-                    Faculty = RegisterWindowVM.Faculty,
-                    Speciality = RegisterWindowVM.Speciality,
-                    Semester = RegisterWindowVM.Semestr
+                    StudentLogin = RegisterWindowVM.Login;                    
                 };
 
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))

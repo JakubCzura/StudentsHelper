@@ -48,8 +48,6 @@
                 <Button Command="{Binding SetThemeChangeVisibleCommand}">
                     <TextBlock>Motyw kolorystyczny</TextBlock>
                 </Button>
-                <Button></Button>
-                <Button></Button>
             </StackPanel>
         </UniformGrid>
 

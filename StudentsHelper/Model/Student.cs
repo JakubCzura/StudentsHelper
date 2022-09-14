@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,11 +35,18 @@ namespace StudentsHelper.Model
         }
 
         private int age = 0;
-
         public int Age
         {
             get { return age; }
             set { age = value; }
+        }
+
+        private string email = string.Empty;
+        [EmailAddress]
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
         }
 
         private string login = string.Empty;
