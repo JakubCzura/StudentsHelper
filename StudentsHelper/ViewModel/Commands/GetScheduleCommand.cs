@@ -35,7 +35,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                if(await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
+                if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
                 {
                     ScheduleImporter.SetSchedule();
                     MessageBox.Show("GetScheduleCommand.cs");
@@ -53,6 +53,7 @@ namespace StudentsHelper.ViewModel.Commands
                     //    }
                     //}                }               
                 }
+            }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Błąd pobrania planu zajęć");
