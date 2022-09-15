@@ -1,12 +1,15 @@
 ﻿using MvvmHelpers.Interfaces;
 using StudentsHelper.Schedules;
 using StudentsHelper.UserControls;
+using StudentsHelper.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
@@ -37,26 +40,20 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
                 {
+                    //ClickLessonsButton();
+                    Thread.Sleep(5000);
                     ScheduleImporter.SetSchedule();
-                    //if (ScheduleVM.Instance != null)
-                    //{
-                    //    WindowsVisibility.OnHideWindow();
-                    //    ScheduleVM.Instance.SetWindowVisible();
-                    //    try
-                    //    {
-                    //        ScheduleImporter.SetSchedule();
-                    //    }
-                    //    catch (Exception e)
-                    //    {
-                    //        MessageBox.Show(e.Message);
-                    //    }
-                    //}                }               
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Błąd pobrania planu zajęć");
-            }
-        }     
+            }                           
+        }
+        
+        private void ClickLessonsButton()
+        {
+            MainWindow.Instance?.LessonsButton.Command.Execute(MainWindow.Instance.LessonsButton.CommandParameter);
+        }
     }
 }
