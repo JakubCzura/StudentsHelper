@@ -27,6 +27,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             if (ScheduleVM.Instance != null)
             {
+                Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
                 WindowsVisibility.OnHideWindow();
                 ScheduleVM.Instance.SetWindowVisible();
                 try

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StudentsHelper.Schedules
 {
@@ -22,29 +23,38 @@ namespace StudentsHelper.Schedules
 
         public static bool DownloadSchedule(string userEmail, string userPassword)
         {
-            NetworkCredential LoginCredentials = new NetworkCredential(userEmail, userPassword);
+            try
+            {
+                NetworkCredential LoginCredentials = new NetworkCredential(userEmail, userPassword);
 
-            WebDriver WebDriver = new FirefoxDriver();
-            WebDriver.Url = scheduleWebPage;
+                WebDriver WebDriver = new FirefoxDriver();
+                WebDriver.Url = scheduleWebPage;
 
-            IWebElement UsernameInput = WebDriver.FindElement(By.Id(usernameInputId));
-            IWebElement PasswordInput = WebDriver.FindElement(By.Id(passwordInputId));
-            IWebElement LoginButton = WebDriver.FindElement(By.Id(submitButtonId));
-            UsernameInput.SendKeys(LoginCredentials.UserName);
-            PasswordInput.SendKeys(LoginCredentials.Password);
-            LoginButton.Click();
+                IWebElement UsernameInput = WebDriver.FindElement(By.Id(usernameInputId));
+                IWebElement PasswordInput = WebDriver.FindElement(By.Id(passwordInputId));
+                IWebElement LoginButton = WebDriver.FindElement(By.Id(submitButtonId));
+                UsernameInput.SendKeys(LoginCredentials.UserName);
+                PasswordInput.SendKeys(LoginCredentials.Password);
+                LoginButton.Click();
 
-            WebDriverWait WebDriverWait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(60));
-            Actions Actions = new Actions(WebDriver);
-            WebDriver.Manage().Window.Maximize();
-            IJavaScriptExecutor WebDriverExecutor = WebDriver;
+                WebDriverWait WebDriverWait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(60));
+                Actions Actions = new Actions(WebDriver);
+                WebDriver.Manage().Window.Maximize();
+                IJavaScriptExecutor WebDriverExecutor = WebDriver;
 
-            WebDriverWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(downloadScheduleButtonId)));
-            IWebElement DownloadScheduleButton = WebDriver.FindElement(By.Id(downloadScheduleButtonId));
-            Actions.MoveToElement(DownloadScheduleButton);
-            WebDriverExecutor.ExecuteScript("arguments[0].click()", DownloadScheduleButton);
+                WebDriverWait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(downloadScheduleButtonId)));
+                IWebElement DownloadScheduleButton = WebDriver.FindElement(By.Id(downloadScheduleButtonId));
+                Actions.MoveToElement(DownloadScheduleButton);
+                WebDriverExecutor.ExecuteScript("arguments[0].click()", DownloadScheduleButton);
 
-            return true;
+                return true;
+            }
+            catch(Exception e)
+            {
+                Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
+                MessageBox.Show(e.Message);
+                return false;
+            }
         }
 
         public static async Task<bool> DownloadScheduleAsync(string userEmail, string userPassword)

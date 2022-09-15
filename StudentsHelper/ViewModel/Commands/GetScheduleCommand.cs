@@ -38,7 +38,6 @@ namespace StudentsHelper.ViewModel.Commands
                 if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
                 {
                     ScheduleImporter.SetSchedule();
-                    MessageBox.Show("GetScheduleCommand.cs");
                     //if (ScheduleVM.Instance != null)
                     //{
                     //    WindowsVisibility.OnHideWindow();

@@ -30,6 +30,8 @@ namespace StudentsHelper.ViewModel
             SetUserProfileVisibleCommand = new SetUserProfileVisibleCommand();
             SetSettingsVisibleCommand = new SetSettingsVisibleCommand();
             SetWelcomeScreenVisibleCommand = new SetWelcomeScreenVisibleCommand();
+
+            Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
         }
 
         public static StudentsHelperVM? Instance { get; set; }
