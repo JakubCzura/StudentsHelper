@@ -8,6 +8,7 @@ using Syroot.Windows.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace StudentsHelper.Schedules
 {
@@ -16,13 +17,13 @@ namespace StudentsHelper.Schedules
         private static readonly string scheduleWebPage = "https://wu.up.krakow.pl/wu/PodzGodzin2.aspx";
         private static readonly string usernameInputId = "userNameInput";
         private static readonly string passwordInputId = "passwordInput";
-        private static readonly string submitButtonId= "submitButton";
+        private static readonly string submitButtonId = "submitButton";
         private static readonly string downloadScheduleButtonId = @"ctl00_ctl00_ContentPlaceHolder_RightContentPlaceHolder_btn_GetPDF";
 
         public static bool DownloadSchedule(string userEmail, string userPassword)
         {
             NetworkCredential LoginCredentials = new NetworkCredential(userEmail, userPassword);
-            
+
             WebDriver WebDriver = new FirefoxDriver();
             WebDriver.Url = scheduleWebPage;
 
@@ -42,8 +43,14 @@ namespace StudentsHelper.Schedules
             IWebElement DownloadScheduleButton = WebDriver.FindElement(By.Id(downloadScheduleButtonId));
             Actions.MoveToElement(DownloadScheduleButton);
             WebDriverExecutor.ExecuteScript("arguments[0].click()", DownloadScheduleButton);
-                        
+
             return true;
-        }       
+        }
+
+        public static async Task<bool> DownloadScheduleAsync(string userEmail, string userPassword)
+        {
+            bool ifDownloaded = await Task.Run(() => DownloadSchedule(userEmail, userPassword));
+            return ifDownloaded;
+        }
     }
 }

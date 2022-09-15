@@ -1,4 +1,5 @@
-﻿using StudentsHelper.Schedules;
+﻿using MvvmHelpers.Interfaces;
+using StudentsHelper.Schedules;
 using StudentsHelper.UserControls;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             ScheduleVM = scheduleVM;
         }
-        
+
         ScheduleVM ScheduleVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
@@ -30,11 +31,11 @@ namespace StudentsHelper.ViewModel.Commands
             return true;
         }
 
-        public void Execute(object? parameter)
+        public async void Execute(object? parameter)
         {
             try
             {
-                ScheduleDownloader.DownloadSchedule(ScheduleVM.Student.Email, ScheduleVM.Student.Password);
+                await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password);
                 if (ScheduleUserControl.Instance != null)
                 {
                     ScheduleUserControl.Instance.ScheduleWebBrowser.Navigate(ScheduleImporter.GetSchedulePath());
@@ -44,6 +45,6 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 MessageBox.Show(e.Message, "Błąd pobrania planu zajęć");
             }
-        }
+        }     
     }
 }
