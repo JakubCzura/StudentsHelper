@@ -91,10 +91,6 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Długość hasła jest spoza zakresu 5-50", nameof(password));
             }
-            if (!password.All(char.IsAscii))
-            {
-                throw new ArgumentException("Hasło musi składać się ze znaków ASCII", nameof(password));
-            }
             if (!password.Any(char.IsDigit))
             {
                 throw new ArgumentException("Hasło musi zawierać conajmniej jedną cyfrę", nameof(password));

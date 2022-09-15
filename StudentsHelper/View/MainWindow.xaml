@@ -16,6 +16,7 @@
         <vm:TestVM x:Key="TestVM"></vm:TestVM>
         <vm:ExamsVM x:Key="ExamsVM"></vm:ExamsVM>
         <vm:TeachersVM x:Key="TeachersVM"></vm:TeachersVM>
+        <vm:ScheduleVM x:Key="ScheduleVM"></vm:ScheduleVM>
         <vm:HomeworkVM x:Key="HomeworkVM"></vm:HomeworkVM>
         <vm:NotesVM x:Key="NotesVM"></vm:NotesVM>
     </Window.Resources>
@@ -44,7 +45,7 @@
             <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia" Command="{Binding SetTestsVisibleCommand}"></Button>
             <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SetExamsVisibleCommand}"/>
             <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SetTeachersVisibleCommand}"/>
-            <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć"/>
+            <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć" Command="{Binding SetScheduleVisibleCommand}"/>
             <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil" Command="{Binding SetUserProfileVisibleCommand}"/>
             <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"  Command="{Binding SetHomeworkVisibleCommand}"/>
             <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki" Command="{Binding SetNotesVisibleCommand}"/>
@@ -76,6 +77,7 @@
                     </ContextMenu>
                 </uc:TeachersUserControl.ContextMenu>
             </uc:TeachersUserControl>
+            <uc:ScheduleUserControl Visibility="Hidden"></uc:ScheduleUserControl>
             <uc:UserProfileUserControl Visibility="Hidden"></uc:UserProfileUserControl>
             <uc:HomeworkUserControl Visibility="Hidden">
                 <uc:HomeworkUserControl.ContextMenu>

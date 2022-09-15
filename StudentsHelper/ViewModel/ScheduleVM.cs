@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.Model;
+using StudentsHelper.Schedules;
 using StudentsHelper.UserControls;
 using StudentsHelper.ViewModel.Commands;
 using StudentsHelper.ViewModel.Interfaces;
