@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
@@ -24,19 +25,18 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            WindowsVisibility.OnHideWindow();
             if (ScheduleVM.Instance != null)
             {
+                WindowsVisibility.OnHideWindow();
                 ScheduleVM.Instance.SetWindowVisible();
-                SetSchedule();
-            }
-        }
-
-        private static void SetSchedule()
-        {
-            if (ScheduleUserControl.Instance != null)
-            {
-                ScheduleUserControl.Instance.ScheduleWebBrowser.Navigate(ScheduleImporter.GetSchedulePath());
+                try
+                {
+                    ScheduleImporter.SetSchedule();
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
     }

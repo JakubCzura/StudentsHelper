@@ -1,4 +1,5 @@
-﻿using Syroot.Windows.IO;
+﻿using StudentsHelper.UserControls;
+using Syroot.Windows.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,11 +29,23 @@ namespace StudentsHelper.Schedules
         public static string GetSchedulePath()
         {
             var schedules = GetSchedulesSortedDescending();
-            if (schedules != null)
+            if (schedules != null && schedules.Count >= 1)
             {
                 return schedules[0];
             }
             return string.Empty;
+        }
+
+        public static void SetSchedule()
+        {
+            if (ScheduleUserControl.Instance != null)
+            {
+                string schedulePath = GetSchedulePath();
+                if (!string.IsNullOrEmpty(schedulePath))
+                {
+                    ScheduleUserControl.Instance.ScheduleWebBrowser.Navigate(schedulePath);
+                }
+            }
         }
     }
 }

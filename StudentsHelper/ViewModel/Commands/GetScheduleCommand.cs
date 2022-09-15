@@ -35,12 +35,24 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password);
-                if (ScheduleUserControl.Instance != null)
+                if(await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
                 {
-                    ScheduleUserControl.Instance.ScheduleWebBrowser.Navigate(ScheduleImporter.GetSchedulePath());
+                    ScheduleImporter.SetSchedule();
+                    MessageBox.Show("GetScheduleCommand.cs");
+                    //if (ScheduleVM.Instance != null)
+                    //{
+                    //    WindowsVisibility.OnHideWindow();
+                    //    ScheduleVM.Instance.SetWindowVisible();
+                    //    try
+                    //    {
+                    //        ScheduleImporter.SetSchedule();
+                    //    }
+                    //    catch (Exception e)
+                    //    {
+                    //        MessageBox.Show(e.Message);
+                    //    }
+                    //}                }               
                 }
-            }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Błąd pobrania planu zajęć");

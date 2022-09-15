@@ -49,8 +49,7 @@ namespace StudentsHelper.Schedules
 
         public static async Task<bool> DownloadScheduleAsync(string userEmail, string userPassword)
         {
-            bool ifDownloaded = await Task.Run(() => DownloadSchedule(userEmail, userPassword));
-            return ifDownloaded;
+            return await Task.Run(() => DownloadSchedule(userEmail, userPassword));         
         }
     }
 }
