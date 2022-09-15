@@ -1,0 +1,27 @@
+﻿<Window x:Class="StudentsHelper.View.Windows.ScheduleInstructionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsHelper.View.Windows"
+        mc:Ignorable="d"
+        Title="ScheduleInstructionWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Center">Instrukcja pobrania planu zajęć</TextBlock>
+            <TextBlock>1. Upewnij się, że e-mail oraz hasło, których używasz w aplikacji
+            są takie same jak w wirtualnej uczelni, jeśli są inne to popraw je w ustawieniach</TextBlock>
+            <TextBlock>2. Kliknij przycisk pobierz i poczekaj aż program pobierze plan zajęć</TextBlock>
+            <TextBlock>3. Wyloguj się z wirtualnej uczelni</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

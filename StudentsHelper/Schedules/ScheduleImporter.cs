@@ -32,7 +32,6 @@ namespace StudentsHelper.Schedules
             {
                 return schedules[0];
             }
-            PdfSharpCore.Pdf.
             return string.Empty;
         }
     }

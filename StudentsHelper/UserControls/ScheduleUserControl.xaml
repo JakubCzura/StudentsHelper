@@ -11,15 +11,15 @@
         <vm:ScheduleVM x:Key="ScheduleVM"/>
     </UserControl.Resources>
     
-    <Grid>
+    <Grid DataContext="{StaticResource ScheduleVM}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <UniformGrid Grid.Row="0" Rows="1">
-            <Button>Pobierz plan zajęć</Button>
-            <Button>Instrukcja</Button>
+            <Button Command="{Binding GetScheduleCommand}">Pobierz plan zajęć</Button>
+            <Button Command="{Binding ShowScheduleInstructionWindowCommand}">Instrukcja</Button>
         </UniformGrid>
 
         <Grid Grid.Row="1">

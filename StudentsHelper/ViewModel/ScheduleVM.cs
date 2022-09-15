@@ -1,4 +1,6 @@
-﻿using StudentsHelper.UserControls;
+﻿using StudentsHelper.Model;
+using StudentsHelper.UserControls;
+using StudentsHelper.ViewModel.Commands;
 using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,10 +18,15 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             WindowsVisibility.HideWindow += SetWindowHidden;
+            Student = DataBase.LoginStudent.GetStudentData();
+            ShowScheduleInstructionWindowCommand = new ShowScheduleInstructionWindowCommand();
+            GetScheduleCommand = new GetScheduleCommand(this);
         }
 
+        public Student Student { get; set; }
         public static ScheduleVM? Instance { get; set; }
-
+        public GetScheduleCommand GetScheduleCommand { get; set; }
+        public ShowScheduleInstructionWindowCommand ShowScheduleInstructionWindowCommand { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
