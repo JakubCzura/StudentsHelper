@@ -11,8 +11,7 @@ namespace StudentsHelper.Schedules
 {
     public class ScheduleImporter : ScheduleDownloader
     {
-        internal static readonly string scheduleName = @"PlanZajec";
-        internal static readonly string fileNameExtension = @".pdf";
+        
 
         internal static string GetDownloadsDirectoryPath()
         {
@@ -21,7 +20,7 @@ namespace StudentsHelper.Schedules
 
         private static List<string>? GetSchedulesSortedDescending()
         {
-            List<string>? fileEntries = Directory.GetFiles(GetDownloadsDirectoryPath()).Where(file => file.Contains(scheduleName) && file.EndsWith(fileNameExtension)).ToList();
+            List<string>? fileEntries = Directory.GetFiles(GetDownloadsDirectoryPath()).Where(file => IsScheduleNameCorrect(Path.GetFileName(file))).ToList();
             List<string>? filesSortedByDateAscending = fileEntries.OrderByDescending(File.GetCreationTime).ToList();
             return filesSortedByDateAscending;
         }

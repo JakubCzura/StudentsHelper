@@ -21,6 +21,8 @@ namespace StudentsHelper.Schedules
         private static readonly string passwordInputId = "passwordInput";
         private static readonly string submitButtonId = "submitButton";
         private static readonly string downloadScheduleButtonId = @"ctl00_ctl00_ContentPlaceHolder_RightContentPlaceHolder_btn_GetPDF";
+        internal static readonly string scheduleName = @"PlanZajec";
+        internal static readonly string fileNameExtension = @".pdf";
 
         public static bool DownloadSchedule(string userEmail, string userPassword)
         {
@@ -71,7 +73,7 @@ namespace StudentsHelper.Schedules
             {
                 Thread.Sleep(1000);
                 if (Directory.GetFiles(ScheduleImporter.GetDownloadsDirectoryPath()).
-                  Any(i => i.Contains(ScheduleImporter.scheduleName) && i.EndsWith(ScheduleImporter.fileNameExtension)) == true)
+                  Any(i => IsScheduleNameCorrect(Path.GetFileName(i)) == true))
                 {
                     return true;
                 }
@@ -82,6 +84,18 @@ namespace StudentsHelper.Schedules
         public static async Task<bool> IsScheduleDownloadedAsync()
         {
             return await Task.Run(() => IsScheduleDownloaded());
+        }
+
+        public static bool IsScheduleNameCorrect(string fileName)
+        {
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                if (fileName.StartsWith(scheduleName) && fileName.EndsWith(fileNameExtension))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

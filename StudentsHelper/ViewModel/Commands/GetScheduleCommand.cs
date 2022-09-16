@@ -51,10 +51,5 @@ namespace StudentsHelper.ViewModel.Commands
                 MessageBox.Show(e.Message, "Błąd pobrania planu zajęć");
             }                           
         }
-        
-        private void ClickLessonsButton()
-        {
-            MainWindow.Instance?.LessonsButton.Command.Execute(MainWindow.Instance.LessonsButton.CommandParameter);
-        }
     }
 }
