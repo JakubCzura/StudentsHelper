@@ -31,6 +31,13 @@ namespace StudentsHelper.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        private static bool isGetScheduleButtonEnabled = true;
+        public bool IsGetScheduleButtonEnabled
+        {
+            get { return isGetScheduleButtonEnabled; }
+            set { isGetScheduleButtonEnabled = value; OnPropertyChanged(nameof(IsGetScheduleButtonEnabled)); } 
+        }
+
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

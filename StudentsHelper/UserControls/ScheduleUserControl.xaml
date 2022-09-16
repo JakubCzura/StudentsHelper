@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <UniformGrid Grid.Row="0" Rows="1">
-            <Button Command="{Binding GetScheduleCommand}">Pobierz plan zajęć</Button>
+            <Button Command="{Binding GetScheduleCommand}" IsEnabled="{Binding IsGetScheduleButtonEnabled}">Pobierz plan zajęć</Button>
             <Button Command="{Binding ShowScheduleInstructionWindowCommand}">Instrukcja</Button>
         </UniformGrid>
 

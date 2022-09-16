@@ -38,18 +38,29 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
+                ScheduleVM.IsGetScheduleButtonEnabled = false;
                 if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
                 {
                     if (await ScheduleDownloader.IsScheduleDownloadedAsync() == true)
                     {
                         ScheduleImporter.SetSchedule();
                     }
+                    else
+                    {
+                        MessageBox.Show("Jeśli plan zajęć nie załadował się automatycznie, proszę jeszcze raz kliknąć przycisk\n" +
+                            "Pobierz plan w celu pobrania planu zajęć lub\n" +
+                            "Plan zajęć w celu odświeżenia okna");
+                    }
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Błąd pobrania planu zajęć");
-            }                           
+            }
+            finally
+            {
+                ScheduleVM.IsGetScheduleButtonEnabled = true;
+            }
         }
     }
 }
