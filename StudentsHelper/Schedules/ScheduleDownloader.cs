@@ -10,6 +10,7 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Threading;
 
 namespace StudentsHelper.Schedules
 {
@@ -49,7 +50,7 @@ namespace StudentsHelper.Schedules
 
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
                 MessageBox.Show(e.Message);
@@ -59,7 +60,23 @@ namespace StudentsHelper.Schedules
 
         public static async Task<bool> DownloadScheduleAsync(string userEmail, string userPassword)
         {
-            return await Task.Run(() => DownloadSchedule(userEmail, userPassword));         
+            return await Task.Run(() => DownloadSchedule(userEmail, userPassword));
+        }
+
+        public static bool IsScheduleDownloaded(int maxTimeForDownloading = 10)
+        {
+            int timeForDownloading = maxTimeForDownloading; //seconds
+
+            for (int i = 0; i < timeForDownloading; i++)
+            {
+                Thread.Sleep(1000);
+                if (Directory.GetFiles(ScheduleImporter.GetDownloadsDirectoryPath()).
+                  Any(i => i.Contains(ScheduleImporter.scheduleName) && i.EndsWith(ScheduleImporter.fileNameExtension)) == true)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

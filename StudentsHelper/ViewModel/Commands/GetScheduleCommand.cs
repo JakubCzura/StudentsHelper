@@ -40,9 +40,15 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
                 {
-                    //ClickLessonsButton();
-                    Thread.Sleep(5000);
-                    ScheduleImporter.SetSchedule();
+                    if (ScheduleDownloader.IsScheduleDownloaded() == true)
+                    {
+                        MessageBox.Show("działa");
+                        ScheduleImporter.SetSchedule();
+                    }
+                    else
+                    {
+                        MessageBox.Show("nie działa");
+                    }
                 }
             }
             catch (Exception e)

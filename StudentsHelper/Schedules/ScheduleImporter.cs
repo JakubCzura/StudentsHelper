@@ -11,10 +11,10 @@ namespace StudentsHelper.Schedules
 {
     public class ScheduleImporter : ScheduleDownloader
     {
-        private static readonly string scheduleName = @"PlanZajec";
-        private static readonly string fileNameExtension = @".pdf";
+        internal static readonly string scheduleName = @"PlanZajec";
+        internal static readonly string fileNameExtension = @".pdf";
 
-        private static string GetDownloadsDirectoryPath()
+        internal static string GetDownloadsDirectoryPath()
         {
             return KnownFolders.Downloads.Path;
         }
