@@ -63,7 +63,7 @@ namespace StudentsHelper.Schedules
             return await Task.Run(() => DownloadSchedule(userEmail, userPassword));
         }
 
-        public static bool IsScheduleDownloaded(int maxTimeForDownloading = 10)
+        public static bool IsScheduleDownloaded(int maxTimeForDownloading = 30)
         {
             int timeForDownloading = maxTimeForDownloading; //seconds
 
@@ -77,6 +77,11 @@ namespace StudentsHelper.Schedules
                 }
             }
             return false;
+        }
+
+        public static async Task<bool> IsScheduleDownloadedAsync()
+        {
+            return await Task.Run(() => IsScheduleDownloaded());
         }
     }
 }

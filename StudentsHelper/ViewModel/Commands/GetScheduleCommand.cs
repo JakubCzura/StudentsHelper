@@ -40,7 +40,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
                 {
-                    if (ScheduleDownloader.IsScheduleDownloaded() == true)
+                    if (await ScheduleDownloader.IsScheduleDownloadedAsync() == true)
                     {
                         MessageBox.Show("działa");
                         ScheduleImporter.SetSchedule();
