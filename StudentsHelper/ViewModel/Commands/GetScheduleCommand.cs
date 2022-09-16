@@ -42,12 +42,7 @@ namespace StudentsHelper.ViewModel.Commands
                 {
                     if (await ScheduleDownloader.IsScheduleDownloadedAsync() == true)
                     {
-                        MessageBox.Show("działa");
                         ScheduleImporter.SetSchedule();
-                    }
-                    else
-                    {
-                        MessageBox.Show("nie działa");
                     }
                 }
             }
