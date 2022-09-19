@@ -15,8 +15,31 @@
         </Style>
 
         <Style TargetType="{x:Type TextBox}" x:Name="IsTextBoxReadonlyTrue" x:Key="IsTextBoxReadonlyTrue">
+            <Style.Triggers>
+                <Trigger Property="IsReadOnly" Value="False">
+                    <Setter Property="Background"  Value="White"></Setter>
+                </Trigger>
+            </Style.Triggers>
             <Setter Property="IsReadOnly" Value="True"></Setter>
-            <Setter Property="Background" Value="#6ffc53"></Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF62D9F7"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF62D9F7"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
         </Style>
     </UserControl.Resources>
 
