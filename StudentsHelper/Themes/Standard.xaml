@@ -63,5 +63,34 @@
     <Style TargetType="TextBlock" x:Key="ToDoStyle" BasedOn="{StaticResource TodayDateStyle}"></Style>
 
     <Style TargetType="TextBlock" x:Key="UserProfileStyle" BasedOn="{StaticResource WelcomeMessageStyle}"></Style>
+
+    <Style TargetType="TextBox" x:Key="UserProfileTextBoxStyle">
+        <Style.Triggers>
+            <Trigger Property="IsReadOnly" Value="False">
+                <Setter Property="Background"  Value="White"></Setter>
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="IsReadOnly" Value="True"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF50E3FF"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="UserProfileLabelStyle">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF50E3FF"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
     
 </ResourceDictionary>
