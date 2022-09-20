@@ -39,7 +39,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Background="#FF8CF78C" Text="Edycja zadania domowego" TextAlignment="Center" FontSize="30" Padding="5,5,5,5"></TextBlock>
+        <TextBlock Text="Edycja zadania domowego" Style="{DynamicResource WindowsHeadersStyle}"></TextBlock>
 
         <StackPanel Grid.Row="1">
             <UniformGrid Rows="1">

@@ -20,8 +20,10 @@
             <TextBlock HorizontalAlignment="Center">Instrukcja pobrania planu zajęć</TextBlock>
             <TextBlock>1. Upewnij się, że e-mail oraz hasło, których używasz w aplikacji
             są takie same jak w wirtualnej uczelni, jeśli są inne to popraw je w ustawieniach</TextBlock>
-            <TextBlock>2. Kliknij przycisk pobierz i poczekaj aż program pobierze plan zajęć</TextBlock>
-            <TextBlock>3. Wyloguj się z wirtualnej uczelni</TextBlock>
+            <TextBlock>2. Pobierz program Adobe Acrobat Reader w celu wyświetlania poprawnie planu zajęć 
+            jeśli go nie posiadasz</TextBlock>
+            <TextBlock>3. Kliknij przycisk pobierz i poczekaj aż program pobierze plan zajęć</TextBlock>
+            <TextBlock>4. Wyloguj się z wirtualnej uczelni</TextBlock>
         </StackPanel>
     </Grid>
 </Window>
