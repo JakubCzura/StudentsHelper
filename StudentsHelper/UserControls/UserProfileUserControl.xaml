@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Profil użytkownika" TextAlignment="Center" FontSize="30" Padding="5,5,5,5" Style="{DynamicResource UserProfileStyle}"></TextBlock>
+        <TextBlock Grid.Row="0" Text="Profil użytkownika" FontSize="30" Style="{DynamicResource WindowsHeadersStyle}"></TextBlock>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -27,7 +27,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <TextBlock Text="Dane studenta" TextAlignment="Center" FontSize="20" Padding="5,5,5,5" Style="{DynamicResource UserProfileStyle}"></TextBlock>
+                <TextBlock Text="Dane studenta" Style="{DynamicResource WindowsHeadersStyle}"></TextBlock>
                 <UniformGrid Rows="1">
                     <Label Style="{DynamicResource UserProfileLabelStyle}">Imię:</Label>
                     <TextBox x:Name="NameTextBox" FontSize="20" Text="{Binding Student.Name, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource UserProfileTextBoxStyle}"></TextBox>
@@ -51,7 +51,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <TextBlock Text="Studia" TextAlignment="Center" FontSize="20" Padding="5,5,5,5" Style="{DynamicResource UserProfileStyle}"></TextBlock>
+                <TextBlock Text="Studia" Style="{DynamicResource WindowsHeadersStyle}"></TextBlock>
                 <UniformGrid Rows="1">
                     <Label Style="{DynamicResource UserProfileLabelStyle}">Kierunek:</Label>
                     <TextBox x:Name="CourseTextBox" FontSize="20" Text="{Binding DegreeCourse.Course, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource UserProfileTextBoxStyle}"></TextBox>

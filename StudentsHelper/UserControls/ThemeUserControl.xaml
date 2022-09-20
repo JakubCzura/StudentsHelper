@@ -18,7 +18,7 @@
 
     <Grid DataContext="{StaticResource ThemeChangeVM}">
         <StackPanel>
-            <TextBlock Background="#FF8CF78C" Text="Zmiana motywu" TextAlignment="Center" FontSize="20" Padding="5,5,5,5"></TextBlock>
+            <TextBlock Text="Zmiana motywu" Style="{DynamicResource WindowsHeadersStyle}"></TextBlock>
 
             <UniformGrid Rows="2">
                 <Label FontSize="20">Obecny motyw:</Label>

@@ -62,8 +62,12 @@
     <Style TargetType="TextBlock" x:Key="ToDoStyle" BasedOn="{StaticResource TodayDateStyle}"></Style>
 
     <Style TargetType="TextBlock" x:Key="UserProfileStyle" BasedOn="{StaticResource WelcomeMessageStyle}"></Style>
-    
-    <Style TargetType="TextBlock" x:Key="HeadersStyle" BasedOn="{StaticResource WelcomeMessageStyle}"></Style>
+
+    <Style TargetType="TextBlock" x:Key="WindowsHeadersStyle" BasedOn="{StaticResource WelcomeMessageStyle}">
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="Padding" Value="5,5,5,5"></Setter>
+    </Style>
 
     <Style TargetType="TextBox" x:Key="UserProfileTextBoxStyle">
         <Style.Triggers>
