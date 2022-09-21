@@ -11,6 +11,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Threading;
+using StudentsHelper.DirectoriesHelper;
 
 namespace StudentsHelper.Schedules
 {
@@ -72,7 +73,7 @@ namespace StudentsHelper.Schedules
             for (int i = 0; i < timeForDownloading; i++)
             {
                 Thread.Sleep(1000);
-                if (Directory.GetFiles(ScheduleImporter.GetDownloadsDirectoryPath()).
+                if (Directory.GetFiles(ApplicationDirectories.DownloadsDirectoryFullPath).
                   Any(i => IsScheduleNameCorrect(Path.GetFileName(i)) == true))
                 {
                     return true;
