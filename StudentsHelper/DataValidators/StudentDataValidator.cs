@@ -87,9 +87,9 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o haśle", nameof(password));
             }
-            if (!(password.Length >= 5 && password.Length <= 50))
+            if (!(password.Length >= 5))
             {
-                throw new ArgumentException("Długość hasła jest spoza zakresu 5-50", nameof(password));
+                throw new ArgumentException("Długość hasła ma mniej niż 5 znaków", nameof(password));
             }
             if (!password.Any(char.IsDigit))
             {

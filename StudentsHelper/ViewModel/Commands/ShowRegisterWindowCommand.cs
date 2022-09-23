@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class RegisterCommand : ICommand
+    public class ShowRegisterWindowCommand : ICommand
     {
 
         public event EventHandler? CanExecuteChanged

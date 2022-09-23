@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Model;
 using StudentsHelper.View;
 using System;
@@ -32,17 +33,6 @@ namespace StudentsHelper.ViewModel.Commands
             return true;
         }
 
-        static bool IsLoginCorrect(string login)
-        {
-            if(string.IsNullOrWhiteSpace(login) ||
-                !login.StartsWith('s') ||
-                login.Length != 7)
-            {
-                return false;
-            }
-            return true;
-        }
-
         public void Execute(object? parameter)
         {          
             try
@@ -50,7 +40,7 @@ namespace StudentsHelper.ViewModel.Commands
                 if(LoginWindow.Instance != null)
                 {
                     LoginVM.Password = LoginWindow.Instance.PasswordBox.Password;                 
-                    if(string.IsNullOrWhiteSpace(LoginVM.Password) || !IsLoginCorrect(LoginVM.Login))
+                    if(!StudentDataValidator.ValidateLogin(LoginVM.Login) || !StudentDataValidator.ValidatePassword(LoginVM.Password))
                     {
                         MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
                     }

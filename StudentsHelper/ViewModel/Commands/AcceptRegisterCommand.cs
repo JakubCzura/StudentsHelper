@@ -40,9 +40,10 @@ namespace StudentsHelper.ViewModel.Commands
                 {
                     RegisterWindowVM.Password = RegisterWindow.Instance.PasswordBox.Password;
 
-                    if ((StudentDataValidator.ValidatePassword(RegisterWindowVM.Password) &&
-                        StudentDataValidator.ValidateLogin(RegisterWindowVM.Login)))
+                    if (StudentDataValidator.ValidatePassword(RegisterWindowVM.Password) &&
+                        StudentDataValidator.ValidateLogin(RegisterWindowVM.Login))
                     {
+                        RegisterWindowVM.Password = Hasher.HashPassword(RegisterWindowVM.Password);
                         StudentDataValidator.ValidateStudentData(RegisterWindowVM.Student);
                         if (RegisterStudent.Register(RegisterWindowVM) == true)
                         {

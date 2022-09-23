@@ -19,12 +19,15 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    Student? Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login && s.Password == LoginVM.Password);
+                    Student? Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login);
                     if (Student != null)
                     {
-                        StudentId = Student.Id;
-                        StudentLogin = Student.Login;
-                        return true;
+                        if(Hasher.VerifyPassword(LoginVM.Password, Student.Password))
+                        {
+                            StudentId = Student.Id;
+                            StudentLogin = Student.Login;
+                            return true;
+                        }                       
                     }
                 }
                 return false;

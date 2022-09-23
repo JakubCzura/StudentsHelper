@@ -22,14 +22,14 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             LoginCommand = new LoginCommand(this);
-            RegisterCommand = new RegisterCommand();
+            ShowRegisterWindowCommand = new ShowRegisterWindowCommand();
             DataBaseHelper.CreateEmptyDataBase();
         }
         public LoginVM Instance { get; set; }
 
         public LoginCommand LoginCommand { get; set; }
 
-        public RegisterCommand RegisterCommand { get; set; }
+        public ShowRegisterWindowCommand ShowRegisterWindowCommand { get; set; }
 
         private int id = 0;
         [PrimaryKey, AutoIncrement]

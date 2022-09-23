@@ -62,5 +62,12 @@ namespace StudentsHelper.Model
             get { return password; }
             set { password = value; }
         }
+
+        private string salt = string.Empty;
+        public string Salt
+        {
+            get { return salt; }
+            set { salt = value; }
+        }
     }
 }
