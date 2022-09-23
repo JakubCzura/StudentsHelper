@@ -14,11 +14,6 @@ namespace StudentsHelper.Schedules
 {
     public class ScheduleImporter : ScheduleDownloader
     {       
-        public static void CreateUserDiretory(string userLogin)
-        {
-            Directory.CreateDirectory(Path.Combine(ApplicationDirectories.UsersDirectoryFullPath, userLogin));
-        }       
-
         private static List<string>? GetSchedulesSortedDescending()
         {
             List<string>? fileEntries = Directory.GetFiles(ApplicationDirectories.DownloadsDirectoryFullPath).Where(file => IsScheduleNameCorrect(Path.GetFileName(file))).ToList();

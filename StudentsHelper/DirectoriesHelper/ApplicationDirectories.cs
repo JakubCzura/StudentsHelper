@@ -15,16 +15,6 @@ namespace StudentsHelper.DirectoriesHelper
             get { return Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory); }
         }     
 
-        public static string StudentsHelperDirectoryFullPath
-        {
-            get { return Path.Combine(Directory.GetParent(BaseDirectoryFullPath).Parent.Parent.Parent.FullName); }
-        }
-        
-        public static string UsersDirectoryFullPath
-        {
-            get { return Path.Combine(StudentsHelperDirectoryFullPath, "Users"); }
-        }
-
         public static string DownloadsDirectoryFullPath
         {
             get { return KnownFolders.Downloads.Path; }
