@@ -1,4 +1,5 @@
 ﻿using MvvmHelpers.Interfaces;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Schedules;
 using StudentsHelper.UserControls;
 using StudentsHelper.View;
@@ -31,7 +32,14 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            return true;
+            if (ScheduleUserControl.Instance != null)
+            {
+                if (string.IsNullOrEmpty(ScheduleUserControl.Instance.UserPasswordPasswordBox.Password) == false)
+                { 
+                    return true; 
+                }
+            }
+            return false;
         }
 
         public async void Execute(object? parameter)
@@ -39,17 +47,21 @@ namespace StudentsHelper.ViewModel.Commands
             try
             {
                 ScheduleVM.IsGetScheduleButtonEnabled = false;
-                if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleVM.Student.Password))
+                if (ScheduleUserControl.Instance != null)
                 {
-                    if (await ScheduleDownloader.IsScheduleDownloadedAsync() == true)
+                    ScheduleUserControl.Instance.UserPasswordPasswordBox.IsEnabled = false;
+                    if (await ScheduleDownloader.DownloadScheduleAsync(ScheduleVM.Student.Email, ScheduleUserControl.Instance.UserPasswordPasswordBox.Password))
                     {
-                        ScheduleImporter.SetSchedule();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Jeśli plan zajęć nie załadował się automatycznie, proszę jeszcze raz kliknąć przycisk\n" +
-                            "Pobierz plan w celu pobrania planu zajęć lub\n" +
-                            "Plan zajęć w celu odświeżenia okna");
+                        if (await ScheduleDownloader.IsScheduleDownloadedAsync() == true)
+                        {
+                            ScheduleImporter.SetSchedule();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Jeśli plan zajęć nie załadował się automatycznie, proszę jeszcze raz kliknąć przycisk\n" +
+                                "Pobierz plan w celu pobrania planu zajęć lub\n" +
+                                "Plan zajęć w celu odświeżenia okna");
+                        }
                     }
                 }
             }
@@ -60,6 +72,11 @@ namespace StudentsHelper.ViewModel.Commands
             finally
             {
                 ScheduleVM.IsGetScheduleButtonEnabled = true;
+                if (ScheduleUserControl.Instance != null)
+                {
+                    ScheduleUserControl.Instance.UserPasswordPasswordBox.IsEnabled = true;
+                    ScheduleUserControl.Instance.UserPasswordPasswordBox.Password = String.Empty;
+                }
             }
         }
     }

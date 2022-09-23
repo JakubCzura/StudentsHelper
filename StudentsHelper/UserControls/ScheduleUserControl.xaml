@@ -17,10 +17,18 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <UniformGrid Grid.Row="0" Rows="1">
-            <Button Command="{Binding GetScheduleCommand}" IsEnabled="{Binding IsGetScheduleButtonEnabled}">Pobierz plan zajęć</Button>
-            <Button Command="{Binding ShowScheduleInstructionWindowCommand}">Instrukcja</Button>
-        </UniformGrid>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Command="{Binding ShowScheduleInstructionWindowCommand}">Instrukcja</Button>
+            <UniformGrid Grid.Row="1" Rows="1">
+                <TextBlock Width="Auto" TextAlignment="Center">Podaj hasło, którym się logujesz</TextBlock>
+                <PasswordBox x:Name="UserPasswordPasswordBox" Width="Auto"></PasswordBox>
+                <Button Width="Auto" Command="{Binding GetScheduleCommand}" IsEnabled="{Binding IsGetScheduleButtonEnabled}">Pobierz plan zajęć</Button>
+            </UniformGrid>
+        </Grid>
 
         <Grid Grid.Row="1">
             <WebBrowser x:Name="ScheduleWebBrowser"></WebBrowser>
