@@ -35,7 +35,11 @@
         <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
             <Menu x:Name="MainMenu">
                 <MenuItem Header="Ustawienia">
-                    <MenuItem Header="Przejdź do ustawień" Command="{Binding SetSettingsVisibleCommand}"></MenuItem>
+                    <MenuItem Header="Przejdź do ustawień" Command="{Binding SetSettingsVisibleCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/Icons/Settings.ico"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>
