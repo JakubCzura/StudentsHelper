@@ -1,5 +1,4 @@
-﻿using StudentsHelper.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.UserControls
+namespace StudentsHelper.View.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy NotesUserControl.xaml
+    /// Interaction logic for ExamsUserControl.xaml
     /// </summary>
-    public partial class NotesUserControl : UserControl
+    public partial class ExamsUserControl : UserControl
     {
-        public static NotesUserControl? Instance { get; set; }   
-        public NotesUserControl()
+        public static ExamsUserControl? Instance { get; private set; }
+        public ExamsUserControl()
         {
             InitializeComponent();
             Instance = this;
         }
-
     }
 }

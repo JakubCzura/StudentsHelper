@@ -1,5 +1,4 @@
 ﻿using StudentsHelper.DataBase;
-using StudentsHelper.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using StudentsHelper.DataValidators;
+using StudentsHelper.View.UserControls;
 
 namespace StudentsHelper.ViewModel.Commands
 {

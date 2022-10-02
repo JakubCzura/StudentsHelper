@@ -1,8 +1,8 @@
 ﻿using MvvmHelpers.Interfaces;
 using StudentsHelper.DataValidators;
 using StudentsHelper.Schedules;
-using StudentsHelper.UserControls;
 using StudentsHelper.View;
+using StudentsHelper.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;

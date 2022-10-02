@@ -1,4 +1,4 @@
-﻿using StudentsHelper.UserControls;
+﻿using StudentsHelper.View.UserControls;
 using StudentsHelper.View.Windows;
 using System;
 using System.Collections.Generic;

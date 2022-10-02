@@ -1,5 +1,5 @@
 ﻿using StudentsHelper.DirectoriesHelper;
-using StudentsHelper.UserControls;
+using StudentsHelper.View.UserControls;
 using Syroot.Windows.IO;
 using System;
 using System.Collections.Generic;

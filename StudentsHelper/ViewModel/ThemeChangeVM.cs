@@ -1,5 +1,5 @@
 ﻿using StudentsHelper.Themes;
-using StudentsHelper.UserControls;
+using StudentsHelper.View.UserControls;
 using StudentsHelper.ViewModel.Commands;
 using StudentsHelper.ViewModel.Interfaces;
 using System;

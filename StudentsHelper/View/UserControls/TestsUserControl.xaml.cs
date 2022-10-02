@@ -13,15 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.UserControls
+namespace StudentsHelper.View.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserProfileUserControl.xaml
+    /// Interaction logic for TestsUserControl.xaml
     /// </summary>
-    public partial class UserProfileUserControl : UserControl
+    public partial class TestsUserControl : UserControl
     {
-        public static UserProfileUserControl? Instance { get; set; }
-        public UserProfileUserControl()
+        public static TestsUserControl? Instance { get; private set; }
+        public TestsUserControl()
         {
             InitializeComponent();
             Instance = this;

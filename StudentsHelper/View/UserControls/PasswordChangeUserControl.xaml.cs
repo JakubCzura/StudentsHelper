@@ -13,23 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.UserControls
+namespace StudentsHelper.View.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy WelcomeScreenUserControl.xaml
+    /// Interaction logic for PasswordChangeUserControl.xaml
     /// </summary>
-    public partial class WelcomeScreenUserControl : UserControl
+    public partial class PasswordChangeUserControl : UserControl
     {
-        public static WelcomeScreenUserControl? Instance { get; set; }
-        public WelcomeScreenUserControl()
+        public static PasswordChangeUserControl? Instance { get; set; }
+        public PasswordChangeUserControl()
         {
             InitializeComponent();
             Instance = this;
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MessageBox.Show("dasdasdasdadsa");
         }
     }
 }

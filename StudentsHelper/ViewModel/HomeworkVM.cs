@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.UserControls;
+using StudentsHelper.View.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using StudentsHelper.ViewModel.Interfaces;

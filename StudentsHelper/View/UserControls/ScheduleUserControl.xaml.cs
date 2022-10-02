@@ -13,10 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.UserControls
+namespace StudentsHelper.View.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy ScheduleUserControl.xaml
+    /// Interaction logic for ScheduleUserControl.xaml
     /// </summary>
     public partial class ScheduleUserControl : UserControl
     {

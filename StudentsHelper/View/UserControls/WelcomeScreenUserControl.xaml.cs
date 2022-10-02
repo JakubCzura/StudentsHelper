@@ -13,18 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.UserControls
+namespace StudentsHelper.View.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy PasswordChangeUserControl.xaml
+    /// Interaction logic for WelcomeScreenUserControl.xaml
     /// </summary>
-    public partial class PasswordChangeUserControl : UserControl
+    public partial class WelcomeScreenUserControl : UserControl
     {
-        public static PasswordChangeUserControl? Instance { get; set; }
-        public PasswordChangeUserControl()
+        public static WelcomeScreenUserControl? Instance { get; set; }
+        public WelcomeScreenUserControl()
         {
             InitializeComponent();
-            Instance = this;           
+            Instance = this;
         }
     }
 }

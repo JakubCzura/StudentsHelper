@@ -1,6 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.DataValidators;
-using StudentsHelper.UserControls;
+using StudentsHelper.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;

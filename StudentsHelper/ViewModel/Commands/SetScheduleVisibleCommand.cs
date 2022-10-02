@@ -1,5 +1,5 @@
 ﻿using StudentsHelper.Schedules;
-using StudentsHelper.UserControls;
+using StudentsHelper.View.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;

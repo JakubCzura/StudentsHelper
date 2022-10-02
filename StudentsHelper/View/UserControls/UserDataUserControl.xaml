@@ -1,16 +1,16 @@
-﻿<UserControl x:Class="StudentsHelper.UserControls.UserDataUserControl"
+﻿<UserControl x:Class="StudentsHelper.View.UserControls.UserDataUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:StudentsHelper.UserControls"
-             xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
+             xmlns:local="clr-namespace:StudentsHelper.View.UserControls"
              mc:Ignorable="d" 
+             xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
              d:DesignHeight="50">
-    
+
     <UserControl.Resources>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
-        
+
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
@@ -26,7 +26,7 @@
             <Setter Property="Margin" Value="5,5,5,5"></Setter>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid DataContext="{StaticResource StudentsHelperVM}" Style="{DynamicResource UserDataUserControlStyle}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -44,5 +44,4 @@
             <Rectangle/>
         </StackPanel>
     </Grid>
-    
 </UserControl>

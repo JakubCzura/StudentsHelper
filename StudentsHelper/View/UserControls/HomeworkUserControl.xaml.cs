@@ -13,18 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsHelper.UserControls
+namespace StudentsHelper.View.UserControls
 {
     /// <summary>
-    /// Logika interakcji dla klasy SettingsUserControl.xaml
+    /// Interaction logic for HomeworkUserControl.xaml
     /// </summary>
-    public partial class SettingsUserControl : UserControl
+    public partial class HomeworkUserControl : UserControl
     {
-        public static SettingsUserControl? Instance { get; set; }
-        public SettingsUserControl()
+        public static HomeworkUserControl? Instance { get; private set; }
+        public HomeworkUserControl()
         {
-            Instance = this;
             InitializeComponent();
+            Instance = this;
         }
     }
 }
