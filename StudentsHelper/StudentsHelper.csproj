@@ -6,15 +6,15 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <StartupObject></StartupObject>
-    <ApplicationIcon>Icons\Application.ico</ApplicationIcon>
+    <ApplicationIcon>View\Icons\Application.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Icons\Settings.ico" />
+    <None Remove="View\Icons\Settings.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Icons\Application.ico" />
+    <Content Include="View\Icons\Application.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Icons\Settings.ico">
+    <Resource Include="View\Icons\Settings.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

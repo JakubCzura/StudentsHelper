@@ -37,7 +37,7 @@
                 <MenuItem Header="Ustawienia">
                     <MenuItem Header="Przejdź do ustawień" Command="{Binding SetSettingsVisibleCommand}">
                         <MenuItem.Icon>
-                            <Image Source="/Icons/Settings.ico"></Image>
+                            <Image Source="/View/Icons/Settings.ico"></Image>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
