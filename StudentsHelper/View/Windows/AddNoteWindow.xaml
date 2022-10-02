@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-        Title="AddNoteWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    
     <Window.Resources>
         <vm:AddNoteVM x:Key="AddNoteVM"></vm:AddNoteVM>
 

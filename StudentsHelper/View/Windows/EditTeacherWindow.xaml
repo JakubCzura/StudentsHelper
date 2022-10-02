@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
         mc:Ignorable="d"
-        Title="EditTeacherWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    
     <Window.Resources>
         <vm:EditTeacherVM x:Key="EditTeacherVM"></vm:EditTeacherVM>
 
