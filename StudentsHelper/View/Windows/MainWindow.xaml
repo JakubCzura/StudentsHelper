@@ -1,15 +1,14 @@
-﻿<Window x:Class="StudentsHelper.View.MainWindow"
+﻿<Window x:Class="StudentsHelper.View.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StudentsHelper.View"
+        xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
-        xmlns:app="clr-namespace:StudentsHelper"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
         Title="StudentsHelper" Height="650" Width="1200" WindowStartupLocation="CenterScreen"       
         xmlns:uc="clr-namespace:StudentsHelper.UserControls">
-
+    
     <Window.Resources>
         <vm:WelcomeScreenVM x:Key="WelcomeScreenVM"></vm:WelcomeScreenVM>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
@@ -106,7 +105,4 @@
             <uc:UserDataUserControl Visibility="Visible"></uc:UserDataUserControl>
         </Grid>
     </Grid>
-
-
-
 </Window>

@@ -1,9 +1,9 @@
-﻿<Window x:Class="StudentsHelper.View.LoginWindow"
+﻿<Window x:Class="StudentsHelper.View.Windows.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StudentsHelper.View"
+        xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
         Title="StudentsHelper" Height="500" Width="400" WindowStartupLocation="CenterScreen">
@@ -20,7 +20,7 @@
     <Window.InputBindings>
         <KeyBinding Key="Enter" Command="{Binding Source={StaticResource LoginVM}, Path=LoginCommand}"></KeyBinding>
     </Window.InputBindings>
-    
+
     <Grid DataContext="{StaticResource LoginVM}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -31,7 +31,7 @@
         <Label Grid.Row="0" Margin="0,0,0,20">
             Witaj w StudentsHelper
         </Label>
-        
+
         <Label Grid.Row="1" FontSize="25" Margin="0,0,0,51">
             Podaj dane by się zalogować
         </Label>
