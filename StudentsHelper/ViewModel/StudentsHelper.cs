@@ -30,6 +30,7 @@ namespace StudentsHelper.ViewModel
             SetUserProfileVisibleCommand = new SetUserProfileVisibleCommand();
             SetSettingsVisibleCommand = new SetSettingsVisibleCommand();
             SetWelcomeScreenVisibleCommand = new SetWelcomeScreenVisibleCommand();
+            ShowAuthorsWindowCommand = new ShowAuthorsWindowCommand();
 
             Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
         }
@@ -57,6 +58,7 @@ namespace StudentsHelper.ViewModel
         public SetSettingsVisibleCommand SetSettingsVisibleCommand{ get; set; }
 
         public SetWelcomeScreenVisibleCommand SetWelcomeScreenVisibleCommand { get; set; }
+        public ShowAuthorsWindowCommand ShowAuthorsWindowCommand { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         

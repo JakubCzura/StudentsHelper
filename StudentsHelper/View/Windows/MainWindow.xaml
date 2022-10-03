@@ -40,6 +40,13 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="O nas">
+                    <MenuItem Header="Autorzy" Command="{Binding ShowAuthorsWindowCommand}">
+                        <MenuItem.Icon>
+                            <Image Source="/View/Icons/Author.ico"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
             </Menu>
         </DockPanel>
 

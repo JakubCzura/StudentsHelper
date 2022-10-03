@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\Icons\Author.ico" />
     <None Remove="View\Icons\Settings.ico" />
   </ItemGroup>
 
@@ -18,9 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="View\Icons\Author.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
-    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.27.0" />
     <PackageReference Include="Selenium.Mozilla.Firefox.Webdriver" Version="0.6.0.1" />
     <PackageReference Include="Selenium.Support" Version="4.4.0" />

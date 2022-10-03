@@ -1,5 +1,4 @@
-﻿using MvvmHelpers.Interfaces;
-using StudentsHelper.DataValidators;
+﻿using StudentsHelper.DataValidators;
 using StudentsHelper.Schedules;
 using StudentsHelper.View;
 using StudentsHelper.View.UserControls;

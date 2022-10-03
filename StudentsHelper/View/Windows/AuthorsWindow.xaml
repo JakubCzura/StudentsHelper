@@ -1,0 +1,59 @@
+﻿<Window x:Class="StudentsHelper.View.Windows.AuthorsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsHelper.View.Windows"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
+        Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="0,0,0,15"></Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Autor</TextBlock>
+                    <TextBlock>Jakub Czura</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Podziękowanie dla twórców pomocnego oprogramowania</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Ikony</TextBlock>
+                    <TextBlock>Icons8</TextBlock>
+                    <TextBlock>https://icons8.com/</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Webdriver</TextBlock>
+                    <TextBlock>Selenium</TextBlock>
+                    <TextBlock>https://www.selenium.dev/</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Obsługa folderów</TextBlock>
+                    <TextBlock>Syroot</TextBlock>
+                    <TextBlock>https://gitlab.com/Syroot/KnownFolders</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Bezpieczeństwo</TextBlock>
+                    <TextBlock>BCrypt.Net-Next</TextBlock>
+                    <TextBlock>https://www.nuget.org/packages/BCrypt.Net-Next/</TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock FontWeight="Bold">Obsługa danych</TextBlock>
+                    <TextBlock>sqlite-net-pcl</TextBlock>
+                    <TextBlock>https://github.com/praeclarum/sqlite-net</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
