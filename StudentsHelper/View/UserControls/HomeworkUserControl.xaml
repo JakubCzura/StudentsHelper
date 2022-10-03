@@ -5,15 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentsHelper.View.UserControls"
              mc:Ignorable="d" 
-            xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Style="{DynamicResource UserControlStyle}">
+    
     <UserControl.Resources>
         <vm:HomeworkVM x:Key="HomeworkVM"/>
 
         <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
-
     </UserControl.Resources>
 
     <Grid DataContext="{StaticResource HomeworkVM}">

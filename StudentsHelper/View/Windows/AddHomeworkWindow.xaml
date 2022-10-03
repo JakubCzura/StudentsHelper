@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-        Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="StudentsHelper" 
+        WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource WindowStyle}">
     
     <Window.Resources>
         <vm:AddHomeworkVM x:Key="AddHomeworkVM"></vm:AddHomeworkVM>

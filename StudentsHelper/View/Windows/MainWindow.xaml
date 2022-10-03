@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
-        Title="StudentsHelper" Height="650" Width="1200" WindowStartupLocation="CenterScreen"       
-        xmlns:uc="clr-namespace:StudentsHelper.View.UserControls">
-    
+        xmlns:uc="clr-namespace:StudentsHelper.View.UserControls"
+        Title="StudentsHelper" Height="650" Width="1200" 
+        WindowStartupLocation="CenterScreen"    
+        Style="{DynamicResource WindowStyle}">
+
     <Window.Resources>
         <vm:WelcomeScreenVM x:Key="WelcomeScreenVM"></vm:WelcomeScreenVM>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>

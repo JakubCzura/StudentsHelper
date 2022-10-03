@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:StudentsHelper.View.UserControls"
              mc:Ignorable="d" 
              xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-             d:DesignHeight="50">
+             d:DesignHeight="50"
+             Style="{DynamicResource UserControlStyle}">
 
     <UserControl.Resources>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>

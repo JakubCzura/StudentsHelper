@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
-        Title="StudentsHelper" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="StudentsHelper" Height="450" Width="800" 
+        WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource WindowStyle}">
     
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
