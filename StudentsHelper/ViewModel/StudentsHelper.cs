@@ -33,7 +33,7 @@ namespace StudentsHelper.ViewModel
             SetSettingsVisibleCommand = new SetSettingsVisibleCommand();
             SetWelcomeScreenVisibleCommand = new SetWelcomeScreenVisibleCommand();
             ShowAuthorsWindowCommand = new ShowAuthorsWindowCommand();
-            Show(MainWindow.Instance.WelcomeScreenUserControl);
+
             Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
         }
 
@@ -63,12 +63,6 @@ namespace StudentsHelper.ViewModel
         public ShowAuthorsWindowCommand ShowAuthorsWindowCommand { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
-        public void Show(UserControl userControl)
-        {
-            if(userControl != null)
-            userControl.Visibility = System.Windows.Visibility.Visible;
-        }
 
         public string Name
         {
