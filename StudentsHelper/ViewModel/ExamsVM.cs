@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class ExamsVM : INotifyPropertyChanged, IWindowVisibility
+    public class ExamsVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to ExamsUserControl.xaml
         public ExamsVM()
@@ -23,7 +23,7 @@ namespace StudentsHelper.ViewModel
             DeleteExamCommand = new DeleteExamCommand(this);
             ShowEditExamCommand = new ShowEditExamCommand();
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
         }
 
         public static ExamsVM? Instance { get; set; }
@@ -58,7 +58,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (ExamsUserControl.Instance != null)
             {
@@ -66,7 +66,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (ExamsUserControl.Instance != null)
             {

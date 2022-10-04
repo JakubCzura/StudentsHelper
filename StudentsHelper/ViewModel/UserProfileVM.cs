@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class UserProfileVM : INotifyPropertyChanged, IWindowVisibility
+    public class UserProfileVM : INotifyPropertyChanged, IVisibility
     {
         public UserProfileVM()
         {
             EditUserProfileCommand = new EditUserProfileCommand(this);
             SaveEditedUserProfileCommand = new SaveEditedUserProfileCommand(this);
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
             Student = LoginStudent.GetStudentData();
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Instance = this;
@@ -47,7 +47,7 @@ namespace StudentsHelper.ViewModel
             set { student = value; OnPropertyChanged(nameof(Student)); }
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (UserProfileUserControl.Instance != null)
             {
@@ -55,7 +55,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (UserProfileUserControl.Instance != null)
             {

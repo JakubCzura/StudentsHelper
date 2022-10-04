@@ -16,13 +16,13 @@ using System.Windows.Controls;
 
 namespace StudentsHelper.ViewModel
 {
-    public class WelcomeScreenVM : INotifyPropertyChanged, IWindowVisibility
+    public class WelcomeScreenVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to WelcomeScreenUserControl.xaml
         public WelcomeScreenVM()
         {
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SelectedDaysToDeadline = 5;
             Tests = LoginStudent.GetTestsData();
             Homework = LoginStudent.GetHomeworkData();
@@ -103,7 +103,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (WelcomeScreenUserControl.Instance != null)
             {
@@ -111,7 +111,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (WelcomeScreenUserControl.Instance != null)
             {

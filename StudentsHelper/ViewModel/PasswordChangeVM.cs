@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class PasswordChangeVM : INotifyPropertyChanged, IWindowVisibility
+    public class PasswordChangeVM : INotifyPropertyChanged, IVisibility
     {
         public PasswordChangeVM()
         {
-            WindowsVisibility.HideSettings += SetWindowHidden;
+            WindowsVisibility.HideSettings += SetHidden;
             Student = LoginStudent.GetStudentData();
             Instance = this;
             SaveNewPasswordCommand = new SaveNewPasswordCommand(this);
@@ -41,7 +41,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (PasswordChangeUserControl.Instance != null)
             {
@@ -49,7 +49,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (PasswordChangeUserControl.Instance != null)
             {

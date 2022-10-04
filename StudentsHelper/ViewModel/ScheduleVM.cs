@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class ScheduleVM : INotifyPropertyChanged, IWindowVisibility
+    public class ScheduleVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to ScheduleUserControl.xaml
         public ScheduleVM()
         {
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
             Student = DataBase.LoginStudent.GetStudentData();
             ShowScheduleInstructionWindowCommand = new ShowScheduleInstructionWindowCommand();
             GetScheduleCommand = new GetScheduleCommand(this);
@@ -43,7 +43,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (ScheduleUserControl.Instance != null)
             {
@@ -51,7 +51,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (ScheduleUserControl.Instance != null)
             {

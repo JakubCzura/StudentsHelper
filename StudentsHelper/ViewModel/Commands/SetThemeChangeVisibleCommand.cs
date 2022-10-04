@@ -25,7 +25,7 @@ namespace StudentsHelper.ViewModel.Commands
             WindowsVisibility.OnHideSettings();
             if (ThemeChangeVM.Instance != null)
             {
-                ThemeChangeVM.Instance.SetWindowVisible();
+                ThemeChangeVM.Instance.SetVisible();
             }
         }
     }

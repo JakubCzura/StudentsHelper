@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
@@ -22,11 +23,13 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            WindowsVisibility.OnHideWindow();
+            WindowsVisibility.OnHideMainWindowDuties();
             if (HomeworkVM.Instance != null)
             {
-                HomeworkVM.Instance.SetWindowVisible();
+                HomeworkVM.Instance.SetVisible();
             }
         }
+
+
     }
 }

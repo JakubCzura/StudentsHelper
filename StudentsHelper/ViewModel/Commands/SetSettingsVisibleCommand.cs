@@ -22,10 +22,10 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            WindowsVisibility.OnHideWindow();
+            WindowsVisibility.OnHideMainWindowDuties();
             if (SettingsVM.Instance != null)
             {
-                SettingsVM.Instance.SetWindowVisible();
+                SettingsVM.Instance.SetVisible();
             }
         }
     }

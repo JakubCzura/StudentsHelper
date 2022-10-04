@@ -15,7 +15,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace StudentsHelper.ViewModel
 {
-    public class NotesVM : INotifyPropertyChanged, IWindowVisibility
+    public class NotesVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to NotesUserControl.xaml
         public NotesVM()
@@ -24,7 +24,7 @@ namespace StudentsHelper.ViewModel
             DeleteNoteCommand = new DeleteNoteCommand(this);
             ShowEditNoteCommand = new ShowEditNoteCommand();
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SortNotesDateAscending();
         }
 
@@ -60,7 +60,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (NotesUserControl.Instance != null)
             {
@@ -68,7 +68,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (NotesUserControl.Instance != null)
             {

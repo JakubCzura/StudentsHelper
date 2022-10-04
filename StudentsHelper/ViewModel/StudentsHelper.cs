@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace StudentsHelper.ViewModel
 {
@@ -31,7 +33,7 @@ namespace StudentsHelper.ViewModel
             SetSettingsVisibleCommand = new SetSettingsVisibleCommand();
             SetWelcomeScreenVisibleCommand = new SetWelcomeScreenVisibleCommand();
             ShowAuthorsWindowCommand = new ShowAuthorsWindowCommand();
-
+            Show(MainWindow.Instance.WelcomeScreenUserControl);
             Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
         }
 
@@ -61,7 +63,13 @@ namespace StudentsHelper.ViewModel
         public ShowAuthorsWindowCommand ShowAuthorsWindowCommand { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-        
+
+        public void Show(UserControl userControl)
+        {
+            if(userControl != null)
+            userControl.Visibility = System.Windows.Visibility.Visible;
+        }
+
         public string Name
         {
             get { return Student.Name; }

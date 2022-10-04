@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class HomeworkVM : INotifyPropertyChanged, IWindowVisibility
+    public class HomeworkVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to HomeworkUserControl.xaml
 
@@ -25,7 +25,7 @@ namespace StudentsHelper.ViewModel
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
             ShowEditHomeworkCommand = new ShowEditHomeworkCommand();
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SortHomeworkDateAscending();
         }
 
@@ -61,7 +61,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (HomeworkUserControl.Instance != null)
             {
@@ -69,7 +69,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (HomeworkUserControl.Instance != null)
             {

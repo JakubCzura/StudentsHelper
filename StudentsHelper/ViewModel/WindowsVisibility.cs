@@ -10,13 +10,22 @@ namespace StudentsHelper.ViewModel
 {
     public class WindowsVisibility
     {
-        public static Action? HideWindow { get; set; }
+        /// <summary>
+        /// Event for all user's duties that appear on MainWindow as user controls to show them
+        /// </summary>
+        public static Action? HideMainWindowDuties { get; set; }
 
+        /// <summary>
+        /// Event for all user's settings that appear on SettingsUserControl as user controls to show them
+        /// </summary>
         public static Action? HideSettings { get; set; }
 
-        public static void OnHideWindow()
+        /// <summary>
+        /// Invoke event for all user controls that subscribe and need to be hidden
+        /// </summary>
+        public static void OnHideMainWindowDuties()
         {
-            HideWindow?.Invoke();
+            HideMainWindowDuties?.Invoke();
         }
 
         public static void OnHideSettings()

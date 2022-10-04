@@ -15,7 +15,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace StudentsHelper.ViewModel
 {
-    public class TeachersVM : INotifyPropertyChanged, IWindowVisibility
+    public class TeachersVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to TeachersUserControl.xaml
         public TeachersVM()
@@ -24,7 +24,7 @@ namespace StudentsHelper.ViewModel
             DeleteTeacherCommand = new DeleteTeacherCommand(this);
             ShowEditTeacherCommand = new ShowEditTeacherCommand();
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
         }
 
         public static TeachersVM? Instance { get; set; }
@@ -67,7 +67,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (TeachersUserControl.Instance != null)
             {
@@ -75,7 +75,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (TeachersUserControl.Instance != null)
             {

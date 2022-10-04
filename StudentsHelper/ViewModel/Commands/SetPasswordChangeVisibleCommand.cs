@@ -29,7 +29,7 @@ namespace StudentsHelper.ViewModel.Commands
             WindowsVisibility.OnHideSettings();
             if (PasswordChangeVM.Instance != null)
             {
-                PasswordChangeVM.Instance.SetWindowVisible();
+                PasswordChangeVM.Instance.SetVisible();
             }
         }
 

@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class ThemeChangeVM : INotifyPropertyChanged, IWindowVisibility
+    public class ThemeChangeVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to ThemesUserControl.xaml
         public ThemeChangeVM()
         {
             Instance = this;
-            WindowsVisibility.HideSettings += SetWindowHidden;
+            WindowsVisibility.HideSettings += SetHidden;
             SaveNewThemeCommand = new SaveNewThemeCommand(this);
             Theme = StudentsHelper.Themes.Themes.ReadTheme();
         }
@@ -57,7 +57,7 @@ namespace StudentsHelper.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (ThemeUserControl.Instance != null)
             {
@@ -65,7 +65,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (ThemeUserControl.Instance != null)
             {

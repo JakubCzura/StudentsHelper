@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class TestVM : INotifyPropertyChanged, IWindowVisibility
+    public class TestVM : INotifyPropertyChanged, IVisibility
     {
         //This class refers to TestsUserControl.xaml
         public TestVM()
@@ -23,7 +23,7 @@ namespace StudentsHelper.ViewModel
             DeleteTestCommand = new DeleteTestCommand(this);
             ShowEditTestCommand = new ShowEditTestCommand();
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SortTestsDateAscending();
         }
 
@@ -53,7 +53,7 @@ namespace StudentsHelper.ViewModel
             get { return selectedTest; }
             set { selectedTest = value; OnPropertyChanged(nameof(SelectedTest)); }
         }
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (TestsUserControl.Instance != null)
             {
@@ -61,7 +61,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (TestsUserControl.Instance != null)
             {

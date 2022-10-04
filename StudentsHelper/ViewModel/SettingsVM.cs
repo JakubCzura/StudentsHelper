@@ -14,13 +14,13 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class SettingsVM : IWindowVisibility
+    public class SettingsVM : IVisibility
     {
         //This class refers to SettingsUserControl.xaml
         public SettingsVM()
         {
             Instance = this;
-            WindowsVisibility.HideWindow += SetWindowHidden;
+            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SetPasswordChangeVisibleCommand = new SetPasswordChangeVisibleCommand();
             SetThemeChangeVisibleCommand = new SetThemeChangeVisibleCommand();
         }
@@ -32,7 +32,7 @@ namespace StudentsHelper.ViewModel
         public SetThemeChangeVisibleCommand SetThemeChangeVisibleCommand { get; set; }
                     
 
-        public void SetWindowHidden()
+        public void SetHidden()
         {
             if (SettingsUserControl.Instance != null)
             {
@@ -40,7 +40,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public void SetWindowVisible()
+        public void SetVisible()
         {
             if (SettingsUserControl.Instance != null)
             {

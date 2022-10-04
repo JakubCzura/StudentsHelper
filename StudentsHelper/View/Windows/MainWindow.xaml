@@ -64,7 +64,7 @@
         </Menu>
 
         <Grid Grid.Row="2" Background="Beige">
-            <uc:WelcomeScreenUserControl Visibility="Visible"></uc:WelcomeScreenUserControl>
+            <uc:WelcomeScreenUserControl x:Name="WelcomeScreenUserControl" Visibility="Visible"></uc:WelcomeScreenUserControl>
             <uc:TestsUserControl Visibility="Hidden">
                 <uc:TestsUserControl.ContextMenu>
                     <ContextMenu DataContext="{StaticResource TestVM}">
