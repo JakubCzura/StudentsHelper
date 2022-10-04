@@ -8,10 +8,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Style="{DynamicResource UserControlStyle}">
+    
     <UserControl.Resources>
         <vm:ScheduleVM x:Key="ScheduleVM"/>
     </UserControl.Resources>
 
+    <UserControl.InputBindings>
+        <!--<KeyBinding Key="Enter" Command="{Binding Source={StaticResource ScheduleVM}, Path=GetScheduleCommand}"></KeyBinding>-->
+        <KeyBinding Key="Enter" Command="{Binding Source={StaticResource ScheduleVM}, Path=GetScheduleCommand}"></KeyBinding>
+    </UserControl.InputBindings>
+    
     <Grid DataContext="{StaticResource ScheduleVM}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>

@@ -30,7 +30,6 @@ namespace StudentsHelper.ViewModel
             SetHomeworkVisibleCommand = new SetHomeworkVisibleCommand();
             SetExamsVisibleCommand = new SetExamsVisibleCommand();
             SetTestsVisibleCommand = new SetTestsVisibleCommand();
-
             GetDutiesBeforeDeadline(SelectedDaysToDeadline);
         }
 
@@ -117,6 +116,7 @@ namespace StudentsHelper.ViewModel
             if (WelcomeScreenUserControl.Instance != null)
             {
                 WelcomeScreenUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
+                GetDutiesBeforeDeadline(SelectedDaysToDeadline);
             }
         }
 
@@ -142,7 +142,6 @@ namespace StudentsHelper.ViewModel
                 MessageBox.Show(e.Message);
                 return null;
             }
-
         }
 
         private ObservableCollection<Homework> GetHomeworkBeforeDeadline(int daysToDeadline)
