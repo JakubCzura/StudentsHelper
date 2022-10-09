@@ -1,21 +1,13 @@
-﻿using SQLite;
-using StudentsHelper.DataBase;
+﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using StudentsHelper.ViewModel.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class HomeworkVM : INotifyPropertyChanged, IVisibility
+    public class HomeworkVM : BaseViewModel
     {
         //This class refers to HomeworkUserControl.xaml
 
@@ -25,7 +17,6 @@ namespace StudentsHelper.ViewModel
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
             ShowEditHomeworkCommand = new ShowEditHomeworkCommand();
             Instance = this;
-            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SortHomeworkDateAscending();
         }
 
@@ -53,30 +44,7 @@ namespace StudentsHelper.ViewModel
             get { return selectedHomework; }
             set { selectedHomework = value; OnPropertyChanged(nameof(SelectedHomework)); }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void SetHidden()
-        {
-            if (HomeworkUserControl.Instance != null)
-            {
-                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetVisible()
-        {
-            if (HomeworkUserControl.Instance != null)
-            {
-                HomeworkUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
+    
         public void SortHomeworkDateAscending()
         {
             Homework = new ObservableCollection<Homework>(Homework.OrderBy(homework=> homework.DateOfEnd));

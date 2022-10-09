@@ -33,6 +33,12 @@
                 <DataGridTextColumn Header="Pokój" Binding="{Binding Path=RoomNumber}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}" ElementStyle="{StaticResource WrapText}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu DataContext="{StaticResource TeachersVM}">
+                    <MenuItem Header="Usuń informację o nauczycielu" Command="{Binding DeleteTeacherCommand}"></MenuItem>
+                    <MenuItem Header="Edytuj informację o nauczycielu" Command="{Binding ShowEditTeacherCommand}"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </UserControl>

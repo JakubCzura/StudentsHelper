@@ -1,41 +1,26 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.UserControls;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace StudentsHelper.ViewModel
 {
-    public class WelcomeScreenVM : INotifyPropertyChanged, IVisibility
+    public class WelcomeScreenVM : BaseViewModel
     {
         //This class refers to WelcomeScreenUserControl.xaml
         public WelcomeScreenVM()
         {
             Instance = this;
-            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SelectedDaysToDeadline = 5;
             Tests = LoginStudent.GetTestsData();
             Homework = LoginStudent.GetHomeworkData();
             Exams = LoginStudent.GetExamsData();
-            SetHomeworkVisibleCommand = new SetHomeworkVisibleCommand();
-            SetExamsVisibleCommand = new SetExamsVisibleCommand();
-            SetTestsVisibleCommand = new SetTestsVisibleCommand();
             GetDutiesBeforeDeadline(SelectedDaysToDeadline);
         }
-
-        public SetHomeworkVisibleCommand SetHomeworkVisibleCommand { get; set; }
-        public SetExamsVisibleCommand SetExamsVisibleCommand { get; set; }
-        public SetTestsVisibleCommand SetTestsVisibleCommand { get; set; }
 
         public static WelcomeScreenVM? Instance { get; set; }
 
@@ -95,31 +80,7 @@ namespace StudentsHelper.ViewModel
             get { return $"Dzisiaj jest {DateTime.Today.ToString("dd/MM/yyyy")}"; }
         }
 
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void SetHidden()
-        {
-            if (WelcomeScreenUserControl.Instance != null)
-            {
-                WelcomeScreenUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetVisible()
-        {
-            if (WelcomeScreenUserControl.Instance != null)
-            {
-                WelcomeScreenUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-                GetDutiesBeforeDeadline(SelectedDaysToDeadline);
-            }
-        }
-
+      
         private void GetDutiesBeforeDeadline(int daysToDeadline)
         {
             Exams = GetExamsBeforeDeadline(daysToDeadline);

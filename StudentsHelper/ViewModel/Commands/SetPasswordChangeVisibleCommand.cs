@@ -25,12 +25,12 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            SetPasswordEmpty();
-            WindowsVisibility.OnHideSettings();
-            if (PasswordChangeVM.Instance != null)
-            {
-                PasswordChangeVM.Instance.SetVisible();
-            }
+            //SetPasswordEmpty();
+            //WindowsVisibility.OnHideSettings();
+            //if (PasswordChangeVM.Instance != null)
+            //{
+            //    PasswordChangeVM.Instance.SetVisible();
+            //}
         }
 
         private void SetPasswordEmpty()

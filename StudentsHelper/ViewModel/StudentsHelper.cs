@@ -1,19 +1,12 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
-    public class StudentsHelperVM : INotifyPropertyChanged
+    public class StudentsHelperVM : BaseViewModel
     {
         //This class refers to MainWindow.xaml
         
@@ -23,16 +16,9 @@ namespace StudentsHelper.ViewModel
 
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Student = LoginStudent.GetStudentData();
-            SetExamsVisibleCommand = new SetExamsVisibleCommand();
-            SetHomeworkVisibleCommand = new SetHomeworkVisibleCommand();
-            SetTestsVisibleCommand = new SetTestsVisibleCommand();
-            SetScheduleVisibleCommand = new SetScheduleVisibleCommand();
-            SetTeachersVisibleCommand = new SetTeachersVisibleCommand();
-            SetNotesVisibleCommand = new SetNotesVisibleCommand();
-            SetUserProfileVisibleCommand = new SetUserProfileVisibleCommand();
-            SetSettingsVisibleCommand = new SetSettingsVisibleCommand();
-            SetWelcomeScreenVisibleCommand = new SetWelcomeScreenVisibleCommand();
+            SelectMainWindowContentCommand = new SelectMainWindowContentCommand(this);          
             ShowAuthorsWindowCommand = new ShowAuthorsWindowCommand();
+            SelectedMainWindowContent = new WelcomeScreenVM();
 
             Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
         }
@@ -43,26 +29,17 @@ namespace StudentsHelper.ViewModel
 
         public DegreeCourse DegreeCourse { get; set; }
 
-        public SetExamsVisibleCommand SetExamsVisibleCommand { get; set; }
+        public ICommand SelectMainWindowContentCommand{ get; set; }
+        
+        public ICommand ShowAuthorsWindowCommand { get; set; }       
 
-        public SetHomeworkVisibleCommand SetHomeworkVisibleCommand { get; set; }
+        private BaseViewModel selectedMainWindowContent;
 
-        public SetTestsVisibleCommand SetTestsVisibleCommand { get; set; }
-
-        public SetScheduleVisibleCommand SetScheduleVisibleCommand { get; set; }
-
-        public SetTeachersVisibleCommand SetTeachersVisibleCommand { get; set; }
-
-        public SetNotesVisibleCommand SetNotesVisibleCommand{ get; set; }
-
-        public SetUserProfileVisibleCommand SetUserProfileVisibleCommand{ get; set; }
-
-        public SetSettingsVisibleCommand SetSettingsVisibleCommand{ get; set; }
-
-        public SetWelcomeScreenVisibleCommand SetWelcomeScreenVisibleCommand { get; set; }
-        public ShowAuthorsWindowCommand ShowAuthorsWindowCommand { get; set; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public BaseViewModel SelectedMainWindowContent
+        {
+            get { return selectedMainWindowContent; }
+            set { selectedMainWindowContent = value; OnPropertyChanged(nameof(SelectedMainWindowContent)); }
+        }
 
         public string Name
         {
@@ -109,11 +86,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return DegreeCourse.Semester; }
             set { DegreeCourse.Semester = value; OnPropertyChanged(nameof(Semester)); }
-        }
-       
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }       
     }
 }

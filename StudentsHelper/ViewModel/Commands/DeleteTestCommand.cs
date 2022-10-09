@@ -11,12 +11,12 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class DeleteTestCommand : ICommand
     {
-        public DeleteTestCommand(TestVM testVM)
+        public DeleteTestCommand(TestsVM testVM)
         {
             TestVM = testVM;
         }
 
-        TestVM TestVM { get; set; }
+        TestsVM TestVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -37,7 +37,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             if (SaveData.Delete(TestVM.SelectedTest))
             {
-                if (TestVM.Instance != null)
+                if (TestsVM.Instance != null)
                 {
                     TestVM.Tests = LoginStudent.GetTestsData();
                 }

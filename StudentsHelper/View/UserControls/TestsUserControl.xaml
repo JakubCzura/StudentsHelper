@@ -10,7 +10,7 @@
              Style="{DynamicResource UserControlStyle}">
 
     <UserControl.Resources>
-        <vm:TestVM x:Key="TestVM"/>
+        <vm:TestsVM x:Key="TestsVM"/>
 
         <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
             <Setter Property="TextWrapping" Value="Wrap"/>
@@ -18,7 +18,7 @@
 
     </UserControl.Resources>
 
-    <Grid DataContext="{StaticResource TestVM}">
+    <Grid DataContext="{StaticResource TestsVM}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -34,6 +34,12 @@
                 <DataGridTextColumn Header="Godzina" Binding="{Binding Path=FullHourOfTest}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}" ElementStyle="{StaticResource WrapText}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu DataContext="{StaticResource TestsVM}">
+                    <MenuItem Header="Usuń kolokwium" Command="{Binding DeleteTestCommand}"></MenuItem>
+                    <MenuItem Header="Edytuj kolokwium" Command="{Binding ShowEditTestCommand}"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </UserControl>

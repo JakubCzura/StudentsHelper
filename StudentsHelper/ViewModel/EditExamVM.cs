@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace StudentsHelper.ViewModel
 {
-    public class EditExamVM : INotifyPropertyChanged
+    public class EditExamVM : BaseViewModel
     {
         public EditExamVM()
         {
@@ -22,6 +22,7 @@ namespace StudentsHelper.ViewModel
         public static EditExamVM? Instance { get; set; }
 
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
+
         public SaveEditedExamCommand SaveEditedExamCommand { get; set; }       
 
         public string Name
@@ -65,7 +66,6 @@ namespace StudentsHelper.ViewModel
             set { RoomLetters.Letters = value; OnPropertyChanged(nameof(Letters)); }
         }
 
-
         public string Note
         {
             get { return SelectedExam.Note; }
@@ -77,13 +77,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedExam; }
             set { selectedExam = value; OnPropertyChanged(nameof(SelectedExam)); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }        
     }
 }

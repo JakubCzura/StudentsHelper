@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.Schedules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace StudentsHelper.View.UserControls
         {
             InitializeComponent();
             Instance = this;
+            ScheduleImporter.SetSchedule();
         }
     }
 }

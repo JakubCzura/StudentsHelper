@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class AddTeacherVM : INotifyPropertyChanged
+    public class AddTeacherVM : BaseViewModel
     {
         //This class refers to AddHomeworkWindow.xaml
         public AddTeacherVM()
@@ -61,13 +61,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return Teacher.Note; }
             set { Teacher.Note = value; OnPropertyChanged(Note); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }     
     }
 }

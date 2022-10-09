@@ -2,7 +2,6 @@
 using StudentsHelper.Model;
 using StudentsHelper.View.UserControls;
 using StudentsHelper.ViewModel.Commands;
-using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,13 +11,12 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class UserProfileVM : INotifyPropertyChanged, IVisibility
+    public class UserProfileVM : BaseViewModel
     {
         public UserProfileVM()
         {
             EditUserProfileCommand = new EditUserProfileCommand(this);
             SaveEditedUserProfileCommand = new SaveEditedUserProfileCommand(this);
-            WindowsVisibility.HideMainWindowDuties += SetHidden;
             Student = LoginStudent.GetStudentData();
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Instance = this;
@@ -29,7 +27,6 @@ namespace StudentsHelper.ViewModel
 
         public SaveEditedUserProfileCommand SaveEditedUserProfileCommand { get; set; }
         
-        public event PropertyChangedEventHandler? PropertyChanged;
        
         private DegreeCourse degreeCourse { get; set; }
 
@@ -45,27 +42,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return student; }
             set { student = value; OnPropertyChanged(nameof(Student)); }
-        }
-
-        public void SetHidden()
-        {
-            if (UserProfileUserControl.Instance != null)
-            {
-                UserProfileUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetVisible()
-        {
-            if (UserProfileUserControl.Instance != null)
-            {
-                UserProfileUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -33,6 +33,12 @@
                 <DataGridTextColumn Header="Data oddania" Binding="{Binding Path=DateOfEndShort}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Notatka" Binding="{Binding Path=Note}" ElementStyle="{StaticResource WrapText}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu DataContext="{StaticResource HomeworkVM}">
+                    <MenuItem Header="Usuń zadanie domowe" Command="{Binding DeleteHomeworkCommand}"></MenuItem>
+                    <MenuItem Header="Edytuj zadanie domowe" Command="{Binding ShowEditHomeworkCommand}"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </UserControl>

@@ -1,21 +1,12 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using StudentsHelper.ViewModel.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace StudentsHelper.ViewModel
 {
-    public class TeachersVM : INotifyPropertyChanged, IVisibility
+    public class TeachersVM : BaseViewModel
     {
         //This class refers to TeachersUserControl.xaml
         public TeachersVM()
@@ -24,7 +15,6 @@ namespace StudentsHelper.ViewModel
             DeleteTeacherCommand = new DeleteTeacherCommand(this);
             ShowEditTeacherCommand = new ShowEditTeacherCommand();
             Instance = this;
-            WindowsVisibility.HideMainWindowDuties += SetHidden;
         }
 
         public static TeachersVM? Instance { get; set; }
@@ -60,27 +50,5 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(nameof(SelectedTeacher));
             }
         }      
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void SetHidden()
-        {
-            if (TeachersUserControl.Instance != null)
-            {
-                TeachersUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetVisible()
-        {
-            if (TeachersUserControl.Instance != null)
-            {
-                TeachersUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
     }
 }

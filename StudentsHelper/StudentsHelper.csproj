@@ -42,4 +42,8 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModel\Interfaces\" />
+  </ItemGroup>
+
 </Project>

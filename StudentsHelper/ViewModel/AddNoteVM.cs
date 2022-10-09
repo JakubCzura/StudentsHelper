@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class AddNoteVM : INotifyPropertyChanged
+    public class AddNoteVM : BaseViewModel
     {
 
         //This class refers to AddNoteWindow.xaml
@@ -40,14 +40,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return Note.Date; }
             set { Note.Date = value; OnPropertyChanged(nameof(Date)); }
-        }
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

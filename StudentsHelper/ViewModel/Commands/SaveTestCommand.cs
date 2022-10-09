@@ -38,10 +38,10 @@ namespace StudentsHelper.ViewModel.Commands
                 {
                     if (SaveData.Save(AddTestVM.Test))
                     {
-                        if (TestVM.Instance != null)
+                        if (TestsVM.Instance != null)
                         {
-                            TestVM.Instance.Tests = LoginStudent.GetTestsData();
-                            TestVM.Instance.SortTestsDateAscending();
+                            TestsVM.Instance.Tests = LoginStudent.GetTestsData();
+                            TestsVM.Instance.SortTestsDateAscending();
                         }
                         MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
                     }

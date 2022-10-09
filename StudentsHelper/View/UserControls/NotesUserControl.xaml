@@ -32,6 +32,12 @@
                 <DataGridTextColumn Header="Nazwa notatki" Binding="{Binding Path=Name}" ElementStyle="{StaticResource WrapText}" Width="Auto"></DataGridTextColumn>
                 <DataGridTextColumn Header="Treść" Binding="{Binding Path=Content}" ElementStyle="{StaticResource WrapText}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu DataContext="{StaticResource NotesVM}">
+                    <MenuItem Header="Usuń notatkę" Command="{Binding DeleteNoteCommand}"></MenuItem>
+                    <MenuItem Header="Edytuj notatkę" Command="{Binding ShowEditNoteCommand}"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </UserControl>

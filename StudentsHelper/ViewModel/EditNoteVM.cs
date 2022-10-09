@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class EditNoteVM : INotifyPropertyChanged
+    public class EditNoteVM : BaseViewModel
     {
         public EditNoteVM()
         {
@@ -46,13 +46,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedNote; }
             set { selectedNote = value; OnPropertyChanged(nameof(SelectedNote)); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

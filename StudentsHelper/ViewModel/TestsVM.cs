@@ -1,33 +1,25 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using StudentsHelper.ViewModel.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class TestVM : INotifyPropertyChanged, IVisibility
+    public class TestsVM : BaseViewModel
     {
         //This class refers to TestsUserControl.xaml
-        public TestVM()
+        public TestsVM()
         {
             AddTestCommand = new ShowAddTestCommand();
             DeleteTestCommand = new DeleteTestCommand(this);
             ShowEditTestCommand = new ShowEditTestCommand();
             Instance = this;
-            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SortTestsDateAscending();
         }
 
-        public static TestVM? Instance { get; set; }
+        public static TestsVM? Instance { get; set; }
 
         private ObservableCollection<Test> tests = LoginStudent.GetTestsData();
 
@@ -38,8 +30,6 @@ namespace StudentsHelper.ViewModel
         public ShowEditTestCommand ShowEditTestCommand { get; set; }
 
         public EditTestWindow EditTestWindow { get; set; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         public ObservableCollection<Test> Tests
         {
@@ -52,27 +42,7 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedTest; }
             set { selectedTest = value; OnPropertyChanged(nameof(SelectedTest)); }
-        }
-        public void SetHidden()
-        {
-            if (TestsUserControl.Instance != null)
-            {
-                TestsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetVisible()
-        {
-            if (TestsUserControl.Instance != null)
-            {
-                TestsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        } 
 
         public void SortTestsDateAscending()
         {

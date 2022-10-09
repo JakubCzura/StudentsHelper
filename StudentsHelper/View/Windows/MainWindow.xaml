@@ -14,18 +14,43 @@
     <Window.Resources>
         <vm:WelcomeScreenVM x:Key="WelcomeScreenVM"></vm:WelcomeScreenVM>
         <vm:StudentsHelperVM x:Key="StudentsHelperVM"></vm:StudentsHelperVM>
-        <vm:TestVM x:Key="TestVM"></vm:TestVM>
+        <vm:TestsVM x:Key="TestsVM"></vm:TestsVM>
         <vm:ExamsVM x:Key="ExamsVM"></vm:ExamsVM>
         <vm:TeachersVM x:Key="TeachersVM"></vm:TeachersVM>
         <vm:ScheduleVM x:Key="ScheduleVM"></vm:ScheduleVM>
         <vm:HomeworkVM x:Key="HomeworkVM"></vm:HomeworkVM>
         <vm:NotesVM x:Key="NotesVM"></vm:NotesVM>
+
+        <DataTemplate DataType="{x:Type vm:WelcomeScreenVM}">
+            <uc:WelcomeScreenUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:TestsVM}">
+            <uc:TestsUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ExamsVM}">
+            <uc:ExamsUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:TeachersVM}">
+            <uc:TeachersUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ScheduleVM}">
+            <uc:ScheduleUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:UserProfileVM}">
+            <uc:UserProfileUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:HomeworkVM}">
+            <uc:HomeworkUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:NotesVM}">
+            <uc:NotesUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsVM}">
+            <uc:SettingsUserControl/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid DataContext="{StaticResource StudentsHelperVM}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -33,10 +58,10 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+        <DockPanel Grid.Column="0" Grid.Row="0">
             <Menu x:Name="MainMenu">
                 <MenuItem Header="Ustawienia">
-                    <MenuItem Header="Przejdź do ustawień" Command="{Binding SetSettingsVisibleCommand}">
+                    <MenuItem Header="Przejdź do ustawień" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Settings">
                         <MenuItem.Icon>
                             <Image Source="/View/Icons/Settings.ico"></Image>
                         </MenuItem.Icon>
@@ -52,62 +77,19 @@
             </Menu>
         </DockPanel>
 
-        <Menu Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
-            <Button x:Name="WelcomeButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Start" Command="{Binding SetWelcomeScreenVisibleCommand}"></Button>
-            <Button x:Name="TeachersButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia" Command="{Binding SetTestsVisibleCommand}"></Button>
-            <Button x:Name="CalendarButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SetExamsVisibleCommand}"/>
-            <Button x:Name="ExamsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SetTeachersVisibleCommand}"/>
-            <Button x:Name="LessonsButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć" Command="{Binding SetScheduleVisibleCommand}"/>
-            <Button x:Name="ProfileButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil" Command="{Binding SetUserProfileVisibleCommand}"/>
-            <Button x:Name="HomeworkButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe"  Command="{Binding SetHomeworkVisibleCommand}"/>
-            <Button x:Name="NotesButton" Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki" Command="{Binding SetNotesVisibleCommand}"/>
+        <Menu Grid.Column="0" Grid.Row="1" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Start" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="WelcomeScreen"></Button>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Tests"></Button>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Exams"/>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Teachers"/>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Schedule"/>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="UserProfile"/>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Homework"/>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Notes"/>
         </Menu>
 
-        <Grid Grid.Row="2" Background="Beige">
-            <uc:WelcomeScreenUserControl x:Name="WelcomeScreenUserControl" Visibility="Visible"></uc:WelcomeScreenUserControl>
-            <uc:TestsUserControl Visibility="Hidden">
-                <uc:TestsUserControl.ContextMenu>
-                    <ContextMenu DataContext="{StaticResource TestVM}">
-                        <MenuItem Header="Usuń kolokwium" Command="{Binding DeleteTestCommand}"></MenuItem>
-                        <MenuItem Header="Edytuj kolokwium" Command="{Binding ShowEditTestCommand}"></MenuItem>
-                    </ContextMenu>
-                </uc:TestsUserControl.ContextMenu>
-            </uc:TestsUserControl>
-            <uc:ExamsUserControl Visibility="Hidden">
-                <uc:ExamsUserControl.ContextMenu>
-                    <ContextMenu DataContext="{StaticResource ExamsVM}">
-                        <MenuItem Header="Usuń egzamin" Command="{Binding DeleteExamCommand}"></MenuItem>
-                        <MenuItem Header="Edytuj egzamin" Command="{Binding ShowEditExamCommand}"></MenuItem>
-                    </ContextMenu>
-                </uc:ExamsUserControl.ContextMenu>
-            </uc:ExamsUserControl>
-            <uc:TeachersUserControl Visibility="Hidden">
-                <uc:TeachersUserControl.ContextMenu>
-                    <ContextMenu DataContext="{StaticResource TeachersVM}">
-                        <MenuItem Header="Usuń informację o nauczycielu" Command="{Binding DeleteTeacherCommand}"></MenuItem>
-                        <MenuItem Header="Edytuj informację o nauczycielu" Command="{Binding ShowEditTeacherCommand}"></MenuItem>
-                    </ContextMenu>
-                </uc:TeachersUserControl.ContextMenu>
-            </uc:TeachersUserControl>
-            <uc:ScheduleUserControl Visibility="Hidden"></uc:ScheduleUserControl>
-            <uc:UserProfileUserControl Visibility="Hidden"></uc:UserProfileUserControl>
-            <uc:HomeworkUserControl Visibility="Hidden">
-                <uc:HomeworkUserControl.ContextMenu>
-                    <ContextMenu DataContext="{StaticResource HomeworkVM}">
-                        <MenuItem Header="Usuń zadanie domowe" Command="{Binding DeleteHomeworkCommand}"></MenuItem>
-                        <MenuItem Header="Edytuj zadanie domowe" Command="{Binding ShowEditHomeworkCommand}"></MenuItem>
-                    </ContextMenu>
-                </uc:HomeworkUserControl.ContextMenu>
-            </uc:HomeworkUserControl>
-            <uc:NotesUserControl Visibility="Hidden">
-                <uc:NotesUserControl.ContextMenu>
-                    <ContextMenu DataContext="{StaticResource NotesVM}">
-                        <MenuItem Header="Usuń notatkę" Command="{Binding DeleteNoteCommand}"></MenuItem>
-                        <MenuItem Header="Edytuj notatkę" Command="{Binding ShowEditNoteCommand}"></MenuItem>
-                    </ContextMenu>
-                </uc:NotesUserControl.ContextMenu>
-            </uc:NotesUserControl>
-            <uc:SettingsUserControl Visibility="Hidden"></uc:SettingsUserControl>
+        <Grid Grid.Row="2">
+            <ContentControl Visibility="Visible" Content="{Binding SelectedMainWindowContent}"></ContentControl>
         </Grid>
 
         <Grid Grid.Row="3">

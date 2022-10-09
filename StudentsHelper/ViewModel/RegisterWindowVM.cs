@@ -10,24 +10,22 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class RegisterWindowVM : INotifyPropertyChanged
+    public class RegisterWindowVM : BaseViewModel
     {
         //This class refers to RegisterWindow.xaml
         public RegisterWindowVM()
         {
             Student = new Student();
             DegreeCourse = new DegreeCourse();
-            AcceptRegisterCommand = new AcceptRegisterCommand(this);
+            RegisterCommand = new RegisterCommand(this);
             BackToLoginCommand = new BackToLoginCommand();
         }
 
         public Student Student { get; set; }       
         public DegreeCourse DegreeCourse { get; set; }       
-        public AcceptRegisterCommand AcceptRegisterCommand { get; set; }
+        public RegisterCommand RegisterCommand { get; set; }
 
         public BackToLoginCommand BackToLoginCommand { get; set; }
-       
-        public event PropertyChangedEventHandler? PropertyChanged;
        
         public int Id
         {
@@ -94,10 +92,5 @@ namespace StudentsHelper.ViewModel
             get { return Student.Password; }
             set { Student.Password = value; OnPropertyChanged(Password); }
         }   
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

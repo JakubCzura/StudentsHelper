@@ -3,7 +3,6 @@ using StudentsHelper.Model;
 using StudentsHelper.View.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using StudentsHelper.ViewModel.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class ExamsVM : INotifyPropertyChanged, IVisibility
+    public class ExamsVM : BaseViewModel
     {
         //This class refers to ExamsUserControl.xaml
         public ExamsVM()
@@ -23,7 +22,6 @@ namespace StudentsHelper.ViewModel
             DeleteExamCommand = new DeleteExamCommand(this);
             ShowEditExamCommand = new ShowEditExamCommand();
             Instance = this;
-            WindowsVisibility.HideMainWindowDuties += SetHidden;
         }
 
         public static ExamsVM? Instance { get; set; }
@@ -49,29 +47,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedExam; }
             set { selectedExam = value; OnPropertyChanged(nameof(SelectedExam)); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void SetHidden()
-        {
-            if (ExamsUserControl.Instance != null)
-            {
-                ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetVisible()
-        {
-            if (ExamsUserControl.Instance != null)
-            {
-                ExamsUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
+        }     
     }
 }

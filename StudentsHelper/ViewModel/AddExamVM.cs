@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class AddExamVM : INotifyPropertyChanged
+    public class AddExamVM : BaseViewModel
     {
         //This class refers to AddExamWindow.xaml
         public AddExamVM()
@@ -100,13 +100,6 @@ namespace StudentsHelper.ViewModel
                 Exam.Note = value;
                 OnPropertyChanged(Note);
             }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }      
     }
 }

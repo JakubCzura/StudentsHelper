@@ -19,7 +19,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
-            if (TestVM.Instance?.Tests != null && TestVM.Instance.Tests.Any() == true)
+            if (TestsVM.Instance?.Tests != null && TestsVM.Instance.Tests.Any() == true)
             {
                 return true;
             }

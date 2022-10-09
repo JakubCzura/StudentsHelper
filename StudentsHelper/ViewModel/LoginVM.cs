@@ -14,7 +14,7 @@ using System.Windows.Controls;
 
 namespace StudentsHelper.ViewModel
 {
-    public class LoginVM : INotifyPropertyChanged
+    public class LoginVM : BaseViewModel
     {
         //This class refers to LoginWindow.xaml
        
@@ -74,12 +74,5 @@ namespace StudentsHelper.ViewModel
             get { return password; }
             set { password = value; OnPropertyChanged(nameof(Password)); }
         }       
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

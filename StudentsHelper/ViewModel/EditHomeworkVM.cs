@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class EditHomeworkVM : INotifyPropertyChanged
-    {
+    public class EditHomeworkVM : BaseViewModel
+    { 
         public EditHomeworkVM()
         {
             SelectedHomework = HomeworkVM.Instance.SelectedHomework;
@@ -68,13 +68,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedHomework; }
             set { selectedHomework = value; OnPropertyChanged(nameof(SelectedHomework)); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

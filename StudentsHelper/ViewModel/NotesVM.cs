@@ -1,21 +1,13 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.UserControls;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using StudentsHelper.ViewModel.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace StudentsHelper.ViewModel
 {
-    public class NotesVM : INotifyPropertyChanged, IVisibility
+    public class NotesVM : BaseViewModel
     {
         //This class refers to NotesUserControl.xaml
         public NotesVM()
@@ -24,7 +16,6 @@ namespace StudentsHelper.ViewModel
             DeleteNoteCommand = new DeleteNoteCommand(this);
             ShowEditNoteCommand = new ShowEditNoteCommand();
             Instance = this;
-            WindowsVisibility.HideMainWindowDuties += SetHidden;
             SortNotesDateAscending();
         }
 
@@ -52,30 +43,7 @@ namespace StudentsHelper.ViewModel
             get { return selectedNote; }
             set { selectedNote = value; OnPropertyChanged(nameof(SelectedNote)); }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void SetHidden()
-        {
-            if (NotesUserControl.Instance != null)
-            {
-                NotesUserControl.Instance.Visibility = System.Windows.Visibility.Hidden;
-            }
-        }
-
-        public void SetVisible()
-        {
-            if (NotesUserControl.Instance != null)
-            {
-                NotesUserControl.Instance.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
+    
         public void SortNotesDateAscending()
         {
             Notes = new ObservableCollection<Note>(Notes.OrderBy(note => note.Date));

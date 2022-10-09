@@ -66,7 +66,7 @@ namespace StudentsHelper.Schedules
             return await Task.Run(() => DownloadSchedule(userEmail, userPassword));
         }
 
-        public static bool IsScheduleDownloaded(int maxTimeForDownloading = 30)
+        public static bool IsScheduleDownloaded(int maxTimeForDownloading = 60)
         {
             int timeForDownloading = maxTimeForDownloading; //seconds
 
@@ -74,7 +74,7 @@ namespace StudentsHelper.Schedules
             {
                 Thread.Sleep(1000);
                 if (Directory.GetFiles(ApplicationDirectories.DownloadsDirectoryFullPath).
-                  Any(i => IsScheduleNameCorrect(Path.GetFileName(i)) == true))
+                              Any(i => IsScheduleNameCorrect(Path.GetFileName(i)) == true))
                 {
                     return true;
                 }

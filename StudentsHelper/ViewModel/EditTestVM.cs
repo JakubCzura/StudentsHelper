@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
-    public class EditTestVM : INotifyPropertyChanged
+    public class EditTestVM : BaseViewModel
     {
         public EditTestVM()
         {
-            SelectedTest = TestVM.Instance.SelectedTest;
+            SelectedTest = TestsVM.Instance.SelectedTest;
             
             SaveEditedTestCommand = new SaveEditedTestCommand(this);
             Instance = this;
@@ -75,13 +75,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedTest; }
             set { selectedTest = value; OnPropertyChanged(nameof(SelectedTest)); }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

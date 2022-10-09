@@ -25,20 +25,20 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (ScheduleVM.Instance != null)
-            {
-                Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
-                WindowsVisibility.OnHideMainWindowDuties();
-                ScheduleVM.Instance.SetVisible();
-                try
-                {
-                    ScheduleImporter.SetSchedule();
-                }
-                catch(Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
-            }
+            //if (ScheduleVM.Instance != null)
+            //{
+            //    Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
+            //    WindowsVisibility.OnHideMainWindowDuties();
+            //    ScheduleVM.Instance.SetVisible();
+            //    try
+            //    {
+            //        ScheduleImporter.SetSchedule();
+            //    }
+            //    catch(Exception e)
+            //    {
+            //        MessageBox.Show(e.Message);
+            //    }
+            //}
         }
     }
 }

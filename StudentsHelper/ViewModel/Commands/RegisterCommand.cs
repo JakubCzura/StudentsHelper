@@ -12,9 +12,9 @@ using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
-    public class AcceptRegisterCommand : ICommand
+    public class RegisterCommand : ICommand
     {
-        public AcceptRegisterCommand(RegisterWindowVM registerWindowVM)
+        public RegisterCommand(RegisterWindowVM registerWindowVM)
         {
             RegisterWindowVM = registerWindowVM;
         }
