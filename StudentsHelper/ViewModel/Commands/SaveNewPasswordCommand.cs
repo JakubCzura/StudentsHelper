@@ -50,24 +50,31 @@ namespace StudentsHelper.ViewModel.Commands
                     && PasswordChangeUserControl.Instance?.NewPasswordBox.Password.Length > 1
                     && PasswordChangeUserControl.Instance?.RepeatedPasswordBox.Password.Length > 1)
                 {
-                    if (PasswordChangeVM.Student.Password == PasswordChangeUserControl.Instance?.OldPasswordBox.Password
-                    && PasswordChangeUserControl.Instance.NewPasswordBox.Password == PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password)
+                    //if (PasswordChangeVM.Student.Password == DataBase.Hasher.VerifyPassword(PasswordChangeUserControl.Instance?.OldPasswordBox.Password)
+                    if (DataBase.Hasher.VerifyPassword(PasswordChangeUserControl.Instance?.OldPasswordBox.Password, PasswordChangeVM.Student.Password))
                     {
-                        PasswordChangeVM.Student.Password = PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password;
-                        if(StudentDataValidator.ValidateStudentData(PasswordChangeVM.Student))
+                        if (PasswordChangeUserControl.Instance.NewPasswordBox.Password == PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password)
                         {
-                            SaveData.Update(PasswordChangeVM.Student);
-                            MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
-                        }                      
+                            PasswordChangeVM.Student.Password = DataBase.Hasher.HashPassword(PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password);
+                            if (StudentDataValidator.ValidateStudentData(PasswordChangeVM.Student))
+                            {
+                                SaveData.Update(PasswordChangeVM.Student);
+                                MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Powtórzone hasła są różne", "Nie zapisano hasła");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Hasło nie mogło zostać zmienione, prosimy sprobówać ponownie", "Nie zapisano hasła");
+                        MessageBox.Show("Podane stare hasło się nie zgadza", "Nie zapisano hasła");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Hasło nie mogło zostać zmienione, prosimy sprobówać ponownie", "Nie zapisano hasła");
+                    MessageBox.Show("Długość podanego hasła jest za mała", "Nie zapisano hasła");
                 }
             }
             catch (Exception exception)

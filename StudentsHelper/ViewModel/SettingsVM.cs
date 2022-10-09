@@ -1,4 +1,5 @@
 ﻿using StudentsHelper.ViewModel.Commands;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -8,13 +9,21 @@ namespace StudentsHelper.ViewModel
         public SettingsVM()
         {
             Instance = this;
-
+            SelectSettingsContentCommand = new SelectSettingsContentCommand(this);
+            SelectedSettingsContent = new PasswordChangeVM();
         }
 
-        public static SettingsVM? Instance { get; set; }
+        public ICommand SelectSettingsContentCommand { get; set; }
 
+        private BaseViewModel selectedSettingsContent;
 
-        
-            
+        public BaseViewModel SelectedSettingsContent
+        {
+            get { return selectedSettingsContent; }
+            set { selectedSettingsContent = value; OnPropertyChanged(nameof(SelectedSettingsContent)); }
+        }
+
+        public static SettingsVM? Instance { get; set; }               
+
     }
 }

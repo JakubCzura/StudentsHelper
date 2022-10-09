@@ -9,9 +9,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Style="{DynamicResource UserControlStyle}">
-    
+
     <UserControl.Resources>
         <vm:SettingsVM x:Key="SettingsVM"/>
+
+        <DataTemplate DataType="{x:Type vm:PasswordChangeVM}">
+            <uc:PasswordChangeUserControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ThemeChangeVM}">
+            <uc:ThemeUserControl/>
+        </DataTemplate>
 
         <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
             <Setter Property="TextWrapping" Value="Wrap"/>
@@ -44,10 +51,10 @@
         </Grid.ColumnDefinitions>
         <UniformGrid Grid.Column="0" Style="{DynamicResource SettingsUnifromGridStyle}">
             <StackPanel>
-                <Button Command="{Binding SetPasswordChangeVisibleCommand}">
+                <Button Command="{Binding SelectSettingsContentCommand}" CommandParameter="Password">
                     <TextBlock>Zmiana hasła</TextBlock>
                 </Button>
-                <Button Command="{Binding SetThemeChangeVisibleCommand}">
+                <Button Command="{Binding SelectSettingsContentCommand}" CommandParameter="Theme">
                     <TextBlock>Motyw kolorystyczny</TextBlock>
                 </Button>
             </StackPanel>
@@ -55,9 +62,8 @@
 
         <GridSplitter Grid.Column="1" Width="5" Background="Black" HorizontalAlignment="Stretch"></GridSplitter>
 
-        <Grid Grid.Column="2" Background="AliceBlue">
-            <uc:PasswordChangeUserControl></uc:PasswordChangeUserControl>
-            <uc:ThemeUserControl></uc:ThemeUserControl>
+        <Grid Grid.Column="2">
+            <ContentControl Content="{Binding SelectedSettingsContent}"></ContentControl>
         </Grid>
     </Grid>
 </UserControl>

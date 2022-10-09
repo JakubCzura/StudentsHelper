@@ -89,7 +89,7 @@
         </Menu>
 
         <Grid Grid.Row="2">
-            <ContentControl Visibility="Visible" Content="{Binding SelectedMainWindowContent}"></ContentControl>
+            <ContentControl Content="{Binding SelectedMainWindowContent}"></ContentControl>
         </Grid>
 
         <Grid Grid.Row="3">

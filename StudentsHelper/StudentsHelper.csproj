@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModel\Interfaces\**" />
+    <EmbeddedResource Remove="ViewModel\Interfaces\**" />
+    <None Remove="ViewModel\Interfaces\**" />
+    <Page Remove="ViewModel\Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="View\Icons\Author.ico" />
     <None Remove="View\Icons\Settings.ico" />
   </ItemGroup>
@@ -40,10 +47,6 @@
     <Resource Include="View\Icons\Settings.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModel\Interfaces\" />
   </ItemGroup>
 
 </Project>

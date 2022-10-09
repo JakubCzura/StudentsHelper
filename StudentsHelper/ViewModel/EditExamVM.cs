@@ -77,6 +77,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedExam; }
             set { selectedExam = value; OnPropertyChanged(nameof(SelectedExam)); }
-        }        
+        }
     }
 }
