@@ -38,11 +38,11 @@ namespace StudentsHelper.ViewModel.Commands
                     TestsVM.Instance.Tests = LoginStudent.GetTestsData();
                     TestsVM.Instance.SortTestsDateAscending();
                 }
-                MessageBox.Show("Zapisano pomyślnie", "edytowano test");
+                MessageBox.Show("Zapisano pomyślnie", "edytowano kolokwium");
             }
             else
             {
-                MessageBox.Show("Spróbuj edytować test ponownie", "Błąd edytowania testu");
+                MessageBox.Show("Spróbuj edytować kolokwium ponownie", "Błąd edytowania kolokwium");
             }
         }
     }

@@ -46,7 +46,7 @@ namespace StudentsHelper.ViewModel.Commands
                     }
                     else
                     {
-                        MessageBox.Show("Spróbuj edytować informacje o nauczycielu ponownie", "Błąd edytowania informacji o wykładowcy");
+                        MessageBox.Show("Spróbuj edytować informacje o wykładowcy ponownie", "Błąd edytowania informacji o wykładowcy");
                     }
                 }               
             }

@@ -22,6 +22,7 @@ namespace StudentsHelper.ViewModel
             DeleteExamCommand = new DeleteExamCommand(this);
             ShowEditExamCommand = new ShowEditExamCommand();
             Instance = this;
+            SortExamsDateAscending();
         }
 
         public static ExamsVM? Instance { get; set; }
@@ -47,6 +48,11 @@ namespace StudentsHelper.ViewModel
         {
             get { return selectedExam; }
             set { selectedExam = value; OnPropertyChanged(nameof(SelectedExam)); }
-        }     
+        }
+
+        public void SortExamsDateAscending()
+        {
+            Exams = new ObservableCollection<Exam>(Exams.OrderBy(exam => exam.DateOfExam));
+        }
     }
 }

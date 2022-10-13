@@ -28,9 +28,7 @@ namespace StudentsHelper.ViewModel
         public ShowEditTeacherCommand ShowEditTeacherCommand { get; set; }
        
         public EditTeacherWindow EditTeacherWindow { get; set; }
-
-            
-
+          
         public ObservableCollection<Teacher> Teachers
         {
             get { return teachers; }

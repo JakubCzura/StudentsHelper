@@ -41,6 +41,7 @@ namespace StudentsHelper.ViewModel.Commands
                         if (ExamsVM.Instance != null)
                         {
                             ExamsVM.Instance.Exams = LoginStudent.GetExamsData();
+                            ExamsVM.Instance.SortExamsDateAscending();
                         }
                         MessageBox.Show("Zapisano pomyślnie", "Dodano egzamin");
                     }
