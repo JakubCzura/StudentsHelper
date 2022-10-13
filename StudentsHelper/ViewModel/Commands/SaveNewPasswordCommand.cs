@@ -51,11 +51,11 @@ namespace StudentsHelper.ViewModel.Commands
                     && PasswordChangeUserControl.Instance?.RepeatedPasswordBox.Password.Length > 1)
                 {
                     //if (PasswordChangeVM.Student.Password == DataBase.Hasher.VerifyPassword(PasswordChangeUserControl.Instance?.OldPasswordBox.Password)
-                    if (DataBase.Hasher.VerifyPassword(PasswordChangeUserControl.Instance?.OldPasswordBox.Password, PasswordChangeVM.Student.Password))
+                    if (Hasher.VerifyPassword(PasswordChangeUserControl.Instance?.OldPasswordBox.Password, PasswordChangeVM.Student.Password))
                     {
                         if (PasswordChangeUserControl.Instance.NewPasswordBox.Password == PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password)
                         {
-                            PasswordChangeVM.Student.Password = DataBase.Hasher.HashPassword(PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password);
+                            PasswordChangeVM.Student.Password = Hasher.HashPassword(PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password);
                             if (StudentDataValidator.ValidateStudentData(PasswordChangeVM.Student))
                             {
                                 SaveData.Update(PasswordChangeVM.Student);
