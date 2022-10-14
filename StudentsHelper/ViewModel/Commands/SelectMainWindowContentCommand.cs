@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsHelper.View.UserControls;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -30,6 +31,10 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 try
                 {
+                    if (parameter.ToString() == "Schedule")
+                    {
+                        ScheduleVM.InitializeScheduleWebBrowser();
+                    }
                     StudentsHelperVM.SelectedMainWindowContent = parameter.ToString() switch
                     {
                         "WelcomeScreen" => new WelcomeScreenVM(),
@@ -43,6 +48,10 @@ namespace StudentsHelper.ViewModel.Commands
                         "Settings" => new SettingsVM(),
                         _ => new WelcomeScreenVM(),
                     };
+                    if(parameter.ToString() != "Schedule")
+                    {
+                        ScheduleVM.DisposeScheduleWebBrowser();
+                    }                  
                 }
                 catch (Exception e)
                 {

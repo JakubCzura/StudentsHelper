@@ -1,9 +1,9 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -12,7 +12,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to NotesUserControl.xaml
         public NotesVM()
         {
-            AddNoteCommand = new ShowAddNoteCommand();
+            AddNoteCommand = new ShowWindowCommand();
             DeleteNoteCommand = new DeleteNoteCommand(this);
             ShowEditNoteCommand = new ShowEditNoteCommand();
             Instance = this;
@@ -23,13 +23,11 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Note> notes = LoginStudent.GetNotesData();
 
-        public ShowAddNoteCommand AddNoteCommand { get; set; }
+        public ICommand AddNoteCommand { get; set; }
         
-        public DeleteNoteCommand DeleteNoteCommand { get; set; }
+        public ICommand DeleteNoteCommand { get; set; }
 
-        public ShowEditNoteCommand ShowEditNoteCommand { get; set; }
-
-        public EditNoteWindow EditNoteWindow { get; set; }
+        public ICommand ShowEditNoteCommand { get; set; }
 
         public ObservableCollection<Note> Notes
         {

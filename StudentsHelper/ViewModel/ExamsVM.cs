@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -18,7 +19,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to ExamsUserControl.xaml
         public ExamsVM()
         {
-            AddExamCommand = new ShowAddExamCommand();
+            AddExamCommand = new ShowWindowCommand();
             DeleteExamCommand = new DeleteExamCommand(this);
             ShowEditExamCommand = new ShowEditExamCommand();
             Instance = this;
@@ -29,13 +30,11 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Exam> exams = LoginStudent.GetExamsData();
 
-        public ShowAddExamCommand AddExamCommand { get; set; }
+        public ICommand AddExamCommand { get; set; }
 
-        public DeleteExamCommand DeleteExamCommand { get; set; }
+        public ICommand DeleteExamCommand { get; set; }
 
-        public ShowEditExamCommand ShowEditExamCommand { get; set; }
-        
-        public EditExamWindow EditExamWindow { get; set; }
+        public ICommand ShowEditExamCommand { get; set; }       
                              
         public ObservableCollection<Exam> Exams
         { 

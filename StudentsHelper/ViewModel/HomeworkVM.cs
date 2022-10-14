@@ -4,6 +4,7 @@ using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -13,7 +14,7 @@ namespace StudentsHelper.ViewModel
 
         public HomeworkVM()
         {
-            AddHomeworkCommand = new ShowAddHomeworkCommand();
+            AddHomeworkCommand = new ShowWindowCommand();
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
             ShowEditHomeworkCommand = new ShowEditHomeworkCommand();
             Instance = this;
@@ -24,13 +25,11 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Homework> homework = LoginStudent.GetHomeworkData();
 
-        public ShowAddHomeworkCommand AddHomeworkCommand { get; set; }
+        public ICommand AddHomeworkCommand { get; set; }
 
-        public DeleteHomeworkCommand DeleteHomeworkCommand { get; set; }
+        public ICommand DeleteHomeworkCommand { get; set; }
 
-        public ShowEditHomeworkCommand ShowEditHomeworkCommand { get; set; }
-
-        public EditHomeworkWindow EditHomeworkWindow { get; set; }
+        public ICommand ShowEditHomeworkCommand { get; set; }
 
         public ObservableCollection<Homework> Homework
         {

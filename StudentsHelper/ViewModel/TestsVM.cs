@@ -4,6 +4,7 @@ using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -12,7 +13,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to TestsUserControl.xaml
         public TestsVM()
         {
-            AddTestCommand = new ShowAddTestCommand();
+            AddTestCommand = new ShowWindowCommand();        
             DeleteTestCommand = new DeleteTestCommand(this);
             ShowEditTestCommand = new ShowEditTestCommand();
             Instance = this;
@@ -23,11 +24,11 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Test> tests = LoginStudent.GetTestsData();
 
-        public ShowAddTestCommand AddTestCommand { get; set; }
+        public ICommand AddTestCommand { get; set; }
 
-        public DeleteTestCommand DeleteTestCommand { get; set; }
+        public ICommand DeleteTestCommand { get; set; }
 
-        public ShowEditTestCommand ShowEditTestCommand { get; set; }
+        public ICommand ShowEditTestCommand { get; set; }
 
         public EditTestWindow EditTestWindow { get; set; }
 

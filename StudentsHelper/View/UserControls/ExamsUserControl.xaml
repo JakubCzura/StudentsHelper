@@ -24,7 +24,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Style="{DynamicResource UserPanelMenuStyle}">
-            <Button x:Name="AddExamButton" Content="Dodaj egzamin" Command="{Binding AddExamCommand}" Style="{DynamicResource AddButtonStyle}"/>
+            <Button x:Name="AddExamButton" Content="Dodaj egzamin" Command="{Binding AddExamCommand}" CommandParameter="AddExam" Style="{DynamicResource AddButtonStyle}"/>
         </Menu>
         <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedExam}" Style="{DynamicResource UserPanelDataGrid}">
             <DataGrid.Columns>

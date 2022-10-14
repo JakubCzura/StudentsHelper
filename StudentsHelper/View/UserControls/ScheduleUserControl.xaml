@@ -28,7 +28,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Command="{Binding ShowScheduleInstructionWindowCommand}">Instrukcja</Button>
+            <Button Grid.Row="0" Command="{Binding ShowScheduleInstructionWindowCommand}" CommandParameter="ScheduleInstruction">Instrukcja</Button>
             <UniformGrid Grid.Row="1" Rows="1">
                 <TextBlock Width="Auto" TextAlignment="Center">Podaj hasło, którym się logujesz</TextBlock>
                 <PasswordBox x:Name="UserPasswordPasswordBox" Width="Auto"></PasswordBox>

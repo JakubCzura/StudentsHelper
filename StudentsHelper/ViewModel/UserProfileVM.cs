@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -21,13 +22,13 @@ namespace StudentsHelper.ViewModel
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Instance = this;
         }
+
         public static UserProfileVM? Instance { get; set; }
 
-        public EditUserProfileCommand EditUserProfileCommand { get; set; }
+        public ICommand EditUserProfileCommand { get; set; }
 
-        public SaveEditedUserProfileCommand SaveEditedUserProfileCommand { get; set; }
-        
-       
+        public ICommand SaveEditedUserProfileCommand { get; set; }
+            
         private DegreeCourse degreeCourse { get; set; }
 
         public DegreeCourse DegreeCourse
