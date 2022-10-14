@@ -17,7 +17,7 @@ namespace StudentsHelper.ViewModel
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Student = LoginStudent.GetStudentData();
             SelectMainWindowContentCommand = new SelectMainWindowContentCommand(this);          
-            ShowAuthorsWindowCommand = new ShowAuthorsWindowCommand();
+            ShowAuthorsWindowCommand = new ShowWindowCommand();
             SelectedMainWindowContent = new WelcomeScreenVM();
 
             Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
