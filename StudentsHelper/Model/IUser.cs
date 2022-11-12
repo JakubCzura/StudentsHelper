@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace StudentsHelper.Model
+﻿namespace StudentsHelper.Model
 {
     internal interface IUser
     {

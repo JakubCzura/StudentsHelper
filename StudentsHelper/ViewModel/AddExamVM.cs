@@ -1,13 +1,8 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -22,7 +17,7 @@ namespace StudentsHelper.ViewModel
         public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
-        public SaveExamCommand SaveExamCommand { get; set; }        
+        public SaveExamCommand SaveExamCommand { get; set; }
 
         public string Name
         {
@@ -63,6 +58,7 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(nameof(MinuteOfExam));
             }
         }
+
         public int? RoomNumber
         {
             get { return Exam.RoomNumber; }
@@ -72,6 +68,7 @@ namespace StudentsHelper.ViewModel
                 OnPropertyChanged(nameof(RoomNumber));
             }
         }
+
         public string RoomLetter
         {
             get { return Exam.RoomLetter; }
@@ -100,6 +97,6 @@ namespace StudentsHelper.ViewModel
                 Exam.Note = value;
                 OnPropertyChanged(Note);
             }
-        }      
+        }
     }
 }

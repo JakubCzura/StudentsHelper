@@ -13,7 +13,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to TestsUserControl.xaml
         public TestsVM()
         {
-            AddTestCommand = new ShowWindowCommand();        
+            AddTestCommand = new ShowWindowCommand();
             DeleteTestCommand = new DeleteTestCommand(this);
             ShowEditTestCommand = new ShowEditTestCommand();
             Instance = this;
@@ -36,14 +36,15 @@ namespace StudentsHelper.ViewModel
         {
             get { return tests; }
             set { tests = value; OnPropertyChanged(nameof(Tests)); }
-        }       
+        }
 
         private Test selectedTest;
+
         public Test SelectedTest
         {
             get { return selectedTest; }
             set { selectedTest = value; OnPropertyChanged(nameof(SelectedTest)); }
-        } 
+        }
 
         public void SortTestsDateAscending()
         {

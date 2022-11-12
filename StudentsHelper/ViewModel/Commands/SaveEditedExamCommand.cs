@@ -1,9 +1,5 @@
 ﻿using StudentsHelper.DataBase;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -11,7 +7,7 @@ namespace StudentsHelper.ViewModel.Commands
 {
     public class SaveEditedExamCommand : ICommand
     {
-        EditExamVM EditExamVM { get; set; }
+        private EditExamVM EditExamVM { get; set; }
 
         public SaveEditedExamCommand(EditExamVM editExamVM)
         {
@@ -44,6 +40,6 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 MessageBox.Show("Spróbuj edytować egzamin ponownie", "Błąd edytowania egzaminu");
             }
-        }     
+        }
     }
 }

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
-        xmlns:vm="clr-namespace:StudentsHelper.ViewModel" 
+        xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
         xmlns:uc="clr-namespace:StudentsHelper.View.UserControls"
-        Title="StudentsHelper" Height="650" Width="1200" 
-        WindowStartupLocation="CenterScreen"    
+        Title="StudentsHelper" Height="650" Width="1200"
+        WindowStartupLocation="CenterScreen"
         Style="{DynamicResource WindowStyle}">
 
     <Window.Resources>
@@ -22,31 +22,31 @@
         <vm:NotesVM x:Key="NotesVM"></vm:NotesVM>
 
         <DataTemplate DataType="{x:Type vm:WelcomeScreenVM}">
-            <uc:WelcomeScreenUserControl/>
+            <uc:WelcomeScreenUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:TestsVM}">
-            <uc:TestsUserControl/>
+            <uc:TestsUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:ExamsVM}">
-            <uc:ExamsUserControl/>
+            <uc:ExamsUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:TeachersVM}">
-            <uc:TeachersUserControl/>
+            <uc:TeachersUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:ScheduleVM}">
-            <uc:ScheduleUserControl/>
+            <uc:ScheduleUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:UserProfileVM}">
-            <uc:UserProfileUserControl/>
+            <uc:UserProfileUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:HomeworkVM}">
-            <uc:HomeworkUserControl/>
+            <uc:HomeworkUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:NotesVM}">
-            <uc:NotesUserControl/>
+            <uc:NotesUserControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:SettingsVM}">
-            <uc:SettingsUserControl/>
+            <uc:SettingsUserControl />
         </DataTemplate>
     </Window.Resources>
 
@@ -80,12 +80,12 @@
         <Menu Grid.Column="0" Grid.Row="1" x:Name="NotesMenuDockPanel" Style="{DynamicResource NotesMenuDockPanelStyle}">
             <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Start" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="WelcomeScreen"></Button>
             <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Kolokwia" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Tests"></Button>
-            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Exams"/>
-            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Teachers"/>
-            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Schedule"/>
-            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="UserProfile"/>
-            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Homework"/>
-            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Notes"/>
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Egzaminy" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Exams" />
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Wykładowcy" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Teachers" />
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Plan zajęć" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Schedule" />
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Mój profil" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="UserProfile" />
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Zadania domowe" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Homework" />
+            <Button Style="{DynamicResource NotesMenuButtonStyle}" Content="Notatki" Command="{Binding SelectMainWindowContentCommand}" CommandParameter="Notes" />
         </Menu>
 
         <Grid Grid.Row="2">

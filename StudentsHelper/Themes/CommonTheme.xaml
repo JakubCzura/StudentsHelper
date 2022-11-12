@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="ApplicationBackground" Color="White"></SolidColorBrush>
-    
+
     <Style TargetType="DataGrid" x:Key="UserPanelDataGrid">
         <Setter Property="FontSize" Value="16"></Setter>
     </Style>

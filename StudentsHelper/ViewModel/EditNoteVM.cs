@@ -1,11 +1,6 @@
 ﻿using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -21,8 +16,7 @@ namespace StudentsHelper.ViewModel
         public static EditNoteVM? Instance { get; set; }
 
         public SaveEditedNoteCommand SaveEditedNoteCommand { get; set; }
-        
-        
+
         public string Name
         {
             get { return SelectedNote.Name; }
@@ -42,6 +36,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private Note selectedNote;
+
         public Note SelectedNote
         {
             get { return selectedNote; }

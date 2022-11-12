@@ -2,10 +2,6 @@
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -14,7 +10,7 @@ namespace StudentsHelper.ViewModel
         public EditTestVM()
         {
             SelectedTest = TestsVM.Instance.SelectedTest;
-            
+
             SaveEditedTestCommand = new SaveEditedTestCommand(this);
             Instance = this;
         }
@@ -22,7 +18,7 @@ namespace StudentsHelper.ViewModel
         public static EditTestVM? Instance { get; set; }
 
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
-        public SaveEditedTestCommand SaveEditedTestCommand { get; set; }       
+        public SaveEditedTestCommand SaveEditedTestCommand { get; set; }
 
         public string Name
         {
@@ -47,11 +43,13 @@ namespace StudentsHelper.ViewModel
             get { return SelectedTest.MinuteOfTest; }
             set { SelectedTest.MinuteOfTest = value; OnPropertyChanged(nameof(MinuteOfTest)); }
         }
+
         public int? RoomNumber
         {
             get { return SelectedTest.RoomNumber; }
             set { SelectedTest.RoomNumber = value; OnPropertyChanged(nameof(RoomNumber)); }
         }
+
         public string RoomLetter
         {
             get { return SelectedTest.RoomLetter; }
@@ -71,6 +69,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private Test selectedTest;
+
         public Test SelectedTest
         {
             get { return selectedTest; }

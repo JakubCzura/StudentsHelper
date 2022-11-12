@@ -1,9 +1,5 @@
 ﻿using StudentsHelper.DataBase;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,7 +12,7 @@ namespace StudentsHelper.ViewModel.Commands
             EditNoteVM = editNoteVM;
         }
 
-        EditNoteVM EditNoteVM { get; set; }
+        private EditNoteVM EditNoteVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {

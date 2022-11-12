@@ -1,14 +1,11 @@
 ﻿using StudentsHelper.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.DataValidators
 {
     public class TestDataValidator
-    {                  
+    {
         public static bool ValidateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))

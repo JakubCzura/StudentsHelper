@@ -1,7 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
-using System.ComponentModel;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -9,14 +8,14 @@ namespace StudentsHelper.ViewModel
     public class StudentsHelperVM : BaseViewModel
     {
         //This class refers to MainWindow.xaml
-        
+
         public StudentsHelperVM()
         {
             Instance = this;
 
             DegreeCourse = LoginStudent.GetDegreeCourseData();
             Student = LoginStudent.GetStudentData();
-            SelectMainWindowContentCommand = new SelectMainWindowContentCommand(this);          
+            SelectMainWindowContentCommand = new SelectMainWindowContentCommand(this);
             ShowAuthorsWindowCommand = new ShowWindowCommand();
             SelectedMainWindowContent = new WelcomeScreenVM();
 
@@ -24,14 +23,14 @@ namespace StudentsHelper.ViewModel
         }
 
         public static StudentsHelperVM? Instance { get; set; }
-        
+
         public Student Student { get; set; }
 
         public DegreeCourse DegreeCourse { get; set; }
 
-        public ICommand SelectMainWindowContentCommand{ get; set; }
-        
-        public ICommand ShowAuthorsWindowCommand { get; set; }       
+        public ICommand SelectMainWindowContentCommand { get; set; }
+
+        public ICommand ShowAuthorsWindowCommand { get; set; }
 
         private BaseViewModel selectedMainWindowContent;
 
@@ -57,7 +56,7 @@ namespace StudentsHelper.ViewModel
         {
             get { return $"{Name} {SecondName}"; }
         }
-       
+
         public int Age
         {
             get { return Student.Age; }
@@ -86,6 +85,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return DegreeCourse.Semester; }
             set { DegreeCourse.Semester = value; OnPropertyChanged(nameof(Semester)); }
-        }       
+        }
     }
 }

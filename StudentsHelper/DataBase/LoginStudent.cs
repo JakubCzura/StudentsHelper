@@ -1,13 +1,10 @@
-﻿using StudentsHelper.Model;
+﻿using SQLite;
+using StudentsHelper.Model;
 using StudentsHelper.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
-using System.Windows;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace StudentsHelper.DataBase
 {
@@ -22,12 +19,12 @@ namespace StudentsHelper.DataBase
                     Student? Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login);
                     if (Student != null)
                     {
-                        if(Hasher.VerifyPassword(LoginVM.Password, Student.Password))
+                        if (Hasher.VerifyPassword(LoginVM.Password, Student.Password))
                         {
                             StudentId = Student.Id;
                             StudentLogin = Student.Login;
                             return true;
-                        }                       
+                        }
                     }
                 }
                 return false;

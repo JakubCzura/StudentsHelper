@@ -1,11 +1,7 @@
-﻿using StudentsHelper.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 using StudentsHelper.Model;
-using SQLite;
+using StudentsHelper.ViewModel;
+using System;
 using System.Windows;
 
 namespace StudentsHelper.DataBase
@@ -20,7 +16,7 @@ namespace StudentsHelper.DataBase
 
                 DegreeCourse DegreeCourse = RegisterWindowVM.DegreeCourse;
                 {
-                    StudentLogin = RegisterWindowVM.Login;                    
+                    StudentLogin = RegisterWindowVM.Login;
                 };
 
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
@@ -42,7 +38,6 @@ namespace StudentsHelper.DataBase
                 }
                 return true;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zarejestrować", "Błąd rejestracji");

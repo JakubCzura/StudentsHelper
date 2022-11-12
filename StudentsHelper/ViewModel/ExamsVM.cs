@@ -1,15 +1,8 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.UserControls;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -34,15 +27,16 @@ namespace StudentsHelper.ViewModel
 
         public ICommand DeleteExamCommand { get; set; }
 
-        public ICommand ShowEditExamCommand { get; set; }       
-                             
+        public ICommand ShowEditExamCommand { get; set; }
+
         public ObservableCollection<Exam> Exams
-        { 
+        {
             get { return exams; }
             set { exams = value; OnPropertyChanged(nameof(Exams)); }
         }
 
-        private Exam selectedExam{ get; set; }
+        private Exam selectedExam { get; set; }
+
         public Exam SelectedExam
         {
             get { return selectedExam; }

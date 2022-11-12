@@ -1,9 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,10 +10,10 @@ namespace StudentsHelper.ViewModel.Commands
     {
         public DeleteTeacherCommand(TeachersVM teachersVM)
         {
-            TeachersVM= teachersVM;
+            TeachersVM = teachersVM;
         }
 
-        TeachersVM TeachersVM{ get; set; }
+        private TeachersVM TeachersVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -30,7 +27,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 return true;
             }
-            return false; 
+            return false;
         }
 
         public void Execute(object? parameter)
@@ -41,7 +38,7 @@ namespace StudentsHelper.ViewModel.Commands
                 {
                     TeachersVM.Instance.Teachers = LoginStudent.GetTeachersData();
                 }
-                MessageBox.Show("Skasowano informację o nauczycielu","Zapisano pomyślnie");
+                MessageBox.Show("Skasowano informację o nauczycielu", "Zapisano pomyślnie");
             }
             else
             {

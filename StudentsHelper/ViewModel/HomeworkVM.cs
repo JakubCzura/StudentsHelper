@@ -1,6 +1,5 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -37,16 +36,17 @@ namespace StudentsHelper.ViewModel
             set { homework = value; OnPropertyChanged(nameof(Homework)); }
         }
 
-        private Homework selectedHomework{ get; set; }
+        private Homework selectedHomework { get; set; }
+
         public Homework SelectedHomework
         {
             get { return selectedHomework; }
             set { selectedHomework = value; OnPropertyChanged(nameof(SelectedHomework)); }
         }
-    
+
         public void SortHomeworkDateAscending()
         {
-            Homework = new ObservableCollection<Homework>(Homework.OrderBy(homework=> homework.DateOfEnd));
+            Homework = new ObservableCollection<Homework>(Homework.OrderBy(homework => homework.DateOfEnd));
         }
     }
 }

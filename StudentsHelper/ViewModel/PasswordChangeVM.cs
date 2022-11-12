@@ -14,15 +14,15 @@ namespace StudentsHelper.ViewModel
         }
 
         public static PasswordChangeVM? Instance { get; set; }
-        
-        public SaveNewPasswordCommand SaveNewPasswordCommand { get; set; }              
+
+        public SaveNewPasswordCommand SaveNewPasswordCommand { get; set; }
 
         private Student student { get; set; }
-              
+
         public Student Student
         {
             get { return student; }
             set { student = value; OnPropertyChanged(nameof(Student)); }
-        }              
+        }
     }
 }

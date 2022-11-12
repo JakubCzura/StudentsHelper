@@ -1,9 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,7 +13,7 @@ namespace StudentsHelper.ViewModel.Commands
             ExamsVM = examsVM;
         }
 
-        ExamsVM ExamsVM { get; set; }
+        private ExamsVM ExamsVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {

@@ -1,10 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.DataValidators;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -17,7 +13,7 @@ namespace StudentsHelper.ViewModel.Commands
             EditTeacherVM = editTeacherVM;
         }
 
-        EditTeacherVM EditTeacherVM { get; set; }
+        private EditTeacherVM EditTeacherVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -34,7 +30,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                if(TeacherDataValidator.ValidateTeacherData(EditTeacherVM.SelectedTeacher))
+                if (TeacherDataValidator.ValidateTeacherData(EditTeacherVM.SelectedTeacher))
                 {
                     if (SaveData.Update(EditTeacherVM.SelectedTeacher))
                     {
@@ -48,7 +44,7 @@ namespace StudentsHelper.ViewModel.Commands
                     {
                         MessageBox.Show("Spróbuj edytować informacje o wykładowcy ponownie", "Błąd edytowania informacji o wykładowcy");
                     }
-                }               
+                }
             }
             catch (Exception e)
             {

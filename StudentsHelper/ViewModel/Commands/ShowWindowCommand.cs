@@ -1,9 +1,5 @@
 ﻿using StudentsHelper.View.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -29,7 +25,7 @@ namespace StudentsHelper.ViewModel.Commands
             if (parameter != null)
             {
                 try
-                {                  
+                {
                     Window = parameter.ToString() switch
                     {
                         "AddExam" => new AddExamWindow(),
@@ -41,7 +37,7 @@ namespace StudentsHelper.ViewModel.Commands
                         "ScheduleInstruction" => new ScheduleInstructionWindow(),
                         _ => null,
                     };
-                    if(Window != null)
+                    if (Window != null)
                     {
                         Window.Show();
                     }

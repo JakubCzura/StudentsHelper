@@ -1,13 +1,8 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -20,9 +15,8 @@ namespace StudentsHelper.ViewModel
         }
 
         public Test Test { get; set; } = new Test { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
-        public RoomLetters RoomLetters {get;set;} = new RoomLetters();
+        public RoomLetters RoomLetters { get; set; } = new RoomLetters();
         public SaveTestCommand SaveTestCommand { get; set; }
-      
 
         public string Name
         {
@@ -47,6 +41,7 @@ namespace StudentsHelper.ViewModel
             get { return Test.MinuteOfTest; }
             set { Test.MinuteOfTest = value; OnPropertyChanged(nameof(MinuteOfTest)); }
         }
+
         public int? RoomNumber
         {
             get { return Test.RoomNumber; }

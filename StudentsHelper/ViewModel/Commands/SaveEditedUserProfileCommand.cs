@@ -2,10 +2,6 @@
 using StudentsHelper.DataValidators;
 using StudentsHelper.View.UserControls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -18,7 +14,7 @@ namespace StudentsHelper.ViewModel.Commands
             UserProfileVM = userProfileVM;
         }
 
-        UserProfileVM UserProfileVM { get; set; }
+        private UserProfileVM UserProfileVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -39,7 +35,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                if(StudentDataValidator.ValidateStudentData(UserProfileVM.Student) && DegreeCourseDataValidator.ValidateDegreeCourseData(UserProfileVM.DegreeCourse))
+                if (StudentDataValidator.ValidateStudentData(UserProfileVM.Student) && DegreeCourseDataValidator.ValidateDegreeCourseData(UserProfileVM.DegreeCourse))
                 {
                     if (SaveData.Update(UserProfileVM.Student) && SaveData.Update(UserProfileVM.DegreeCourse))
                     {
@@ -49,9 +45,9 @@ namespace StudentsHelper.ViewModel.Commands
                     {
                         MessageBox.Show("Spróbuj edytować informacje ponownie", "Błąd edytowania informacji");
                     }
-                }               
+                }
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj edytować informacje ponownie", "Błąd edytowania informacji");
             }

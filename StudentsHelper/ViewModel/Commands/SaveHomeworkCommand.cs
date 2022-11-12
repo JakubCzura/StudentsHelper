@@ -1,10 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.DataValidators;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -17,7 +13,7 @@ namespace StudentsHelper.ViewModel.Commands
             AddHomeworkVM = addHomeworkVM;
         }
 
-        AddHomeworkVM AddHomeworkVM { get; set; }
+        private AddHomeworkVM AddHomeworkVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -31,7 +27,7 @@ namespace StudentsHelper.ViewModel.Commands
         }
 
         public void Execute(object? parameter)
-        {           
+        {
             try
             {
                 if (HomeworkDataValidator.ValidateHomeworkData(AddHomeworkVM.Homework))

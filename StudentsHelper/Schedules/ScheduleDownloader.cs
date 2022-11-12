@@ -1,17 +1,15 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using System;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using System.Net;
-using Syroot.Windows.IO;
-using System.Collections.Generic;
-using System.Linq;
+using StudentsHelper.DirectoriesHelper;
+using System;
 using System.IO;
+using System.Linq;
+using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Threading;
-using StudentsHelper.DirectoriesHelper;
 
 namespace StudentsHelper.Schedules
 {

@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
         mc:Ignorable="d"
-        Title="StudentsHelper" 
+        Title="StudentsHelper"
         WindowStartupLocation="CenterScreen"
         Style="{DynamicResource WindowStyle}">
-    
+
     <Window.Resources>
         <vm:EditExamVM x:Key="EditExamVM"></vm:EditExamVM>
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,5,5,5"></Setter>
         </Style>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextWrapping" Value="NoWrap" />
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,3,5,5"></Setter>
         </Style>
@@ -35,7 +35,6 @@
             <Setter Property="Margin" Value="5,3,5,5"></Setter>
         </Style>
     </Window.Resources>
-
 
     <Grid DataContext="{StaticResource EditExamVM}">
         <Grid.RowDefinitions>
@@ -63,7 +62,6 @@
                     <Label FontSize="20">MM:</Label>
                     <TextBox x:Name="ExamMinuteTextBox" FontSize="20" Text="{Binding MinuteOfExam, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 </UniformGrid>
-
             </UniformGrid>
             <UniformGrid Rows="1">
                 <Label FontSize="20">Pokój:</Label>

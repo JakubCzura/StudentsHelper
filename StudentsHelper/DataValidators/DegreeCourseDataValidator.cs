@@ -1,10 +1,6 @@
-﻿using SQLite;
-using StudentsHelper.Model;
+﻿using StudentsHelper.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.DataValidators
 {
@@ -51,7 +47,7 @@ namespace StudentsHelper.DataValidators
 
         public static bool ValidateFaculty(string faculty)
         {
-            if(string.IsNullOrWhiteSpace(faculty))
+            if (string.IsNullOrWhiteSpace(faculty))
             {
                 throw new ArgumentException("Brak danych o wydziale", nameof(faculty));
             }

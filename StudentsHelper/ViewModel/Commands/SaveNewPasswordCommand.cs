@@ -1,13 +1,9 @@
 ﻿using StudentsHelper.DataBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows;
 using StudentsHelper.DataValidators;
 using StudentsHelper.View.UserControls;
+using System;
+using System.Windows;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
@@ -18,7 +14,7 @@ namespace StudentsHelper.ViewModel.Commands
             PasswordChangeVM = passwordChangeVM;
         }
 
-        PasswordChangeVM PasswordChangeVM { get; set; }
+        private PasswordChangeVM PasswordChangeVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -42,7 +38,7 @@ namespace StudentsHelper.ViewModel.Commands
             ChangePassword();
         }
 
-        void ChangePassword()
+        private void ChangePassword()
         {
             try
             {

@@ -1,9 +1,6 @@
 ﻿using StudentsHelper.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.DataValidators
 {
@@ -85,7 +82,7 @@ namespace StudentsHelper.DataValidators
             }
             return true;
         }
-        
+
         public static bool ValidateNote(string note)
         {
             if (!(note.Length <= 500))
@@ -97,7 +94,7 @@ namespace StudentsHelper.DataValidators
 
         public static bool ValidateTeacherData(Teacher teacher)
         {
-            if (ValidateName(teacher.Name) && 
+            if (ValidateName(teacher.Name) &&
                 ValidateLastName(teacher.LastName) &&
                 ValidateDegree(teacher.Degree) &&
                 ValidateLesson(teacher.Lesson) &&

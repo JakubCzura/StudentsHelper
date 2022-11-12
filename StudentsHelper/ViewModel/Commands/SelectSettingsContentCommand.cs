@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,7 +12,7 @@ namespace StudentsHelper.ViewModel.Commands
         }
 
         public SettingsVM SettingsVM { get; set; }
-        
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -37,7 +33,7 @@ namespace StudentsHelper.ViewModel.Commands
                     SettingsVM.SelectedSettingsContent = parameter.ToString() switch
                     {
                         "Password" => new PasswordChangeVM(),
-                        "Theme" => new ThemeChangeVM(),   
+                        "Theme" => new ThemeChangeVM(),
                         _ => new PasswordChangeVM(),
                     };
                 }

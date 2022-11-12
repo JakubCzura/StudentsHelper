@@ -1,13 +1,7 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -23,7 +17,6 @@ namespace StudentsHelper.ViewModel
 
         public SaveHomeworkCommand SaveHomeworkCommand { get; set; }
 
-        
         public string LessonName
         {
             get { return Homework.LessonName; }
@@ -33,7 +26,7 @@ namespace StudentsHelper.ViewModel
         public DateTime DateOfEnd
         {
             get { return Homework.DateOfEnd; }
-            set { Homework.DateOfEnd = value;OnPropertyChanged(nameof(DateOfEnd)); }
+            set { Homework.DateOfEnd = value; OnPropertyChanged(nameof(DateOfEnd)); }
         }
 
         public string TeacherName
@@ -57,7 +50,7 @@ namespace StudentsHelper.ViewModel
         public string Note
         {
             get { return Homework.Note; }
-            set { Homework.Note= value; OnPropertyChanged(Note); }
+            set { Homework.Note = value; OnPropertyChanged(Note); }
         }
     }
 }

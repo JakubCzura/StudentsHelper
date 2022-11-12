@@ -1,10 +1,6 @@
 ﻿using StudentsHelper.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
 
 namespace StudentsHelper.DataValidators
 {
@@ -16,7 +12,7 @@ namespace StudentsHelper.DataValidators
             {
                 throw new ArgumentException("Brak danych o nazwie przedmiotu", nameof(lessonName));
             }
-            if (!(lessonName.Length >=1 && lessonName.Length <= 100))
+            if (!(lessonName.Length >= 1 && lessonName.Length <= 100))
             {
                 throw new ArgumentException("Długość nazwy przedmiotu spoza zakresu znaków 1-100", nameof(lessonName));
             }

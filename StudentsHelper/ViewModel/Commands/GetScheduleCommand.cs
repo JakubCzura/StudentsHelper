@@ -1,15 +1,7 @@
-﻿using StudentsHelper.DataValidators;
-using StudentsHelper.Schedules;
-using StudentsHelper.View;
+﻿using StudentsHelper.Schedules;
 using StudentsHelper.View.UserControls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
@@ -21,7 +13,7 @@ namespace StudentsHelper.ViewModel.Commands
             ScheduleVM = scheduleVM;
         }
 
-        ScheduleVM ScheduleVM { get; set; }
+        private ScheduleVM ScheduleVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -34,8 +26,8 @@ namespace StudentsHelper.ViewModel.Commands
             if (ScheduleUserControl.Instance != null)
             {
                 if (string.IsNullOrEmpty(ScheduleUserControl.Instance.UserPasswordPasswordBox.Password) == false)
-                { 
-                    return true; 
+                {
+                    return true;
                 }
             }
             return false;

@@ -1,10 +1,5 @@
 ﻿using SQLite;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
@@ -18,13 +13,14 @@ namespace StudentsHelper.Model
         private int id = 0;
 
         [PrimaryKey, AutoIncrement, NotNull]
-        public int Id 
-        { 
-            get { return id; } 
+        public int Id
+        {
+            get { return id; }
             set { id = value; }
         }
 
         private string lessonName = string.Empty;
+
         public string LessonName
         {
             get { return lessonName; }
@@ -47,8 +43,8 @@ namespace StudentsHelper.Model
             set { teacherSecondName = value; }
         }
 
-
         private DateTime dateOfEnd = DateTime.Today;
+
         public DateTime DateOfEnd
         {
             get { return dateOfEnd; }
@@ -66,6 +62,7 @@ namespace StudentsHelper.Model
         }
 
         private string exercise = string.Empty;
+
         public string Exercise
         {
             get { return exercise; }
@@ -73,6 +70,7 @@ namespace StudentsHelper.Model
         }
 
         private string note = string.Empty;
+
         public string Note
         {
             get { return note; }
@@ -80,6 +78,7 @@ namespace StudentsHelper.Model
         }
 
         private int studentId = 0;
+
         public int StudentId
         {
             get { return studentId; }
@@ -87,6 +86,7 @@ namespace StudentsHelper.Model
         }
 
         private string studentLogin = string.Empty;
+
         public string StudentLogin
         {
             get { return studentLogin; }

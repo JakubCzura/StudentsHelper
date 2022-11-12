@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
+using System;
 using System.Windows;
-using SQLite;
-using StudentsHelper.Model;
-using StudentsHelper.ViewModel;
 
 namespace StudentsHelper.DataBase
 {
@@ -23,7 +17,6 @@ namespace StudentsHelper.DataBase
                 }
                 return true;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie dodać informację", "Błąd dodania informacji");
@@ -37,11 +30,10 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    SQLiteConnection.Delete(Data); 
+                    SQLiteConnection.Delete(Data);
                 }
                 return true;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie skasować treść", "Błąd kasowania danych");
@@ -59,7 +51,6 @@ namespace StudentsHelper.DataBase
                 }
                 return true;
             }
-
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}\nSpróbuj ponownie edytować treść", "Błąd edytowania danych");

@@ -24,7 +24,7 @@ namespace StudentsHelper.ViewModel
         private ObservableCollection<Note> notes = LoginStudent.GetNotesData();
 
         public ICommand AddNoteCommand { get; set; }
-        
+
         public ICommand DeleteNoteCommand { get; set; }
 
         public ICommand ShowEditNoteCommand { get; set; }
@@ -36,16 +36,16 @@ namespace StudentsHelper.ViewModel
         }
 
         private Note selectedNote { get; set; }
+
         public Note SelectedNote
         {
             get { return selectedNote; }
             set { selectedNote = value; OnPropertyChanged(nameof(SelectedNote)); }
         }
-    
+
         public void SortNotesDateAscending()
         {
             Notes = new ObservableCollection<Note>(Notes.OrderBy(note => note.Date));
         }
     }
 }
-

@@ -1,10 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.DataValidators;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -17,7 +13,7 @@ namespace StudentsHelper.ViewModel.Commands
             AddNoteVM = addNoteVM;
         }
 
-        AddNoteVM AddNoteVM { get; set; }
+        private AddNoteVM AddNoteVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -54,7 +50,7 @@ namespace StudentsHelper.ViewModel.Commands
             catch (Exception e)
             {
                 MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
-            }          
+            }
         }
     }
 }

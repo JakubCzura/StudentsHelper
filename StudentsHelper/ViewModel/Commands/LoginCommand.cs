@@ -1,16 +1,8 @@
-﻿using SQLite;
-using StudentsHelper.DataBase;
+﻿using StudentsHelper.DataBase;
 using StudentsHelper.DataValidators;
-using StudentsHelper.Model;
-using StudentsHelper.View;
 using StudentsHelper.View.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
@@ -21,7 +13,8 @@ namespace StudentsHelper.ViewModel.Commands
         {
             LoginVM = loginVM;
         }
-        LoginVM LoginVM { get; set; }
+
+        private LoginVM LoginVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -30,36 +23,36 @@ namespace StudentsHelper.ViewModel.Commands
         }
 
         public bool CanExecute(object? parameter)
-        {         
+        {
             return true;
         }
 
         public void Execute(object? parameter)
-        {          
+        {
             try
             {
-                if(LoginWindow.Instance != null)
+                if (LoginWindow.Instance != null)
                 {
-                    LoginVM.Password = LoginWindow.Instance.PasswordBox.Password;                 
-                    if(!StudentDataValidator.ValidateLogin(LoginVM.Login) || !StudentDataValidator.ValidatePassword(LoginVM.Password))
+                    LoginVM.Password = LoginWindow.Instance.PasswordBox.Password;
+                    if (!StudentDataValidator.ValidateLogin(LoginVM.Login) || !StudentDataValidator.ValidatePassword(LoginVM.Password))
                     {
                         MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
                     }
                     else
                     {
-                        if(LoginStudent.Login(LoginVM) == true)
+                        if (LoginStudent.Login(LoginVM) == true)
                         {
                             MainWindow MainWindow = new MainWindow();
                             MainWindow.Show();
                             LoginWindow.Instance.Close();
                         }
-                    }                  
+                    }
                 }
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);               
-            }                       
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }

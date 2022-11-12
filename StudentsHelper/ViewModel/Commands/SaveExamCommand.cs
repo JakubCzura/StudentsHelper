@@ -1,12 +1,8 @@
 ﻿using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using StudentsHelper.DataValidators;
 
 namespace StudentsHelper.ViewModel.Commands
 {
@@ -17,7 +13,7 @@ namespace StudentsHelper.ViewModel.Commands
             AddExamVM = addExamVM;
         }
 
-        AddExamVM AddExamVM { get; set; }
+        private AddExamVM AddExamVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -51,7 +47,7 @@ namespace StudentsHelper.ViewModel.Commands
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
             }

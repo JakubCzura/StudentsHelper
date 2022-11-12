@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StudentsHelper.DataValidators
+﻿namespace StudentsHelper.DataValidators
 {
     internal static class Helper
     {
@@ -33,6 +27,6 @@ namespace StudentsHelper.DataValidators
                 return true;
             }
             return false;
-        }       
+        }
     }
 }

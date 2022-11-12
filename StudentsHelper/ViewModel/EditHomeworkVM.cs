@@ -1,16 +1,11 @@
 ﻿using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
     public class EditHomeworkVM : BaseViewModel
-    { 
+    {
         public EditHomeworkVM()
         {
             SelectedHomework = HomeworkVM.Instance.SelectedHomework;
@@ -21,7 +16,7 @@ namespace StudentsHelper.ViewModel
         public static EditHomeworkVM? Instance { get; set; }
 
         public SaveEditedHomeworkCommand SaveEditedHomeworkCommand { get; set; }
-        
+
         public string LessonName
         {
             get { return SelectedHomework.LessonName; }
@@ -64,6 +59,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private Homework selectedHomework { get; set; }
+
         public Homework SelectedHomework
         {
             get { return selectedHomework; }

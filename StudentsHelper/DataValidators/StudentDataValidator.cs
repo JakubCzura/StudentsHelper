@@ -1,13 +1,7 @@
 ﻿using StudentsHelper.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using System.Xml.Linq;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace StudentsHelper.DataValidators
 {
@@ -106,7 +100,6 @@ namespace StudentsHelper.DataValidators
             return true;
         }
 
-        
         public static bool ValidateEmail(string email)
         {
             EmailAddressAttribute EmailAddressAttribute = new EmailAddressAttribute();
@@ -118,7 +111,7 @@ namespace StudentsHelper.DataValidators
             if (EmailAddressAttribute.IsValid(email) == false)
             {
                 throw new ArgumentException($"Nieprawidłowy adres email", nameof(email));
-            }           
+            }
             return true;
         }
 

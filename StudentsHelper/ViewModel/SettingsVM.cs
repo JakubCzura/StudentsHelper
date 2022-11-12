@@ -23,7 +23,6 @@ namespace StudentsHelper.ViewModel
             set { selectedSettingsContent = value; OnPropertyChanged(nameof(SelectedSettingsContent)); }
         }
 
-        public static SettingsVM? Instance { get; set; }               
-
+        public static SettingsVM? Instance { get; set; }
     }
 }

@@ -2,17 +2,11 @@
 using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
     public class AddNoteVM : BaseViewModel
     {
-
         //This class refers to AddNoteWindow.xaml
         public AddNoteVM()
         {
@@ -23,19 +17,18 @@ namespace StudentsHelper.ViewModel
 
         public SaveNoteCommand SaveNoteCommand { get; set; }
 
-  
         public string Name
         {
             get { return Note.Name; }
             set { Note.Name = value; OnPropertyChanged(Name); }
         }
-    
+
         public string Content
         {
             get { return Note.Content; }
-            set { Note.Content = value; OnPropertyChanged(Content) ; }
+            set { Note.Content = value; OnPropertyChanged(Content); }
         }
-        
+
         public DateTime Date
         {
             get { return Note.Date; }
@@ -43,4 +36,3 @@ namespace StudentsHelper.ViewModel
         }
     }
 }
-

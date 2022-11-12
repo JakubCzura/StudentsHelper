@@ -1,13 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.UserControls;
 using StudentsHelper.ViewModel.Commands;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -28,7 +21,7 @@ namespace StudentsHelper.ViewModel
         public ICommand EditUserProfileCommand { get; set; }
 
         public ICommand SaveEditedUserProfileCommand { get; set; }
-            
+
         private DegreeCourse degreeCourse { get; set; }
 
         public DegreeCourse DegreeCourse

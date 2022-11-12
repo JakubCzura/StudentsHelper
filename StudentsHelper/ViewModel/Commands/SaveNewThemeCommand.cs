@@ -1,12 +1,7 @@
-﻿using StudentsHelper.DataBase;
+﻿using StudentsHelper.View.UserControls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows;
-using StudentsHelper.View.UserControls;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
@@ -17,7 +12,7 @@ namespace StudentsHelper.ViewModel.Commands
             ThemeChangeVM = themeChangeVM;
         }
 
-        ThemeChangeVM ThemeChangeVM { get; set; }
+        private ThemeChangeVM ThemeChangeVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {
@@ -39,7 +34,7 @@ namespace StudentsHelper.ViewModel.Commands
             ChangeTheme();
         }
 
-        void ChangeTheme()
+        private void ChangeTheme()
         {
             try
             {

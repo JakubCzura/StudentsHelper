@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-        WindowStartupLocation="CenterScreen" 
+        WindowStartupLocation="CenterScreen"
         Style="{DynamicResource WindowStyle}">
 
     <Window.Resources>
@@ -18,7 +18,7 @@
             <Setter Property="Margin" Value="0,0,0,15"></Setter>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <ScrollViewer>
             <StackPanel>

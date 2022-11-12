@@ -1,23 +1,13 @@
 ﻿using SQLite;
 using StudentsHelper.DataBase;
-using StudentsHelper.Model;
-using StudentsHelper.View;
 using StudentsHelper.ViewModel.Commands;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace StudentsHelper.ViewModel
 {
     public class LoginVM : BaseViewModel
     {
         //This class refers to LoginWindow.xaml
-       
+
         public LoginVM()
         {
             Instance = this;
@@ -25,6 +15,7 @@ namespace StudentsHelper.ViewModel
             ShowRegisterWindowCommand = new ShowRegisterWindowCommand();
             DataBaseHelper.CreateEmptyDataBase();
         }
+
         public LoginVM Instance { get; set; }
 
         public LoginCommand LoginCommand { get; set; }
@@ -32,6 +23,7 @@ namespace StudentsHelper.ViewModel
         public ShowRegisterWindowCommand ShowRegisterWindowCommand { get; set; }
 
         private int id = 0;
+
         [PrimaryKey, AutoIncrement]
         public int Id
         {
@@ -40,6 +32,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private string name = string.Empty;
+
         public string Name
         {
             get { return name; }
@@ -47,6 +40,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private string secondName = string.Empty;
+
         public string SecondName
         {
             get { return secondName; }
@@ -62,6 +56,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private string login = string.Empty;
+
         public string Login
         {
             get { return login; }
@@ -69,10 +64,11 @@ namespace StudentsHelper.ViewModel
         }
 
         private string password = string.Empty;
+
         public string Password
         {
             get { return password; }
             set { password = value; OnPropertyChanged(nameof(Password)); }
-        }       
+        }
     }
 }

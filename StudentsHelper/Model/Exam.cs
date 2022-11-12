@@ -1,10 +1,5 @@
 ﻿using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
@@ -16,6 +11,7 @@ namespace StudentsHelper.Model
         }
 
         private int id;
+
         [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
@@ -24,6 +20,7 @@ namespace StudentsHelper.Model
         }
 
         private string name = string.Empty;
+
         public string Name
         {
             get { return name; }
@@ -31,17 +28,20 @@ namespace StudentsHelper.Model
         }
 
         private DateTime dateOfExam = DateTime.Today;
+
         public DateTime DateOfExam
         {
             get { return dateOfExam; }
             set { dateOfExam = value; }
         }
+
         public string DateOfExamShort
         {
             get { return DateOfExam.ToShortDateString(); }
         }
 
         private int? hourOfExam = null;
+
         public int? HourOfExam
         {
             get { return hourOfExam; }
@@ -55,6 +55,7 @@ namespace StudentsHelper.Model
         }
 
         private int? minuteOfExam = null;
+
         public int? MinuteOfExam
         {
             get { return minuteOfExam; }
@@ -73,6 +74,7 @@ namespace StudentsHelper.Model
         }
 
         private int? roomNumber = null;
+
         public int? RoomNumber
         {
             get { return roomNumber; }
@@ -80,6 +82,7 @@ namespace StudentsHelper.Model
         }
 
         private string roomLetter = String.Empty;
+
         public string RoomLetter
         {
             get { return roomLetter; }
@@ -92,6 +95,7 @@ namespace StudentsHelper.Model
         }
 
         private string note = string.Empty;
+
         public string Note
         {
             get { return note; }
@@ -99,6 +103,7 @@ namespace StudentsHelper.Model
         }
 
         private int studentId = 0;
+
         public int StudentId
         {
             get { return studentId; }
@@ -106,6 +111,7 @@ namespace StudentsHelper.Model
         }
 
         private string studentLogin = string.Empty;
+
         public string StudentLogin
         {
             get { return studentLogin; }

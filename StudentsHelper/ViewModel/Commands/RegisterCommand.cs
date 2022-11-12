@@ -1,12 +1,7 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.DataValidators;
-using StudentsHelper.View;
 using StudentsHelper.View.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -19,7 +14,7 @@ namespace StudentsHelper.ViewModel.Commands
             RegisterWindowVM = registerWindowVM;
         }
 
-        RegisterWindowVM RegisterWindowVM { get; set; }
+        private RegisterWindowVM RegisterWindowVM { get; set; }
 
         public event EventHandler? CanExecuteChanged
         {

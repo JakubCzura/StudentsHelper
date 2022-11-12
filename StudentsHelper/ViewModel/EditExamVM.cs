@@ -2,11 +2,6 @@
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace StudentsHelper.ViewModel
 {
@@ -23,7 +18,7 @@ namespace StudentsHelper.ViewModel
 
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
 
-        public SaveEditedExamCommand SaveEditedExamCommand { get; set; }       
+        public SaveEditedExamCommand SaveEditedExamCommand { get; set; }
 
         public string Name
         {
@@ -48,6 +43,7 @@ namespace StudentsHelper.ViewModel
             get { return SelectedExam.MinuteOfExam; }
             set { SelectedExam.MinuteOfExam = value; OnPropertyChanged(nameof(MinuteOfExam)); }
         }
+
         public int? RoomNumber
         {
             get { return SelectedExam.RoomNumber; }
@@ -73,6 +69,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private Exam selectedExam { get; set; }
+
         public Exam SelectedExam
         {
             get { return selectedExam; }

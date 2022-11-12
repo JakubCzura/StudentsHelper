@@ -1,19 +1,11 @@
-﻿using StudentsHelper.View;
-using StudentsHelper.View.Windows;
+﻿using StudentsHelper.View.Windows;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
 {
     public class ShowRegisterWindowCommand : ICommand
     {
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }

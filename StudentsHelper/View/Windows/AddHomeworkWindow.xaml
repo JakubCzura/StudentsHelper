@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
-        Title="StudentsHelper" 
+        Title="StudentsHelper"
         WindowStartupLocation="CenterScreen"
         Style="{DynamicResource WindowStyle}">
-    
+
     <Window.Resources>
         <vm:AddHomeworkVM x:Key="AddHomeworkVM"></vm:AddHomeworkVM>
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,5,5,5"></Setter>
         </Style>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextWrapping" Value="NoWrap" />
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,3,5,5"></Setter>
         </Style>
@@ -32,7 +32,6 @@
             <Setter Property="Height" Value="4"></Setter>
         </Style>
     </Window.Resources>
-
 
     <Grid DataContext="{StaticResource AddHomeworkVM}">
         <Grid.RowDefinitions>

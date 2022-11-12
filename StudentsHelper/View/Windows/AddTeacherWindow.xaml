@@ -9,17 +9,17 @@
         Title="StudentsHelper"
         WindowStartupLocation="CenterScreen"
         Style="{DynamicResource WindowStyle}">
-    
+
     <Window.Resources>
         <vm:AddTeacherVM x:Key="AddTeacherVM"></vm:AddTeacherVM>
-        
+
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextWrapping" Value="Wrap" />
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,5,5,5"></Setter>
         </Style>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextWrapping" Value="NoWrap" />
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="5,3,5,5"></Setter>
         </Style>
@@ -33,7 +33,6 @@
             <Setter Property="Height" Value="4"></Setter>
         </Style>
     </Window.Resources>
-
 
     <Grid DataContext="{StaticResource AddTeacherVM}">
         <Grid.RowDefinitions>

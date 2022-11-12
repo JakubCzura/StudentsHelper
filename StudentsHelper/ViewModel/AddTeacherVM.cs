@@ -1,12 +1,6 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -21,7 +15,7 @@ namespace StudentsHelper.ViewModel
         public Teacher Teacher { get; set; } = new Teacher { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
         public SaveTeacherCommand SaveTeacherCommand { get; set; }
-      
+
         public string Lesson
         {
             get { return Teacher.Lesson; }
@@ -50,7 +44,6 @@ namespace StudentsHelper.ViewModel
             set { Teacher.RoomNumber = value; OnPropertyChanged(nameof(RoomNumber)); }
         }
 
-
         public string LastName
         {
             get { return Teacher.LastName; }
@@ -61,6 +54,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return Teacher.Note; }
             set { Teacher.Note = value; OnPropertyChanged(Note); }
-        }     
+        }
     }
 }

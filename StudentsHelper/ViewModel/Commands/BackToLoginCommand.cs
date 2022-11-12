@@ -1,10 +1,5 @@
-﻿using StudentsHelper.View;
-using StudentsHelper.View.Windows;
+﻿using StudentsHelper.View.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel.Commands
@@ -24,7 +19,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            LoginWindow LoginWindow= new LoginWindow();
+            LoginWindow LoginWindow = new LoginWindow();
             LoginWindow.Show();
             RegisterWindow.Instance?.Close();
         }

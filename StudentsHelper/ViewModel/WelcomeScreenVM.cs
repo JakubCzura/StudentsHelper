@@ -1,6 +1,5 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,6 +32,7 @@ namespace StudentsHelper.ViewModel
         }
 
         private readonly List<int> daysToDeadline = new List<int>() { 5, 10, 15 };
+
         public List<int> DaysToDeadline
         {
             get { return daysToDeadline; }
@@ -77,10 +77,9 @@ namespace StudentsHelper.ViewModel
 
         public string TodayDate
         {
-            get { return $"Dzisiaj jest {DateTime.Today.ToString("dd/MM/yyyy")}"; }
+            get { return $"Dzisiaj jest {DateTime.Today:dd/MM/yyyy}"; }
         }
 
-      
         private void GetDutiesBeforeDeadline(int daysToDeadline)
         {
             Exams = GetExamsBeforeDeadline(daysToDeadline);
@@ -90,7 +89,6 @@ namespace StudentsHelper.ViewModel
 
         private ObservableCollection<Exam> GetExamsBeforeDeadline(int daysToDeadline)
         {
-
             try
             {
                 return new ObservableCollection<Exam>

@@ -1,6 +1,5 @@
 ﻿using StudentsHelper.DataBase;
 using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -21,22 +20,25 @@ namespace StudentsHelper.ViewModel
         public static TeachersVM? Instance { get; set; }
 
         private ObservableCollection<Teacher> teachers = LoginStudent.GetTeachersData();
+
         public ObservableCollection<Teacher> Teachers
         {
             get { return teachers; }
             set { teachers = value; OnPropertyChanged(nameof(teachers)); }
         }
+
         public ICommand AddTeacherCommand { get; set; }
 
         public ICommand DeleteTeacherCommand { get; set; }
-        
+
         public ICommand ShowEditTeacherCommand { get; set; }
-       
-        private Teacher selectedTeacher{ get; set; }
+
+        private Teacher selectedTeacher { get; set; }
+
         public Teacher SelectedTeacher
         {
-            get {  return selectedTeacher; }
-            set { selectedTeacher= value; OnPropertyChanged(nameof(SelectedTeacher)); }
-        }      
+            get { return selectedTeacher; }
+            set { selectedTeacher = value; OnPropertyChanged(nameof(SelectedTeacher)); }
+        }
     }
 }

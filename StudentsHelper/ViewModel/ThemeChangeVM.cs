@@ -1,12 +1,6 @@
-﻿using StudentsHelper.Themes;
-using StudentsHelper.View.UserControls;
-using StudentsHelper.ViewModel.Commands;
+﻿using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -23,10 +17,10 @@ namespace StudentsHelper.ViewModel
         public static ThemeChangeVM? Instance { get; set; }
 
         public SaveNewThemeCommand SaveNewThemeCommand { get; set; }
-             
+
         private string theme = String.Empty;
 
-        public string Theme 
+        public string Theme
         {
             get { return theme; }
             set { theme = value; OnPropertyChanged(Theme); }
@@ -47,6 +41,5 @@ namespace StudentsHelper.ViewModel
             get { return themes; }
             set { themes = value; OnPropertyChanged(nameof(Themes)); }
         }
-       
     }
 }

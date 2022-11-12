@@ -1,21 +1,19 @@
 ﻿<UserControl x:Class="StudentsHelper.View.UserControls.ExamsUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:StudentsHelper.View.UserControls"
-             mc:Ignorable="d" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:StudentsHelper.ViewModel"
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
              Style="{DynamicResource UserControlStyle}">
-    
+
     <UserControl.Resources>
-        <vm:ExamsVM x:Key="ExamsVM"/>
+        <vm:ExamsVM x:Key="ExamsVM" />
 
         <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
-            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextWrapping" Value="Wrap" />
         </Style>
-
     </UserControl.Resources>
 
     <Grid DataContext="{StaticResource ExamsVM}">
@@ -24,7 +22,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Style="{DynamicResource UserPanelMenuStyle}">
-            <Button x:Name="AddExamButton" Content="Dodaj egzamin" Command="{Binding AddExamCommand}" CommandParameter="AddExam" Style="{DynamicResource AddButtonStyle}"/>
+            <Button x:Name="AddExamButton" Content="Dodaj egzamin" Command="{Binding AddExamCommand}" CommandParameter="AddExam" Style="{DynamicResource AddButtonStyle}" />
         </Menu>
         <DataGrid Grid.Row="1" ItemsSource="{Binding Exams}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedExam}" Style="{DynamicResource UserPanelDataGrid}">
             <DataGrid.Columns>

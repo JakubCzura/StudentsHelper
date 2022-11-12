@@ -1,12 +1,5 @@
 ﻿using StudentsHelper.Model;
-using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.ViewModel
 {
@@ -21,12 +14,12 @@ namespace StudentsHelper.ViewModel
             BackToLoginCommand = new BackToLoginCommand();
         }
 
-        public Student Student { get; set; }       
-        public DegreeCourse DegreeCourse { get; set; }       
+        public Student Student { get; set; }
+        public DegreeCourse DegreeCourse { get; set; }
         public RegisterCommand RegisterCommand { get; set; }
 
         public BackToLoginCommand BackToLoginCommand { get; set; }
-       
+
         public int Id
         {
             get { return Student.Id; }
@@ -50,7 +43,7 @@ namespace StudentsHelper.ViewModel
             get { return Student.Age; }
             set { Student.Age = value; OnPropertyChanged(nameof(Age)); }
         }
-      
+
         public string Course
         {
             get { return DegreeCourse.Course; }
@@ -91,6 +84,6 @@ namespace StudentsHelper.ViewModel
         {
             get { return Student.Password; }
             set { Student.Password = value; OnPropertyChanged(Password); }
-        }   
+        }
     }
 }

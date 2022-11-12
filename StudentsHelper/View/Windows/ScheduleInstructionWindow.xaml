@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsHelper.View.Windows"
         mc:Ignorable="d"
-        Title="StudentsHelper" Height="450" Width="800" 
+        Title="StudentsHelper" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
         Style="{DynamicResource WindowStyle}">
-    
+
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
@@ -22,7 +22,7 @@
             <TextBlock HorizontalAlignment="Center">Instrukcja pobrania planu zajęć</TextBlock>
             <TextBlock>1. Upewnij się, że e-mail oraz hasło, których używasz w aplikacji
             są takie same jak w wirtualnej uczelni, jeśli są inne to popraw je w ustawieniach</TextBlock>
-            <TextBlock>2. Pobierz program Adobe Acrobat Reader w celu wyświetlania poprawnie planu zajęć 
+            <TextBlock>2. Pobierz program Adobe Acrobat Reader w celu wyświetlania poprawnie planu zajęć
             jeśli go nie posiadasz</TextBlock>
             <TextBlock>3. Kliknij przycisk pobierz i poczekaj aż program pobierze plan zajęć</TextBlock>
             <TextBlock>4. Wyloguj się z wirtualnej uczelni</TextBlock>

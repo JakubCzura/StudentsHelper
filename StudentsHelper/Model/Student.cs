@@ -1,18 +1,12 @@
 ﻿using SQLite;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace StudentsHelper.Model
 {
     public class Student : IUser
     {
-        
         private int id = 0;
+
         [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
@@ -21,20 +15,23 @@ namespace StudentsHelper.Model
         }
 
         private string name = string.Empty;
-        public string Name 
+
+        public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
         private string secondName = string.Empty;
-        public string SecondName 
+
+        public string SecondName
         {
             get { return secondName; }
             set { secondName = value; }
         }
 
         private int age = 0;
+
         public int Age
         {
             get { return age; }
@@ -42,6 +39,7 @@ namespace StudentsHelper.Model
         }
 
         private string email = string.Empty;
+
         [EmailAddress]
         public string Email
         {
@@ -50,6 +48,7 @@ namespace StudentsHelper.Model
         }
 
         private string login = string.Empty;
+
         public string Login
         {
             get { return login; }
@@ -57,13 +56,15 @@ namespace StudentsHelper.Model
         }
 
         private string password = string.Empty;
-        public string Password 
+
+        public string Password
         {
             get { return password; }
             set { password = value; }
         }
 
         private string salt = string.Empty;
+
         public string Salt
         {
             get { return salt; }

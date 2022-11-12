@@ -24,18 +24,19 @@ namespace StudentsHelper.ViewModel
         public ICommand ShowScheduleInstructionWindowCommand { get; set; }
 
         private static bool isGetScheduleButtonEnabled = true;
+
         public bool IsGetScheduleButtonEnabled
         {
             get { return isGetScheduleButtonEnabled; }
-            set { isGetScheduleButtonEnabled = value; OnPropertyChanged(nameof(IsGetScheduleButtonEnabled)); } 
+            set { isGetScheduleButtonEnabled = value; OnPropertyChanged(nameof(IsGetScheduleButtonEnabled)); }
         }
-        
+
         /// <summary>
         /// Dispose ScheduleWebBrowser in ScheduleUserControl
         /// </summary>
         public static void DisposeScheduleWebBrowser()
         {
-            if(ScheduleUserControl.Instance != null)
+            if (ScheduleUserControl.Instance != null)
             {
                 ScheduleUserControl.Instance.ScheduleWebBrowser.Dispose();
             }

@@ -1,19 +1,13 @@
 ﻿using StudentsHelper.DirectoriesHelper;
 using StudentsHelper.View.UserControls;
-using Syroot.Windows.IO;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace StudentsHelper.Schedules
 {
     public class ScheduleImporter : ScheduleDownloader
-    {       
+    {
         private static List<string>? GetSchedulesSortedDescending()
         {
             List<string>? fileEntries = Directory.GetFiles(ApplicationDirectories.DownloadsDirectoryFullPath).Where(file => IsScheduleNameCorrect(Path.GetFileName(file))).ToList();

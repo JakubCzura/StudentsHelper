@@ -1,15 +1,11 @@
 ﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentsHelper.Model
 {
     public class DegreeCourse
     {
         private int id;
+
         [PrimaryKey, AutoIncrement, NotNull]
         public int Id
         {
