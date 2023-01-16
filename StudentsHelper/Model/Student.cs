@@ -3,72 +3,22 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StudentsHelper.Model
 {
-    public class Student : IUser
+    public class Student
     {
-        private int id = 0;
-
         [PrimaryKey, AutoIncrement, NotNull]
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public int Id { get; set; }
 
-        private string name = string.Empty;
+        public string Name { get; set; } = string.Empty;
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public string SecondName { get; set; } = string.Empty;
 
-        private string secondName = string.Empty;
-
-        public string SecondName
-        {
-            get { return secondName; }
-            set { secondName = value; }
-        }
-
-        private int age = 0;
-
-        public int Age
-        {
-            get { return age; }
-            set { age = value; }
-        }
-
-        private string email = string.Empty;
+        public int Age { get; set; }
 
         [EmailAddress]
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
+        public string Email { get; set; } = string.Empty;
 
-        private string login = string.Empty;
+        public string Login { get; set; } = string.Empty;
 
-        public string Login
-        {
-            get { return login; }
-            set { login = value; }
-        }
-
-        private string password = string.Empty;
-
-        public string Password
-        {
-            get { return password; }
-            set { password = value; }
-        }
-
-        private string salt = string.Empty;
-
-        public string Salt
-        {
-            get { return salt; }
-            set { salt = value; }
-        }
+        public string Password { get; set; } = string.Empty;
     }
 }

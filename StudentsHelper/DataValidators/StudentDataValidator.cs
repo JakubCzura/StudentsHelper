@@ -62,15 +62,15 @@ namespace StudentsHelper.DataValidators
             }
             if (!login.All(char.IsLetterOrDigit))
             {
-                throw new ArgumentException("Login zawiera inne znaki niż litery i cyfry", nameof(login));
+                throw new ArgumentException("LogIn zawiera inne znaki niż litery i cyfry", nameof(login));
             }
             if (!login.StartsWith('s'))
             {
-                throw new ArgumentException("Login musi zaczynać się od litery 's' i zawierać 6 cyfr", nameof(login));
+                throw new ArgumentException("LogIn musi zaczynać się od litery 's' i zawierać 6 cyfr", nameof(login));
             }
             if (!login.Substring(1).All(char.IsDigit))
             {
-                throw new ArgumentException("Login musi zaczynać się od litery 's' i zawierać 6 cyfr", nameof(login));
+                throw new ArgumentException("LogIn musi zaczynać się od litery 's' i zawierać 6 cyfr", nameof(login));
             }
             return true;
         }

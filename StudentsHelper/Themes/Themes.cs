@@ -26,16 +26,13 @@ namespace StudentsHelper.Themes
         }
 
         private static readonly string DataPath = Path.Combine(Environment.CurrentDirectory, "ThemesData.txt");
-        //private static readonly string DataPath = new Uri($"/Themes/ThemesData.txt", UriKind.Relative).ToString();
 
         public static void SaveTheme(string theme)
         {
             try
             {
-                using (StreamWriter StreamWriter = new StreamWriter(DataPath, false))
-                {
-                    StreamWriter.WriteLine(theme.ToString());
-                }
+                using StreamWriter StreamWriter = new(DataPath, false);
+                StreamWriter.WriteLine(theme.ToString());
             }
             catch (Exception exception)
             {
@@ -49,10 +46,8 @@ namespace StudentsHelper.Themes
             {
                 if (File.Exists(DataPath))
                 {
-                    using (StreamReader StreamReader = new StreamReader(DataPath))
-                    {
-                        return StreamReader.ReadLine();
-                    }
+                    using StreamReader StreamReader = new(DataPath);
+                    return StreamReader.ReadLine();
                 }
                 else
                 {
@@ -72,7 +67,6 @@ namespace StudentsHelper.Themes
             {
                 App.Current.Resources.Clear();
                 App.Current.Resources.MergedDictionaries.Clear();
-                //App.Current.Resources.Source = new Uri($"/Themes/{ReadTheme()}.xaml", UriKind.Relative);
 
                 App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri($"/Themes/CommonTheme.xaml", UriKind.Relative) });
                 App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri($"/Themes/{ReadTheme()}.xaml", UriKind.Relative) });

@@ -5,35 +5,12 @@ namespace StudentsHelper.Model
 {
     public class Exam
     {
-        public Exam()
-        {
-            DateOfExam = DateTime.Now;
-        }
-
-        private int id;
-
         [PrimaryKey, AutoIncrement, NotNull]
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public int Id { get; set; }
 
-        private string name = string.Empty;
+        public string Name { get; set; } = string.Empty;
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        private DateTime dateOfExam = DateTime.Today;
-
-        public DateTime DateOfExam
-        {
-            get { return dateOfExam; }
-            set { dateOfExam = value; }
-        }
+        public DateTime DateOfExam { get; set; } = DateTime.Now;
 
         public string DateOfExamShort
         {
@@ -73,49 +50,19 @@ namespace StudentsHelper.Model
             get { return $"{HourOfExam}:{MinuteOfExam}"; }
         }
 
-        private int? roomNumber = null;
+        public int? RoomNumber { get; set; } = null;
 
-        public int? RoomNumber
-        {
-            get { return roomNumber; }
-            set { roomNumber = value; }
-        }
-
-        private string roomLetter = String.Empty;
-
-        public string RoomLetter
-        {
-            get { return roomLetter; }
-            set { roomLetter = value; }
-        }
+        public string RoomLetter { get; set; } = string.Empty;
 
         public string FullRoomNumber
         {
             get { return $"{RoomNumber}{RoomLetter}"; }
         }
 
-        private string note = string.Empty;
+        public string Note { get; set; } = string.Empty;
 
-        public string Note
-        {
-            get { return note; }
-            set { note = value; }
-        }
+        public int StudentId { get; set; }
 
-        private int studentId = 0;
-
-        public int StudentId
-        {
-            get { return studentId; }
-            set { studentId = value; }
-        }
-
-        private string studentLogin = string.Empty;
-
-        public string StudentLogin
-        {
-            get { return studentLogin; }
-            set { studentLogin = value; }
-        }
+        public string StudentLogin { get; set; } = string.Empty;
     }
 }

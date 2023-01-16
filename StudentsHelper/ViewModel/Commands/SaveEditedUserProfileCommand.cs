@@ -37,7 +37,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (StudentDataValidator.ValidateStudentData(UserProfileVM.Student) && DegreeCourseDataValidator.ValidateDegreeCourseData(UserProfileVM.DegreeCourse))
                 {
-                    if (SaveData.Update(UserProfileVM.Student) && SaveData.Update(UserProfileVM.DegreeCourse))
+                    if (DataUpdating.Update(UserProfileVM.Student) && DataUpdating.Update(UserProfileVM.DegreeCourse))
                     {
                         MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
                     }

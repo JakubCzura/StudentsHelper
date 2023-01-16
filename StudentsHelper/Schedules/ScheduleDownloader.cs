@@ -27,10 +27,12 @@ namespace StudentsHelper.Schedules
         {
             try
             {
-                NetworkCredential LoginCredentials = new NetworkCredential(userEmail, userPassword);
+                NetworkCredential LoginCredentials = new(userEmail, userPassword);
 
-                WebDriver WebDriver = new FirefoxDriver();
-                WebDriver.Url = scheduleWebPage;
+                WebDriver WebDriver = new FirefoxDriver
+                {
+                    Url = scheduleWebPage
+                };
 
                 IWebElement UsernameInput = WebDriver.FindElement(By.Id(usernameInputId));
                 IWebElement PasswordInput = WebDriver.FindElement(By.Id(passwordInputId));
@@ -39,8 +41,8 @@ namespace StudentsHelper.Schedules
                 PasswordInput.SendKeys(LoginCredentials.Password);
                 LoginButton.Click();
 
-                WebDriverWait WebDriverWait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(60));
-                Actions Actions = new Actions(WebDriver);
+                WebDriverWait WebDriverWait = new(WebDriver, TimeSpan.FromSeconds(60));
+                Actions Actions = new(WebDriver);
                 WebDriver.Manage().Window.Maximize();
                 IJavaScriptExecutor WebDriverExecutor = WebDriver;
 

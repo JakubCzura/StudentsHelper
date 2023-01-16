@@ -32,7 +32,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Delete(ExamsVM.SelectedExam))
+            if (DataDeletion.Delete(ExamsVM.SelectedExam))
             {
                 if (ExamsVM.Instance != null)
                 {

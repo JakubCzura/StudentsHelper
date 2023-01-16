@@ -8,7 +8,7 @@ namespace StudentsHelper.DataBase
 {
     public class RegisterStudent : DataBaseHelper
     {
-        public static bool Register(RegisterWindowVM RegisterWindowVM)
+        public bool Register(RegisterWindowVM RegisterWindowVM)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace StudentsHelper.DataBase
                     Student? StudentTMP = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == RegisterWindowVM.Login);
                     if (StudentTMP != null)
                     {
-                        MessageBox.Show($"Istnieje już użytkownik o podanym loginie\nPodaj inny login", "Login jest już używany");
+                        MessageBox.Show($"Istnieje już użytkownik o podanym loginie\nPodaj inny login", "LogIn jest już używany");
                         return false;
                     }
                 }

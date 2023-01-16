@@ -32,7 +32,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (HomeworkDataValidator.ValidateHomeworkData(AddHomeworkVM.Homework))
                 {
-                    if (SaveData.Save(AddHomeworkVM.Homework))
+                    if (DataSaving.Save(AddHomeworkVM.Homework))
                     {
                         if (HomeworkVM.Instance != null)
                         {

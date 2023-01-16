@@ -22,17 +22,14 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
-                {
-                    SQLiteConnection.CreateTable<Student>();
-                    SQLiteConnection.CreateTable<DegreeCourse>();
-                    SQLiteConnection.CreateTable<Homework>();
-                    SQLiteConnection.CreateTable<Exam>();
-                    SQLiteConnection.CreateTable<Test>();
-                    SQLiteConnection.CreateTable<Lesson>();
-                    SQLiteConnection.CreateTable<Teacher>();
-                    SQLiteConnection.CreateTable<Note>();
-                }
+                using SQLiteConnection SQLiteConnection = new(DataBasePath);
+                SQLiteConnection.CreateTable<Student>();
+                SQLiteConnection.CreateTable<DegreeCourse>();
+                SQLiteConnection.CreateTable<Homework>();
+                SQLiteConnection.CreateTable<Exam>();
+                SQLiteConnection.CreateTable<Test>();
+                SQLiteConnection.CreateTable<Teacher>();
+                SQLiteConnection.CreateTable<Note>();
             }
             catch (Exception exception)
             {

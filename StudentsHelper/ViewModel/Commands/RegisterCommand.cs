@@ -31,6 +31,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
+                RegisterStudent registerStudent = new();
                 if (RegisterWindow.Instance != null)
                 {
                     RegisterWindowVM.Password = RegisterWindow.Instance.PasswordBox.Password;
@@ -40,7 +41,7 @@ namespace StudentsHelper.ViewModel.Commands
                     {
                         RegisterWindowVM.Password = Hasher.HashPassword(RegisterWindowVM.Password);
                         StudentDataValidator.ValidateStudentData(RegisterWindowVM.Student);
-                        if (RegisterStudent.Register(RegisterWindowVM) == true)
+                        if (registerStudent.Register(RegisterWindowVM) == true)
                         {
                             LoginWindow LoginWindow = new LoginWindow();
                             LoginWindow.Show();

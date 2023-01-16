@@ -4,19 +4,20 @@ using StudentsHelper.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace StudentsHelper.DataBase
 {
     public class LoginStudent : DataBaseHelper
     {
-        public static bool Login(LoginVM LoginVM)
+        public bool LogIn(LoginVM LoginVM)
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
-                    Student? Student = SQLiteConnection.Table<Student>().First(s => s.Login == LoginVM.Login);
+                    Student? Student = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == LoginVM.Login);
                     if (Student != null)
                     {
                         if (Hasher.VerifyPassword(LoginVM.Password, Student.Password))

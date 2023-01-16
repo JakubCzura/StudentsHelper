@@ -54,7 +54,7 @@ namespace StudentsHelper.ViewModel.Commands
                             PasswordChangeVM.Student.Password = Hasher.HashPassword(PasswordChangeUserControl.Instance.RepeatedPasswordBox.Password);
                             if (StudentDataValidator.ValidateStudentData(PasswordChangeVM.Student))
                             {
-                                SaveData.Update(PasswordChangeVM.Student);
+                                DataUpdating.Update(PasswordChangeVM.Student);
                                 MessageBox.Show("Zapisano pomyślnie", "Edytowano informacje");
                             }
                         }
@@ -83,7 +83,7 @@ namespace StudentsHelper.ViewModel.Commands
             }
         }
 
-        private void SetPasswordEmpty()
+        private static void SetPasswordEmpty()
         {
             PasswordChangeUserControl.Instance.OldPasswordBox.Password = String.Empty;
             PasswordChangeUserControl.Instance.NewPasswordBox.Password = String.Empty;

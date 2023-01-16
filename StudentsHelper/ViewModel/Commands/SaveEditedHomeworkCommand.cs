@@ -27,7 +27,7 @@ namespace StudentsHelper.ViewModel.Commands
 
         public void Execute(object? parameter)
         {
-            if (SaveData.Update(EditHomeworkVM.SelectedHomework))
+            if (DataUpdating.Update(EditHomeworkVM.SelectedHomework))
             {
                 if (HomeworkVM.Instance != null)
                 {

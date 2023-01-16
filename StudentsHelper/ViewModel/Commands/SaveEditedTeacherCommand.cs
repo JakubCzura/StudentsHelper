@@ -32,7 +32,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (TeacherDataValidator.ValidateTeacherData(EditTeacherVM.SelectedTeacher))
                 {
-                    if (SaveData.Update(EditTeacherVM.SelectedTeacher))
+                    if (DataUpdating.Update(EditTeacherVM.SelectedTeacher))
                     {
                         if (TeachersVM.Instance != null)
                         {

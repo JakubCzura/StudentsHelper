@@ -32,7 +32,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (NoteDataValidator.ValidateNoteData(AddNoteVM.Note))
                 {
-                    if (SaveData.Save(AddNoteVM.Note))
+                    if (DataSaving.Save(AddNoteVM.Note))
                     {
                         if (NotesVM.Instance != null)
                         {

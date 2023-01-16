@@ -4,65 +4,25 @@ namespace StudentsHelper.Model
 {
     public class DegreeCourse
     {
-        private int id;
 
         [PrimaryKey, AutoIncrement, NotNull]
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public int Id { get; set; }
 
-        private string studentLogin = string.Empty;
+        public string StudentLogin { get; set; } = string.Empty;
 
-        public string StudentLogin
-        {
-            get { return studentLogin; }
-            set { studentLogin = value; }
-        }
-
-        private int studentId = 0;
-
-        public int StudentId
-        {
-            get { return studentId; }
-            set { studentId = value; }
-        }
+        public int StudentId { get; set; }
 
         //Kierunek
-        private string course = string.Empty;
-
-        public string Course
-        {
-            get { return course; }
-            set { course = value; }
-        }
+        public string Course { get; set; } = string.Empty;
 
         //Semestr
-        private int semester = 0;
-
-        public int Semester
-        {
-            get { return semester; }
-            set { semester = value; }
-        }
+        public int Semester { get; set; }
 
         //Specjalizacja
-        private string speciality = string.Empty;
-
-        public string Speciality
-        {
-            get { return speciality; }
-            set { speciality = value; }
-        }
+        public string Speciality { get; set; } = string.Empty;
 
         //Wydział
-        private string faculty = string.Empty;
+        public string Faculty { get; set; } = string.Empty;
 
-        public string Faculty
-        {
-            get { return faculty; }
-            set { faculty = value; }
-        }
     }
 }
