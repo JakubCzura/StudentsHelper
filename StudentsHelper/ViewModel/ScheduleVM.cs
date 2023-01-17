@@ -15,7 +15,7 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             Student = DataBase.ObjectsDataGetter.GetStudentData();
-            ShowScheduleInstructionWindowCommand = new RelayCommand(ShowScheduleInstructionWindow);
+            ShowScheduleInstructionWindowCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(ShowScheduleInstructionWindow);
             GetScheduleCommand = new GetScheduleCommand(this);
             ScheduleImporter.SetSchedule();
         }

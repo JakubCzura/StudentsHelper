@@ -1,7 +1,11 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
+using System.Windows;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -10,12 +14,39 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddNoteWindow.xaml
         public AddNoteVM()
         {
-            SaveNoteCommand = new SaveNoteCommand(this);
+            SaveNoteCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveNote);
+        }
+
+        private void SaveNote()
+        {
+            try
+            {
+                if (NoteDataValidator.ValidateNoteData(Note))
+                {
+                    if (DataSaving.Save(Note))
+                    {
+                        if (NotesVM.Instance != null)
+                        {
+                            NotesVM.Instance.Notes = ObjectsDataGetter.GetNotesData();
+                            NotesVM.Instance.SortNotesDateAscending();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano notatkę");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj dodać notatkę ponownie", "Błąd dodania notatki");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
+            }
         }
 
         public Note Note { get; set; } = new Note { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
-        public SaveNoteCommand SaveNoteCommand { get; set; }
+        public ICommand SaveNoteCommand { get; private set; }
 
         public string Name
         {

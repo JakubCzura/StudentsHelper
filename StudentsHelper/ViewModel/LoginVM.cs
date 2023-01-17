@@ -17,7 +17,7 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             LoginCommand = new LoginCommand(this);
-            ShowRegisterWindowCommand = new RelayCommand(ShowRegisterWindow);
+            ShowRegisterWindowCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(ShowRegisterWindow);
             DataBaseHelper.CreateEmptyDataBase();
         }
   

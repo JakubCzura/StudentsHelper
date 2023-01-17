@@ -2,9 +2,9 @@
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
-using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -15,12 +15,27 @@ namespace StudentsHelper.ViewModel
         public NotesVM()
         {
             AddNoteCommand = new RelayCommand(ShowAddNoteWindow);
-            DeleteNoteCommand = new DeleteNoteCommand(this);
+            DeleteNoteCommand = new RelayCommand(DeleteNote);
             ShowEditNoteCommand = new RelayCommand(ShowEditNoteWindow);
             Instance = this;
             SortNotesDateAscending();
         }
 
+        private void DeleteNote()
+        {
+            if (Notes != null && Notes.Any() == true)
+            {
+                if (DataDeletion.Delete(SelectedNote))
+                {
+                    Notes = ObjectsDataGetter.GetNotesData();
+                    MessageBox.Show("Skasowano informację o notatce", "Zapisano pomyślnie");
+                }
+                else
+                {
+                    MessageBox.Show("Spróbuj skasować informację o notatce ponownie", "Błąd skasowania informacji o notatce");
+                }
+            }
+        }
         private void ShowEditNoteWindow()
         {
             if (Notes != null && Notes.Any() == true)
@@ -35,6 +50,7 @@ namespace StudentsHelper.ViewModel
             AddNoteWindow AddNoteWindow = new();
             AddNoteWindow.Show();
         }
+
 
         public static NotesVM? Instance { get; set; }
 

@@ -2,9 +2,9 @@
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
-using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -15,10 +15,26 @@ namespace StudentsHelper.ViewModel
         public ExamsVM()
         {
             AddExamCommand = new RelayCommand(ShowAddExamWindow);
-            DeleteExamCommand = new DeleteExamCommand(this);
+            DeleteExamCommand = new RelayCommand(DeleteExam);
             ShowEditExamCommand = new RelayCommand(ShowEditExamWindow);
             Instance = this;
             SortExamsDateAscending();
+        }
+
+        private void DeleteExam()
+        {
+            if (Exams != null && Exams.Any() == true)
+            {
+                if (DataDeletion.Delete(SelectedExam))
+                {
+                    Exams = ObjectsDataGetter.GetExamsData();
+                    MessageBox.Show("Skasowano informację o egzaminie", "Zapisano pomyślnie");
+                }
+                else
+                {
+                    MessageBox.Show("Spróbuj skasować informację o egzaminie ponownie", "Błąd skasowania informacji o egzaminie");
+                }
+            }
         }
 
         private void ShowAddExamWindow()

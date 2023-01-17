@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace StudentsHelper.Themes
 {
-    public class Themes
+    public class ThemesManager
     {
         public enum AppThemes
         {

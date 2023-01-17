@@ -1,6 +1,11 @@
 ﻿using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
+using System.Windows;
+using System;
+using CommunityToolkit.Mvvm.Input;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -9,12 +14,38 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddHomeworkWindow.xaml
         public AddTeacherVM()
         {
-            SaveTeacherCommand = new SaveTeacherCommand(this);
+            SaveTeacherCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveTeacher);
+        }
+
+        private void SaveTeacher()
+        {
+            try
+            {
+                if (TeacherDataValidator.ValidateTeacherData(Teacher))
+                {
+                    if (DataSaving.Save(Teacher))
+                    {
+                        if (TeachersVM.Instance != null)
+                        {
+                            TeachersVM.Instance.Teachers = ObjectsDataGetter.GetTeachersData();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano wykładowcę");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj dodać wykładowcę ponownie", "Błąd dodania wykładowcy");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
+            }
         }
 
         public Teacher Teacher { get; set; } = new Teacher { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
-        public SaveTeacherCommand SaveTeacherCommand { get; set; }
+        public ICommand SaveTeacherCommand { get; private set; }
 
         public string Lesson
         {

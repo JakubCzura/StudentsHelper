@@ -2,9 +2,9 @@
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
-using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -15,10 +15,26 @@ namespace StudentsHelper.ViewModel
         public TestsVM()
         {
             AddTestCommand = new RelayCommand(ShowAddTestWindow);
-            DeleteTestCommand = new DeleteTestCommand(this);
+            DeleteTestCommand = new RelayCommand(DeleteTest);
             ShowEditTestCommand = new RelayCommand(ShowEditTestWindow);
             Instance = this;
             SortTestsDateAscending();
+        }
+
+        private void DeleteTest()
+        {
+            if (Tests != null && Tests.Any() == true)
+            {
+                if (DataDeletion.Delete(SelectedTest))
+                {
+                    Tests = ObjectsDataGetter.GetTestsData();
+                    MessageBox.Show("Skasowano informację o teście", "Zapisano pomyślnie");
+                }
+                else
+                {
+                    MessageBox.Show("Spróbuj skasować informację o teście ponownie", "Błąd skasowania informacji o teście");
+                }
+            }
         }
 
         private void ShowAddTestWindow()

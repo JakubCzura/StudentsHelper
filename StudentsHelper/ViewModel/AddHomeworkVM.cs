@@ -1,7 +1,11 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
+using System.Windows;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -10,12 +14,39 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddHomeworkWindow.xaml
         public AddHomeworkVM()
         {
-            SaveHomeworkCommand = new SaveHomeworkCommand(this);
+            SaveHomeworkCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveHomework);
+        }
+
+        private void SaveHomework()
+        {
+            try
+            {
+                if (HomeworkDataValidator.ValidateHomeworkData(Homework))
+                {
+                    if (DataSaving.Save(Homework))
+                    {
+                        if (HomeworkVM.Instance != null)
+                        {
+                            HomeworkVM.Instance.Homework = ObjectsDataGetter.GetHomeworkData();
+                            //HomeworkVM.Instance.SortHomeworkDateAscending();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano zadanie domowe");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj dodać pracę domową ponownie", "Błąd dodania pracy domowej");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
+            }
         }
 
         public Homework Homework { get; set; } = new Homework { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
-        public SaveHomeworkCommand SaveHomeworkCommand { get; set; }
+        public ICommand SaveHomeworkCommand { get; private set; }
 
         public string LessonName
         {

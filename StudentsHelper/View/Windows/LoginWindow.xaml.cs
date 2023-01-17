@@ -11,7 +11,7 @@ namespace StudentsHelper.View.Windows
 
         public LoginWindow()
         {
-            Themes.Themes.SetTheme();
+            Themes.ThemesManager.SetTheme();
             InitializeComponent();
             Instance = this;
         }

@@ -1,8 +1,12 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -11,13 +15,40 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddExamWindow.xaml
         public AddExamVM()
         {
-            SaveExamCommand = new SaveExamCommand(this);
+            SaveExamCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveExam);
+        }
+
+        private void SaveExam()
+        {
+            try
+            {
+                if (ExamDataValidator.ValidateExamData(Exam))
+                {
+                    if (DataSaving.Save(Exam))
+                    {
+                        if (ExamsVM.Instance != null)
+                        {
+                            ExamsVM.Instance.Exams = ObjectsDataGetter.GetExamsData();
+                            ExamsVM.Instance.SortExamsDateAscending();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano egzamin");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj dodać egzamin ponownie", "Błąd dodania egzaminu");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
+            }
         }
 
         public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
 
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
-        public SaveExamCommand SaveExamCommand { get; set; }
+        public ICommand SaveExamCommand { get; set; }
 
         public string Name
         {

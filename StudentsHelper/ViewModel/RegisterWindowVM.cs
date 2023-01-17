@@ -1,5 +1,9 @@
-﻿using StudentsHelper.Model;
+﻿using CommunityToolkit.Mvvm.Input;
+using OpenQA.Selenium.DevTools.V104.Network;
+using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -11,14 +15,21 @@ namespace StudentsHelper.ViewModel
             Student = new Student();
             DegreeCourse = new DegreeCourse();
             RegisterCommand = new RegisterCommand(this);
-            BackToLoginCommand = new BackToLoginCommand();
+            BackToLoginCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(BackToLogin);
+        }
+
+        private void BackToLogin()
+        {
+            LoginWindow LoginWindow = new();
+            LoginWindow.Show();
+            RegisterWindow.Instance?.Close();
         }
 
         public Student Student { get; set; }
         public DegreeCourse DegreeCourse { get; set; }
-        public RegisterCommand RegisterCommand { get; set; }
+        public RegisterCommand RegisterCommand { get; private set; }
 
-        public BackToLoginCommand BackToLoginCommand { get; set; }
+        public ICommand BackToLoginCommand { get; private set; }
 
         public int Id
         {

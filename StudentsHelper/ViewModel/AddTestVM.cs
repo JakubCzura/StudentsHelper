@@ -1,8 +1,11 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Model;
-using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -11,12 +14,39 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddTestWindow.xaml
         public AddTestVM()
         {
-            SaveTestCommand = new SaveTestCommand(this);
+            SaveTestCommand = new RelayCommand(SaveTest);
         }
 
         public Test Test { get; set; } = new Test { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
-        public SaveTestCommand SaveTestCommand { get; set; }
+        public ICommand SaveTestCommand { get; set; }
+
+        private void SaveTest()
+        {
+            try
+            {
+                if (TestDataValidator.ValidateTestData(Test))
+                {
+                    if (DataSaving.Save(Test))
+                    {
+                        if (TestsVM.Instance != null)
+                        {
+                            TestsVM.Instance.Tests = ObjectsDataGetter.GetTestsData();
+                            TestsVM.Instance.SortTestsDateAscending();
+                        }
+                        MessageBox.Show("Zapisano pomyślnie", "Dodano kolokwium");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Spróbuj dodać kolokwium ponownie", "Błąd dodania kolokwium");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e.Message}\nProszę poprawić błędne dane", "Błąd zapisu");
+            }
+        }
 
         public string Name
         {

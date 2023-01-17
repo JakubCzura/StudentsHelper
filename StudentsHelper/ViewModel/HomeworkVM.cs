@@ -2,9 +2,9 @@
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
-using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -16,10 +16,35 @@ namespace StudentsHelper.ViewModel
         public HomeworkVM()
         {
             AddHomeworkCommand = new RelayCommand(ShowAddHomeworkWindow);
-            DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
-            ShowEditHomeworkCommand = new ShowEditHomeworkCommand();
+            DeleteHomeworkCommand = new RelayCommand(DeleteHomework);
+            ShowEditHomeworkCommand = new RelayCommand(ShowEditHomeworkWindow);
             Instance = this;
             SortHomeworkDateAscending();
+        }
+
+        private void DeleteHomework()
+        {
+            if (Homework != null && Homework.Any() == true)
+            {
+                if (DataDeletion.Delete(SelectedHomework))
+                {
+                    Homework = ObjectsDataGetter.GetHomeworkData();
+                    MessageBox.Show("Skasowano informację o zadaniu domowym", "Zapisano pomyślnie");
+                }
+                else
+                {
+                    MessageBox.Show("Spróbuj skasować informację o zadaniu domowym ponownie", "Błąd skasowania informacji o zadaniu domowym");
+                }
+            }
+        }
+
+        private void ShowEditHomeworkWindow()
+        {
+            if (Homework != null && Homework.Any() == true)
+            {
+                EditHomeworkWindow EditHomeworkWindow = new EditHomeworkWindow();
+                EditHomeworkWindow.Show();
+            }
         }
 
         private void ShowAddHomeworkWindow()

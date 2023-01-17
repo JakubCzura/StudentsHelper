@@ -2,8 +2,9 @@
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
-using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -14,9 +15,37 @@ namespace StudentsHelper.ViewModel
         public TeachersVM()
         {
             AddTeacherCommand = new RelayCommand(ShowAddTeacherWindow);
-            DeleteTeacherCommand = new DeleteTeacherCommand(this);
-            ShowEditTeacherCommand = new ShowEditTeacherCommand();
+            DeleteTeacherCommand = new RelayCommand(DeleteTeacher);
+            ShowEditTeacherCommand = new RelayCommand(ShowEditTeacherWindow);
             Instance = this;
+        }
+
+        private void DeleteTeacher()
+        {
+            if (Teachers != null && Teachers.Any() == true)
+            {
+                if (DataDeletion.Delete(SelectedTeacher))
+                {
+                    if (TeachersVM.Instance != null)
+                    {
+                        TeachersVM.Instance.Teachers = ObjectsDataGetter.GetTeachersData();
+                    }
+                    MessageBox.Show("Skasowano informację o nauczycielu", "Zapisano pomyślnie");
+                }
+                else
+                {
+                    MessageBox.Show("Spróbuj skasować informację o nauczycielu ponownie", "Błąd skasowania informacji o nauczycielu");
+                }
+            }
+        }
+
+        private void ShowEditTeacherWindow()
+        {
+            if (Teachers != null && Teachers.Any() == true)
+            {
+                EditTeacherWindow EditTeacherWindow = new();
+                EditTeacherWindow.Show();
+            }
         }
 
         private void ShowAddTeacherWindow()
@@ -24,6 +53,7 @@ namespace StudentsHelper.ViewModel
             AddTeacherWindow AddTeacherWindow = new();
             AddTeacherWindow.Show();
         }
+
         public static TeachersVM? Instance { get; set; }
 
         private ObservableCollection<Teacher> teachers = ObjectsDataGetter.GetTeachersData();
