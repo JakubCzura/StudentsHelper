@@ -21,7 +21,7 @@ namespace StudentsHelper.ViewModel
 
         public static ExamsVM? Instance { get; set; }
 
-        private ObservableCollection<Exam> exams = LoginStudent.GetExamsData();
+        private ObservableCollection<Exam> exams = StudentLoggingIn.GetExamsData();
 
         public ICommand AddExamCommand { get; set; }
 

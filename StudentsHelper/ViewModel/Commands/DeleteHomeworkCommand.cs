@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (HomeworkVM.Instance != null)
                 {
-                    HomeworkVM.Instance.Homework = LoginStudent.GetHomeworkData();
+                    HomeworkVM.Instance.Homework = StudentLoggingIn.GetHomeworkData();
                 }
                 MessageBox.Show("Skasowano informację o zadaniu domowym", "Zapisano pomyślnie");
             }

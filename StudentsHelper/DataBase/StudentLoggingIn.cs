@@ -9,9 +9,9 @@ using System.Windows;
 
 namespace StudentsHelper.DataBase
 {
-    public class LoginStudent : DataBaseHelper
+    public class StudentLoggingIn : DataBaseHelper
     {
-        public bool LogIn(LoginVM LoginVM)
+        public static bool LogIn(LoginVM LoginVM)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
                 {
-                    DegreeCourse DegreeCourse = SQLiteConnection.Table<DegreeCourse>().First(s => s.Id == StudentId);
+                    DegreeCourse DegreeCourse = SQLiteConnection.Table<DegreeCourse>().First(s => s.StudentId == StudentId);
                     if (DegreeCourse != null)
                     {
                         return DegreeCourse;

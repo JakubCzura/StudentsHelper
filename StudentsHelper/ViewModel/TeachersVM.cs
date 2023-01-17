@@ -19,7 +19,7 @@ namespace StudentsHelper.ViewModel
 
         public static TeachersVM? Instance { get; set; }
 
-        private ObservableCollection<Teacher> teachers = LoginStudent.GetTeachersData();
+        private ObservableCollection<Teacher> teachers = StudentLoggingIn.GetTeachersData();
 
         public ObservableCollection<Teacher> Teachers
         {

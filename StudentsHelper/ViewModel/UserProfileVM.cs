@@ -11,8 +11,8 @@ namespace StudentsHelper.ViewModel
         {
             EditUserProfileCommand = new EditUserProfileCommand(this);
             SaveEditedUserProfileCommand = new SaveEditedUserProfileCommand(this);
-            Student = LoginStudent.GetStudentData();
-            DegreeCourse = LoginStudent.GetDegreeCourseData();
+            //Student = StudentLoggingIn.GetStudentData<Student>();
+            DegreeCourse = StudentLoggingIn.GetDegreeCourseData();
             Instance = this;
         }
 

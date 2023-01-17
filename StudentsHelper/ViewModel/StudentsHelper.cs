@@ -13,8 +13,8 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
 
-            DegreeCourse = LoginStudent.GetDegreeCourseData();
-            Student = LoginStudent.GetStudentData();
+            DegreeCourse = StudentLoggingIn.GetDegreeCourseData();
+           // Student = StudentLoggingIn.GetStudentData();
             SelectMainWindowContentCommand = new SelectMainWindowContentCommand(this);
             ShowAuthorsWindowCommand = new ShowWindowCommand();
             SelectedMainWindowContent = new WelcomeScreenVM();

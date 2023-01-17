@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (TeachersVM.Instance != null)
                 {
-                    TeachersVM.Instance.Teachers = LoginStudent.GetTeachersData();
+                    TeachersVM.Instance.Teachers = StudentLoggingIn.GetTeachersData();
                 }
                 MessageBox.Show("Skasowano informację o nauczycielu", "Zapisano pomyślnie");
             }

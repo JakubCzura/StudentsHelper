@@ -8,7 +8,7 @@ namespace StudentsHelper.ViewModel
     {
         public PasswordChangeVM()
         {
-            Student = LoginStudent.GetStudentData();
+           // Student = StudentLoggingIn.GetStudentData();
             Instance = this;
             SaveNewPasswordCommand = new SaveNewPasswordCommand(this);
         }

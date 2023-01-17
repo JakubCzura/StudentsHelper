@@ -15,15 +15,15 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             SelectedDaysToDeadline = 5;
-            Tests = LoginStudent.GetTestsData();
-            Homework = LoginStudent.GetHomeworkData();
-            Exams = LoginStudent.GetExamsData();
+            Tests = StudentLoggingIn.GetTestsData();
+            Homework = StudentLoggingIn.GetHomeworkData();
+            Exams = StudentLoggingIn.GetExamsData();
             GetDutiesBeforeDeadline(SelectedDaysToDeadline);
         }
 
         public static WelcomeScreenVM? Instance { get; set; }
 
-        private Student student = LoginStudent.GetStudentData();
+        private Student student; //= StudentLoggingIn.GetStudentData();
 
         public Student Student
         {
@@ -92,7 +92,7 @@ namespace StudentsHelper.ViewModel
             try
             {
                 return new ObservableCollection<Exam>
-                           (LoginStudent.GetExamsData().ToList().
+                           (StudentLoggingIn.GetExamsData().ToList().
                            Where(exam => exam.DateOfExam.Subtract(DateTime.Today).Days <= daysToDeadline).
                            OrderBy(exam => exam.DateOfExam).ToList());
             }
@@ -108,7 +108,7 @@ namespace StudentsHelper.ViewModel
             try
             {
                 return new ObservableCollection<Homework>
-                           (LoginStudent.GetHomeworkData().ToList().
+                           (StudentLoggingIn.GetHomeworkData().ToList().
                            Where(homework => homework.DateOfEnd.Subtract(DateTime.Today).Days <= daysToDeadline).
                            OrderBy(homework => homework.DateOfEnd).ToList());
             }
@@ -124,7 +124,7 @@ namespace StudentsHelper.ViewModel
             try
             {
                 return new ObservableCollection<Test>
-                           (LoginStudent.GetTestsData().ToList().
+                           (StudentLoggingIn.GetTestsData().ToList().
                            Where(test => test.DateOfTest.Subtract(DateTime.Today).Days <= daysToDeadline).
                            OrderBy(test => test.DateOfTest).ToList());
             }

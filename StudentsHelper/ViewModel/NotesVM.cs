@@ -21,7 +21,7 @@ namespace StudentsHelper.ViewModel
 
         public static NotesVM? Instance { get; set; }
 
-        private ObservableCollection<Note> notes = LoginStudent.GetNotesData();
+        private ObservableCollection<Note> notes = StudentLoggingIn.GetNotesData();
 
         public ICommand AddNoteCommand { get; set; }
 

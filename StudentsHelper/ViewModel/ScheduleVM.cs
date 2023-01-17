@@ -12,7 +12,7 @@ namespace StudentsHelper.ViewModel
         public ScheduleVM()
         {
             Instance = this;
-            Student = DataBase.LoginStudent.GetStudentData();
+           // Student = DataBase.StudentLoggingIn.GetStudentData();
             ShowScheduleInstructionWindowCommand = new ShowWindowCommand();
             GetScheduleCommand = new GetScheduleCommand(this);
             ScheduleImporter.SetSchedule();

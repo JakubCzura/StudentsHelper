@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
                     {
                         if (NotesVM.Instance != null)
                         {
-                            NotesVM.Instance.Notes = LoginStudent.GetNotesData();
+                            NotesVM.Instance.Notes = StudentLoggingIn.GetNotesData();
                             NotesVM.Instance.SortNotesDateAscending();
                         }
                         MessageBox.Show("Zapisano pomyślnie", "Dodano notatkę");

@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (TestsVM.Instance != null)
                 {
-                    TestVM.Tests = LoginStudent.GetTestsData();
+                    TestVM.Tests = StudentLoggingIn.GetTestsData();
                 }
                 MessageBox.Show("Skasowano informację o teście", "Zapisano pomyślnie");
             }
