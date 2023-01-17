@@ -1,5 +1,6 @@
 ﻿using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -14,7 +15,7 @@ namespace StudentsHelper.ViewModel
 
         public static EditTeacherVM? Instance { get; set; }
 
-        public SaveEditedTeacherCommand SaveEditedTeacherCommand { get; set; }
+        public ICommand SaveEditedTeacherCommand { get; private set; }
 
         public string Lesson
         {

@@ -1,6 +1,7 @@
 ﻿using StudentsHelper.Model;
 using StudentsHelper.ViewModel.Commands;
 using System;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -15,7 +16,7 @@ namespace StudentsHelper.ViewModel
 
         public static EditHomeworkVM? Instance { get; set; }
 
-        public SaveEditedHomeworkCommand SaveEditedHomeworkCommand { get; set; }
+        public ICommand SaveEditedHomeworkCommand { get; private set; }
 
         public string LessonName
         {

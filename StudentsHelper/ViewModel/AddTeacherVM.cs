@@ -14,7 +14,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddHomeworkWindow.xaml
         public AddTeacherVM()
         {
-            SaveTeacherCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveTeacher);
+            SaveTeacherCommand = new RelayCommand(SaveTeacher);
         }
 
         private void SaveTeacher()
@@ -50,11 +50,7 @@ namespace StudentsHelper.ViewModel
         public string Lesson
         {
             get { return Teacher.Lesson; }
-            set
-            {
-                Teacher.Lesson = value;
-                OnPropertyChanged(Lesson);
-            }
+            set {  Teacher.Lesson = value; OnPropertyChanged(Lesson); }
         }
 
         public string Name

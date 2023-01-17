@@ -60,8 +60,21 @@ namespace StudentsHelper.ViewModel
             RegisterWindow.Instance?.Close();
         }
 
-        public Student Student { get; set; }
-        public DegreeCourse DegreeCourse { get; set; }
+        private Student student;
+
+        public Student Student 
+        { 
+            get { return student; }
+            set { student = value; OnPropertyChanged(nameof(Student)); }
+        }
+
+        private DegreeCourse degreeCourse;
+
+        public DegreeCourse DegreeCourse 
+        { 
+            get { return degreeCourse; }
+            set { degreeCourse = value; OnPropertyChanged(nameof(DegreeCourse)); } 
+        }
         public ICommand RegisterCommand { get; private set; }
 
         private StudentRegistration StudentRegistration { get; set; }

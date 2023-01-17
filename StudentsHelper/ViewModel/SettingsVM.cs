@@ -13,7 +13,7 @@ namespace StudentsHelper.ViewModel
             SelectedSettingsContent = new PasswordChangeVM();
         }
 
-        public ICommand SelectSettingsContentCommand { get; set; }
+        public ICommand SelectSettingsContentCommand { get; private set; }
 
         private BaseViewModel selectedSettingsContent;
 

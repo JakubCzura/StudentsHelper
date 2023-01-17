@@ -14,7 +14,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddHomeworkWindow.xaml
         public AddHomeworkVM()
         {
-            SaveHomeworkCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveHomework);
+            SaveHomeworkCommand = new RelayCommand(SaveHomework);
         }
 
         private void SaveHomework()
@@ -28,7 +28,6 @@ namespace StudentsHelper.ViewModel
                         if (HomeworkVM.Instance != null)
                         {
                             HomeworkVM.Instance.Homework = ObjectsDataGetter.GetHomeworkData();
-                            //HomeworkVM.Instance.SortHomeworkDateAscending();
                         }
                         MessageBox.Show("Zapisano pomyślnie", "Dodano zadanie domowe");
                     }

@@ -14,7 +14,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddNoteWindow.xaml
         public AddNoteVM()
         {
-            SaveNoteCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveNote);
+            SaveNoteCommand = new RelayCommand(SaveNote);
         }
 
         private void SaveNote()

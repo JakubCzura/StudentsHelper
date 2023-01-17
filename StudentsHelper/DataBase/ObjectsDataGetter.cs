@@ -17,7 +17,7 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
-                    Student Student = SQLiteConnection.Table<Student>().First(s => s.Id == StudentId);
+                    Student Student = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Id == StudentId);
                     if (Student != null)
                     {
                         return Student;
@@ -38,7 +38,7 @@ namespace StudentsHelper.DataBase
             {
                 using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
-                    DegreeCourse DegreeCourse = SQLiteConnection.Table<DegreeCourse>().First(s => s.StudentId == StudentId);
+                    DegreeCourse DegreeCourse = SQLiteConnection.Table<DegreeCourse>().FirstOrDefault(s => s.StudentId == StudentId);
                     if (DegreeCourse != null)
                     {
                         return DegreeCourse;
@@ -83,7 +83,6 @@ namespace StudentsHelper.DataBase
                 {
                     List<Test> TestsList = SQLiteConnection.Table<Test>().Where(e => e.StudentId == StudentId).ToList();
                     ObservableCollection<Test> Tests = new(TestsList);
-
                     if (Tests != null)
                     {
                         return Tests;

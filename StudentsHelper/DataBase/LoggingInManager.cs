@@ -24,7 +24,6 @@ namespace StudentsHelper.DataBase
                         if (Hasher.VerifyPassword(password, Student.Password))
                         {
                             StudentId = Student.Id;
-                            StudentLogin = Student.Login;
                             return true;
                         }
                     }

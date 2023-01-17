@@ -63,7 +63,7 @@ namespace StudentsHelper.ViewModel
             LoginWindow.Instance?.Close();
         }
 
-        private int id = 0;
+        private int id;
 
         [PrimaryKey, AutoIncrement]
         public int Id
@@ -88,7 +88,7 @@ namespace StudentsHelper.ViewModel
             set { secondName = value; OnPropertyChanged(SecondName); }
         }
 
-        private int age = 0;
+        private int age;
 
         public int Age
         {

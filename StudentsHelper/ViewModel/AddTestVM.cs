@@ -17,9 +17,9 @@ namespace StudentsHelper.ViewModel
             SaveTestCommand = new RelayCommand(SaveTest);
         }
 
-        public Test Test { get; set; } = new Test { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        public Test Test { get; set; } = new Test { StudentId = DataBaseHelper.StudentId };
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
-        public ICommand SaveTestCommand { get; set; }
+        public ICommand SaveTestCommand { get; private set; }
 
         private void SaveTest()
         {

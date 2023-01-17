@@ -14,7 +14,7 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     SQLiteConnection.Update(Data);
                 }

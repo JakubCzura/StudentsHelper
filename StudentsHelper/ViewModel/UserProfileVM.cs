@@ -18,11 +18,11 @@ namespace StudentsHelper.ViewModel
 
         public static UserProfileVM? Instance { get; set; }
 
-        public ICommand EditUserProfileCommand { get; set; }
+        public ICommand EditUserProfileCommand { get; private set; }
 
-        public ICommand SaveEditedUserProfileCommand { get; set; }
+        public ICommand SaveEditedUserProfileCommand { get; private set; }
 
-        private DegreeCourse degreeCourse { get; set; }
+        private DegreeCourse degreeCourse;
 
         public DegreeCourse DegreeCourse
         {
@@ -30,7 +30,7 @@ namespace StudentsHelper.ViewModel
             set { degreeCourse = value; OnPropertyChanged(nameof(DegreeCourse)); }
         }
 
-        private Student student { get; set; }
+        private Student student;
 
         public Student Student
         {

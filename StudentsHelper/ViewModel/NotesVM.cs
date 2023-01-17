@@ -18,7 +18,7 @@ namespace StudentsHelper.ViewModel
             DeleteNoteCommand = new RelayCommand(DeleteNote);
             ShowEditNoteCommand = new RelayCommand(ShowEditNoteWindow);
             Instance = this;
-            SortNotesDateAscending();
+            Notes = SortNotesDateAscending(ObjectsDataGetter.GetNotesData());
         }
 
         private void DeleteNote()
@@ -52,15 +52,15 @@ namespace StudentsHelper.ViewModel
         }
 
 
-        public static NotesVM? Instance { get; set; }
+        public static NotesVM? Instance { get; private set; }
 
-        private ObservableCollection<Note> notes = ObjectsDataGetter.GetNotesData();
+        private ObservableCollection<Note> notes;
 
-        public ICommand AddNoteCommand { get; set; }
+        public ICommand AddNoteCommand { get; private set; }
 
-        public ICommand DeleteNoteCommand { get; set; }
+        public ICommand DeleteNoteCommand { get; private set; }
 
-        public ICommand ShowEditNoteCommand { get; set; }
+        public ICommand ShowEditNoteCommand { get; private set; }
 
         public ObservableCollection<Note> Notes
         {
@@ -68,7 +68,7 @@ namespace StudentsHelper.ViewModel
             set { notes = value; OnPropertyChanged(nameof(Notes)); }
         }
 
-        private Note selectedNote { get; set; }
+        private Note selectedNote;
 
         public Note SelectedNote
         {
@@ -76,9 +76,9 @@ namespace StudentsHelper.ViewModel
             set { selectedNote = value; OnPropertyChanged(nameof(SelectedNote)); }
         }
 
-        public void SortNotesDateAscending()
+        public static ObservableCollection<Note> SortNotesDateAscending(ObservableCollection<Note> notes)
         {
-            Notes = new ObservableCollection<Note>(Notes.OrderBy(note => note.Date));
+           return new ObservableCollection<Note>(notes.OrderBy(note => note.Date));
         }
     }
 }

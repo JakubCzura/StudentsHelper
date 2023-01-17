@@ -16,6 +16,7 @@ namespace StudentsHelper.ViewModel
             Instance = this;
             SaveNewThemeCommand = new RelayCommand(SaveNewTheme);
             Theme = ThemesManager.ReadTheme();
+            Themes = ThemesManager.GetThemes();
         }
 
         private void SaveNewTheme()
@@ -40,9 +41,9 @@ namespace StudentsHelper.ViewModel
 
         public static ThemeChangeVM? Instance { get; set; }
 
-        public ICommand SaveNewThemeCommand { get; set; }
+        public ICommand SaveNewThemeCommand { get; private set; }
 
-        private string theme = String.Empty;
+        private string theme = string.Empty;
 
         public string Theme
         {
@@ -58,7 +59,7 @@ namespace StudentsHelper.ViewModel
             set { newTheme = value; OnPropertyChanged(NewTheme); }
         }
 
-        private List<string> themes = ThemesManager.GetThemes();
+        private List<string> themes;
 
         public List<string> Themes
         {

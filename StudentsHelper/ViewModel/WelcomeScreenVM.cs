@@ -18,12 +18,13 @@ namespace StudentsHelper.ViewModel
             Tests = ObjectsDataGetter.GetTestsData();
             Homework = ObjectsDataGetter.GetHomeworkData();
             Exams = ObjectsDataGetter.GetExamsData();
+            Student = ObjectsDataGetter.GetStudentData();
             GetDutiesBeforeDeadline(SelectedDaysToDeadline);
         }
 
         public static WelcomeScreenVM? Instance { get; set; }
 
-        private Student student = ObjectsDataGetter.GetStudentData();
+        private Student student;
 
         public Student Student
         {
@@ -31,7 +32,7 @@ namespace StudentsHelper.ViewModel
             set { student = value; OnPropertyChanged(nameof(Student)); }
         }
 
-        private readonly List<int> daysToDeadline = new List<int>() { 5, 10, 15 };
+        private readonly List<int> daysToDeadline = new() { 5, 10, 15 };
 
         public List<int> DaysToDeadline
         {
@@ -46,7 +47,7 @@ namespace StudentsHelper.ViewModel
             set { selectedDaysToDeadline = value; OnPropertyChanged(nameof(SelectedDaysToDeadline)); GetDutiesBeforeDeadline(SelectedDaysToDeadline); }
         }
 
-        private ObservableCollection<Homework> homework = new ObservableCollection<Homework>();
+        private ObservableCollection<Homework> homework = new();
 
         public ObservableCollection<Homework> Homework
         {
@@ -54,7 +55,7 @@ namespace StudentsHelper.ViewModel
             set { homework = value; OnPropertyChanged(nameof(Homework)); }
         }
 
-        private ObservableCollection<Exam> exams = new ObservableCollection<Exam>();
+        private ObservableCollection<Exam> exams = new();
 
         public ObservableCollection<Exam> Exams
         {
@@ -62,7 +63,7 @@ namespace StudentsHelper.ViewModel
             set { exams = value; OnPropertyChanged(nameof(Exams)); }
         }
 
-        private ObservableCollection<Test> tests = new ObservableCollection<Test>();
+        private ObservableCollection<Test> tests = new();
 
         public ObservableCollection<Test> Tests
         {
@@ -75,7 +76,7 @@ namespace StudentsHelper.ViewModel
             get { return $"Witaj {Student.Name}"; }
         }
 
-        public string TodayDate
+        public static string TodayDate
         {
             get { return $"Dzisiaj jest {DateTime.Today:dd/MM/yyyy}"; }
         }
@@ -87,7 +88,7 @@ namespace StudentsHelper.ViewModel
             Tests = GetTestsBeforeDeadline(daysToDeadline);
         }
 
-        private ObservableCollection<Exam> GetExamsBeforeDeadline(int daysToDeadline)
+        private static ObservableCollection<Exam> GetExamsBeforeDeadline(int daysToDeadline)
         {
             try
             {
@@ -103,7 +104,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        private ObservableCollection<Homework> GetHomeworkBeforeDeadline(int daysToDeadline)
+        private static ObservableCollection<Homework> GetHomeworkBeforeDeadline(int daysToDeadline)
         {
             try
             {
@@ -119,7 +120,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        private ObservableCollection<Test> GetTestsBeforeDeadline(int daysToDeadline)
+        private static ObservableCollection<Test> GetTestsBeforeDeadline(int daysToDeadline)
         {
             try
             {

@@ -18,7 +18,7 @@ namespace StudentsHelper.ViewModel
             DeleteTestCommand = new RelayCommand(DeleteTest);
             ShowEditTestCommand = new RelayCommand(ShowEditTestWindow);
             Instance = this;
-            SortTestsDateAscending();
+            Tests = SortTestsDateAscending(ObjectsDataGetter.GetTestsData());
         }
 
         private void DeleteTest()
@@ -52,17 +52,17 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public static TestsVM? Instance { get; set; }
+        public static TestsVM? Instance { get; private set; }
 
-        private ObservableCollection<Test> tests = ObjectsDataGetter.GetTestsData();
+        private ObservableCollection<Test> tests;
 
-        public ICommand AddTestCommand { get; set; }
+        public ICommand AddTestCommand { get; private set; }
 
-        public ICommand DeleteTestCommand { get; set; }
+        public ICommand DeleteTestCommand { get; private set; }
 
-        public ICommand ShowEditTestCommand { get; set; }
+        public ICommand ShowEditTestCommand { get; private set; }
 
-        public EditTestWindow EditTestWindow { get; set; }
+        public EditTestWindow EditTestWindow { get; private set; }
 
         public ObservableCollection<Test> Tests
         {
@@ -78,9 +78,9 @@ namespace StudentsHelper.ViewModel
             set { selectedTest = value; OnPropertyChanged(nameof(SelectedTest)); }
         }
 
-        public void SortTestsDateAscending()
+        public static ObservableCollection<Test> SortTestsDateAscending(ObservableCollection<Test> tests)
         {
-            Tests = new ObservableCollection<Test>(Tests.OrderBy(test => test.DateOfTest));
+            return new ObservableCollection<Test>(tests.OrderBy(test => test.DateOfTest));
         }
     }
 }

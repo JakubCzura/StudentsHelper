@@ -15,7 +15,7 @@ namespace StudentsHelper.ViewModel
         //This class refers to AddExamWindow.xaml
         public AddExamVM()
         {
-            SaveExamCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(SaveExam);
+            SaveExamCommand = new RelayCommand(SaveExam);
         }
 
         private void SaveExam()
@@ -53,81 +53,49 @@ namespace StudentsHelper.ViewModel
         public string Name
         {
             get { return Exam.Name; }
-            set
-            {
-                Exam.Name = value;
-                OnPropertyChanged(Name);
-            }
+            set { Exam.Name = value; OnPropertyChanged(Name); }
         }
 
         public DateTime DateOfExam
         {
             get { return Exam.DateOfExam; }
-            set
-            {
-                Exam.DateOfExam = value;
-                OnPropertyChanged(nameof(DateOfExam));
-            }
+            set {  Exam.DateOfExam = value; OnPropertyChanged(nameof(DateOfExam)); }
         }
 
         public int? HourOfExam
         {
             get { return Exam.HourOfExam; }
-            set
-            {
-                Exam.HourOfExam = value;
-                OnPropertyChanged(nameof(HourOfExam));
-            }
+            set {Exam.HourOfExam = value; OnPropertyChanged(nameof(HourOfExam)); }
         }
 
         public int? MinuteOfExam
         {
             get { return Exam.MinuteOfExam; }
-            set
-            {
-                Exam.MinuteOfExam = value;
-                OnPropertyChanged(nameof(MinuteOfExam));
-            }
+            set { Exam.MinuteOfExam = value; OnPropertyChanged(nameof(MinuteOfExam)); }
         }
 
         public int? RoomNumber
         {
             get { return Exam.RoomNumber; }
-            set
-            {
-                Exam.RoomNumber = value;
-                OnPropertyChanged(nameof(RoomNumber));
-            }
+            set { Exam.RoomNumber = value; OnPropertyChanged(nameof(RoomNumber)); }
         }
 
         public string RoomLetter
         {
             get { return Exam.RoomLetter; }
-            set
-            {
-                Exam.RoomLetter = value;
-                OnPropertyChanged(nameof(RoomLetter));
-            }
+            set { Exam.RoomLetter = value; OnPropertyChanged(nameof(RoomLetter)); }
         }
 
         public List<string> Letters
         {
             get { return RoomLetters.Letters; }
-            set
-            {
-                RoomLetters.Letters = value;
-                OnPropertyChanged(nameof(Letters));
-            }
+            set { RoomLetters.Letters = value; OnPropertyChanged(nameof(Letters)); }
         }
 
         public string Note
         {
             get { return Exam.Note; }
-            set
-            {
-                Exam.Note = value;
-                OnPropertyChanged(Note);
-            }
+            set { Exam.Note = value; OnPropertyChanged(Note); }
         }
     }
 }

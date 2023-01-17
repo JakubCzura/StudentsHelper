@@ -17,7 +17,7 @@ namespace StudentsHelper.ViewModel
 
         public SaveNewPasswordCommand SaveNewPasswordCommand { get; set; }
 
-        private Student student { get; set; }
+        private Student student;
 
         public Student Student
         {

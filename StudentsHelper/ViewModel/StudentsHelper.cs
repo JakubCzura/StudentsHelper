@@ -29,15 +29,25 @@ namespace StudentsHelper.ViewModel
             AuthorsWindow AuthorsWindow = new();
             AuthorsWindow.Show();
         }
-        public static StudentsHelperVM? Instance { get; set; }
+        public static StudentsHelperVM? Instance { get; private set; }
 
-        public Student Student { get; set; }
+        private Student student;
+        public Student Student
+        {
+            get { return student; }
+            set { student = value; OnPropertyChanged(nameof(Student)); }
+        }
 
-        public DegreeCourse DegreeCourse { get; set; }
+        private DegreeCourse degreeCourse;
+        public DegreeCourse DegreeCourse
+        {
+            get { return degreeCourse; }
+            set { degreeCourse = value; OnPropertyChanged(nameof(DegreeCourse)); }
+        }
 
-        public ICommand SelectMainWindowContentCommand { get; set; }
+        public ICommand SelectMainWindowContentCommand { get; private set; }
 
-        public ICommand ShowAuthorsWindowCommand { get; set; }
+        public ICommand ShowAuthorsWindowCommand { get; private set; }
 
         private BaseViewModel selectedMainWindowContent;
 

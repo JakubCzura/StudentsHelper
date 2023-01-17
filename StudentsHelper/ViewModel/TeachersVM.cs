@@ -18,6 +18,7 @@ namespace StudentsHelper.ViewModel
             DeleteTeacherCommand = new RelayCommand(DeleteTeacher);
             ShowEditTeacherCommand = new RelayCommand(ShowEditTeacherWindow);
             Instance = this;
+            Teachers = ObjectsDataGetter.GetTeachersData();
         }
 
         private void DeleteTeacher()
@@ -26,10 +27,7 @@ namespace StudentsHelper.ViewModel
             {
                 if (DataDeletion.Delete(SelectedTeacher))
                 {
-                    if (TeachersVM.Instance != null)
-                    {
-                        TeachersVM.Instance.Teachers = ObjectsDataGetter.GetTeachersData();
-                    }
+                    Teachers = ObjectsDataGetter.GetTeachersData();
                     MessageBox.Show("Skasowano informację o nauczycielu", "Zapisano pomyślnie");
                 }
                 else
@@ -56,7 +54,7 @@ namespace StudentsHelper.ViewModel
 
         public static TeachersVM? Instance { get; set; }
 
-        private ObservableCollection<Teacher> teachers = ObjectsDataGetter.GetTeachersData();
+        private ObservableCollection<Teacher> teachers;
 
         public ObservableCollection<Teacher> Teachers
         {
@@ -64,13 +62,13 @@ namespace StudentsHelper.ViewModel
             set { teachers = value; OnPropertyChanged(nameof(teachers)); }
         }
 
-        public ICommand AddTeacherCommand { get; set; }
+        public ICommand AddTeacherCommand { get; private set; }
 
-        public ICommand DeleteTeacherCommand { get; set; }
+        public ICommand DeleteTeacherCommand { get; private set; }
 
-        public ICommand ShowEditTeacherCommand { get; set; }
+        public ICommand ShowEditTeacherCommand { get; private set; }
 
-        private Teacher selectedTeacher { get; set; }
+        private Teacher selectedTeacher;
 
         public Teacher SelectedTeacher
         {

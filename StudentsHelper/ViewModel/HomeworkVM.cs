@@ -19,7 +19,7 @@ namespace StudentsHelper.ViewModel
             DeleteHomeworkCommand = new RelayCommand(DeleteHomework);
             ShowEditHomeworkCommand = new RelayCommand(ShowEditHomeworkWindow);
             Instance = this;
-            SortHomeworkDateAscending();
+            Homework = SortHomeworkDateAscending(ObjectsDataGetter.GetHomeworkData());
         }
 
         private void DeleteHomework()
@@ -55,13 +55,13 @@ namespace StudentsHelper.ViewModel
 
         public static HomeworkVM? Instance { get; set; }
 
-        private ObservableCollection<Homework> homework = ObjectsDataGetter.GetHomeworkData();
+        private ObservableCollection<Homework> homework;
 
-        public ICommand AddHomeworkCommand { get; set; }
+        public ICommand AddHomeworkCommand { get; private set; }
 
-        public ICommand DeleteHomeworkCommand { get; set; }
+        public ICommand DeleteHomeworkCommand { get; private set; }
 
-        public ICommand ShowEditHomeworkCommand { get; set; }
+        public ICommand ShowEditHomeworkCommand { get; private set; }
 
         public ObservableCollection<Homework> Homework
         {
@@ -77,9 +77,9 @@ namespace StudentsHelper.ViewModel
             set { selectedHomework = value; OnPropertyChanged(nameof(SelectedHomework)); }
         }
 
-        public void SortHomeworkDateAscending()
+        public static ObservableCollection<Homework> SortHomeworkDateAscending(ObservableCollection<Homework> homework)
         {
-            Homework = new ObservableCollection<Homework>(Homework.OrderBy(homework => homework.DateOfEnd));
+            return new ObservableCollection<Homework>(homework.OrderBy(homework => homework.DateOfEnd));
         }
     }
 }

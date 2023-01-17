@@ -18,7 +18,7 @@ namespace StudentsHelper.ViewModel
             DeleteExamCommand = new RelayCommand(DeleteExam);
             ShowEditExamCommand = new RelayCommand(ShowEditExamWindow);
             Instance = this;
-            SortExamsDateAscending();
+            Exams = SortExamsDateAscending(ObjectsDataGetter.GetExamsData());
         }
 
         private void DeleteExam()
@@ -45,13 +45,13 @@ namespace StudentsHelper.ViewModel
 
         public static ExamsVM? Instance { get; set; }
 
-        private ObservableCollection<Exam> exams = ObjectsDataGetter.GetExamsData();
+        private ObservableCollection<Exam> exams;
 
-        public ICommand AddExamCommand { get; set; }
+        public ICommand AddExamCommand { get; private set; }
 
-        public ICommand DeleteExamCommand { get; set; }
+        public ICommand DeleteExamCommand { get; private set; }
 
-        public ICommand ShowEditExamCommand { get; set; }
+        public ICommand ShowEditExamCommand { get; private set; }
 
         private void ShowEditExamWindow()
         {
@@ -76,9 +76,9 @@ namespace StudentsHelper.ViewModel
             set { selectedExam = value; OnPropertyChanged(nameof(SelectedExam)); }
         }
 
-        public void SortExamsDateAscending()
+        public static ObservableCollection<Exam> SortExamsDateAscending(ObservableCollection<Exam> exams)
         {
-            Exams = new ObservableCollection<Exam>(Exams.OrderBy(exam => exam.DateOfExam));
+            return new ObservableCollection<Exam>(exams.OrderBy(exam => exam.DateOfExam));
         }
     }
 }

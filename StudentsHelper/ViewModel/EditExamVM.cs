@@ -2,6 +2,7 @@
 using StudentsHelper.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -11,14 +12,15 @@ namespace StudentsHelper.ViewModel
         {
             SelectedExam = ExamsVM.Instance.SelectedExam;
             SaveEditedExamCommand = new SaveEditedExamCommand(this);
+            RoomLetters = new();
             Instance = this;
         }
 
         public static EditExamVM? Instance { get; set; }
 
-        public RoomLetters RoomLetters { get; set; } = new RoomLetters();
+        public RoomLetters RoomLetters { get; set; }
 
-        public SaveEditedExamCommand SaveEditedExamCommand { get; set; }
+        public ICommand SaveEditedExamCommand { get; private set; }
 
         public string Name
         {
