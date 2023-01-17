@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (NotesVM.Instance != null)
                 {
-                    NotesVM.Instance.Notes = StudentLoggingIn.GetNotesData();
+                    NotesVM.Instance.Notes = ObjectsDataGetter.GetNotesData();
                 }
                 MessageBox.Show("Skasowano informację o notatce", "Zapisano pomyślnie");
             }

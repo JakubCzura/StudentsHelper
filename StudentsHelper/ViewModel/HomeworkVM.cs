@@ -22,7 +22,7 @@ namespace StudentsHelper.ViewModel
 
         public static HomeworkVM? Instance { get; set; }
 
-        private ObservableCollection<Homework> homework = StudentLoggingIn.GetHomeworkData();
+        private ObservableCollection<Homework> homework = ObjectsDataGetter.GetHomeworkData();
 
         public ICommand AddHomeworkCommand { get; set; }
 

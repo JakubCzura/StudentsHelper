@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
                     {
                         if (TeachersVM.Instance != null)
                         {
-                            TeachersVM.Instance.Teachers = StudentLoggingIn.GetTeachersData();
+                            TeachersVM.Instance.Teachers = ObjectsDataGetter.GetTeachersData();
                         }
                         MessageBox.Show("Zapisano pomyślnie", "Dodano wykładowcę");
                     }

@@ -9,39 +9,13 @@ using System.Windows;
 
 namespace StudentsHelper.DataBase
 {
-    public class StudentLoggingIn : DataBaseHelper
-    {
-        public static bool LogIn(LoginVM LoginVM)
-        {
-            try
-            {
-                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
-                {
-                    Student? Student = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == LoginVM.Login);
-                    if (Student != null)
-                    {
-                        if (Hasher.VerifyPassword(LoginVM.Password, Student.Password))
-                        {
-                            StudentId = Student.Id;
-                            StudentLogin = Student.Login;
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show($"{exception.Message}\nSpróbuj ponownie się zalogować", "Błąd logowania");
-                return false;
-            }
-        }
-
+    public class ObjectsDataGetter : DataBaseHelper
+    {     
         public static Student GetStudentData()
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     Student Student = SQLiteConnection.Table<Student>().First(s => s.Id == StudentId);
                     if (Student != null)
@@ -62,7 +36,7 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     DegreeCourse DegreeCourse = SQLiteConnection.Table<DegreeCourse>().First(s => s.StudentId == StudentId);
                     if (DegreeCourse != null)
@@ -83,10 +57,10 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     List<Exam> ExamsList = SQLiteConnection.Table<Exam>().Where(e => e.StudentId == StudentId).ToList();
-                    ObservableCollection<Exam> Exams = new ObservableCollection<Exam>(ExamsList);
+                    ObservableCollection<Exam> Exams = new(ExamsList);
                     if (Exams != null)
                     {
                         return Exams;
@@ -105,10 +79,10 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     List<Test> TestsList = SQLiteConnection.Table<Test>().Where(e => e.StudentId == StudentId).ToList();
-                    ObservableCollection<Test> Tests = new ObservableCollection<Test>(TestsList);
+                    ObservableCollection<Test> Tests = new(TestsList);
 
                     if (Tests != null)
                     {
@@ -128,10 +102,10 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     List<Homework> HomeworkList = SQLiteConnection.Table<Homework>().Where(e => e.StudentId == StudentId).ToList();
-                    ObservableCollection<Homework> Homework = new ObservableCollection<Homework>(HomeworkList);
+                    ObservableCollection<Homework> Homework = new(HomeworkList);
                     if (Homework != null)
                     {
                         return Homework;
@@ -150,10 +124,10 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     List<Teacher> TeachersList = SQLiteConnection.Table<Teacher>().Where(e => e.StudentId == StudentId).ToList();
-                    ObservableCollection<Teacher> Teachers = new ObservableCollection<Teacher>(TeachersList);
+                    ObservableCollection<Teacher> Teachers = new(TeachersList);
                     if (Teachers != null)
                     {
                         return Teachers;
@@ -172,10 +146,10 @@ namespace StudentsHelper.DataBase
         {
             try
             {
-                using (SQLiteConnection SQLiteConnection = new SQLiteConnection(DataBasePath))
+                using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
                     List<Note> NotesList = SQLiteConnection.Table<Note>().Where(e => e.StudentId == StudentId).ToList();
-                    ObservableCollection<Note> Notes = new ObservableCollection<Note>(NotesList);
+                    ObservableCollection<Note> Notes = new(NotesList);
                     if (Notes != null)
                     {
                         return Notes;

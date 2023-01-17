@@ -31,7 +31,7 @@ namespace StudentsHelper.ViewModel.Commands
         {
             try
             {
-                StudentLoggingIn loginStudent = new();
+                ObjectsDataGetter loginStudent = new();
                 if (LoginWindow.Instance != null)
                 {
                     LoginVM.Password = LoginWindow.Instance.PasswordBox.Password;
@@ -41,12 +41,12 @@ namespace StudentsHelper.ViewModel.Commands
                     }
                     else
                     {
-                        //if (loginStudent.LogIn(LoginVM) == true)
-                        //{
-                        //    MainWindow MainWindow = new();
-                        //    MainWindow.Show();
-                        //    LoginWindow.Instance.Close();
-                        //}
+                        if (LoggingInManager.LogIn(LoginVM) == true)
+                        {
+                            MainWindow MainWindow = new();
+                            MainWindow.Show();
+                            LoginWindow.Instance.Close();
+                        }
                     }
                 }
             }

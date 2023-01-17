@@ -36,7 +36,7 @@ namespace StudentsHelper.ViewModel.Commands
             {
                 if (ExamsVM.Instance != null)
                 {
-                    ExamsVM.Instance.Exams = StudentLoggingIn.GetExamsData();
+                    ExamsVM.Instance.Exams = ObjectsDataGetter.GetExamsData();
                 }
                 MessageBox.Show("Skasowano informację o egzaminie", "Zapisano pomyślnie");
             }

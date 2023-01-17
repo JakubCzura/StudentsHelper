@@ -16,8 +16,6 @@ namespace StudentsHelper.ViewModel
             LoginCommand = new LoginCommand(this);
             ShowRegisterWindowCommand = new ShowRegisterWindowCommand();
             DataBaseHelper.CreateEmptyDataBase();
-            var s = StudentLoggingIn.GetStudentData<Homework>();
-            MessageBox.Show(s.Note);
         }
   
         public LoginVM Instance { get; set; }

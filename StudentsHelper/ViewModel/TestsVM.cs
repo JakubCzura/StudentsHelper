@@ -22,7 +22,7 @@ namespace StudentsHelper.ViewModel
 
         public static TestsVM? Instance { get; set; }
 
-        private ObservableCollection<Test> tests = StudentLoggingIn.GetTestsData();
+        private ObservableCollection<Test> tests = ObjectsDataGetter.GetTestsData();
 
         public ICommand AddTestCommand { get; set; }
 
