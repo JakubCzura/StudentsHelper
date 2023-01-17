@@ -18,7 +18,7 @@ namespace StudentsHelper.ViewModel
             Student = ObjectsDataGetter.GetStudentData();
             DegreeCourse = ObjectsDataGetter.GetDegreeCourseData();
             SelectMainWindowContentCommand = new SelectMainWindowContentCommand(this);
-            ShowAuthorsWindowCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(ShowAuthorsWindow);
+            ShowAuthorsWindowCommand = new RelayCommand(ShowAuthorsWindow);
             SelectedMainWindowContent = new WelcomeScreenVM();
 
             Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();

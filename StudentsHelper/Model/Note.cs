@@ -15,7 +15,5 @@ namespace StudentsHelper.Model
         public string Content { get; set; } = string.Empty;
 
         public int StudentId { get; set; }
-
-        public string StudentLogin { get; set; } = string.Empty;
     }
 }

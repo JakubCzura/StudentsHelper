@@ -12,16 +12,16 @@ namespace StudentsHelper.DataBase
 {
     public class LoggingInManager : DataBaseHelper
     {
-        public static bool LogIn(LoginVM LoginVM)
+        public static bool LogIn(string password, string login)
         {
             try
             {
                 using (SQLiteConnection SQLiteConnection = new(DataBasePath))
                 {
-                    Student? Student = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == LoginVM.Login);
+                    Student? Student = SQLiteConnection.Table<Student>().FirstOrDefault(s => s.Login == login);
                     if (Student != null)
                     {
-                        if (Hasher.VerifyPassword(LoginVM.Password, Student.Password))
+                        if (Hasher.VerifyPassword(password, Student.Password))
                         {
                             StudentId = Student.Id;
                             StudentLogin = Student.Login;

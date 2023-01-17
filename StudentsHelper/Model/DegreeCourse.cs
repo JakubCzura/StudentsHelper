@@ -8,8 +8,6 @@ namespace StudentsHelper.Model
         [PrimaryKey, AutoIncrement, NotNull]
         public int Id { get; set; }
 
-        public string StudentLogin { get; set; } = string.Empty;
-
         public int StudentId { get; set; }
 
         //Kierunek

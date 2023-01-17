@@ -21,8 +21,6 @@ namespace StudentsHelper.Model
 
         public string Note { get; set; } = string.Empty;
 
-        public string StudentLogin { get; set; } = string.Empty;
-
         public string TeacherFullName
         {
             get { return Degree + " " + Name + " " + LastName; }

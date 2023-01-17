@@ -44,7 +44,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public Homework Homework { get; set; } = new Homework { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        public Homework Homework { get; set; } = new Homework { StudentId = DataBaseHelper.StudentId };
 
         public ICommand SaveHomeworkCommand { get; private set; }
 

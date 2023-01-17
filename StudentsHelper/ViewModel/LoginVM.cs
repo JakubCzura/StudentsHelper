@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using SQLite;
 using StudentsHelper.DataBase;
-using StudentsHelper.Model;
+using StudentsHelper.DataValidators;
 using StudentsHelper.View.Windows;
-using StudentsHelper.ViewModel.Commands;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,14 +16,43 @@ namespace StudentsHelper.ViewModel
         public LoginVM()
         {
             Instance = this;
-            LoginCommand = new LoginCommand(this);
-            ShowRegisterWindowCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(ShowRegisterWindow);
+            LoginCommand = new RelayCommand(LogIn);
+            ShowRegisterWindowCommand = new RelayCommand(ShowRegisterWindow);
             DataBaseHelper.CreateEmptyDataBase();
         }
-  
+
+        private void LogIn()
+        {
+            try
+            {
+                ObjectsDataGetter loginStudent = new();
+                if (LoginWindow.Instance != null)
+                {
+                    Password = LoginWindow.Instance.PasswordBox.Password;
+                    if (!StudentDataValidator.ValidateLogin(Login) || !StudentDataValidator.ValidatePassword(Password))
+                    {
+                        MessageBox.Show("Podaj odpowiednie dane do zalogowania\nPamiętaj, że login zaczyna się od 's'", "Błąd logowania");
+                    }
+                    else
+                    {
+                        if (LoggingInManager.LogIn(Password, Login) == true)
+                        {
+                            MainWindow MainWindow = new();
+                            MainWindow.Show();
+                            LoginWindow.Instance.Close();
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
         public LoginVM Instance { get; private set; }
 
-        public LoginCommand LoginCommand { get; private set; }
+        public ICommand LoginCommand { get; private set; }
 
         public ICommand ShowRegisterWindowCommand { get; private set; }
 

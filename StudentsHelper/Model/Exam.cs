@@ -62,7 +62,5 @@ namespace StudentsHelper.Model
         public string Note { get; set; } = string.Empty;
 
         public int StudentId { get; set; }
-
-        public string StudentLogin { get; set; } = string.Empty;
     }
 }

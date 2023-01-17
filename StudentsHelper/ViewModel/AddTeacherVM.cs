@@ -43,7 +43,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public Teacher Teacher { get; set; } = new Teacher { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        public Teacher Teacher { get; set; } = new Teacher { StudentId = DataBaseHelper.StudentId };
 
         public ICommand SaveTeacherCommand { get; private set; }
 

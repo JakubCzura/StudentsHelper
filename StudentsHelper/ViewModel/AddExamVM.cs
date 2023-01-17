@@ -45,7 +45,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public Exam Exam { get; set; } = new Exam { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        public Exam Exam { get; set; } = new Exam { StudentId = DataBaseHelper.StudentId };
 
         public RoomLetters RoomLetters { get; set; } = new RoomLetters();
         public ICommand SaveExamCommand { get; set; }

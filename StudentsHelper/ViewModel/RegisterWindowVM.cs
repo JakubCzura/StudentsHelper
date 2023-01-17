@@ -1,8 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using OpenQA.Selenium.DevTools.V104.Network;
+using StudentsHelper.DataBase;
+using StudentsHelper.DataValidators;
 using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
+using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
@@ -14,8 +18,39 @@ namespace StudentsHelper.ViewModel
         {
             Student = new Student();
             DegreeCourse = new DegreeCourse();
-            RegisterCommand = new RegisterCommand(this);
-            BackToLoginCommand = new CommunityToolkit.Mvvm.Input.RelayCommand(BackToLogin);
+            RegisterCommand = new RelayCommand(Register);
+            BackToLoginCommand = new RelayCommand(BackToLogin);
+            StudentRegistration = new();
+        }
+
+        private void Register()
+        {
+            try
+            {
+                if (RegisterWindow.Instance != null)
+                {
+                    Password = RegisterWindow.Instance.PasswordBox.Password;
+                    if (StudentDataValidator.ValidatePassword(Password) && StudentDataValidator.ValidateLogin(Login))
+                    {
+                        if (StudentDataValidator.ValidateStudentData(Student))
+                        {
+                            Password = Hasher.HashPassword(Password);
+                            DegreeCourse.StudentId = Student.Id;
+                            if (StudentRegistration.Register(Student, DegreeCourse) == true)
+                            {
+                                LoginWindow LoginWindow = new();
+                                LoginWindow.Show();
+                                RegisterWindow.Instance.Close();
+                                MessageBox.Show("Rejestracja przebiegła pomyślnie\nMożesz się zalogować!", "Zarejestrowano");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void BackToLogin()
@@ -27,7 +62,9 @@ namespace StudentsHelper.ViewModel
 
         public Student Student { get; set; }
         public DegreeCourse DegreeCourse { get; set; }
-        public RegisterCommand RegisterCommand { get; private set; }
+        public ICommand RegisterCommand { get; private set; }
+
+        private StudentRegistration StudentRegistration { get; set; }
 
         public ICommand BackToLoginCommand { get; private set; }
 

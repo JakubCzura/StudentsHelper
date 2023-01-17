@@ -44,7 +44,7 @@ namespace StudentsHelper.ViewModel
             }
         }
 
-        public Note Note { get; set; } = new Note { StudentLogin = DataBaseHelper.StudentLogin, StudentId = DataBaseHelper.StudentId };
+        public Note Note { get; set; } = new Note { StudentId = DataBaseHelper.StudentId };
 
         public ICommand SaveNoteCommand { get; private set; }
 
