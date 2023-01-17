@@ -1,5 +1,7 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Windows.Input;
 
@@ -13,15 +15,20 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
 
-            DegreeCourse = ObjectsDataGetter.GetDegreeCourseData();
             Student = ObjectsDataGetter.GetStudentData();
+            DegreeCourse = ObjectsDataGetter.GetDegreeCourseData();
             SelectMainWindowContentCommand = new SelectMainWindowContentCommand(this);
-            ShowAuthorsWindowCommand = new ShowWindowCommand();
+            ShowAuthorsWindowCommand = new RelayCommand(ShowAuthorsWindow);
             SelectedMainWindowContent = new WelcomeScreenVM();
 
             Geckodriver.Geckodriver.CopyGeckodriverToDebugDirectory();
         }
 
+        private void ShowAuthorsWindow()
+        {
+            AuthorsWindow AuthorsWindow = new();
+            AuthorsWindow.Show();
+        }
         public static StudentsHelperVM? Instance { get; set; }
 
         public Student Student { get; set; }

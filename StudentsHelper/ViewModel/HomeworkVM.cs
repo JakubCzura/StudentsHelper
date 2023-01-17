@@ -1,5 +1,7 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,11 +15,17 @@ namespace StudentsHelper.ViewModel
 
         public HomeworkVM()
         {
-            AddHomeworkCommand = new ShowWindowCommand();
+            AddHomeworkCommand = new RelayCommand(ShowAddHomeworkWindow);
             DeleteHomeworkCommand = new DeleteHomeworkCommand(this);
             ShowEditHomeworkCommand = new ShowEditHomeworkCommand();
             Instance = this;
             SortHomeworkDateAscending();
+        }
+
+        private void ShowAddHomeworkWindow()
+        {
+            AddHomeworkWindow AddHomeworkWindow = new();
+            AddHomeworkWindow.Show();
         }
 
         public static HomeworkVM? Instance { get; set; }

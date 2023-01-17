@@ -1,5 +1,7 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -11,12 +13,17 @@ namespace StudentsHelper.ViewModel
         //This class refers to TeachersUserControl.xaml
         public TeachersVM()
         {
-            AddTeacherCommand = new ShowWindowCommand();
+            AddTeacherCommand = new RelayCommand(ShowAddTeacherWindow);
             DeleteTeacherCommand = new DeleteTeacherCommand(this);
             ShowEditTeacherCommand = new ShowEditTeacherCommand();
             Instance = this;
         }
 
+        private void ShowAddTeacherWindow()
+        {
+            AddTeacherWindow AddTeacherWindow = new();
+            AddTeacherWindow.Show();
+        }
         public static TeachersVM? Instance { get; set; }
 
         private ObservableCollection<Teacher> teachers = ObjectsDataGetter.GetTeachersData();

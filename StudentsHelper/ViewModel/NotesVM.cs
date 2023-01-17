@@ -1,5 +1,7 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,11 +14,26 @@ namespace StudentsHelper.ViewModel
         //This class refers to NotesUserControl.xaml
         public NotesVM()
         {
-            AddNoteCommand = new ShowWindowCommand();
+            AddNoteCommand = new RelayCommand(ShowAddNoteWindow);
             DeleteNoteCommand = new DeleteNoteCommand(this);
-            ShowEditNoteCommand = new ShowEditNoteCommand();
+            ShowEditNoteCommand = new RelayCommand(ShowEditNoteWindow);
             Instance = this;
             SortNotesDateAscending();
+        }
+
+        private void ShowEditNoteWindow()
+        {
+            if (Notes != null && Notes.Any() == true)
+            {
+                EditNoteWindow EditNoteWindow = new EditNoteWindow();
+                EditNoteWindow.Show();
+            }
+        }
+
+        private void ShowAddNoteWindow()
+        {
+            AddNoteWindow AddNoteWindow = new();
+            AddNoteWindow.Show();
         }
 
         public static NotesVM? Instance { get; set; }

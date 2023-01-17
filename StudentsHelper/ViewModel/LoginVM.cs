@@ -1,8 +1,11 @@
-﻿using SQLite;
+﻿using CommunityToolkit.Mvvm.Input;
+using SQLite;
 using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Windows;
+using System.Windows.Input;
 
 namespace StudentsHelper.ViewModel
 {
@@ -14,15 +17,22 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             LoginCommand = new LoginCommand(this);
-            ShowRegisterWindowCommand = new ShowRegisterWindowCommand();
+            ShowRegisterWindowCommand = new RelayCommand(ShowRegisterWindow);
             DataBaseHelper.CreateEmptyDataBase();
         }
   
-        public LoginVM Instance { get; set; }
+        public LoginVM Instance { get; private set; }
 
-        public LoginCommand LoginCommand { get; set; }
+        public LoginCommand LoginCommand { get; private set; }
 
-        public ShowRegisterWindowCommand ShowRegisterWindowCommand { get; set; }
+        public ICommand ShowRegisterWindowCommand { get; private set; }
+
+        private void ShowRegisterWindow()
+        {
+            RegisterWindow RegisterWindow = new();
+            RegisterWindow.Show();
+            LoginWindow.Instance?.Close();
+        }
 
         private int id = 0;
 

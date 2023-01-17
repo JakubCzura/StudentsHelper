@@ -1,6 +1,8 @@
-﻿using StudentsHelper.Model;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.Model;
 using StudentsHelper.Schedules;
 using StudentsHelper.View.UserControls;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Windows.Input;
 
@@ -13,9 +15,15 @@ namespace StudentsHelper.ViewModel
         {
             Instance = this;
             Student = DataBase.ObjectsDataGetter.GetStudentData();
-            ShowScheduleInstructionWindowCommand = new ShowWindowCommand();
+            ShowScheduleInstructionWindowCommand = new RelayCommand(ShowScheduleInstructionWindow);
             GetScheduleCommand = new GetScheduleCommand(this);
             ScheduleImporter.SetSchedule();
+        }
+
+        private void ShowScheduleInstructionWindow()
+        {
+            ScheduleInstructionWindow ScheduleInstructionWindow = new();
+            ScheduleInstructionWindow.Show();
         }
 
         public Student Student { get; set; }

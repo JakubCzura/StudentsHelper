@@ -1,4 +1,5 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
 using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
@@ -13,11 +14,26 @@ namespace StudentsHelper.ViewModel
         //This class refers to TestsUserControl.xaml
         public TestsVM()
         {
-            AddTestCommand = new ShowWindowCommand();
+            AddTestCommand = new RelayCommand(ShowAddTestWindow);
             DeleteTestCommand = new DeleteTestCommand(this);
-            ShowEditTestCommand = new ShowEditTestCommand();
+            ShowEditTestCommand = new RelayCommand(ShowEditTestWindow);
             Instance = this;
             SortTestsDateAscending();
+        }
+
+        private void ShowAddTestWindow()
+        {
+            AddTestWindow AddTestWindow = new();
+            AddTestWindow.Show();
+        }
+
+        private void ShowEditTestWindow()
+        {
+            if (Tests != null && Tests.Any())
+            {
+                EditTestWindow EditTestWindow = new();
+                EditTestWindow.Show();
+            }
         }
 
         public static TestsVM? Instance { get; set; }

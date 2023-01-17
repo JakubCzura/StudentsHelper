@@ -1,5 +1,7 @@
-﻿using StudentsHelper.DataBase;
+﻿using CommunityToolkit.Mvvm.Input;
+using StudentsHelper.DataBase;
 using StudentsHelper.Model;
+using StudentsHelper.View.Windows;
 using StudentsHelper.ViewModel.Commands;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,11 +14,17 @@ namespace StudentsHelper.ViewModel
         //This class refers to ExamsUserControl.xaml
         public ExamsVM()
         {
-            AddExamCommand = new ShowWindowCommand();
+            AddExamCommand = new RelayCommand(ShowAddExamWindow);
             DeleteExamCommand = new DeleteExamCommand(this);
-            ShowEditExamCommand = new ShowEditExamCommand();
+            ShowEditExamCommand = new RelayCommand(ShowEditExamWindow);
             Instance = this;
             SortExamsDateAscending();
+        }
+
+        private void ShowAddExamWindow()
+        {
+            AddExamWindow AddExamWindow = new();
+            AddExamWindow.Show();
         }
 
         public static ExamsVM? Instance { get; set; }
@@ -28,6 +36,15 @@ namespace StudentsHelper.ViewModel
         public ICommand DeleteExamCommand { get; set; }
 
         public ICommand ShowEditExamCommand { get; set; }
+
+        private void ShowEditExamWindow()
+        {
+            if (Exams != null && Exams.Any() == true)
+            {
+                EditExamWindow EditExamWindow = new();
+                EditExamWindow.Show();
+            }
+        }
 
         public ObservableCollection<Exam> Exams
         {
