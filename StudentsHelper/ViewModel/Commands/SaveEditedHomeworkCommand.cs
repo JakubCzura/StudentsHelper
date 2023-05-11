@@ -32,7 +32,6 @@ namespace StudentsHelper.ViewModel.Commands
                 if (HomeworkVM.Instance != null)
                 {
                     HomeworkVM.Instance.Homework = ObjectsDataGetter.GetHomeworkData();
-                    HomeworkVM.Instance.SortHomeworkDateAscending();
                 }
                 MessageBox.Show("Zapisano pomyślnie", "edytowano zadanie domowe");
             }

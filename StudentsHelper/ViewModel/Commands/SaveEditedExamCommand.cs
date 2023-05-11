@@ -32,7 +32,6 @@ namespace StudentsHelper.ViewModel.Commands
                 if (ExamsVM.Instance != null)
                 {
                     ExamsVM.Instance.Exams = ObjectsDataGetter.GetExamsData();
-                    ExamsVM.Instance.SortExamsDateAscending();
                 }
                 MessageBox.Show("Zapisano pomyślnie", "edytowano egzamin");
             }
