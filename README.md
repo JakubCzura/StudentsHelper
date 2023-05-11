@@ -23,5 +23,7 @@ Aplikacja pomagająca studentom zarządzać czasem i wpisywać notatki o wydarze
 
 ![obraz](https://github.com/JakubCzura/StudentsHelper/assets/76125047/1919dac2-c59e-4ab0-b546-d8a59f93c07e)
 
+![obraz](https://github.com/JakubCzura/StudentsHelper/assets/76125047/cd42dc18-9393-4887-a792-d336c207a4af)
+
 
 
