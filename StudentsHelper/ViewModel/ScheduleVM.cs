@@ -97,10 +97,7 @@ namespace StudentsHelper.ViewModel
         /// </summary>
         public static void DisposeScheduleWebBrowser()
         {
-            if (ScheduleUserControl.Instance != null)
-            {
-                ScheduleUserControl.Instance.ScheduleWebBrowser.Dispose();
-            }
+            ScheduleUserControl.Instance?.ScheduleWebBrowser.Dispose();
         }
 
         /// <summary>
