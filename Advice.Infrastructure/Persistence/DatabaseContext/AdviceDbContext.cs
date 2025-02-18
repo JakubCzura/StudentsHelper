@@ -1,13 +1,20 @@
 ﻿using Advice.Domain.Entities;
+using Advice.Domain.SettingsOptions.Database;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace Advice.Infrastructure.Persistence.DatabaseContext;
 
-internal class AdviceDbContext(DbContextOptions<AdviceDbContext> dbContextOptions) : DbContext(dbContextOptions)
+public class AdviceDbContext : DbContext
 {
-    public DbSet<QuickTip> QuickTips { get; set; }
+    private readonly IMongoDatabase _mongoDatabase = null!;
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-        => modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    public AdviceDbContext(IOptions<DatabaseOptions> databaseOptions)
+    {
+        MongoClient mongoClient = new(databaseOptions.Value.ConnectionString);
+        _mongoDatabase = mongoClient.GetDatabase(databaseOptions.Value.DatabaseName);
+    }
+
+    public IMongoCollection<QuickTip> QuickTips => _mongoDatabase.GetCollection<QuickTip>("quickTip");
 }

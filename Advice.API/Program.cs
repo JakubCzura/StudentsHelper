@@ -1,3 +1,4 @@
+using Advice.API.ExtensionMethods.Database;
 using Advice.Domain.SettingsOptions.Database;
 using Advice.Infrastructure.ExtensionMethods.LayerRegistration;
 
@@ -12,6 +13,8 @@ builder.Services.AddInfrastructureDI(builder.Configuration);
 builder.Services.AddOpenApi();
 
 WebApplication app = builder.Build();
+
+app.SeedDatabase();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
