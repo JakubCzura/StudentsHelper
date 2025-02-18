@@ -1,13 +1,15 @@
-using Advice.Infrastructure.ExtensionMethods;
+using Advice.Domain.SettingsOptions.Database;
+using Advice.Infrastructure.ExtensionMethods.LayerRegistration;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<DatabaseOptions>(builder.Configuration.GetSection(DatabaseOptions.AppsettingsKey));
 
 builder.Services.AddInfrastructureDI(builder.Configuration);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
 
 WebApplication app = builder.Build();
 

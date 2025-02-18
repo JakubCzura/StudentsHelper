@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson;
 
 namespace Advice.Domain.Entities.Base;
 
 public abstract class DbEntityBase
 {
-    [Key]
-    public int Id { get; set; }
+    public ObjectId Id { get; set; }
 }
